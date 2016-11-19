@@ -8,6 +8,7 @@ public class PaneForMainWindow {
 	private Login_Pane loginPane;
 
 	public PaneForMainWindow() {
+		// Test
 		loginPane = new Login_Pane();
 		
 		pane = new VBox(20);
