@@ -1,4 +1,4 @@
-package view;
+package view_for_login;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

@@ -1,21 +1,21 @@
-package view;
+package view_for_login;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class NewUserPane {
 
-	private GridPane newUserPane;
+	private static GridPane newUserPane;
 	private Label welcomeLbl;
 	private Label firstNameLbl;
 	private Label lastNameLbl;
@@ -28,13 +28,14 @@ public class NewUserPane {
 	private TextField firstNameTxt;
 	private TextField lastNameTxt;
 	private TextField zipTxt;
-	private TextField emailTxt;
-	private TextField usernameTxt;
-	private TextField passwordTxt;
+
 	private RadioButton maleRad;
 	private RadioButton femaleRad;
 	private ToggleGroup genderGroup;
 	private HBox radPane;
+	private Label password2Lbl;
+	private static Scene scene;
+	private static Scene scene2;
 
 	public NewUserPane() {
 		stage = new Stage();
@@ -50,16 +51,13 @@ public class NewUserPane {
 		lastNameLbl = new Label("Last name");
 		genderLbl = new Label("Gender");
 		zipLbl = new Label("Zip");
-		emailLbl = new Label("Email address");
-		usernameLbl = new Label("Username");
-		passwordLbl = new Label("Password");
 		
 		firstNameTxt = new TextField();
+		firstNameTxt.setAlignment(Pos.CENTER);
 		lastNameTxt = new TextField();
+		lastNameTxt.setAlignment(Pos.CENTER);
 		zipTxt = new TextField();
-		emailTxt = new TextField();
-		usernameTxt = new TextField();
-		passwordTxt = new TextField();
+		zipTxt.setAlignment(Pos.CENTER);
 		
 		radPane = new HBox(20);
 		maleRad = new RadioButton("Male");
@@ -83,18 +81,10 @@ public class NewUserPane {
 		newUserPane.add(zipLbl, 0, 5);
 		newUserPane.add(zipTxt, 1, 5);
 
-		newUserPane.add(emailLbl, 0, 6);
-		newUserPane.add(emailTxt, 1, 6);
-
-		newUserPane.add(usernameLbl, 0, 7);
-		newUserPane.add(usernameTxt, 1, 7);
+		newUserPane.add(new ButtonsForNewUserPanel().getPane(), 1, 11, 2, 1);
 		
-		newUserPane.add(passwordLbl, 0, 8);
-		newUserPane.add(passwordTxt, 1, 8);
-		
-		newUserPane.add(new ButtonsForNewUserPanel().getPane(), 1, 10, 2, 1);
-		
-		stage.setScene(new Scene(newUserPane, 500, 500));
+		scene =  new Scene(newUserPane, 500, 500);
+		stage.setScene(scene);
 		stage.setTitle("New User");
 		
 		
@@ -104,11 +94,24 @@ public class NewUserPane {
 		stage.show();
 	}
 	
-	public Stage getStage() {
+	public static Stage getStage() {
 		return stage;
 	}
 	
 	public static void exitStage() {
 		stage.close();
 	}
+	public static Pane getPane() {
+		return newUserPane;
+	}
+	public static Scene getScene() {
+		return scene;
+	}
+	public static void setScene(Scene newScene) {
+		scene = newScene;
+	}
+	public static void clearNodes(){
+		newUserPane.getChildren().clear();
+	}
+	
 }

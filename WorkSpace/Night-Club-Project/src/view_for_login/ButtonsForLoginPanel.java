@@ -1,4 +1,4 @@
-package view;
+package view_for_login;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;

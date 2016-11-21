@@ -1,4 +1,4 @@
-package view;
+package view_for_login;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

@@ -1,5 +1,5 @@
-import view.Main_Window;
-import view.NewUserPane;
+import view_for_login.Main_Window;
+import view_for_login.NewUserPane;
 
 public class App {
 
