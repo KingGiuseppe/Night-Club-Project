@@ -13,7 +13,9 @@ public class ButtonsForLoginPanel {
 
 	public ButtonsForLoginPanel() {
 		loginBtn = new Button("Login");
+		
 		NewUserPane nup = new NewUserPane();
+		
 		loginBtn.setOnAction(event -> {
 			
 		});
@@ -21,7 +23,7 @@ public class ButtonsForLoginPanel {
 		newUserBtn = new Button("New User?");
 		
 		newUserBtn.setOnAction(event -> {
-			nup.getStage();
+			nup.showStage();
 		});
 		
 		forgotPassBtn = new Button("Forgot Password?");
