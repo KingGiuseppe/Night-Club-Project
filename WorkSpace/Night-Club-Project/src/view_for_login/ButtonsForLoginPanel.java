@@ -3,7 +3,6 @@ package view_for_login;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 public class ButtonsForLoginPanel {
 	private Button loginBtn;

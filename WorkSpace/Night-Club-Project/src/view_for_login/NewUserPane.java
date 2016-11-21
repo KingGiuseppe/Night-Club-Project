@@ -21,9 +21,6 @@ public class NewUserPane {
 	private Label lastNameLbl;
 	private Label genderLbl;
 	private Label zipLbl;
-	private Label emailLbl;
-	private Label usernameLbl;
-	private Label passwordLbl;
 	private static Stage stage;
 	private TextField firstNameTxt;
 	private TextField lastNameTxt;
@@ -33,9 +30,8 @@ public class NewUserPane {
 	private RadioButton femaleRad;
 	private ToggleGroup genderGroup;
 	private HBox radPane;
-	private Label password2Lbl;
+	private Label wayLbl;
 	private static Scene scene;
-	private static Scene scene2;
 
 	public NewUserPane() {
 		stage = new Stage();
@@ -47,6 +43,10 @@ public class NewUserPane {
 		
 		welcomeLbl = new Label("Create Your Night Club Account!");
 		welcomeLbl.setFont(Font.font(25));
+		wayLbl = new Label("Who are you?");
+		wayLbl.setFont(Font.font(20));
+		
+		
 		firstNameLbl = new Label("First name");
 		lastNameLbl = new Label("Last name");
 		genderLbl = new Label("Gender");
@@ -68,22 +68,23 @@ public class NewUserPane {
 		radPane.getChildren().addAll(maleRad, femaleRad);
 		
 		newUserPane.add(welcomeLbl, 0, 0, 2, 1);
+		newUserPane.add(wayLbl, 0, 1, 2, 1);
 		
-		newUserPane.add(firstNameLbl, 0, 2);
-		newUserPane.add(firstNameTxt, 1, 2);
+		newUserPane.add(firstNameLbl, 0, 3);
+		newUserPane.add(firstNameTxt, 1, 3);
 		
-		newUserPane.add(lastNameLbl, 0, 3);
-		newUserPane.add(lastNameTxt, 1, 3);
+		newUserPane.add(lastNameLbl, 0, 4);
+		newUserPane.add(lastNameTxt, 1, 4);
 		
-		newUserPane.add(genderLbl, 0, 4);
-		newUserPane.add(radPane, 1, 4);
+		newUserPane.add(genderLbl, 0, 5);
+		newUserPane.add(radPane, 1, 5);
 		
-		newUserPane.add(zipLbl, 0, 5);
-		newUserPane.add(zipTxt, 1, 5);
+		newUserPane.add(zipLbl, 0, 6);
+		newUserPane.add(zipTxt, 1, 6);
 
-		newUserPane.add(new ButtonsForNewUserPanel().getPane(), 1, 11, 2, 1);
+		newUserPane.add(new ButtonsForNewUserPanel().getPane(), 1, 8, 2, 1);
 		
-		scene =  new Scene(newUserPane, 500, 500);
+		scene =  new Scene(newUserPane, 500, 360);
 		stage.setScene(scene);
 		stage.setTitle("New User");
 		
