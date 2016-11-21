@@ -92,6 +92,7 @@ public class NewUserPane {
 	
 	public void showStage() {
 		stage.show();
+		stage.setScene(scene);
 	}
 	
 	public static Stage getStage() {
