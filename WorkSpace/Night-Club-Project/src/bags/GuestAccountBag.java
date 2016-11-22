@@ -1,0 +1,23 @@
+package bags;
+
+import java.util.ArrayList;
+
+import model.NewUser;
+
+public class GuestAccountBag {
+
+	private static ArrayList<NewUser> guestAccounts;
+	
+	public GuestAccountBag() {
+		super();
+		this.guestAccounts = new ArrayList<NewUser>();
+	}
+	
+	public void addGuestAcc(NewUser acc) {
+		guestAccounts.add(acc);
+	}
+	
+	public ArrayList<NewUser> getGuestAccList() {
+		return guestAccounts;
+	}
+}

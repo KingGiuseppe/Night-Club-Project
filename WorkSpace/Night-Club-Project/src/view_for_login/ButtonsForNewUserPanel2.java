@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import model.NewUserEventListener;
+import model.NewUserObject;
 
 public class ButtonsForNewUserPanel2 {
 
@@ -13,6 +15,7 @@ public class ButtonsForNewUserPanel2 {
 	private Button goBackBtn;
 	private Button createAccBtn;
 	private GridPane blankPane;
+	private NewUserEventListener eventListener;
 
 	public ButtonsForNewUserPanel2() {
 		btnPane = new HBox(20);
@@ -24,6 +27,16 @@ public class ButtonsForNewUserPanel2 {
 		goBackBtn = new Button("Go back");
 		
 		createAccBtn.setOnAction(event -> {
+			String emailAddress = NewUserPane2.emailTxt.getText();
+			String username = NewUserPane2.usernameTxt.getText();
+			String password = NewUserPane2.passwordTxt.getText();
+			
+			NewUserObject userEvent = new NewUserObject(this, NewUserPane.getPerson().getFirstName(), NewUserPane.getPerson().getLastName(), 
+					NewUserPane.getPerson().getGender(), NewUserPane.getPerson().getZip(), emailAddress, username, password, 0);
+			
+			if(userEvent != null) {
+				eventListener.createBtnClicked(userEvent);
+			}
 			
 		});
 		
@@ -37,6 +50,10 @@ public class ButtonsForNewUserPanel2 {
 	
 	public Pane getPane() {
 		return btnPane;
+	}
+	
+	public void setNewUserEventListener(NewUserEventListener eventListener) {
+		this.eventListener = eventListener;
 	}
 	
 }

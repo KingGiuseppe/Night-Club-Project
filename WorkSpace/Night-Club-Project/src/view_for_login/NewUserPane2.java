@@ -18,9 +18,9 @@ public class NewUserPane2 {
 	private Label passwordLbl;
 	private Label passRuleLbl;
 	private Label password2Lbl;
-	private TextField emailTxt;
-	private TextField usernameTxt;
-	private TextField passwordTxt;
+	static TextField emailTxt;
+	static TextField usernameTxt;
+	static TextField passwordTxt;
 	private TextField password2Txt;
 	private Label label;
 	private HBox pane2;
