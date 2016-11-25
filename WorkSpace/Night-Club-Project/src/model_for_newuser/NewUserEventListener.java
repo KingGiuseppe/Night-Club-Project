@@ -1,4 +1,4 @@
-package model;
+package model_for_newuser;
 
 import java.util.EventListener;
 

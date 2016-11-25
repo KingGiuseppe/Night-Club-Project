@@ -16,6 +16,10 @@ public class ButtonsForLoginPanel {
 		NewUserPane nup = new NewUserPane();
 		
 		loginBtn.setOnAction(event -> {
+			String username = Login_Pane.getUsername();
+			String pass = Login_Pane.getPass();
+			
+			
 			
 		});
 		

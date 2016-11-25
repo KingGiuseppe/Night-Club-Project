@@ -1,9 +1,8 @@
 package view_for_login;
 
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.NewUserEventListener;
+import model_for_newuser.NewUserEventListener;
 
 public class Main_Window {
 	
@@ -28,6 +27,5 @@ public class Main_Window {
 	
 	public static NewUserEventListener getListener() {
 		return eventListener;
-		
 	}
 }

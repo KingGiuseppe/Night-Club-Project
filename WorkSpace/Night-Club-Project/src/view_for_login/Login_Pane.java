@@ -15,8 +15,8 @@ public class Login_Pane {
 	private Label loginLbl;
 	private Label unLbl;
 	private Label passLbl;
-	private TextField unTxt;
-	private TextField passTxt;
+	private static TextField unTxt;
+	private static TextField passTxt;
 	private ButtonsForLoginPanel loginPanelButtons;
 
 	public Login_Pane() {
@@ -51,4 +51,11 @@ public class Login_Pane {
 	public Pane getPane() {
 		return loginMainPane;
 	}
+	public static String getUsername() {
+		return unTxt.getText();
+	}
+	public static String getPass() {
+		return passTxt.getText();
+	}
+	
 }

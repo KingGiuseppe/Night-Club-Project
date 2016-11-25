@@ -2,7 +2,7 @@ package bags;
 
 import java.util.ArrayList;
 
-import model.NewUser;
+import model_for_newuser.NewUser;
 
 public class GuestAccountBag {
 

@@ -12,7 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import model.Person;
+import model_for_newuser.Person;
 
 public class NewUserPane {
 

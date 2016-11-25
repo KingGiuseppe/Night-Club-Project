@@ -1,9 +1,9 @@
 package controller;
 
 import bags.GuestAccountBag;
-import model.NewUser;
-import model.NewUserEventListener;
-import model.NewUserObject;
+import model_for_newuser.NewUser;
+import model_for_newuser.NewUserEventListener;
+import model_for_newuser.NewUserObject;
 import view_for_login.Main_Window;
 
 public class NewUserController {
