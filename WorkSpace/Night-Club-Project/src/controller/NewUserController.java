@@ -23,7 +23,6 @@ public class NewUserController {
 			
 			@Override
 			public void createBtnClicked(NewUserObject ev) {
-				System.out.println("Here 2");
 				firstname = ev.getFirstName();
 				lastname = ev.getLastName();
 				gender = ev.getGender();
@@ -31,10 +30,9 @@ public class NewUserController {
 				email = ev.getEmail();
 				username = ev.getUsername();
 				password = ev.getPassword();
-				System.out.println(firstname);
 				model.addGuestAcc(new NewUser(firstname, lastname, gender, zip, email, 
 						username, password, 0));
-				
+				System.out.println(model.getGuestAccList());
 				
 			}
 			

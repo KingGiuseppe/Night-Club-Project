@@ -62,6 +62,7 @@ public class NewUserPane {
 		zipTxt.setAlignment(Pos.CENTER);
 		
 		radPane = new HBox(20);
+		
 		maleRad = new RadioButton("Male");
 		femaleRad = new RadioButton("Female");
 		genderGroup = new ToggleGroup();
@@ -90,7 +91,6 @@ public class NewUserPane {
 		stage.setScene(scene);
 		stage.setTitle("New User");
 		
-		
 	}
 	
 	public void showStage() {
@@ -116,9 +116,6 @@ public class NewUserPane {
 	}
 	public static void clearNodes(){
 		newUserPane.getChildren().clear();
-	}
-	public void setPerson(Person person){
-		this.person = person;
 	}
 	public static Person getPerson() {
 		return person;

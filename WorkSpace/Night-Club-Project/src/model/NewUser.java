@@ -47,6 +47,13 @@ public class NewUser extends Person{
 	public void setType(int type) {
 		this.type = type;
 	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "\nNewUser [email: " + email + ", username=" + username + 
+				", password: " + password + ", type: " + type;
+				
+	}
 	
 
 
