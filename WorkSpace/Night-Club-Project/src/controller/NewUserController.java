@@ -4,12 +4,11 @@ import bags.GuestAccountBag;
 import model.NewUser;
 import model.NewUserEventListener;
 import model.NewUserObject;
-import view_for_login.ButtonsForNewUserPanel2;
+import view_for_login.Main_Window;
 
 public class NewUserController {
 	
-	public NewUserController(GuestAccountBag model, ButtonsForNewUserPanel2 view) {
-		//two button listeners to save the data in here then add it to the model
+	public NewUserController(GuestAccountBag model, Main_Window view) {
 		
 		view.setNewUserEventListener(new NewUserEventListener() {
 
@@ -24,6 +23,7 @@ public class NewUserController {
 			
 			@Override
 			public void createBtnClicked(NewUserObject ev) {
+				System.out.println("Here 2");
 				firstname = ev.getFirstName();
 				lastname = ev.getLastName();
 				gender = ev.getGender();
