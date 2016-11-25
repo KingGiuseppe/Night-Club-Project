@@ -12,6 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import model.Person;
 
 public class NewUserPane {
 
@@ -31,6 +32,7 @@ public class NewUserPane {
 	static ToggleGroup genderGroup;
 	private HBox radPane;
 	private Label wayLbl;
+	private static Person person;
 	private static Scene scene;
 
 	public NewUserPane() {
@@ -114,6 +116,12 @@ public class NewUserPane {
 	}
 	public static void clearNodes(){
 		newUserPane.getChildren().clear();
+	}
+	public void setPerson(Person person){
+		this.person = person;
+	}
+	public static Person getPerson() {
+		return person;
 	}
 	
 }

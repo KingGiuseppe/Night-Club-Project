@@ -1,6 +1,7 @@
 package view_for_login;
 
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -15,6 +16,7 @@ public class ButtonsForNewUserPanel {
 	private static Person person;
 
 	public ButtonsForNewUserPanel() {
+		NewUserPane2 nup2 = new NewUserPane2();
 		
 		continueBtn = new Button("Continue");
 		cancelBtn = new Button("Cancel");
@@ -48,5 +50,7 @@ public class ButtonsForNewUserPanel {
 	public static Person getPerson() {
 		return person;
 	}
+	
+	
 	
 }
