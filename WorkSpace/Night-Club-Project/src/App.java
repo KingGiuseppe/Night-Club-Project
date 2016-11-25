@@ -1,21 +1,12 @@
-import bags.GuestAccountBag;
-import controller.NewUserController;
-import javafx.application.Application;
-import javafx.stage.Stage;
 import view_for_login.Main_Window;
+import view_for_login.NewUserPane;
 
-public class App extends Application {
+public class App {
 
 	public static void main(String[] args){
-		launch(args);
-	}
-
-	@Override
-	public void start(Stage stage) throws Exception {
-		Main_Window view = new Main_Window(stage);
-		GuestAccountBag guestModel = new GuestAccountBag();
-		NewUserController newUserCont = new NewUserController(guestModel, view);
-
+		Main_Window mw = new Main_Window();
+		mw.launch(Main_Window.class);
+		
 	}
 	
 }

@@ -13,7 +13,7 @@ public class ButtonsForNewUserPanel {
 	private Button continueBtn;
 	private Button cancelBtn;
 	private HBox btnPane;
-	private static Person person;
+	private Person person;
 
 	public ButtonsForNewUserPanel() {
 		NewUserPane2 nup2 = new NewUserPane2();
@@ -45,10 +45,6 @@ public class ButtonsForNewUserPanel {
 	
 	public Pane getPane() {
 		return btnPane;
-	}
-	
-	public static Person getPerson() {
-		return person;
 	}
 	
 	

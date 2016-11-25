@@ -3,16 +3,10 @@ package view_for_login;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.NewUserEventListener;
 
-public class Main_Window {
+public class Main_Window extends Application {
 	
-	private Stage stage;
-	private static NewUserEventListener eventListener;
-
-	public Main_Window(Stage stage) {
-		this.stage = stage;
-		
+	public void start(Stage stage) throws Exception {
 		PaneForMainWindow p4mw = new PaneForMainWindow();
 		Scene scene = new Scene(p4mw.getPane(), 450, 250);
 		
@@ -22,12 +16,5 @@ public class Main_Window {
 
 	}
 	
-	public void setNewUserEventListener(NewUserEventListener eventListener) {
-		this.eventListener = eventListener;
-	}
 	
-	public static NewUserEventListener getListener() {
-		return eventListener;
-		
-	}
 }

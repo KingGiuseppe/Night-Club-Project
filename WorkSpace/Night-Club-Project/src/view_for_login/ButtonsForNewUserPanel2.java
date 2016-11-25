@@ -31,11 +31,11 @@ public class ButtonsForNewUserPanel2 {
 			String username = NewUserPane2.usernameTxt.getText();
 			String password = NewUserPane2.passwordTxt.getText();
 			
-			NewUserObject userEvent = new NewUserObject(this, ButtonsForNewUserPanel.getPerson().getFirstName(), ButtonsForNewUserPanel.getPerson().getLastName(), 
-					ButtonsForNewUserPanel.getPerson().getGender(), ButtonsForNewUserPanel.getPerson().getZip(), emailAddress, username, password, 0);
+			NewUserObject userEvent = new NewUserObject(this, NewUserPane.getPerson().getFirstName(), NewUserPane.getPerson().getLastName(), 
+					NewUserPane.getPerson().getGender(), NewUserPane.getPerson().getZip(), emailAddress, username, password, 0);
 			
-			if(Main_Window.getListener() != null) {
-				Main_Window.getListener().createBtnClicked(userEvent);
+			if(userEvent != null) {
+				eventListener.createBtnClicked(userEvent);
 			}
 			
 		});
@@ -50,6 +50,10 @@ public class ButtonsForNewUserPanel2 {
 	
 	public Pane getPane() {
 		return btnPane;
+	}
+	
+	public void setNewUserEventListener(NewUserEventListener eventListener) {
+		this.eventListener = eventListener;
 	}
 	
 }

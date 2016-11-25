@@ -4,7 +4,7 @@ import java.util.EventObject;
 
 public class NewUserObject extends EventObject {
 	private String firstName;
-	private String lastName;
+	private String LastName;
 	private String gender;
 	private String zip;
 	private String email;
@@ -12,12 +12,31 @@ public class NewUserObject extends EventObject {
 	private String password;
 	private int type;
 	
+	public NewUserObject(Object source) {
+		super(source);
+	}
 
-	public NewUserObject(Object source, String firstName, String lastName, String gender, String zip, String email,
-			String username, String password, int type) {
+	public NewUserObject(Object source, String email, String username, String password, int type) {
+		super(source);
+		this.email = email;
+		this.username = username;
+		this.password = password;
+		this.type = type;
+	}
+
+	public NewUserObject(Object source, String firstName, String lastName, String gender, String zip) {
 		super(source);
 		this.firstName = firstName;
-		this.lastName = lastName;
+		LastName = lastName;
+		this.gender = gender;
+		this.zip = zip;
+	}
+
+	public NewUserObject(Object arg0, String firstName, String lastName, String gender, String zip, String email,
+			String username, String password, int type) {
+		super(arg0);
+		this.firstName = firstName;
+		LastName = lastName;
 		this.gender = gender;
 		this.zip = zip;
 		this.email = email;
@@ -31,7 +50,7 @@ public class NewUserObject extends EventObject {
 	}
 
 	public String getLastName() {
-		return lastName;
+		return LastName;
 	}
 
 	public String getGender() {
