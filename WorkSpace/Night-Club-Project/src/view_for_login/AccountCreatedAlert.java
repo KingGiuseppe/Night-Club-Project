@@ -6,10 +6,14 @@ import javafx.scene.control.Alert.AlertType;
 public class AccountCreatedAlert {
 
 	public AccountCreatedAlert() {
-		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle("Error Alert from Child Window 1.");
-		alert.setHeaderText("Error Alert from Window 1");
-		alert.setContentText("Ouch, something is wrong");
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Account Created!");
+		alert.setHeaderText("Your account has been created!");
+		alert.setContentText("Click ok to continue to login.");
+		
+		alert.setOnCloseRequest(event -> {
+			NewUserPane.closeStage();
+		});
 		alert.showAndWait();
 	}
 }

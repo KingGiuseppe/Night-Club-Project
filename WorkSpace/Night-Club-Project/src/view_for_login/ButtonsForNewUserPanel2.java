@@ -1,7 +1,6 @@
 package view_for_login;
 
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -37,6 +36,7 @@ public class ButtonsForNewUserPanel2 {
 			if(Main_Window.getListener() != null) {
 				Main_Window.getListener().createBtnClicked(userEvent);
 			}
+			AccountCreatedAlert aca = new AccountCreatedAlert();
 			
 		});
 		

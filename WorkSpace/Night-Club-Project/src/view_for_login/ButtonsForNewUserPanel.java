@@ -31,7 +31,7 @@ public class ButtonsForNewUserPanel {
 		});
 		
 		cancelBtn.setOnAction(event -> {
-			NewUserPane.exitStage();
+			NewUserPane.closeStage();
 		});
 		
 		btnPane = new HBox(20);

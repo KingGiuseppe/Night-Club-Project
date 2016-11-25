@@ -102,7 +102,7 @@ public class NewUserPane {
 		return stage;
 	}
 	
-	public static void exitStage() {
+	public static void closeStage() {
 		stage.close();
 	}
 	public static Pane getPane() {
