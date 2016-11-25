@@ -3,6 +3,7 @@ package view_for_login;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import model_for_login.LoginObject;
 
 public class ButtonsForLoginPanel {
 	private Button loginBtn;
@@ -19,6 +20,11 @@ public class ButtonsForLoginPanel {
 			String username = Login_Pane.getUsername();
 			String pass = Login_Pane.getPass();
 			
+			LoginObject loginEvent = new LoginObject(this, username, pass);
+			
+			if(Main_Window.getLoginListener() != null) {
+				Main_Window.getLoginListener().loginBtnClicked(loginEvent);
+			}
 			
 			
 		});

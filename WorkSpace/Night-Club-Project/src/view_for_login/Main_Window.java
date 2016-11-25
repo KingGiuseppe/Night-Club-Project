@@ -2,12 +2,15 @@ package view_for_login;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model_for_login.LoginEventListener;
+import model_for_login.LoginObject;
 import model_for_newuser.NewUserEventListener;
 
 public class Main_Window {
 	
 	private Stage stage;
-	private static NewUserEventListener eventListener;
+	private static LoginEventListener loginListener;
+	private static NewUserEventListener newUserListener;
 
 	public Main_Window(Stage stage) {
 		this.stage = stage;
@@ -21,11 +24,19 @@ public class Main_Window {
 
 	}
 	
-	public void setNewUserEventListener(NewUserEventListener eventListener) {
-		this.eventListener = eventListener;
+	public void setNewUserEventListener(NewUserEventListener newUserListener) {
+		this.newUserListener = newUserListener;
 	}
 	
-	public static NewUserEventListener getListener() {
-		return eventListener;
+	public static NewUserEventListener getNewUserListener() {
+		return newUserListener;
+	}
+
+	public void setLoginListener(LoginEventListener loginListener) {
+		this.loginListener = loginListener;
+	}
+	
+	public static LoginEventListener getLoginListener() {
+		return loginListener;
 	}
 }

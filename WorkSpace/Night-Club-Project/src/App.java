@@ -1,4 +1,5 @@
 import bags.GuestAccountBag;
+import controller.LoginController;
 import controller.NewUserController;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -15,6 +16,8 @@ public class App extends Application {
 		Main_Window view = new Main_Window(stage);
 		GuestAccountBag guestModel = new GuestAccountBag();
 		NewUserController newUserCont = new NewUserController(guestModel, view);
+		
+		LoginController loginCont = new LoginController(guestModel, view);
 
 	}
 	

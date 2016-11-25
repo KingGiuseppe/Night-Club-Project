@@ -33,8 +33,8 @@ public class ButtonsForNewUserPanel2 {
 			NewUserObject userEvent = new NewUserObject(this, ButtonsForNewUserPanel.getPerson().getFirstName(), ButtonsForNewUserPanel.getPerson().getLastName(), 
 					ButtonsForNewUserPanel.getPerson().getGender(), ButtonsForNewUserPanel.getPerson().getZip(), emailAddress, username, password, 0);
 			
-			if(Main_Window.getListener() != null) {
-				Main_Window.getListener().createBtnClicked(userEvent);
+			if(Main_Window.getNewUserListener() != null) {
+				Main_Window.getNewUserListener().createBtnClicked(userEvent);
 			}
 			AccountCreatedAlert aca = new AccountCreatedAlert();
 			
