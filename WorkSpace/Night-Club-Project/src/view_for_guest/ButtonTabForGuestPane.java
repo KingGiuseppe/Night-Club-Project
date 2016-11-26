@@ -1,5 +1,6 @@
 package view_for_guest;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -17,7 +18,7 @@ public class ButtonTabForGuestPane {
 		friendsBtn = new Button("Friend Zone");
 		
 		pane.getChildren().addAll(eventsBtn, friendsBtn);
-		
+		pane.setAlignment(Pos.CENTER);
 		
 	}
 	

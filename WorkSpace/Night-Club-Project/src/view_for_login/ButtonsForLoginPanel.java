@@ -32,6 +32,7 @@ public class ButtonsForLoginPanel {
 			}
 			if(isLoginValid() == true) {
 				AlertForLogin badLogin = new AlertForLogin(true, user.getFirstName());
+				
 				GuestPane.showStage();
 				Main_Window.closeStage();
 				
