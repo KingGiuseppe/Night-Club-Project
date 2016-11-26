@@ -21,7 +21,7 @@ public class NewUserPane2 {
 	static TextField emailTxt;
 	static TextField usernameTxt;
 	static TextField passwordTxt;
-	private TextField password2Txt;
+	static TextField password2Txt;
 	private Label label;
 	private HBox pane2;
 	private static Scene scene;

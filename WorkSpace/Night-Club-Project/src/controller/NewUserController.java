@@ -32,7 +32,6 @@ public class NewUserController {
 				password = ev.getPassword();
 				model.addGuestAcc(new NewUser(firstname, lastname, gender, zip, email, 
 						username, password, 0));
-				System.out.println(model.getGuestAccList());
 				
 			}
 			

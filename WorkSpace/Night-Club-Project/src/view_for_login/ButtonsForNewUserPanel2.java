@@ -20,36 +20,45 @@ public class ButtonsForNewUserPanel2 {
 		btnPane = new HBox(20);
 		btnPane.setAlignment(Pos.BOTTOM_RIGHT);
 		blankPane = new GridPane();
-		
+
 		createAccBtn = new Button("Create Account");
-		
+
 		goBackBtn = new Button("Go back");
-		
+
 		createAccBtn.setOnAction(event -> {
 			String emailAddress = NewUserPane2.emailTxt.getText();
 			String username = NewUserPane2.usernameTxt.getText();
 			String password = NewUserPane2.passwordTxt.getText();
-			
-			NewUserObject userEvent = new NewUserObject(this, ButtonsForNewUserPanel.getPerson().getFirstName(), ButtonsForNewUserPanel.getPerson().getLastName(), 
-					ButtonsForNewUserPanel.getPerson().getGender(), ButtonsForNewUserPanel.getPerson().getZip(), emailAddress, username, password, 0);
-			
-			if(Main_Window.getNewUserListener() != null) {
-				Main_Window.getNewUserListener().createBtnClicked(userEvent);
+			String password2 = NewUserPane2.password2Txt.getText();
+
+			if (password.equals(password2) == false) {
+				PasswordsDontMatchAlert pdma = new PasswordsDontMatchAlert();
+
+			} else if (password.equals(password2)) {
+
+				NewUserObject userEvent = new NewUserObject(this, ButtonsForNewUserPanel.getPerson().getFirstName(),
+						ButtonsForNewUserPanel.getPerson().getLastName(),
+						ButtonsForNewUserPanel.getPerson().getGender(), ButtonsForNewUserPanel.getPerson().getZip(),
+						emailAddress, username, password, 0);
+
+				if (Main_Window.getNewUserListener() != null) {
+					Main_Window.getNewUserListener().createBtnClicked(userEvent);
+				}
+
+				AccountCreatedAlert aca = new AccountCreatedAlert();
 			}
-			AccountCreatedAlert aca = new AccountCreatedAlert();
-			
 		});
-		
+
 		goBackBtn.setOnAction(event -> {
 			NewUserPane.getStage().setScene(NewUserPane.getScene());
 		});
-		
+
 		btnPane.getChildren().addAll(createAccBtn, goBackBtn);
-		
+
 	}
-	
+
 	public Pane getPane() {
 		return btnPane;
 	}
-	
+
 }
