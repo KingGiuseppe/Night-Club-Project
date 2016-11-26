@@ -13,7 +13,11 @@ public class LoginController {
 
 			@Override
 			public void loginBtnClicked(LoginObject ev) {
-				System.out.println("Here");
+				System.out.println("Here 1 " + ev.getUsername() + " " + ev.getPassword());
+				
+				System.out.println(model.getUser(ev.getUsername(), ev.getPassword()));
+				
+				
 				
 			}
 			
