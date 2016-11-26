@@ -1,10 +1,11 @@
 package view_for_login;
 
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model_for_login.LoginEventListener;
-import model_for_login.LoginObject;
 import model_for_newuser.NewUserEventListener;
+import view_for_guest.GuestPane;
 
 public class Main_Window {
 
@@ -14,9 +15,11 @@ public class Main_Window {
 	private static Scene scene;
 
 	public Main_Window(Stage stage) {
-		this.stage = stage;
+		Main_Window.stage = stage;
 
 		PaneForMainWindow p4mw = new PaneForMainWindow();
+		GuestPane gp = new GuestPane();
+		
 		Scene scene = new Scene(p4mw.getPane(), 450, 250);
 
 		stage.setScene(scene);
@@ -47,5 +50,8 @@ public class Main_Window {
 
 	public static void setScene(Scene newScene) {
 		scene = newScene;
+	}
+	public static void closeStage() {
+		stage.close();
 	}
 }

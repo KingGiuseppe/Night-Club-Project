@@ -1,5 +1,6 @@
 package view_for_login;
 
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -31,8 +32,8 @@ public class ButtonsForLoginPanel {
 			}
 			if(isLoginValid() == true) {
 				AlertForLogin badLogin = new AlertForLogin(true, user.getFirstName());
-
-				Main_Window.getStage().setScene(GuestPane.getScene());
+				GuestPane.showStage();
+				Main_Window.closeStage();
 				
 			} else if(isLoginValid() == false) {
 				AlertForLogin badLogin = new AlertForLogin(false, user.getFirstName());
