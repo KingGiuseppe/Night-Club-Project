@@ -23,15 +23,12 @@ public class GuestAccountBag {
 	}
 	
 	public NewUser getUser(String username, String pass) {
-		System.out.println("Here 2");
 		ListIterator<NewUser> lIter;
 		lIter = guestAccounts.listIterator();
+		int index = 0;
 		while(lIter.hasNext()) {
-			System.out.println("Here 3");
-			if(lIter.previous().getUsername().equalsIgnoreCase(username)) {
-				System.out.println("Found");
-				if(lIter.next().getPassword().equals(pass)){
-					System.out.println("Found");
+			if(lIter.next().getUsername().equalsIgnoreCase(username)) {
+				if(lIter.previous().getPassword().equals(pass)){
 				return lIter.next();
 				}
 			}
