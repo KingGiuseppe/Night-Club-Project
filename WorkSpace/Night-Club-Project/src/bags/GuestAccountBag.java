@@ -12,10 +12,14 @@ public class GuestAccountBag {
 	public GuestAccountBag() {
 		super();
 		this.guestAccounts = new ArrayList<NewUser>();
+		this.guestAccounts.add(new NewUser("a","a","a","a","a","a","a", 0));
+		this.guestAccounts.add(new NewUser("b","b","b","b","b","b","b", 0));
+		this.guestAccounts.add(new NewUser("c","c","c","c","c","c","c", 0));
 	}
 	
 	public void addGuestAcc(NewUser acc) {
 		guestAccounts.add(acc);
+		
 	}
 	
 	public ArrayList<NewUser> getGuestAccList() {

@@ -17,28 +17,33 @@ import javafx.scene.text.Font;
 public class EventsPanel {
 
 	private Label topLabel;
-	private VBox mainPane;
+	private VBox eventPane;
 	private BorderPane borderPane;
+	private HBox labelPane;
 
 	public EventsPanel() {
 		borderPane = new BorderPane();
 
+		eventPane = new VBox();
+		eventPane.setBorder(new Border(
+				new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, 
+						CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+		
+		borderPane.setCenter(eventPane);
+		
 		topLabel = new Label("Events and Dates");
 		topLabel.setFont(Font.font(30));
-		HBox labelPane = new HBox();
+		
+		labelPane = new HBox();
 		labelPane.getChildren().add(topLabel);
 		labelPane.setAlignment(Pos.CENTER);
 		
 		borderPane.setTop(labelPane);
+		
 		borderPane.setLeft(new Label("Pictures"));
-		borderPane.setRight(new Label("RIght holder"));
-		mainPane = new VBox();
-		mainPane.setBorder(new Border(
-				new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, 
-						CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+		borderPane.setRight(new Label("Friends Section"));
 		
-		borderPane.setCenter(mainPane);
-		
+				
 	}
 	public Pane getPane() {
 		return borderPane;

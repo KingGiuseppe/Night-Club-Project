@@ -7,6 +7,7 @@ import javafx.scene.layout.Pane;
 import model_for_login.LoginObject;
 import model_for_newuser.NewUser;
 import view_for_guest.GuestPane;
+import view_for_manager.ManagerPane;
 
 public class ButtonsForLoginPanel {
 	private Button loginBtn;
@@ -30,16 +31,22 @@ public class ButtonsForLoginPanel {
 			if (Main_Window.getLoginListener() != null) {
 				Main_Window.getLoginListener().loginBtnClicked(loginEvent);
 			}
-			if(isLoginValid() == true) {
+			if (isLoginValid() == true) {
 				AlertForLogin badLogin = new AlertForLogin(true, user.getFirstName());
-				
-				GuestPane.showStage();
-				Main_Window.closeStage();
-				
-			} else if(isLoginValid() == false) {
+				if (user.getType() == 0) {
+					GuestPane.showStage();
+					Main_Window.closeStage();
+				} else if (user.getType() == 1) {
+					ManagerPane.showStage();
+					Main_Window.closeStage();
+				} else if (user.getType() == 2) {
+					// OwnerPane.showStage();
+					Main_Window.closeStage();
+				}
+			} else if (isLoginValid() == false) {
 				AlertForLogin badLogin = new AlertForLogin(false, user.getFirstName());
 			}
-			
+
 		});
 
 		newUserBtn = new Button("New User?");
@@ -73,15 +80,15 @@ public class ButtonsForLoginPanel {
 	public Button getForgotPassBtn() {
 		return forgotPassBtn;
 	}
-	
+
 	public boolean isLoginValid() {
 		return isValid;
 	}
-	
+
 	public static void setIsLoginValid(boolean valid) {
 		isValid = valid;
 	}
-	
+
 	public static void setUser(NewUser newUser) {
 		user = newUser;
 	}
