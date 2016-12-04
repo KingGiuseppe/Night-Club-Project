@@ -1,10 +1,8 @@
-import bags.GuestAccountBag;
-import bags.ManagerAccountBag;
+import bags.AccountBag;
 import controller.LoginController;
 import controller.NewUserController;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import model_for_newuser.NewUser;
 import view_for_login.Main_Window;
 
 public class App extends Application {
@@ -17,12 +15,11 @@ public class App extends Application {
 	public void start(Stage stage) throws Exception {
 		Main_Window view = new Main_Window(stage);
 		
-		GuestAccountBag guestModel = new GuestAccountBag();
-		ManagerAccountBag manBag = new ManagerAccountBag();
+		AccountBag accountModel = new AccountBag();
 		
-		NewUserController newUserCont = new NewUserController(guestModel, view);
+		NewUserController newUserCont = new NewUserController(accountModel, view);
 		
-		LoginController loginCont = new LoginController(guestModel, manBag, view);
+		LoginController loginCont = new LoginController(accountModel, view);
 
 	}
 	

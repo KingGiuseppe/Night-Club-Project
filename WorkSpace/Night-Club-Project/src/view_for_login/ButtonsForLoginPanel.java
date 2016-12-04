@@ -8,6 +8,7 @@ import model_for_login.LoginObject;
 import model_for_newuser.NewUser;
 import view_for_guest.GuestPane;
 import view_for_manager.ManagerPane;
+import view_for_owner.OwnerPane;
 
 public class ButtonsForLoginPanel {
 	private Button loginBtn;
@@ -32,19 +33,22 @@ public class ButtonsForLoginPanel {
 				Main_Window.getLoginListener().loginBtnClicked(loginEvent);
 			}
 			if (isLoginValid() == true) {
-				AlertForLogin badLogin = new AlertForLogin(true, user.getFirstName());
+				AlertForLogin badLogin = new AlertForLogin(user.getFirstName());
 				if (user.getType() == 0) {
 					GuestPane.showStage();
 					Main_Window.closeStage();
-				} else if (user.getType() == 1) {
+				}
+				if (user.getType() == 1) {
 					ManagerPane.showStage();
 					Main_Window.closeStage();
-				} else if (user.getType() == 2) {
-					// OwnerPane.showStage();
+				}
+				if (user.getType() == 2) {
+					System.out.println("Here");
+					OwnerPane.showStage();
 					Main_Window.closeStage();
 				}
 			} else if (isLoginValid() == false) {
-				AlertForLogin badLogin = new AlertForLogin(false, user.getFirstName());
+				AlertForLogin badLogin = new AlertForLogin();
 			}
 
 		});

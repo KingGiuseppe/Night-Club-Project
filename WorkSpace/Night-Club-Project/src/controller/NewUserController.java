@@ -1,6 +1,6 @@
  package controller;
 
-import bags.GuestAccountBag;
+import bags.AccountBag;
 import model_for_newuser.NewUser;
 import model_for_newuser.NewUserEventListener;
 import model_for_newuser.NewUserObject;
@@ -8,7 +8,7 @@ import view_for_login.Main_Window;
 
 public class NewUserController {
 	
-	public NewUserController(GuestAccountBag model, Main_Window view) {
+	public NewUserController(AccountBag model, Main_Window view) {
 		
 		view.setNewUserEventListener(new NewUserEventListener() {
 

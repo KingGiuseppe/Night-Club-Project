@@ -35,10 +35,6 @@ public class GuestPane {
 		stage.show();
 	}
 	
-	public static Pane getPane() {
-		return mainPane;
-	}
-	
 	public static void setUser(NewUser theUser) {
 		user = theUser;
 	}
