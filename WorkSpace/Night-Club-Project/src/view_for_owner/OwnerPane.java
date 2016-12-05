@@ -11,12 +11,18 @@ public class OwnerPane {
 	private static Stage stage;
 	private static NewUser user;
 	private BorderPane mainPane;
+	private MenuBarForOwnerPane menuBar;
+	private WelcomePaneForOwnerPane welcomePane;
 	private static Scene scene;
 
 	public OwnerPane() {
 		stage = new Stage();
-
+		menuBar = new MenuBarForOwnerPane();
 		mainPane = new BorderPane();
+		welcomePane = new WelcomePaneForOwnerPane();
+		
+		
+		mainPane.setLeft(menuBar.getPane());
 		mainPane.setCenter(new Label("LOOK"));
 		scene = new Scene(mainPane, 900, 500);
 		stage.setScene(scene);
@@ -33,6 +39,10 @@ public class OwnerPane {
 
 	public static Scene getScene() {
 		return scene;
+	}
+	
+	public static NewUser getUser() {
+		return user;
 	}
 
 }
