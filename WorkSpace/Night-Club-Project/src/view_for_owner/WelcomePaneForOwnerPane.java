@@ -20,10 +20,10 @@ public class WelcomePaneForOwnerPane {
 	public WelcomePaneForOwnerPane() {
 		mainPane = new HBox();
 
-		welcomeLbl = new Label("Welcome " + OwnerPane.getUser().getFirstName() + "!");
+	//	welcomeLbl = new Label("Welcome " + OwnerPane.getUser().getFirstName() + "!");
 		bodyLbl = new Label("What would you like to do today?");
 		
-		mainPane.getChildren().addAll(welcomeLbl, bodyLbl);
+		mainPane.getChildren().addAll( bodyLbl);
 	}
 	
 	public Pane getPane() {

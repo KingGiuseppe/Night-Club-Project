@@ -5,7 +5,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import model_for_newuser.NewUserEventListener;
 import model_for_newuser.NewUserObject;
 
 public class ButtonsForNewUserPanel2 {
@@ -13,13 +12,10 @@ public class ButtonsForNewUserPanel2 {
 	private HBox btnPane;
 	private Button goBackBtn;
 	private Button createAccBtn;
-	private GridPane blankPane;
-	private NewUserEventListener eventListener;
 
 	public ButtonsForNewUserPanel2() {
 		btnPane = new HBox(20);
 		btnPane.setAlignment(Pos.BOTTOM_RIGHT);
-		blankPane = new GridPane();
 
 		createAccBtn = new Button("Create Account");
 

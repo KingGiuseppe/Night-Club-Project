@@ -1,6 +1,7 @@
 import bags.AccountBag;
 import controller.LoginController;
 import controller.NewUserController;
+import controller.SchedulingController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import view_for_login.Main_Window;
@@ -18,7 +19,7 @@ public class App extends Application {
 		AccountBag accountModel = new AccountBag();
 		
 		NewUserController newUserCont = new NewUserController(accountModel, view);
-		
+		SchedulingController schedCont = new SchedulingController(accountModel, view);
 		LoginController loginCont = new LoginController(accountModel, view);
 
 	}

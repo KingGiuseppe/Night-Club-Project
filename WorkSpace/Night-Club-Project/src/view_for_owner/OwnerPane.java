@@ -45,4 +45,11 @@ public class OwnerPane {
 		return user;
 	}
 
+	public static void setScene(Scene newScene) {
+		scene = newScene;
+	}
+	public static Stage getStage() {
+		return stage;
+	}
+
 }
