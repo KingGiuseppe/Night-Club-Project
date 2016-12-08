@@ -4,33 +4,65 @@ import model_for_newuser.NewUser;
 
 public class ShiftObject {
 
-	private int day;
-	private NewUser shift1;
-	private NewUser shift2;
-	public ShiftObject(int day, NewUser shift1, NewUser shift2) {
+	
+	private String sunday, monday, tuesday;
+	private String wednesday, thursday, friday, saturday;
+	public ShiftObject(String sunday, String monday, String tuesday, String wednesday, String thursday,
+			String friday, String saturday) {
 		super();
-		this.day = day;
-		this.shift1 = shift1;
-		this.shift2 = shift2;
+		this.sunday = sunday;
+		this.monday = monday;
+		this.tuesday = tuesday;
+		this.wednesday = wednesday;
+		this.thursday = thursday;
+		this.friday = friday;
+		this.saturday = saturday;
 	}
-	public int getDay() {
-		return day;
+	public String getSunday() {
+		return sunday;
 	}
-	public void setDay(int day) {
-		this.day = day;
+	public void setSunday(String sunday) {
+		this.sunday = sunday;
 	}
-	public NewUser getShift1() {
-		return shift1;
+	public String getMonday() {
+		return monday;
 	}
-	public void setShift1(NewUser shift1) {
-		this.shift1 = shift1;
+	public void setMonday(String monday) {
+		this.monday = monday;
 	}
-	public NewUser getShift2() {
-		return shift2;
+	public String getTuesday() {
+		return tuesday;
 	}
-	public void setShift2(NewUser shift2) {
-		this.shift2 = shift2;
+	public void setTuesday(String tuesday) {
+		this.tuesday = tuesday;
 	}
+	public String getWednesday() {
+		return wednesday;
+	}
+	public void setWednesday(String wednesday) {
+		this.wednesday = wednesday;
+	}
+	public String getThursday() {
+		return thursday;
+	}
+	public void setThursday(String thursday) {
+		this.thursday = thursday;
+	}
+	public String getFriday() {
+		return friday;
+	}
+	public void setFriday(String friday) {
+		this.friday = friday;
+	}
+	public String getSaturday() {
+		return saturday;
+	}
+	public void setSaturday(String saturday) {
+		this.saturday = saturday;
+	}
+
+	
+	
 	
 	
 }

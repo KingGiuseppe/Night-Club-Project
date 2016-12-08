@@ -12,7 +12,6 @@ public class SchedulingController {
 
 			@Override
 			public void scheduleBtnClicked() {
-				System.out.println("Here : Controller");
 				SchedulingPane.setManagerList(model.getManager());
 			}
 			
