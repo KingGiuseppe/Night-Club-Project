@@ -30,12 +30,13 @@ public class SchedulingPane {
 	private RadioButton shift2Rad;
 	private HBox shiftPane;
 	private ButtonsForSchedulingPane schedBtnPane;
+	private TableViewForSchedulingPane tableView;
 	private static Scene scene;
 	private static ObservableList<String> ml;
 
 	public SchedulingPane() {
 		schedBtnPane = new ButtonsForSchedulingPane();
-		
+		tableView = new TableViewForSchedulingPane();
 		mainPane = new VBox(20);
 		topPane = new HBox(50);
 		listPane = new VBox(20);
@@ -60,9 +61,9 @@ public class SchedulingPane {
 		listPane.getChildren().addAll(new Label("Please select a day from the list..."), dayList,
 				new Label("Please select a shift below.."), shiftPane);
 		shiftPane.setAlignment(Pos.CENTER);
-		topPane.getChildren().addAll(managerList, listPane, schedBtnPane.getPane());
-		mainPane.getChildren().addAll(topPane, new TableView());
-		scene = new Scene(mainPane, 800, 570);
+		topPane.getChildren().addAll(new Label("  "),managerList, listPane, schedBtnPane.getPane(), new Label("  "));
+		mainPane.getChildren().addAll(new Label("   \n   "), topPane, tableView.getPane(), new Label("   \n   "));
+		scene = new Scene(mainPane, 850, 570);
 	}
 
 	public static void setManagerList(ArrayList<NewUser> mList) {

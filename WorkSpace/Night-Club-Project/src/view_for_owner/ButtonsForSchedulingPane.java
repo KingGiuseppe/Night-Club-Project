@@ -15,10 +15,13 @@ public class ButtonsForSchedulingPane {
 	public ButtonsForSchedulingPane() {
 		btnPane = new VBox();
 		addToSchedBtn = new Button("Add to Schedule");
+		addToSchedBtn.setOnAction(event -> {
+			
+		});
 		scheduleBtn = new Button("Finalize Schedule");
+		scheduleBtn.setVisible(false);
 		printBtn = new Button("Print Schedule");
-		
-		
+		printBtn.setVisible(false);
 		
 		btnPane.getChildren().addAll(addToSchedBtn, scheduleBtn, printBtn);
 		btnPane.setAlignment(Pos.CENTER);
