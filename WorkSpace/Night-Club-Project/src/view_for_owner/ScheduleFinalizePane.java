@@ -50,7 +50,7 @@ public class ScheduleFinalizePane {
 		menuBar.getMenus().add(fileMenu);
 		
 		finalizePane.setTop(menuBar);
-		finalizePane.setCenter(tablePane);
+		finalizePane.setCenter(TableViewForSchedulingPane.getPane());
 		
 		scene = new Scene(finalizePane, 700, 300);
 		stage.setScene(scene);
