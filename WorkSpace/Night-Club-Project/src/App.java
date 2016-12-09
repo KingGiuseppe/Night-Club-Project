@@ -1,4 +1,6 @@
 import bags.AccountBag;
+import bags.ScheduleList;
+import controller.AddToSchedController;
 import controller.LoginController;
 import controller.NewUserController;
 import controller.SchedulingController;
@@ -17,7 +19,8 @@ public class App extends Application {
 		Main_Window view = new Main_Window(stage);
 		
 		AccountBag accountModel = new AccountBag();
-		
+		ScheduleList schedList = new ScheduleList();
+		AddToSchedController addSched = new AddToSchedController(schedList, view);
 		NewUserController newUserCont = new NewUserController(accountModel, view);
 		SchedulingController schedCont = new SchedulingController(accountModel, view);
 		LoginController loginCont = new LoginController(accountModel, view);

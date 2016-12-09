@@ -21,11 +21,11 @@ public class SchedulingPane {
 	private VBox mainPane;
 	private VBox listPane;
 	private HBox topPane;
-	private static ListView<String> managerList;
+	static ListView<String> managerList;
 	private static ArrayList<NewUser> managerArrList;
-	private ListView<String> dayList;
+	static ListView<String> dayList;
 	private ObservableList<String> dayListObs;
-	private ToggleGroup shiftGroup;
+	static ToggleGroup shiftGroup;
 	private RadioButton shift1Rad;
 	private RadioButton shift2Rad;
 	private HBox shiftPane;

@@ -7,14 +7,23 @@ import model_for_manager.ShiftObject;
 public class ScheduleList {
 
 	private static ArrayList<ShiftObject> shift;
+	//add shifts to this array to edit
 
 	public ScheduleList() {
 		super();
 		shift = new ArrayList<ShiftObject>();
+		this.shift.add(new ShiftObject());
+		this.shift.add(new ShiftObject());
 	}
 
 	public void addManager(ShiftObject so) {
 		shift.add(so);
+	}
+	public ShiftObject getIndex(int i) {
+		return shift.get(i);
+	}
+	public ArrayList<ShiftObject> getShift() {
+		return this.shift;
 	}
 
 }

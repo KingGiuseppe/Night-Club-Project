@@ -18,6 +18,10 @@ public class ShiftObject {
 		this.friday = friday;
 		this.saturday = saturday;
 	}
+	
+	public ShiftObject(){
+		
+	}
 	public String getSunday() {
 		return sunday;
 	}
@@ -59,6 +63,12 @@ public class ShiftObject {
 	}
 	public void setSaturday(String saturday) {
 		this.saturday = saturday;
+	}
+
+	@Override
+	public String toString() {
+		return "ShiftObject [sunday=" + sunday + ", monday=" + monday + ", tuesday=" + tuesday + ", wednesday="
+				+ wednesday + ", thursday=" + thursday + ", friday=" + friday + ", saturday=" + saturday + "]";
 	}
 
 	

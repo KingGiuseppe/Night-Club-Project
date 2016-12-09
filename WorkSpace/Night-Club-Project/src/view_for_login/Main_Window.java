@@ -3,6 +3,7 @@ package view_for_login;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model_for_login.LoginEventListener;
+import model_for_manager.AddToScheduleEventListener;
 import model_for_manager.SchedulingEventListener;
 import model_for_newuser.NewUserEventListener;
 import view_for_guest.GuestPane;
@@ -17,6 +18,7 @@ public class Main_Window {
 	private static NewUserEventListener newUserListener;
 	private static Scene scene;
 	private static SchedulingEventListener schedulingListener;
+	private static AddToScheduleEventListener addToSchedListener;
 
 	public Main_Window(Stage stage) {
 		Main_Window.stage = stage;
@@ -66,6 +68,13 @@ public class Main_Window {
 	}
 	public void setSchedulingListener(SchedulingEventListener schedulingEventListener2) {
 		this.schedulingListener = schedulingEventListener2;
+	}
+
+	public void setAddToSchedListener(AddToScheduleEventListener addToScheduleEventListener) {
+		this.addToSchedListener = addToScheduleEventListener;
+	}
+	public static AddToScheduleEventListener getAddToSchedListener() {
+		return addToSchedListener;
 	}
 	
 	

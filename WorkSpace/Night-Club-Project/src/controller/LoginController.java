@@ -18,7 +18,6 @@ public class LoginController {
 			public void loginBtnClicked(LoginObject ev) {
 
 				if (model.getUser(ev.getUsername(), ev.getPassword()) != null) {
-					System.out.println("Here1");
 					GuestPane.setUser(model.getUser(ev.getUsername(), ev.getPassword()));
 					ButtonsForLoginPanel.setIsLoginValid(true);
 					ButtonsForLoginPanel.setUser(model.getUser(ev.getUsername(), ev.getPassword()));
