@@ -21,9 +21,10 @@ public class ButtonsForSchedulingPane {
 		btnPane = new VBox(20);
 		addToSchedBtn = new Button("Add to Schedule ");
 		ScheduleFinalizePane sfp = new ScheduleFinalizePane();
-		
+		TableViewForSchedulingPane tvsp = new TableViewForSchedulingPane();
 		addToSchedBtn.setOnAction(event -> {
-			if (SchedulingPane.dayList.getSelectionModel().getSelectedItem() == null || SchedulingPane.managerList.getSelectionModel().getSelectedItem() == null 
+			if (SchedulingPane.dayList.getSelectionModel().getSelectedItem() == null
+					|| SchedulingPane.managerList.getSelectionModel().getSelectedItem() == null
 					|| SchedulingPane.shiftGroup.getSelectedToggle() == null) {
 				SchedulingPaneAlert al = new SchedulingPaneAlert();
 			} else {
@@ -37,10 +38,11 @@ public class ButtonsForSchedulingPane {
 				if (Main_Window.getAddToSchedListener() != null) {
 					Main_Window.getAddToSchedListener().addBtnClicked(schedObj);
 				}
+				SchedulingPane.dayList.getSelectionModel().clearSelection();
+				SchedulingPane.managerList.getSelectionModel().clearSelection();
+				SchedulingPane.shiftGroup.getSelectedToggle().setSelected(false);
 			}
-			SchedulingPane.dayList.getSelectionModel().clearSelection();
-			SchedulingPane.managerList.getSelectionModel().clearSelection();
-			SchedulingPane.shiftGroup.getSelectedToggle().setSelected(false);
+			
 		});
 		scheduleBtn = new Button("Finalize Schedule");
 		scheduleBtn.setOnAction(event -> {

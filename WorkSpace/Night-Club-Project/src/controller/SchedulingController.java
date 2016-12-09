@@ -3,6 +3,7 @@ package controller;
 import bags.AccountBag;
 import model_for_manager.SchedulingEventListener;
 import view_for_login.Main_Window;
+import view_for_owner.ScheduleFinalizePane;
 import view_for_owner.SchedulingPane;
 
 public class SchedulingController {
