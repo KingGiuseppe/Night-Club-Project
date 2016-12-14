@@ -11,7 +11,7 @@ public class ScheduleList {
 
 	public ScheduleList() {
 		super();
-		shift = new ArrayList<ShiftObject>();
+		this.shift = new ArrayList<ShiftObject>();
 		this.shift.add(new ShiftObject());
 		this.shift.add(new ShiftObject());
 	}

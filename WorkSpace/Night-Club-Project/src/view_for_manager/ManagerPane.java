@@ -14,10 +14,11 @@ public class ManagerPane {
 	private static Scene scene;
 
 	public ManagerPane() {
+		ButtonsForManagerPane buttons = new ButtonsForManagerPane();
 		stage = new Stage();
-
 		mainPane = new BorderPane();
-		mainPane.setCenter(new Label("LOOK"));
+		mainPane.setCenter(buttons.getPane());
+		
 		scene = new Scene(mainPane, 900, 500);
 		stage.setScene(scene);
 		stage.setTitle("Manager View");
@@ -26,13 +27,18 @@ public class ManagerPane {
 	public static void showStage() {
 		stage.show();
 	}
-
 	public static void setUser(NewUser newUser) {
 		user = newUser;
 	}
-
 	public static Scene getScene() {
 		return scene;
+	}
+	public static void setScene(Scene newScene) {
+		scene = newScene;
+	}
+
+	public static Stage getStage() {
+		return stage;
 	}
 
 }

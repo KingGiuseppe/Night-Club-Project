@@ -3,6 +3,7 @@ package view_for_owner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -48,11 +49,12 @@ public class PaneForRevenue {
 
 	public PaneForRevenue() {
 		mainPane = new GridPane();
+		mainPane.setPadding(new Insets(10, 10, 10, 10));
 		mainPane.setHgap(10);
 		mainPane.setVgap(10);
 		
 		calender = new DatePicker();
-		options = FXCollections.observableArrayList("Tonight","Week",
+		options = FXCollections.observableArrayList("Night","Week",
 			        "Month","Year");
 		timePeriod = new ComboBox(options);
 		
@@ -60,7 +62,7 @@ public class PaneForRevenue {
 		
 		topLbl = new Label("Revenue");
 		topLbl.setFont(Font.font(50));
-		directionsLbl = new Label("Please select a time span");
+		directionsLbl = new Label("please select a time span");
 		directionsLbl.setFont(Font.font(20));
 		directions2Lbl = new Label("Then select a day");
 		directions2Lbl.setFont(Font.font(20));

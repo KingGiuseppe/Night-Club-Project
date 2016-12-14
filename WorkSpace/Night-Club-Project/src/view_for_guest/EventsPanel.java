@@ -1,5 +1,6 @@
 package view_for_guest;
 
+import bags.CreateEventBag;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Border;
@@ -17,18 +18,19 @@ import javafx.scene.text.Font;
 public class EventsPanel {
 
 	private Label topLabel;
-	private VBox eventPane;
+	private HBox eventPane;
 	private BorderPane borderPane;
 	private HBox labelPane;
 
 	public EventsPanel() {
 		borderPane = new BorderPane();
-
-		eventPane = new VBox();
+		CreateEventBag bag = new CreateEventBag();
+		eventPane = new HBox();
 		eventPane.setBorder(new Border(
 				new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, 
 						CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-		
+		eventPane.setAlignment(Pos.CENTER);
+		eventPane.getChildren().add(bag.getList().get(0).getPane());
 		borderPane.setCenter(eventPane);
 		
 		topLabel = new Label("Events and Dates");
