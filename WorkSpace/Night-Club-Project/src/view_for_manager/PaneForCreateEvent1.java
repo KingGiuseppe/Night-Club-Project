@@ -93,10 +93,11 @@ public class PaneForCreateEvent1 {
 		entertainmentPane.add(numOfDancersTxt, 1, 11);
 		entertainmentPane.add(dancersCostPerDancerLbl, 0, 12);
 		entertainmentPane.add(dancersCostPerDancerTxt, 1, 12);
-		entertainmentPane.add(backBtn, 3, 13);
-		entertainmentPane.add(nextBtn, 4, 13);
+		entertainmentPane.add(backBtn, 2, 13);
+		entertainmentPane.setHalignment(backBtn, HPos.RIGHT);
+		entertainmentPane.add(nextBtn, 3, 13);
 		
-		scene = new Scene(entertainmentPane, 500, 500);
+		scene = new Scene(entertainmentPane, 460, 470);
 		
 	}
 	public static Scene getScene() {

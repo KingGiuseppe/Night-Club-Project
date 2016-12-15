@@ -1,8 +1,11 @@
 package view_for_manager;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model_for_newuser.NewUser;
 import view_for_login.MenuBarForLogout;
@@ -12,18 +15,38 @@ public class ManagerPane {
 	private static Stage stage;
 	private static NewUser user;
 	private BorderPane mainPane;
+	private static Label label3;
+	private Label label2;
+	private Label label1;
+	private VBox labelPane;
 	private static Scene scene;
 
 	public ManagerPane() {
 		ButtonsForManagerPane buttons = new ButtonsForManagerPane();
 		stage = new Stage();
 		mainPane = new BorderPane();
-		mainPane.setCenter(buttons.getPane());
+		mainPane.setLeft(buttons.getPane());
 		MenuBarForLogout logout = new MenuBarForLogout();
-		mainPane.setTop(logout.getMenu(0));
-		scene = new Scene(mainPane, 900, 500);
+		mainPane.setTop(logout.getMenu(1));
+		label1 = new Label("Welcome!");
+		label2 = new Label("Message from the Boss:");
+		label3 = new Label("Message here");
+		label3.setAlignment(Pos.CENTER_LEFT);
+		labelPane = new VBox(20);
+		label1.setFont(Font.font(35));
+		label1.setAlignment(Pos.CENTER);
+		label2.setFont(Font.font(25));
+		label3.setFont(Font.font(15));
+		labelPane.getChildren().addAll(label1, label2, label3);
+		labelPane.setAlignment(Pos.TOP_CENTER);
+		mainPane.setCenter(labelPane);
+		
+		scene = new Scene(mainPane, 500, 400);
 		stage.setScene(scene);
 		stage.setTitle("Manager View");
+	}
+	public static void setLabel(String message) {
+		label3.setText(message);
 	}
 
 	public static void showStage() {

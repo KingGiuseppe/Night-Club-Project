@@ -11,7 +11,7 @@ public class CreateEventBag {
 	public CreateEventBag() {
 		super();
 		this.panes = new ArrayList<CreatePaneObject>();
-		this.panes.add(new CreatePaneObject("Test Event", "12/14/16", "Rap", "School Boy Q"));
+		this.panes.add(new CreatePaneObject("Test Event", "12/14/16", "Rap", "School Boy Q", "https://lh3.googleusercontent.com/-iiVNrAecRhA/AAAAAAAAAAI/AAAAAAAAABg/qF-AihkhsAc/s640/photo.jpg"));
 		this.nElems = 0;
 	}
 	public int getNElems() {

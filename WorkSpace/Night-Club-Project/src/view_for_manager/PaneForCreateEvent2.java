@@ -2,11 +2,13 @@ package view_for_manager;
 
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 
 public class PaneForCreateEvent2 {
 
@@ -47,6 +49,7 @@ public class PaneForCreateEvent2 {
 		createEventPane.setPadding(new Insets(20, 20, 20, 20));
 		
 		inventoryLbl = new Label("Inventory");
+		inventoryLbl.setFont(Font.font(20));
 		amountOfBottlesLbl = new Label("Amount of bottles");
 		amountOfBottleTxt = new TextField();
 		costPerBottleLbl = new Label("Cost per bottle");
@@ -57,18 +60,21 @@ public class PaneForCreateEvent2 {
 		costPerKegTxt = new TextField();
 		
 		scheduleLbl = new Label("Schedule");
+		scheduleLbl.setFont(Font.font(20));
 		numOfBartendersLbl = new Label("Number of bartenders");
 		numOfBartendersTxt = new TextField();
 		costPerHouseLbl = new Label("Cost per hour");
 		costPerHouseTxt = new TextField();
 		
 		securityLbl = new Label("Security");
+		securityLbl.setFont(Font.font(20));
 		numOfBouncersLbl = new Label("Number of bouncers");
 		numOfBouncersTxt = new TextField();
 		costPerHourBouncersLbl = new Label("Cost per hour");
 		costPerHourBouncersTxt = new TextField();
 		
 		maintenceCrewLbl = new Label("Matinence");
+		maintenceCrewLbl.setFont(Font.font(20));
 		numOfEmployeesLbl = new Label("Number of employees");
 		numOfEmployeesTxt = new TextField();
 		costperHourMaintLbl = new Label("Cost per hour");
@@ -112,10 +118,11 @@ public class PaneForCreateEvent2 {
 		createEventPane.add(numOfBouncersTxt, 1, 19);
 		createEventPane.add(costPerHourBouncersLbl, 0, 20);
 		createEventPane.add(costPerHourBouncersTxt, 1, 20);
-		createEventPane.add(backBtn, 2, 22);
-		createEventPane.add(createEventBtn, 3, 22);
+		createEventPane.add(backBtn, 1, 22);
+		createEventPane.setHalignment(backBtn, HPos.RIGHT);
+		createEventPane.add(createEventBtn, 2, 22);
 		
-		scene = new Scene(createEventPane, 600, 600);
+		scene = new Scene(createEventPane, 430, 670);
 		
 	}
 	
