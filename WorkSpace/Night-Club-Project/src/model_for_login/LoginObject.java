@@ -25,11 +25,4 @@ public class LoginObject extends EventObject{
 		return password;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
 }

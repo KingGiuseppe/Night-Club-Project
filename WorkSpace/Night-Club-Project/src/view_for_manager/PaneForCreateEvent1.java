@@ -1,5 +1,7 @@
 package view_for_manager;
 
+import java.time.format.DateTimeFormatter;
+
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -23,19 +25,20 @@ public class PaneForCreateEvent1 {
 	private Label dancersLbl;
 	private Label numOfDancersLbl;
 	private Label dancersCostPerDancerLbl;
-	private TextField eventNameTxt;
-	private DatePicker date;
-	private TextField costForNightTxt;
-	private TextField artistNameTxt;
-	private TextField musicGenreTxt;
-	private TextField numOfDancersTxt;
-	private TextField dancersCostPerDancerTxt;
+	private static TextField eventNameTxt;
+	private static DatePicker date;
+	private static TextField costForNightTxt;
+	private static TextField artistNameTxt;
+	private static TextField musicGenreTxt;
+	private static TextField numOfDancersTxt;
+	private static TextField dancersCostPerDancerTxt;
 	private Button backBtn;
 	private Button nextBtn;
+	private Label pictureLbl;
+	private TextField pictureTxt;
 	private static Scene scene;
 
 	public PaneForCreateEvent1() {
-		PaneForCreateEvent2 p2 = new PaneForCreateEvent2();
 		entertainmentPane = new GridPane();
 		entertainmentPane.setHgap(10);
 		entertainmentPane.setVgap(10);
@@ -70,8 +73,11 @@ public class PaneForCreateEvent1 {
 		});
 		nextBtn = new Button("Next");
 		nextBtn.setOnAction(event -> {
+			System.out.println("here");
 			ManagerPane.getStage().setScene(PaneForCreateEvent2.getScene());
 		});
+		pictureLbl = new Label("Picture link");
+		pictureTxt = new TextField();
 		
 		entertainmentPane.add(createEventLbl, 1, 0);
 		entertainmentPane.setHalignment(createEventLbl, HPos.CENTER);
@@ -85,23 +91,50 @@ public class PaneForCreateEvent1 {
 		entertainmentPane.add(musicGenreTxt, 1, 6);
 		entertainmentPane.add(artistNameLbl, 0, 7);
 		entertainmentPane.add(artistNameTxt, 1, 7);
-		entertainmentPane.add(costForNightLbl, 0, 8);
-		entertainmentPane.add(costForNightTxt, 1, 8);
-		entertainmentPane.add(dancersLbl, 1, 10);
+		entertainmentPane.add(pictureLbl, 0, 8);
+		entertainmentPane.add(pictureTxt, 1, 8);
+		entertainmentPane.add(costForNightLbl, 0, 9);
+		entertainmentPane.add(costForNightTxt, 1, 9);
+		entertainmentPane.add(dancersLbl, 1, 11);
 		entertainmentPane.setHalignment(dancersLbl, HPos.CENTER);
-		entertainmentPane.add(numOfDancersLbl, 0, 11);
-		entertainmentPane.add(numOfDancersTxt, 1, 11);
-		entertainmentPane.add(dancersCostPerDancerLbl, 0, 12);
-		entertainmentPane.add(dancersCostPerDancerTxt, 1, 12);
-		entertainmentPane.add(backBtn, 2, 13);
+		entertainmentPane.add(numOfDancersLbl, 0, 12);
+		entertainmentPane.add(numOfDancersTxt, 1, 12);
+		entertainmentPane.add(dancersCostPerDancerLbl, 0, 13);
+		entertainmentPane.add(dancersCostPerDancerTxt, 1, 13);
+		entertainmentPane.add(backBtn, 1, 14);
 		entertainmentPane.setHalignment(backBtn, HPos.RIGHT);
-		entertainmentPane.add(nextBtn, 3, 13);
+		entertainmentPane.add(nextBtn, 2, 14);
 		
-		scene = new Scene(entertainmentPane, 460, 470);
+		scene = new Scene(entertainmentPane, 390, 490);
 		
 	}
 	public static Scene getScene() {
 		return scene;
 	}
+	public static String getEventName() {
+		return eventNameTxt.getText();
+	}
+	public static String getDate() {
+		return date.getValue().format(DateTimeFormatter.ofPattern("MM/dd/yyy"));
+	}
+	public static String getGenre() {
+		return musicGenreTxt.getText();
+	}
+	public static String getArtist() {
+		return artistNameTxt.getText();
+	}
+	public static String getImageUrl() {
+		return eventNameTxt.getText();
+	}
+	public static String getcostForNight() {
+		return costForNightTxt.getText();
+	}
+	public static String getNumOfDancers() {
+		return numOfDancersTxt.getText();
+	}
+	public static String getCostPerDancer() {
+		return dancersCostPerDancerTxt.getText();
+	}
+	
 	
 }

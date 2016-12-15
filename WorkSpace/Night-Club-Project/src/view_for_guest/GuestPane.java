@@ -24,7 +24,6 @@ public class GuestPane {
 		buttonPane = new ButtonTabForGuestPane();
 		eventsPanel = new EventsPanel();
 		
-		//mainPane.setTop(buttonPane.getPane());
 		mainPane.setCenter(eventsPanel.getPane());
 		mainPane.setTop(logout.getMenu(0));
 		

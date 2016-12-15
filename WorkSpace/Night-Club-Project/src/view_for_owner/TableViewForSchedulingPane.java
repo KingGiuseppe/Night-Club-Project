@@ -13,7 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import model_for_manager.ShiftObject;
+import model_for_scheduling.ShiftObject;
 
 public class TableViewForSchedulingPane {
 

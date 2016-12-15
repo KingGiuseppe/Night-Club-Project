@@ -2,13 +2,14 @@ package view_for_manager;
 
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
+import model_for_event_creation.CreateEventObject;
+import view_for_login.Main_Window;
 
 public class PaneForCreateEvent2 {
 
@@ -85,8 +86,17 @@ public class PaneForCreateEvent2 {
 			ManagerPane.getStage().setScene(PaneForCreateEvent1.getScene());
 		});
 		createEventBtn = new Button("Create event");
+		
 		createEventBtn.setOnAction(event -> {
-			
+			CreateEventObject eventObj = new CreateEventObject(this, PaneForCreateEvent1.getEventName(), PaneForCreateEvent1.getDate(), 
+					PaneForCreateEvent1.getGenre(), PaneForCreateEvent1.getArtist()
+					);
+			System.out.println("Pane2 : " + PaneForCreateEvent1.getEventName());
+			if(Main_Window.getCreateEventEventListener() != null) {
+				Main_Window.getCreateEventEventListener().createEventBtnClicked(eventObj);
+			}
+			EventCreatedAlert eventAlert = new EventCreatedAlert();
+			ManagerPane.getStage().setScene(ManagerPane.getScene());
 		});
 		
 		createEventPane.add(inventoryLbl, 1, 0);

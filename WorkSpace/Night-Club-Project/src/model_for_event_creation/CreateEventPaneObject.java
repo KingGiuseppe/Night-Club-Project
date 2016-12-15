@@ -1,4 +1,4 @@
-package model_for_manager;
+package model_for_event_creation;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,7 +8,7 @@ import javafx.scene.image.ImageViewBuilder;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 
-public class CreatePaneObject {
+public class CreateEventPaneObject {
 
 	public String eventName;
 	public String date;
@@ -29,7 +29,7 @@ public class CreatePaneObject {
 	private String pictureLink;
 	private static final int nElems = 0;
 	
-	public CreatePaneObject(String eventName, String date, String musicType, String artist, String pictureLink) {
+	public CreateEventPaneObject(String eventName, String date, String musicType, String artist, String pictureLink) {
 		super();
 		gridPane = new GridPane();
 		this.eventName = eventName;

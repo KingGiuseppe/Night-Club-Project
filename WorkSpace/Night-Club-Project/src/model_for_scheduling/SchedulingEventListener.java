@@ -1,4 +1,4 @@
-package model_for_manager;
+package model_for_scheduling;
 
 import java.util.EventListener;
 

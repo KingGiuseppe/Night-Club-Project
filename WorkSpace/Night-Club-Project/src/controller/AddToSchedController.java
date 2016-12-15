@@ -1,9 +1,9 @@
 package controller;
 
 import bags.ScheduleList;
-import model_for_manager.AddToScheduleEventListener;
-import model_for_manager.SchedEventObj;
-import model_for_manager.SchedulingEventListener;
+import model_for_scheduling.AddToScheduleEventListener;
+import model_for_scheduling.SchedEventObj;
+import model_for_scheduling.SchedulingEventListener;
 import view_for_login.Main_Window;
 import view_for_owner.ScheduleFinalizePane;
 import view_for_owner.TableViewForSchedulingPane;

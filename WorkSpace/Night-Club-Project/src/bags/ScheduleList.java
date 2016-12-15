@@ -2,12 +2,11 @@ package bags;
 
 import java.util.ArrayList;
 
-import model_for_manager.ShiftObject;
+import model_for_scheduling.ShiftObject;
 
 public class ScheduleList {
 
 	private static ArrayList<ShiftObject> shift;
-	//add shifts to this array to edit
 
 	public ScheduleList() {
 		super();

@@ -1,6 +1,8 @@
 import bags.AccountBag;
+import bags.CreateEventBag;
 import bags.ScheduleList;
 import controller.AddToSchedController;
+import controller.CreateEventController;
 import controller.LoginController;
 import controller.NewUserController;
 import controller.SchedulingController;
@@ -20,6 +22,8 @@ public class App extends Application {
 		
 		AccountBag accountModel = new AccountBag();
 		ScheduleList schedList = new ScheduleList();
+		CreateEventBag createEventBag = new CreateEventBag();
+		CreateEventController createEventCont = new CreateEventController(createEventBag, view);
 		AddToSchedController addSched = new AddToSchedController(schedList, view);
 		NewUserController newUserCont = new NewUserController(accountModel, view);
 		SchedulingController schedCont = new SchedulingController(accountModel, view);

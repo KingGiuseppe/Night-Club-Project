@@ -2,12 +2,15 @@ package view_for_login;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model_for_event_creation.CreateEventEventListener;
 import model_for_login.LoginEventListener;
-import model_for_manager.AddToScheduleEventListener;
-import model_for_manager.SchedulingEventListener;
 import model_for_newuser.NewUserEventListener;
+import model_for_scheduling.AddToScheduleEventListener;
+import model_for_scheduling.SchedulingEventListener;
 import view_for_guest.GuestPane;
 import view_for_manager.ManagerPane;
+import view_for_manager.PaneForCreateEvent1;
+import view_for_manager.PaneForCreateEvent2;
 import view_for_owner.CreateManagerAccount1;
 import view_for_owner.OwnerPane;
 
@@ -19,6 +22,7 @@ public class Main_Window {
 	private static Scene scene;
 	private static SchedulingEventListener schedulingListener;
 	private static AddToScheduleEventListener addToSchedListener;
+	private static CreateEventEventListener createEventEventListener;
 
 	public Main_Window(Stage stage) {
 		Main_Window.stage = stage;
@@ -28,6 +32,8 @@ public class Main_Window {
 		ManagerPane mp = new ManagerPane();
 		OwnerPane op = new OwnerPane();
 		CreateManagerAccount1 cma = new CreateManagerAccount1();
+		PaneForCreateEvent1 pce1 = new PaneForCreateEvent1();
+		PaneForCreateEvent2 pce2 = new PaneForCreateEvent2();
 		Scene scene = new Scene(p4mw.getPane(), 450, 250);
 
 		stage.setScene(scene);
@@ -75,6 +81,13 @@ public class Main_Window {
 	}
 	public static AddToScheduleEventListener getAddToSchedListener() {
 		return addToSchedListener;
+	}
+	
+	public void setCreateEventListener(CreateEventEventListener createEventEventListener) {
+		this.createEventEventListener = createEventEventListener;
+	}
+	public static CreateEventEventListener getCreateEventEventListener() {
+		return createEventEventListener;
 	}
 	
 	

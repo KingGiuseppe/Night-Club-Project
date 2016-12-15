@@ -1,4 +1,4 @@
-package model_for_manager;
+package model_for_scheduling;
 
 public class SchedEventObj {
 
