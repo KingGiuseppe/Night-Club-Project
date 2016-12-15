@@ -4,8 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -45,6 +45,7 @@ public class PaneForRevenue {
 	private Label topLbl;
 	private Labeled directionsLbl;
 	private Label directions2Lbl;
+	private Button backBtn;
 	private static Scene scene;
 
 	public PaneForRevenue() {
@@ -102,6 +103,10 @@ public class PaneForRevenue {
 		totalRevenueTxt = new TextField();
 		totalRevenueTxt.setEditable(false);
 		
+		backBtn = new Button("Back");
+		backBtn.setOnAction(event -> {
+			OwnerPane.getStage().setScene(getScene());
+		});
 		mainPane.add(topLbl, 1, 0);
 		
 		mainPane.add(timePeriod, 2, 1);
@@ -133,8 +138,9 @@ public class PaneForRevenue {
 		mainPane.add(totalProfitTxt, 2, 16);
 		mainPane.add(totalRevenueLbl, 1, 17);
 		mainPane.add(totalRevenueTxt, 2, 17);
+		mainPane.add(backBtn, 5, 19);
 		
-		scene = new Scene(mainPane, 800, 450);
+		scene = new Scene(mainPane, 750, 570);
 		
 	}
 	

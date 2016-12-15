@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model_for_newuser.NewUser;
+import view_for_login.MenuBarForLogout;
 
 public class ManagerPane {
 
@@ -18,7 +19,8 @@ public class ManagerPane {
 		stage = new Stage();
 		mainPane = new BorderPane();
 		mainPane.setCenter(buttons.getPane());
-		
+		MenuBarForLogout logout = new MenuBarForLogout();
+		mainPane.setTop(logout.getMenu(0));
 		scene = new Scene(mainPane, 900, 500);
 		stage.setScene(scene);
 		stage.setTitle("Manager View");

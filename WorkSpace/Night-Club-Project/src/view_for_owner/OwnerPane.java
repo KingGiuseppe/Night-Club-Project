@@ -1,10 +1,19 @@
 package view_for_owner;
 
+import javafx.geometry.HPos;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model_for_newuser.NewUser;
+import view_for_login.Main_Window;
+import view_for_login.MenuBarForLogout;
 
 public class OwnerPane {
 
@@ -12,19 +21,38 @@ public class OwnerPane {
 	private static NewUser user;
 	private BorderPane mainPane;
 	private MenuBarForOwnerPane menuBar;
-	private WelcomePaneForOwnerPane welcomePane;
+	private Label text1Lbl;
+	private Label text2Lbl;
+	private Label text3Lbl;
+	private GridPane textPane;
+	private MenuBar menuBarLogout;
+	private Menu fileMenu;
+	private MenuItem logoutMenuItem;
 	private static Scene scene;
 
 	public OwnerPane() {
 		stage = new Stage();
+		MenuBarForLogout logout = new MenuBarForLogout();
 		menuBar = new MenuBarForOwnerPane();
 		mainPane = new BorderPane();
-		welcomePane = new WelcomePaneForOwnerPane();
-		
-		
-		mainPane.setLeft(menuBar.getPane());
-		mainPane.setCenter(new Label("LOOK"));
-		scene = new Scene(mainPane, 900, 500);
+		text1Lbl = new Label("Welcome!");
+		text1Lbl.setFont(Font.font(30));
+		text2Lbl = new Label("What would you like to do today?");
+		text2Lbl.setFont(Font.font(25));
+		text3Lbl = new Label("Please click a button below");
+		text3Lbl.setFont(Font.font(25));
+		textPane = new GridPane();
+		textPane.add(text1Lbl, 0, 0);
+		textPane.setAlignment(Pos.CENTER);
+		textPane.setHalignment(text1Lbl, HPos.CENTER);
+		textPane.add(text2Lbl, 0, 1);
+		textPane.setHalignment(text2Lbl, HPos.CENTER);
+		textPane.add(text3Lbl, 0, 6);
+		textPane.setHalignment(text3Lbl, HPos.CENTER);
+		mainPane.setCenter(textPane);
+		mainPane.setTop(logout.getMenu(2));
+		mainPane.setBottom(menuBar.getPane());
+		scene = new Scene(mainPane, 750, 400);
 		stage.setScene(scene);
 		stage.setTitle("The King's View");
 	}

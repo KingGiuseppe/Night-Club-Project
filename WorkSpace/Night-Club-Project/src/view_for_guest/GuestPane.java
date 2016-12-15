@@ -6,6 +6,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model_for_newuser.NewUser;
+import view_for_login.MenuBarForLogout;
 
 public class GuestPane {
 
@@ -18,14 +19,14 @@ public class GuestPane {
 
 	public GuestPane() {
 		stage = new Stage();
-		
+		MenuBarForLogout logout = new MenuBarForLogout();
 		mainPane = new BorderPane();
 		buttonPane = new ButtonTabForGuestPane();
 		eventsPanel = new EventsPanel();
 		
 		//mainPane.setTop(buttonPane.getPane());
 		mainPane.setCenter(eventsPanel.getPane());
-		
+		mainPane.setTop(logout.getMenu(1));
 		
 		scene = new Scene(mainPane, 900, 500);	
 		stage.setScene(scene);
@@ -33,6 +34,9 @@ public class GuestPane {
 	}
 	public static void showStage() {
 		stage.show();
+	}
+	public static Stage getStage() {
+		return stage;
 	}
 	
 	public static void setUser(NewUser theUser) {
