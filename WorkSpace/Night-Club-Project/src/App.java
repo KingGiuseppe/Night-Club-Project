@@ -3,6 +3,7 @@ import bags.CreateEventBag;
 import bags.ScheduleList;
 import controller.AddToSchedController;
 import controller.CreateEventController;
+import controller.ForgotPassController;
 import controller.LoginController;
 import controller.NewUserController;
 import controller.SchedulingController;
@@ -28,7 +29,7 @@ public class App extends Application {
 		NewUserController newUserCont = new NewUserController(accountModel, view);
 		SchedulingController schedCont = new SchedulingController(accountModel, view);
 		LoginController loginCont = new LoginController(accountModel, view);
-
+		ForgotPassController pasCont = new ForgotPassController(accountModel, view);
 	}
 	
 }

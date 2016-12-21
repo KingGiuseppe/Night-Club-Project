@@ -20,14 +20,19 @@ public class ButtonsForNewUserPanel {
 		cancelBtn = new Button("Cancel");
 		
 		continueBtn.setOnAction(event -> {
-			String firstname = NewUserPane.firstNameTxt.getText();
-			String lastname = NewUserPane.lastNameTxt.getText();
-			RadioButton chk = (RadioButton)NewUserPane.genderGroup.getSelectedToggle();
-			String gender = chk.getText();
-			String zip = NewUserPane.zipTxt.getText();
-			person = new Person(firstname, lastname, gender, zip);
+			if(NewUserPane.firstNameTxt.getText().equals("") || NewUserPane.lastNameTxt.getText().equals("") || NewUserPane.zipTxt.getText().equals("") ) {
+				AlertForNewUser alert = new AlertForNewUser();
+			} else {
+				String firstname = NewUserPane.firstNameTxt.getText();
+				String lastname = NewUserPane.lastNameTxt.getText();
+				RadioButton chk = (RadioButton)NewUserPane.genderGroup.getSelectedToggle();
+				String gender = chk.getText();
+				String zip = NewUserPane.zipTxt.getText();
+				person = new Person(firstname, lastname, gender, zip);
+				
+				NewUserPane.getStage().setScene(NewUserPane2.getScene());
+			}
 			
-			NewUserPane.getStage().setScene(NewUserPane2.getScene());
 		});
 		
 		cancelBtn.setOnAction(event -> {

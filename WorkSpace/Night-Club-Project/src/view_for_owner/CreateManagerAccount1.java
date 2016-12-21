@@ -62,6 +62,7 @@ public class CreateManagerAccount1 {
 		radPane = new HBox(20);
 
 		maleRad = new RadioButton("Male");
+		maleRad.setSelected(true);
 		femaleRad = new RadioButton("Female");
 		genderGroup = new ToggleGroup();
 		maleRad.setToggleGroup(genderGroup);

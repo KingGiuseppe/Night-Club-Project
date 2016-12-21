@@ -25,6 +25,7 @@ public class GuestPane {
 		eventsPanel = new EventsPanel();
 		
 		mainPane.setCenter(eventsPanel.getPane());
+		eventsPanel.setAccount(0);
 		mainPane.setTop(logout.getMenu(0));
 		
 		scene = new Scene(mainPane, 900, 500);	

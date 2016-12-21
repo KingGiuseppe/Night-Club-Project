@@ -6,6 +6,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import model_for_newuser.Person;
+import view_for_login.AlertForNewUser;
+import view_for_login.NewUserPane;
 
 public class ButtonsForCreateManAcc1 {
 
@@ -21,6 +23,9 @@ public class ButtonsForCreateManAcc1 {
 		cancelBtn = new Button("Cancel");
 		
 		continueBtn.setOnAction(event -> {
+			if(CreateManagerAccount1.firstNameTxt.getText().equals("") || CreateManagerAccount1.lastNameTxt.getText().equals("") || CreateManagerAccount1.zipTxt.getText().equals("") ) {
+				AlertForNewUser alert = new AlertForNewUser();
+			} else {
 			String firstname = CreateManagerAccount1.firstNameTxt.getText();
 			String lastname = CreateManagerAccount1.lastNameTxt.getText();
 			RadioButton chk = (RadioButton)CreateManagerAccount1.genderGroup.getSelectedToggle();
@@ -29,6 +34,7 @@ public class ButtonsForCreateManAcc1 {
 			person = new Person(firstname, lastname, gender, zip);
 			
 			OwnerPane.getStage().setScene(CreateManagerAccount2.getScene());
+			}
 		});
 		
 		cancelBtn.setOnAction(event -> {

@@ -3,6 +3,8 @@ package view_for_login;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model_for_event_creation.CreateEventEventListener;
+import model_for_login.ForgotPassEventListener;
+import model_for_login.ForgotPassEventListener2;
 import model_for_login.LoginEventListener;
 import model_for_newuser.NewUserEventListener;
 import model_for_scheduling.AddToScheduleEventListener;
@@ -23,6 +25,8 @@ public class Main_Window {
 	private static SchedulingEventListener schedulingListener;
 	private static AddToScheduleEventListener addToSchedListener;
 	private static CreateEventEventListener createEventEventListener;
+	private static ForgotPassEventListener forgotPassEventListener;
+	private static ForgotPassEventListener2 forgotPassEventListener2;
 
 	public Main_Window(Stage stage) {
 		Main_Window.stage = stage;
@@ -89,6 +93,19 @@ public class Main_Window {
 	public static CreateEventEventListener getCreateEventEventListener() {
 		return createEventEventListener;
 	}
-	
+
+	public static ForgotPassEventListener getForgotPassListener() {
+		return forgotPassEventListener;
+	}
+	public void setForgotPassEventListener(ForgotPassEventListener ev){
+		this.forgotPassEventListener = ev;
+	}
+
+	public static ForgotPassEventListener2 getForgotPassListener2() {
+		return forgotPassEventListener2;
+	}
+	public void setForgotPassEventListener2(ForgotPassEventListener2 forgotPassEventListener22){
+		this.forgotPassEventListener2 = forgotPassEventListener22;
+	}
 	
 }

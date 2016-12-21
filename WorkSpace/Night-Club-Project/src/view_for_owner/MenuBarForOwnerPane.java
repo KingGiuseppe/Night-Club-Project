@@ -51,7 +51,9 @@ public class MenuBarForOwnerPane {
 		eventBtn.setPrefWidth(200);
 		eventBtn.setPrefHeight(50);
 		eventBtn.setOnAction(event -> {
+			ep.setAccount(2);
 			OwnerPane.getStage().setScene(new Scene(ep.getPane(), 600, 600));
+			
 		});
 		buttonPane.getChildren().addAll(createManAccBtn, revenueBtn, schedulingBtn, eventBtn);
 		buttonPane.setAlignment(Pos.TOP_CENTER);

@@ -20,16 +20,10 @@ public class MenuBarForLogout {
 		logoutMenuItem = new MenuItem("Logout");
 		fileMenu.getItems().add(logoutMenuItem);
 		menuBarLogout.getMenus().add(fileMenu);
+		
 		logoutMenuItem.setOnAction(event -> {
-			LogoutAlert alert = new LogoutAlert();
-			Main_Window.getStage().show();
-			if(i == 2) {
-				OwnerPane.getStage().close();
-			} else if( i == 1) {
-				ManagerPane.getStage().close();
-			} else if(i == 0) {
-				GuestPane.getStage().close();
-			}
+			Login_Pane.clearFields();
+			LogoutAlert alert = new LogoutAlert(i);
 		});
 		return menuBarLogout;
 	}

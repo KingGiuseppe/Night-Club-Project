@@ -22,6 +22,7 @@ public class ButtonsForLoginPanel {
 		loginBtn = new Button("Login");
 
 		NewUserPane nup = new NewUserPane();
+		ForgotPasswordPane fpp = new ForgotPasswordPane();
 
 		loginBtn.setOnAction(event -> {
 			String username = Login_Pane.getUsername();
@@ -43,7 +44,6 @@ public class ButtonsForLoginPanel {
 					Main_Window.closeStage();
 				}
 				if (user.getType() == 2) {
-					System.out.println("Here");
 					OwnerPane.showStage();
 					Main_Window.closeStage();
 				}
@@ -61,7 +61,7 @@ public class ButtonsForLoginPanel {
 
 		forgotPassBtn = new Button("Forgot Password?");
 		forgotPassBtn.setOnAction(event -> {
-			System.out.println("Hello Forgot Password");
+			fpp.showStage();
 		});
 
 		pane = new HBox(20);

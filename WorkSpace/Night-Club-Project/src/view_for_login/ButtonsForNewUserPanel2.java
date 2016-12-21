@@ -26,22 +26,25 @@ public class ButtonsForNewUserPanel2 {
 			String username = NewUserPane2.usernameTxt.getText();
 			String password = NewUserPane2.passwordTxt.getText();
 			String password2 = NewUserPane2.password2Txt.getText();
+			if(emailAddress.equals("") || username.equals("") || password.equals("") || password2.equals("")){ 
+				AlertForNewUser alert = new AlertForNewUser();
+			} else {
+				if (password.equals(password2) == false) {
+					PasswordsDontMatchAlert pdma = new PasswordsDontMatchAlert();
 
-			if (password.equals(password2) == false) {
-				PasswordsDontMatchAlert pdma = new PasswordsDontMatchAlert();
+				} else if (password.equals(password2)) {
+					
+					NewUserObject userEvent = new NewUserObject(this, ButtonsForNewUserPanel.getPerson().getFirstName(),
+							ButtonsForNewUserPanel.getPerson().getLastName(),
+							ButtonsForNewUserPanel.getPerson().getGender(), ButtonsForNewUserPanel.getPerson().getZip(),
+							emailAddress, username, password, 0);
 
-			} else if (password.equals(password2)) {
+					if (Main_Window.getNewUserListener() != null) {
+						Main_Window.getNewUserListener().createBtnClicked(userEvent);
+					}
 
-				NewUserObject userEvent = new NewUserObject(this, ButtonsForNewUserPanel.getPerson().getFirstName(),
-						ButtonsForNewUserPanel.getPerson().getLastName(),
-						ButtonsForNewUserPanel.getPerson().getGender(), ButtonsForNewUserPanel.getPerson().getZip(),
-						emailAddress, username, password, 0);
-
-				if (Main_Window.getNewUserListener() != null) {
-					Main_Window.getNewUserListener().createBtnClicked(userEvent);
+					AccountCreatedAlert aca = new AccountCreatedAlert();
 				}
-
-				AccountCreatedAlert aca = new AccountCreatedAlert();
 			}
 		});
 

@@ -3,6 +3,7 @@ package bags;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import model_for_newuser.NewUser;
+import view_for_login.PasswordChangedAlert;
 
 public class AccountBag {
 
@@ -19,7 +20,8 @@ public class AccountBag {
 		this.accounts.add(new NewUser("e", "e", "e", "e", "e", "e", "e", 1));
 		this.accounts.add(new NewUser("f", "f", "f", "f", "f", "f", "f", 1));
 		this.accounts.add(new NewUser("g", "g", "g", "g", "g", "g", "g", 1));
-		this.accounts.add(new NewUser("Giuseppe", "Barbieri", "male", "11766", "kinggiuseppe1@gmail.com", "Admin", "admin", 2));
+		this.accounts.add(
+				new NewUser("Giuseppe", "Barbieri", "male", "11766", "kinggiuseppe1@gmail.com", "Admin", "admin", 2));
 	}
 
 	public void addGuestAcc(NewUser acc) {
@@ -32,15 +34,40 @@ public class AccountBag {
 	}
 
 	public NewUser getUser(String username, String pass) {
-		ListIterator<NewUser> lIter;
-		lIter = accounts.listIterator();
+
 		int index = 0;
-		while (lIter.hasNext()) {
-			if (lIter.next().getUsername().equalsIgnoreCase(username)) {
-				if (lIter.previous().getPassword().equals(pass)) {
-					return lIter.next();
+		for (NewUser e : accounts) {
+			if (accounts.get(index).getUsername().equalsIgnoreCase(username)) {
+				if (accounts.get(index).getPassword().equals(pass)) {
+					return e;
 				}
 			}
+			index++;
+		}
+		return null;
+	}
+
+	public NewUser getUser2(String username, String email) {
+		int index = 0;
+		for (NewUser e : accounts) {
+			if (accounts.get(index).getUsername().equalsIgnoreCase(username)) {
+				if (accounts.get(index).getEmail().equalsIgnoreCase(email)) {
+					return e;
+				}
+			}
+			index++;
+		}
+		return null;
+
+	}
+
+	public NewUser getUser(String username) {
+		int index = 0;
+		for (NewUser e : accounts) {
+			if (accounts.get(index).getUsername().equalsIgnoreCase(username)) {
+				return e;
+			}
+			index++;
 		}
 		return null;
 
@@ -60,6 +87,19 @@ public class AccountBag {
 	public String toString() {
 		return "AccountBag [accounts=" + accounts + ", managerList=" + managerList + "]";
 	}
-	
-	
+
+	public void setuser(NewUser user) {
+		ListIterator<NewUser> lIter;
+		lIter = accounts.listIterator();
+		int index = 0;
+		while (lIter.hasNext()) {
+			if (accounts.get(index).getUsername().equalsIgnoreCase(user.getUsername())) {
+				accounts.set(index, user);
+				PasswordChangedAlert alert = new PasswordChangedAlert();
+			}
+			index++;
+		}
+
+	}
+
 }

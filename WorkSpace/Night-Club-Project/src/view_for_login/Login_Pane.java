@@ -57,5 +57,8 @@ public class Login_Pane {
 	public static String getPass() {
 		return passTxt.getText();
 	}
-	
+	public static void clearFields(){ 
+		unTxt.clear();
+		passTxt.clear();
+	}
 }

@@ -15,6 +15,7 @@ public class ButtonTabForGuestPane {
 		pane = new HBox();
 		
 		eventsBtn = new Button("Events");
+		
 		friendsBtn = new Button("Friend Zone");
 		
 		pane.getChildren().addAll(eventsBtn, friendsBtn);

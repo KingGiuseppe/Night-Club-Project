@@ -29,16 +29,15 @@ public class ScheduleFinalizePane {
 	private Menu fileMenu;
 	private MenuItem printItem;
 	private MenuItem closeItem;
-	private static TableView table;
 	private static ObservableList<ShiftObject> obsList;
 	private static TableView tableView;
 	private static HBox tablePane;
 	
 	public ScheduleFinalizePane() {
 		stage = new Stage();
-		table = new TableView();
 		finalizePane = new BorderPane();
 		tvfsp = new TableViewForSchedulingPane();
+		tvfsp.getTableView().refresh();
 		menuBar = new MenuBar();
 		fileMenu = new Menu("File");
 		printItem = new MenuItem("Print");
@@ -50,7 +49,7 @@ public class ScheduleFinalizePane {
 		menuBar.getMenus().add(fileMenu);
 		
 		finalizePane.setTop(menuBar);
-		finalizePane.setCenter(TableViewForSchedulingPane.getPane());
+		finalizePane.setCenter(tvfsp.getPane());
 		
 		scene = new Scene(finalizePane, 700, 300);
 		stage.setScene(scene);
