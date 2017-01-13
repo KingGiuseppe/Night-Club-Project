@@ -20,7 +20,7 @@ public class CreateEventController {
 			@Override
 			public void createEventBtnClicked(CreateEventObject ev) {
 				CreateEventPaneObject eventObj = new CreateEventPaneObject(ev.getEventName(), ev.getDate(),
-						ev.getGenre(), ev.getArtist(), ev.getPictureLink());
+						ev.getGenre(), ev.getArtist());
 				
 				model.addPane(eventObj);
 				

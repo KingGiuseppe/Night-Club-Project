@@ -13,6 +13,7 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import view_for_manager.ManagerPane;
@@ -21,7 +22,7 @@ import view_for_owner.OwnerPane;
 public class EventsPanel {
 
 	private Label topLabel;
-	private HBox eventPane;
+	private VBox eventPane;
 	private BorderPane borderPane;
 	private HBox labelPane;
 	private Button backBtn;
@@ -30,12 +31,14 @@ public class EventsPanel {
 	public EventsPanel() {
 		borderPane = new BorderPane();
 		CreateEventBag bag = new CreateEventBag();
-		eventPane = new HBox();
+		eventPane = new VBox();
 		eventPane.setBorder(new Border(
 				new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, 
 						CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 		eventPane.setAlignment(Pos.CENTER);
-		eventPane.getChildren().add(bag.getList().get(0).getPane());
+		for(int i = 0; i < bag.getNElems(); i++){
+			eventPane.getChildren().add(bag.getList().get(i).getPane());
+		}
 		borderPane.setCenter(eventPane);
 		
 		topLabel = new Label("Events and Dates");

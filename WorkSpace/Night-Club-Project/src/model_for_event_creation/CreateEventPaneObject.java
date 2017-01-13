@@ -29,14 +29,14 @@ public class CreateEventPaneObject {
 	private String pictureLink;
 	private static final int nElems = 0;
 	
-	public CreateEventPaneObject(String eventName, String date, String musicType, String artist, String pictureLink) {
+	public CreateEventPaneObject(String eventName, String date, String musicType, String artist) {
 		super();
 		gridPane = new GridPane();
 		this.eventName = eventName;
 		this.date = date;
 		this.musicType = musicType;
 		this.artist = artist;
-		this.pictureLink = pictureLink;
+		//this.pictureLink = pictureLink;
 		setPane();
 	}
 	
@@ -90,8 +90,8 @@ public class CreateEventPaneObject {
 		artistLbl.setFont(Font.font(20));
 		
 		pictureLbl = new Label(" ");
-		imageView = ImageViewBuilder.create().image(new Image(this.pictureLink, 100, 100, false, false)).build();       
-		pictureLbl.setGraphic(imageView);
+		//imageView = ImageViewBuilder.create().image(new Image(this.pictureLink, 100, 100, false, false)).build();       
+		//pictureLbl.setGraphic(imageView);
 		
 		buyBtn = new Button("Buy ticket");
 		buyBtn.setOnAction(event -> {

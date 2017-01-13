@@ -89,9 +89,8 @@ public class PaneForCreateEvent2 {
 		
 		createEventBtn.setOnAction(event -> {
 			CreateEventObject eventObj = new CreateEventObject(this, PaneForCreateEvent1.getEventName(), PaneForCreateEvent1.getDate(), 
-					PaneForCreateEvent1.getGenre(), PaneForCreateEvent1.getArtist()
-					);
-			System.out.println("Pane2 : " + PaneForCreateEvent1.getEventName());
+					PaneForCreateEvent1.getGenre(), PaneForCreateEvent1.getArtist());
+			
 			if(Main_Window.getCreateEventEventListener() != null) {
 				Main_Window.getCreateEventEventListener().createEventBtnClicked(eventObj);
 			}
