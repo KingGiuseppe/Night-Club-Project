@@ -23,7 +23,7 @@ public class MenuBarForOwnerPane {
 		CreateManagerAccount1 cma = new CreateManagerAccount1();
 		SchedulingPane sp = new SchedulingPane();
 		PaneForRevenue rp = new PaneForRevenue();
-		EventsPanel ep = new EventsPanel();
+		
 		buttonPane = new HBox(5);
 		
 		createManAccBtn = new Button("Create New Manager Account");
@@ -51,6 +51,7 @@ public class MenuBarForOwnerPane {
 		eventBtn.setPrefWidth(200);
 		eventBtn.setPrefHeight(50);
 		eventBtn.setOnAction(event -> {
+			EventsPanel ep = new EventsPanel();
 			ep.setAccount(2);
 			OwnerPane.getStage().setScene(new Scene(ep.getPane(), 600, 600));
 			

@@ -1,6 +1,11 @@
 package view_for_guest;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import bags.CreateEventBag;
 import javafx.geometry.Pos;
@@ -19,6 +24,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import model_for_event_creation.CreateEventPaneObject;
 import view_for_manager.ManagerPane;
 import view_for_owner.OwnerPane;
 
@@ -34,10 +40,10 @@ public class EventsPanel {
 	private Button rListBtn;
 	private HBox btnPane;
 	private ScrollPane sp;
+	private CreateEventBag bag2;
 
 	public EventsPanel() {
 		borderPane = new BorderPane();
-		//bag = new CreateEventBag();
 		
 		eventPane = new VBox();
 		eventPane.setBorder(new Border(
@@ -60,6 +66,8 @@ public class EventsPanel {
 				bag.getList().get(i).setPane();
 				eventPane.getChildren().add(bag.getList().get(i).getPane());
 			}
+			bag.loadEvents();
+			
 			
 		});
 		backBtn.setOnAction(event -> {
@@ -92,5 +100,6 @@ public class EventsPanel {
 	public void setAccount(int num) {
 		this.num = num;
 	}
+	
 	
 }

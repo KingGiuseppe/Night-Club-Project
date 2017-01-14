@@ -1,9 +1,11 @@
 package bags;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,16 +24,15 @@ public class CreateEventBag implements Serializable {
 	public CreateEventBag() {
 		super();
 		this.panes = new ArrayList<CreateEventPaneObject>();
+
 		this.panes.add(new CreateEventPaneObject("Rap Event", "5/12/17", "Rap", "SchoolBoy Q",
 				"https://lh3.googleusercontent.com/-bzohT0mKNRw/UWTBpyoTZbI/AAAAAAAAABg/HmI63n_Pbv8/w800-h800/photo.jpg"));
 		this.panes.add(new CreateEventPaneObject("Reggae Event", "2/25/17", "Ska", "Sublime",
 				"https://s-media-cache-ak0.pinimg.com/originals/f6/e0/5d/f6e05d52b1740eed6c498a1f9145beb6.jpg"));
-		// this.panes.add(new CreateEventPaneObject("Rap Event", "3/14/17",
-		// "Rap", "J. Cole",
-		// "https://s-media-cache-ak0.pinimg.com/originals/1d/d1/93/1dd193e12c5a639bedf2261f2b3946c4.jpg"));
-		// this.panes.add(new CreateEventPaneObject("Summer Event", "8/3/17",
-		// "Mixed Genres", "Mixed Artists",
-		// "https://0.s3.envato.com/files/100198493/Summer-Music-Event-InlinePreview-590x300.jpg"));
+		this.panes.add(new CreateEventPaneObject("Rap Event", "3/14/17", "Rap", "J. Cole",
+				"https://s-media-cache-ak0.pinimg.com/originals/1d/d1/93/1dd193e12c5a639bedf2261f2b3946c4.jpg"));
+		this.panes.add(new CreateEventPaneObject("Summer Event", "8/3/17", "Mixed Genres", "Mixed Artists",
+				"https://0.s3.envato.com/files/100198493/Summer-Music-Event-InlinePreview-590x300.jpg"));
 	}
 
 	public int getNElems() {
@@ -47,26 +48,50 @@ public class CreateEventBag implements Serializable {
 	}
 
 	public void saveToFile() {
-		 ObjectOutputStream outputStream = null;
-	        try {
-	            outputStream = new ObjectOutputStream(new FileOutputStream("EventsList.dat"));
-	            outputStream.writeObject(new CreateEventPaneObject("Reggae Event", "2/25/17", "Ska", "Sublime",
-	    				"https://s-media-cache-ak0.pinimg.com/originals/f6/e0/5d/f6e05d52b1740eed6c498a1f9145beb6.jpg"));
-	        } catch (FileNotFoundException ex) {
-	            ex.printStackTrace();
-	        } catch (IOException ex) {
-	            ex.printStackTrace();
-	        } finally {
-	            try {
-	                if (outputStream != null) {
-	                    outputStream.flush();
-	                    outputStream.close();
-	                }
-	            } catch (IOException ex) {
-	                ex.printStackTrace();
-	            }
-	        }
-	        System.out.println("Succeded in writing");
+		ObjectOutputStream outputStream = null;
+		try {
+			outputStream = new ObjectOutputStream(new FileOutputStream("EventsList.dat"));
+			for (CreateEventPaneObject e : panes) {
+				outputStream.writeObject(e);
+			}
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (outputStream != null) {
+					outputStream.flush();
+					outputStream.close();
+				}
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+		System.out.println("Succeded in writing");
+	}
+
+	public void loadEvents() {
+		CreateEventPaneObject e = null;
+		ArrayList<CreateEventPaneObject> myList = new ArrayList<>();
+		try {
+			FileInputStream fileIn = new FileInputStream("EventsList.dat");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			while (in.readObject() != null) {
+				e = (CreateEventPaneObject) in.readObject();
+				in.close();
+				fileIn.close();
+				System.out.println(e.getArtist());
+			}
+
+		} catch (IOException i) {
+			i.printStackTrace();
+			return;
+		} catch (ClassNotFoundException c) {
+			System.out.println("Employee class not found");
+			c.printStackTrace();
+			return;
+		}
 	}
 
 }
