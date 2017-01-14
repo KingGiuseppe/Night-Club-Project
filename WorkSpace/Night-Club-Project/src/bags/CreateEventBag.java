@@ -79,10 +79,11 @@ public class CreateEventBag implements Serializable {
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			while (in.readObject() != null) {
 				e = (CreateEventPaneObject) in.readObject();
-				in.close();
-				fileIn.close();
+				myList.add(e);
 				System.out.println(e.getArtist());
 			}
+			in.close();
+			fileIn.close();
 
 		} catch (IOException i) {
 			i.printStackTrace();
