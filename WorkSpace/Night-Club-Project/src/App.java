@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 import bags.AccountBag;
 import bags.CreateEventBag;
 import bags.ScheduleList;
@@ -11,7 +13,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import view_for_login.Main_Window;
 
-public class App extends Application {
+public class App extends Application implements Serializable{
 
 	public static void main(String[] args){
 		launch(args);

@@ -35,7 +35,7 @@ public class PaneForCreateEvent1 {
 	private Button backBtn;
 	private Button nextBtn;
 	private Label pictureLbl;
-	private TextField pictureTxt;
+	private static TextField pictureTxt;
 	private static Scene scene;
 
 	public PaneForCreateEvent1() {
@@ -73,7 +73,6 @@ public class PaneForCreateEvent1 {
 		});
 		nextBtn = new Button("Next");
 		nextBtn.setOnAction(event -> {
-			System.out.println("here");
 			ManagerPane.getStage().setScene(PaneForCreateEvent2.getScene());
 		});
 		pictureLbl = new Label("Picture link");
@@ -105,7 +104,7 @@ public class PaneForCreateEvent1 {
 		entertainmentPane.setHalignment(backBtn, HPos.RIGHT);
 		entertainmentPane.add(nextBtn, 2, 14);
 		
-		scene = new Scene(entertainmentPane, 390, 490);
+		scene = new Scene(entertainmentPane, 410, 550);
 		
 	}
 	public static Scene getScene() {
@@ -124,7 +123,7 @@ public class PaneForCreateEvent1 {
 		return artistNameTxt.getText();
 	}
 	public static String getImageUrl() {
-		return eventNameTxt.getText();
+		return pictureTxt.getText();
 	}
 	public static String getcostForNight() {
 		return costForNightTxt.getText();

@@ -89,7 +89,7 @@ public class PaneForCreateEvent2 {
 		
 		createEventBtn.setOnAction(event -> {
 			CreateEventObject eventObj = new CreateEventObject(this, PaneForCreateEvent1.getEventName(), PaneForCreateEvent1.getDate(), 
-					PaneForCreateEvent1.getGenre(), PaneForCreateEvent1.getArtist());
+					PaneForCreateEvent1.getGenre(), PaneForCreateEvent1.getArtist(), PaneForCreateEvent1.getImageUrl());
 			
 			if(Main_Window.getCreateEventEventListener() != null) {
 				Main_Window.getCreateEventEventListener().createEventBtnClicked(eventObj);
@@ -131,7 +131,7 @@ public class PaneForCreateEvent2 {
 		createEventPane.setHalignment(backBtn, HPos.RIGHT);
 		createEventPane.add(createEventBtn, 2, 22);
 		
-		scene = new Scene(createEventPane, 430, 670);
+		scene = new Scene(createEventPane, 450, 740);
 		
 	}
 	

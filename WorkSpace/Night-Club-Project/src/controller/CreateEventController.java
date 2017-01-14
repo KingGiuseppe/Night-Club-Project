@@ -10,19 +10,15 @@ import view_for_login.Main_Window;
 
 public class CreateEventController {
 
-	private GridPane grid;
 
 	public CreateEventController(CreateEventBag model, Main_Window view) {
 		view.setCreateEventListener(new CreateEventEventListener() {
 
-			private GridPane grid;
-			private EventsPanel eventPanel;	
 			@Override
 			public void createEventBtnClicked(CreateEventObject ev) {
-				CreateEventPaneObject eventObj = new CreateEventPaneObject(ev.getEventName(), ev.getDate(),
-						ev.getGenre(), ev.getArtist());
 				
-				model.addPane(eventObj);
+				model.addPane(new CreateEventPaneObject(ev.getEventName(), ev.getDate(),
+						ev.getGenre(), ev.getArtist(), ev.getPictureLink()));
 				
 			}
 			

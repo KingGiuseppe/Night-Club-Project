@@ -1,5 +1,6 @@
 package view_for_login;
 
+import bags.CreateEventBag;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model_for_event_creation.CreateEventEventListener;
@@ -36,10 +37,11 @@ public class Main_Window {
 		ManagerPane mp = new ManagerPane();
 		OwnerPane op = new OwnerPane();
 		CreateManagerAccount1 cma = new CreateManagerAccount1();
+		CreateEventBag bag = new CreateEventBag();
 		PaneForCreateEvent1 pce1 = new PaneForCreateEvent1();
 		PaneForCreateEvent2 pce2 = new PaneForCreateEvent2();
 		Scene scene = new Scene(p4mw.getPane(), 450, 250);
-
+		
 		stage.setScene(scene);
 		stage.setTitle("Club Management");
 		stage.show();

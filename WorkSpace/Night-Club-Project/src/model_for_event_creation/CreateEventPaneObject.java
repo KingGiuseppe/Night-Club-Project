@@ -1,5 +1,7 @@
 package model_for_event_creation;
 
+import java.io.Serializable;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -8,7 +10,7 @@ import javafx.scene.image.ImageViewBuilder;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 
-public class CreateEventPaneObject {
+public class CreateEventPaneObject implements Serializable {
 
 	public String eventName;
 	public String date;
@@ -29,16 +31,17 @@ public class CreateEventPaneObject {
 	private String pictureLink;
 	private static final int nElems = 0;
 	
-	public CreateEventPaneObject(String eventName, String date, String musicType, String artist) {
+	public CreateEventPaneObject(String eventName, String date, String musicType, String artist, String pictureLink) {
 		super();
 		gridPane = new GridPane();
 		this.eventName = eventName;
 		this.date = date;
 		this.musicType = musicType;
 		this.artist = artist;
-		//this.pictureLink = pictureLink;
+		this.pictureLink = pictureLink;
 		setPane();
 	}
+	
 	
 	public String getPictureLink() {
 		return pictureLink;
@@ -90,8 +93,8 @@ public class CreateEventPaneObject {
 		artistLbl.setFont(Font.font(20));
 		
 		pictureLbl = new Label(" ");
-		//imageView = ImageViewBuilder.create().image(new Image(this.pictureLink, 100, 100, false, false)).build();       
-		//pictureLbl.setGraphic(imageView);
+		imageView = ImageViewBuilder.create().image(new Image(this.pictureLink, 100, 100, false, false)).build();       
+		pictureLbl.setGraphic(imageView);
 		
 		buyBtn = new Button("Buy ticket");
 		buyBtn.setOnAction(event -> {
