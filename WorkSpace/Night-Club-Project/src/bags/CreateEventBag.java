@@ -39,9 +39,7 @@ public class CreateEventBag implements Serializable {
 	}
 
 	public void addPane(CreateEventPaneObject pane) {
-		System.out.println(panes.size());
 		this.panes.add(pane);
-		System.out.println("Added to event bag! " + panes.size());
 	}
 
 	public ArrayList<CreateEventPaneObject> getList() {
@@ -68,6 +66,7 @@ public class CreateEventBag implements Serializable {
 	                ex.printStackTrace();
 	            }
 	        }
+	        System.out.println("Succeded in writing");
 	}
 
 }

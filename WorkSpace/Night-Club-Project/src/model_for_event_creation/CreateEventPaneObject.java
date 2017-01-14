@@ -33,13 +33,11 @@ public class CreateEventPaneObject implements Serializable {
 	
 	public CreateEventPaneObject(String eventName, String date, String musicType, String artist, String pictureLink) {
 		super();
-		gridPane = new GridPane();
 		this.eventName = eventName;
 		this.date = date;
 		this.musicType = musicType;
 		this.artist = artist;
 		this.pictureLink = pictureLink;
-		setPane();
 	}
 	
 	
@@ -77,6 +75,7 @@ public class CreateEventPaneObject implements Serializable {
 	}
 	
 	public void setPane(){
+		gridPane = new GridPane();
 		eventNameLbl = new Label(this.eventName);
 		eventNameLbl.setFont(Font.font(30));
 		date1Lbl = new Label("Date: ");

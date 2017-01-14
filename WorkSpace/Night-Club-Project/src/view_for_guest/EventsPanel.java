@@ -22,7 +22,7 @@ import javafx.scene.text.Font;
 import view_for_manager.ManagerPane;
 import view_for_owner.OwnerPane;
 
-public class EventsPanel implements Serializable{
+public class EventsPanel {
 
 	private Label topLabel;
 	private VBox eventPane;
@@ -57,6 +57,7 @@ public class EventsPanel implements Serializable{
 			bag = new CreateEventBag();
 			bag.saveToFile();
 			for(int i = 0; i < bag.getNElems(); i++){
+				bag.getList().get(i).setPane();
 				eventPane.getChildren().add(bag.getList().get(i).getPane());
 			}
 			
