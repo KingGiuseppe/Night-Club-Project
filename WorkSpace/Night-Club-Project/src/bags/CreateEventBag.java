@@ -1,5 +1,6 @@
 package bags;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -77,8 +78,12 @@ public class CreateEventBag implements Serializable {
 		try {
 			FileInputStream fileIn = new FileInputStream("EventsList.dat");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
-			while (in.readObject() != null) {
+			while (true) {
+				try {
 				e = (CreateEventPaneObject) in.readObject();
+				} catch (EOFException f) {
+					break;
+				}
 				myList.add(e);
 				System.out.println(e.getArtist());
 			}
