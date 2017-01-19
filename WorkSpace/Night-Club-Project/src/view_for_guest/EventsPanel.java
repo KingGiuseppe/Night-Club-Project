@@ -61,12 +61,13 @@ public class EventsPanel {
 		rListBtn.setOnAction(event -> {
 			
 			bag = new CreateEventBag();
-			bag.saveToFile();
+			//bag.saveToFile();
+			bag.loadEvents();
 			for(int i = 0; i < bag.getNElems(); i++){
 				bag.getList().get(i).setPane();
 				eventPane.getChildren().add(bag.getList().get(i).getPane());
 			}
-			bag.loadEvents();
+			
 			
 			
 		});
