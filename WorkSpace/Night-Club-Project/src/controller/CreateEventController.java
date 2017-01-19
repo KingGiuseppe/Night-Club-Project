@@ -17,8 +17,12 @@ public class CreateEventController {
 			@Override
 			public void createEventBtnClicked(CreateEventObject ev) {
 				
+				model.loadEvents();
+				
 				model.addPane(new CreateEventPaneObject(ev.getEventName(), ev.getDate(),
 						ev.getGenre(), ev.getArtist(), ev.getPictureLink()));
+				
+				model.saveToFile();
 				
 			}
 			

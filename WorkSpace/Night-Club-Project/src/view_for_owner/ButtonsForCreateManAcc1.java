@@ -38,7 +38,7 @@ public class ButtonsForCreateManAcc1 {
 		});
 		
 		cancelBtn.setOnAction(event -> {
-			OwnerPane.getStage().setScene(OwnerPane.getScene());;
+			OwnerPane.getStage().setScene(OwnerPane.getScene());
 		});
 		
 		btnPane = new HBox(20);

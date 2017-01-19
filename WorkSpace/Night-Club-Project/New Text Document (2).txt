@@ -1,0 +1,14 @@
+Save load function for schedule and use that to show it on the finalize schedule button.
+
+
+Set up Revenue page for owner
+
+Clean up create event panes
+
+clean up manager pane
+
+set up send notification button
+
+set up delete events in manager panes
+
+clean up guest pane

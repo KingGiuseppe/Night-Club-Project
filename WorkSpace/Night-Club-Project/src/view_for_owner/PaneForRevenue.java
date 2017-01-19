@@ -53,13 +53,10 @@ public class PaneForRevenue {
 		mainPane.setPadding(new Insets(10, 10, 10, 10));
 		mainPane.setHgap(10);
 		mainPane.setVgap(10);
-		
 		calender = new DatePicker();
 		options = FXCollections.observableArrayList("Night","Week",
 			        "Month","Year");
 		timePeriod = new ComboBox(options);
-		
-		
 		
 		topLbl = new Label("Revenue");
 		topLbl.setFont(Font.font(50));
@@ -105,7 +102,7 @@ public class PaneForRevenue {
 		
 		backBtn = new Button("Back");
 		backBtn.setOnAction(event -> {
-			OwnerPane.getStage().setScene(getScene());
+			OwnerPane.getStage().setScene(OwnerPane.getScene());
 		});
 		mainPane.add(topLbl, 1, 0);
 		
