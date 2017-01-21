@@ -8,6 +8,8 @@ import controller.CreateEventController;
 import controller.ForgotPassController;
 import controller.LoginController;
 import controller.NewUserController;
+import controller.RemoveEvBtnClickedController;
+import controller.RemoveEventController;
 import controller.SchedulingController;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -32,6 +34,8 @@ public class App extends Application implements Serializable{
 		SchedulingController schedCont = new SchedulingController(accountModel, view);
 		LoginController loginCont = new LoginController(accountModel, view);
 		ForgotPassController pasCont = new ForgotPassController(accountModel, view);
+		RemoveEventController removeEvController = new RemoveEventController(createEventBag, view);
+		RemoveEvBtnClickedController removeEvBtnController = new RemoveEvBtnClickedController(createEventBag, view);
 	}
 	
 }

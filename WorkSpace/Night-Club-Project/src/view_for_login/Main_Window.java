@@ -8,12 +8,15 @@ import model_for_login.ForgotPassEventListener;
 import model_for_login.ForgotPassEventListener2;
 import model_for_login.LoginEventListener;
 import model_for_newuser.NewUserEventListener;
+import model_for_removeEv.RemoveEvEventListener;
+import model_for_removeEv.RemoveEventBtnClickedEventListener;
 import model_for_scheduling.AddToScheduleEventListener;
 import model_for_scheduling.SchedulingEventListener;
 import view_for_guest.GuestPane;
 import view_for_manager.ManagerPane;
 import view_for_manager.PaneForCreateEvent1;
 import view_for_manager.PaneForCreateEvent2;
+import view_for_manager.PaneForRemoveEvent;
 import view_for_owner.CreateManagerAccount1;
 import view_for_owner.OwnerPane;
 
@@ -28,10 +31,12 @@ public class Main_Window {
 	private static CreateEventEventListener createEventEventListener;
 	private static ForgotPassEventListener forgotPassEventListener;
 	private static ForgotPassEventListener2 forgotPassEventListener2;
+	private static RemoveEvEventListener removeEvEventListener;
+	private static RemoveEventBtnClickedEventListener removeEventBtnEventListener;
 
 	public Main_Window(Stage stage) {
 		Main_Window.stage = stage;
-
+		PaneForRemoveEvent removeEv = new PaneForRemoveEvent();
 		PaneForMainWindow p4mw = new PaneForMainWindow();
 		GuestPane gp = new GuestPane();
 		ManagerPane mp = new ManagerPane();
@@ -108,6 +113,20 @@ public class Main_Window {
 	}
 	public void setForgotPassEventListener2(ForgotPassEventListener2 forgotPassEventListener22){
 		this.forgotPassEventListener2 = forgotPassEventListener22;
+	}
+
+	public void setRemoveEventListener(RemoveEvEventListener removeEvEventListener) {
+		this.removeEvEventListener = removeEvEventListener;
+	}
+	public static RemoveEvEventListener getRemoveEvEventListener() {
+		return removeEvEventListener;
+	}
+
+	public static RemoveEventBtnClickedEventListener getRemoveEventBtnListener() {
+		return removeEventBtnEventListener;
+	}
+	public void setRemoveEventBtnClickedEventListener(RemoveEventBtnClickedEventListener removeEventBtnClickedEventListener) {
+		this.removeEventBtnEventListener = removeEventBtnClickedEventListener;
 	}
 	
 }
