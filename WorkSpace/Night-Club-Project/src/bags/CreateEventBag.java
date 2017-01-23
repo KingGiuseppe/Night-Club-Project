@@ -113,7 +113,7 @@ public class CreateEventBag implements Serializable {
 		System.out.println("Here " + evName );
 		for (int i = 0; i < this.panes.size(); i++) {
 			if(panes.get(i).getEventName().equalsIgnoreCase(evName)) {
-				System.out.println("Removed");
+				EventRemovedAlert ev = new EventRemovedAlert();
 				panes.remove(i);
 			}
 		}

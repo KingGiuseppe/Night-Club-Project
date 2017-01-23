@@ -27,6 +27,8 @@ public class ButtonsForManagerPane {
 		PaneForCreateEvent1 ev = new PaneForCreateEvent1();
 		PaneForRemoveEvent ev2 = new PaneForRemoveEvent();
 		CreateEventBag evbag = new CreateEventBag();
+		PaneForGuestNotification notify = new PaneForGuestNotification();
+		
 		label = new Label("  Please select a\n   button below!");
 		label.setAlignment(Pos.CENTER);
 		label.setFont(Font.font(15));
@@ -51,7 +53,7 @@ public class ButtonsForManagerPane {
 		setNotificationEventBtn.setPrefWidth(120);
 		setNotificationEventBtn.setPrefHeight(70);
 		setNotificationEventBtn.setOnAction(event -> {
-
+			ManagerPane.getStage().setScene(PaneForGuestNotification.getScene());
 		});
 
 		buttonPane.getChildren().addAll(label, createEventBtn, removeEventBtn, setNotificationEventBtn);

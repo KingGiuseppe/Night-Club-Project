@@ -9,6 +9,4 @@ clean up manager pane
 
 set up send notification button
 
-set up delete events in manager panes
-
 clean up guest pane

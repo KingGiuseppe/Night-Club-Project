@@ -18,23 +18,29 @@ public class PaneForRemoveEvent {
 	private GridPane removeEvPane;
 	private Button removeEventBtn;
 	private HBox listView;
+	private Button backBtn;
 	private static Scene scene;
 	private static ListView<String> eventsListView;
 	private static ObservableList<String> el;
 
 	public PaneForRemoveEvent() {
-		// removeEvPane = new GridPane();
 		listView = new HBox();
 		removeEventBtn = new Button("Remove Event");
 		eventsListView = new ListView<String>();
+		backBtn = new Button("Back");
+		backBtn.setOnAction(event -> {
+			ManagerPane.getStage().setScene(ManagerPane.getScene());
+		});
+		
 		removeEventBtn.setOnAction(event -> {
 
 			RemoveEventObj obj = new RemoveEventObj(eventsListView.getSelectionModel().getSelectedItem());
 			if (Main_Window.getRemoveEvEventListener() != null) {
 				Main_Window.getRemoveEvEventListener().removeEvBtnClicked(obj);
 			}
+			
 		});
-		listView.getChildren().addAll(eventsListView, removeEventBtn);
+		listView.getChildren().addAll(eventsListView, removeEventBtn, backBtn);
 
 		scene = new Scene(listView, 850, 570);
 

@@ -12,8 +12,8 @@ public class EventRemovedAlert {
 		alert.setTitle("Event Deleted!");
 		alert.setHeaderText("The event has been deleted!");
 		alert.setContentText("Click ok to continue.");
-		
 		alert.showAndWait();
+		ManagerPane.getStage().setScene(ManagerPane.getScene());
 	
 	}
 }
