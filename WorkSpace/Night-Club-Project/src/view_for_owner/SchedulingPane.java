@@ -83,4 +83,10 @@ public class SchedulingPane {
 			managerList.setItems(ml);
 		}
 	}
+	public static ListView<String> getListView() {
+		return managerList;
+	}
+	
+	
+	
 }

@@ -101,7 +101,7 @@ public class TableViewForSchedulingPane {
 		getObsList();
 	}
 	public static ObservableList<ShiftObject> getObsList() {
-		schedTableView.setItems(obsScheduleList);;
+		schedTableView.setItems(obsScheduleList);
 		return obsScheduleList;
 	}
 	
@@ -113,6 +113,13 @@ public class TableViewForSchedulingPane {
 	}
 	public static TableView getTableView() {
 		return schedTableView;
+	}
+	
+	public static ObservableList<ShiftObject> getObsList2() {
+		return obsScheduleList;
+	}
+	public static ArrayList<ShiftObject> getList() {
+		return scheduleList;
 	}
 }
 

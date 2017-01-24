@@ -1,5 +1,6 @@
 package view_for_owner;
 
+import bags.ScheduleList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -46,7 +47,11 @@ public class ButtonsForSchedulingPane {
 		});
 		scheduleBtn = new Button("Finalize Schedule");
 		scheduleBtn.setOnAction(event -> {
+			ScheduleList sl = new ScheduleList();
+			sl.loadEvents();
+			sfp.setShiftListView(sl.getShift());
 			sfp.showStage();
+			
 		});
 
 		btnPane.getChildren().addAll(addToSchedBtn, scheduleBtn);

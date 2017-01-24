@@ -1,8 +1,10 @@
 package model_for_scheduling;
 
+import java.io.Serializable;
+
 import model_for_newuser.NewUser;
 
-public class ShiftObject {
+public class ShiftObject implements Serializable {
 
 	
 	private String sunday, monday, tuesday;

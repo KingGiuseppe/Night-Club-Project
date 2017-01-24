@@ -41,6 +41,7 @@ public class ButtonsForLoginPanel {
 				}
 				if (user.getType() == 1) {
 					ManagerPane.showStage();
+					ManagerPane.setMessage();
 					Main_Window.closeStage();
 				}
 				if (user.getType() == 2) {

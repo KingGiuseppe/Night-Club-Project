@@ -2,6 +2,7 @@ package view_for_manager;
 
 import bags.CreateEventBag;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Border;
@@ -13,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import view_for_guest.EventsPanel;
 import view_for_login.Main_Window;
 
 public class ButtonsForManagerPane {
@@ -22,13 +24,14 @@ public class ButtonsForManagerPane {
 	private Button setNotificationEventBtn;
 	private Label label;
 	private Button removeEventBtn;
+	private Button eventsBtn;
 
 	public ButtonsForManagerPane() {
 		PaneForCreateEvent1 ev = new PaneForCreateEvent1();
 		PaneForRemoveEvent ev2 = new PaneForRemoveEvent();
 		CreateEventBag evbag = new CreateEventBag();
 		PaneForGuestNotification notify = new PaneForGuestNotification();
-		
+		EmailLoginPane emlp = new EmailLoginPane();
 		label = new Label("  Please select a\n   button below!");
 		label.setAlignment(Pos.CENTER);
 		label.setFont(Font.font(15));
@@ -42,6 +45,9 @@ public class ButtonsForManagerPane {
 			ManagerPane.getStage().setScene(PaneForCreateEvent1.getScene());
 		});
 		removeEventBtn = new Button("Remove Event");
+		removeEventBtn.setPrefWidth(120);
+		removeEventBtn.setPrefHeight(70);
+		
 		removeEventBtn.setOnAction(event -> {
 			if(Main_Window.getRemoveEventBtnListener() != null) {
 				Main_Window.getRemoveEventBtnListener().removeEventBtnClicked();
@@ -49,14 +55,23 @@ public class ButtonsForManagerPane {
 			ManagerPane.getStage().setScene(PaneForRemoveEvent.getScene());
 		});
 
+		eventsBtn = new Button("Events");
+		eventsBtn.setPrefWidth(120);
+		eventsBtn.setPrefHeight(70);
+		eventsBtn.setOnAction(event -> {
+			EventsPanel ep = new EventsPanel();
+			ep.setAccount(1);
+			ManagerPane.getStage().setScene(new Scene(ep.getPane(), 600, 600));
+		});
 		setNotificationEventBtn = new Button("Send Notification");
 		setNotificationEventBtn.setPrefWidth(120);
 		setNotificationEventBtn.setPrefHeight(70);
 		setNotificationEventBtn.setOnAction(event -> {
+			//EmailLoginPane.showStage();
 			ManagerPane.getStage().setScene(PaneForGuestNotification.getScene());
 		});
 
-		buttonPane.getChildren().addAll(label, createEventBtn, removeEventBtn, setNotificationEventBtn);
+		buttonPane.getChildren().addAll(label, createEventBtn, removeEventBtn, eventsBtn, setNotificationEventBtn);
 
 	}
 

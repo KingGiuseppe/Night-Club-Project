@@ -18,12 +18,13 @@ public class MenuBarForOwnerPane {
 	private Button revenueBtn;
 	private Person person;
 	private Button eventBtn;
+	private Button managerMessageBtn;
 
 	public MenuBarForOwnerPane() {
 		CreateManagerAccount1 cma = new CreateManagerAccount1();
 		SchedulingPane sp = new SchedulingPane();
 		PaneForRevenue rp = new PaneForRevenue();
-		
+		SendMessagePane smp = new SendMessagePane();
 		buttonPane = new HBox(5);
 		
 		createManAccBtn = new Button("Create New Manager Account");
@@ -56,7 +57,13 @@ public class MenuBarForOwnerPane {
 			OwnerPane.getStage().setScene(new Scene(ep.getPane(), 600, 600));
 			
 		});
-		buttonPane.getChildren().addAll(createManAccBtn, revenueBtn, schedulingBtn, eventBtn);
+		managerMessageBtn = new Button("Message For Managers");
+		managerMessageBtn.setPrefWidth(200);
+		managerMessageBtn.setPrefHeight(50);
+		managerMessageBtn.setOnAction(event -> {
+			OwnerPane.getStage().setScene(SendMessagePane.getScene());
+		});
+		buttonPane.getChildren().addAll(createManAccBtn, revenueBtn, schedulingBtn, eventBtn, managerMessageBtn);
 		buttonPane.setAlignment(Pos.TOP_CENTER);
 		
 	}
