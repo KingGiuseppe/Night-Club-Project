@@ -1,0 +1,12 @@
+package view_for_owner;
+
+public class SendMessagePane {
+
+	public SendMessagePane() {
+		mainPane = new HBox();
+		
+		
+	}
+	
+	
+}

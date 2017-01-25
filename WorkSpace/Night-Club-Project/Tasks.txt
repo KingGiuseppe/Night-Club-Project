@@ -1,0 +1,13 @@
+Admin Account:
+	1. Setup Revenue pane
+Manager Account:
+	(Nothing left but finalizing)
+Guest Account:
+	1. Buy Ticket Feature
+	2. Chat to friends
+
+Ect.
+	1. Add save and load feature to AccountBag
+	2. Add Online feature to project
+	3. Finish Styling
+	4. Cash Register App

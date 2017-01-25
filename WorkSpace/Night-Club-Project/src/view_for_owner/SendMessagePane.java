@@ -51,7 +51,7 @@ public class SendMessagePane {
 			}
 
 		});
-		
+
 		backBtn = new Button("Back");
 		backBtn.setOnAction(event -> {
 			OwnerPane.getStage().setScene(OwnerPane.getScene());

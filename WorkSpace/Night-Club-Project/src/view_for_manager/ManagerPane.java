@@ -47,7 +47,6 @@ public class ManagerPane {
 		labelPane.getChildren().addAll(label1, label2, label3);
 		labelPane.setAlignment(Pos.TOP_CENTER);
 		mainPane.setCenter(labelPane);
-
 		scene = new Scene(mainPane, 500, 400);
 		stage.setScene(scene);
 		stage.setTitle("Manager View");

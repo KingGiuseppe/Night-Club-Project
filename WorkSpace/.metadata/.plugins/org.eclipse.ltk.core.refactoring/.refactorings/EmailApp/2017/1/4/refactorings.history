@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Email.java&apos; to &apos;Night-Club-Project/src/view_for_manager&apos;&#x0D;&#x0A;- Original project: &apos;EmailApp&apos;&#x0D;&#x0A;- Destination element: &apos;Night-Club-Project/src/view_for_manager&apos;&#x0D;&#x0A;- Original element: &apos;Email.java&apos;" description="Copy compilation unit" destination="=Night-Club-Project/src&lt;view_for_manager" element1="/src&lt;{Email.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1485153469255" units="1" version="1.0"/>
+</session>

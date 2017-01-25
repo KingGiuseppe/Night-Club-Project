@@ -86,7 +86,6 @@ public class EventsPanel {
 		btnPane = new HBox();
 		borderPane.setTop(labelPane);
 		btnPane.getChildren().addAll(backBtn, rListBtn);
-		borderPane.setLeft(new Label("Pictures"));
 		borderPane.setRight(new Label("Friends Section"));
 		borderPane.setBottom(btnPane);
 		backBtn.setAlignment(Pos.BOTTOM_RIGHT);

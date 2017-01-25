@@ -1,0 +1,43 @@
+import java.util.Properties;
+import java.util.Scanner;
+
+
+public class Email {
+	
+	public static void main(String[] args) {
+		Properties properties = new Properties();
+		properties.put("mail.smtp.auth", "true");
+		properties.put("mail.smtp.starttls.enable", "true");
+		properties.put("mail.smtp.host", "smtp.gmail.com");
+		properties.put("mail.smtp.port", 587);
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Username");
+		final String username = scanner.nextLine();
+		
+		System.out.println("Pass");
+		final String password = scanner.nextLine();
+		
+		System.out.println("From email: ");
+		String fromEmailAddress = scanner.nextLine();
+		
+		System.out.println("To email");
+		String toEmailAddress = scanner.nextLine();
+		
+		System.out.println("Subject");
+		String subject = scanner.nextLine();
+		
+		System.out.println("Message");
+		String message = scanner.nextLine();
+		
+		Session session = Session.getDefaultInstance(properties, new Authenticator() {
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
+	}
+	
+	
+}

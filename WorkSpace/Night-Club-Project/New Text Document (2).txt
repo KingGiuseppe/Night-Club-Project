@@ -1,12 +1,16 @@
-Save load function for schedule and use that to show it on the finalize schedule button.
+Admin Account:
+	1. Setup Revenue pane
+	2. Add Data to Finalize Schedule Pane
+	3. Leave message on manager Account
+Manager Account:
+	(Nothing left but finalizing)
+Guest Account:
+	1. Buy Ticket Feature
+	2. Chat to friends
+	3. Friends attending section
 
-
-Set up Revenue page for owner
-
-Clean up create event panes
-
-clean up manager pane
-
-set up send notification button
-
-clean up guest pane
+Ect.
+	1. Add save and load feature to each bag class
+	2. Add Online feature to project
+	3. Finish Styling
+	
