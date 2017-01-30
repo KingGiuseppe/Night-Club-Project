@@ -14,16 +14,14 @@ public class GuestPane {
 	private static Scene scene;
 	private static NewUser user;
 	private static Stage stage;
-	private ButtonTabForGuestPane buttonPane;
 	private EventsPanel eventsPanel;
 
 	public GuestPane() {
 		stage = new Stage();
 		MenuBarForLogout logout = new MenuBarForLogout();
 		mainPane = new BorderPane();
-		buttonPane = new ButtonTabForGuestPane();
 		eventsPanel = new EventsPanel();
-		
+		FriendsSectionPanel fsp = new FriendsSectionPanel();
 		mainPane.setCenter(eventsPanel.getPane());
 		eventsPanel.setAccount(0);
 		mainPane.setTop(logout.getMenu(0));

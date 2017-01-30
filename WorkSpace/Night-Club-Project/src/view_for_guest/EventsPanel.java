@@ -44,7 +44,7 @@ public class EventsPanel {
 
 	public EventsPanel() {
 		borderPane = new BorderPane();
-		
+		FriendsSectionPanel fsp = new FriendsSectionPanel();
 		eventPane = new VBox();
 		eventPane.setBorder(new Border(
 				new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, 
@@ -86,7 +86,9 @@ public class EventsPanel {
 		btnPane = new HBox();
 		borderPane.setTop(labelPane);
 		btnPane.getChildren().addAll(backBtn, rListBtn);
-		borderPane.setRight(new Label("Friends Section"));
+		
+		borderPane.setRight(fsp.getPane());
+		
 		borderPane.setBottom(btnPane);
 		backBtn.setAlignment(Pos.BOTTOM_RIGHT);
 				
