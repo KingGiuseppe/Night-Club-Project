@@ -44,7 +44,7 @@ public class EventsPanel {
 
 	public EventsPanel() {
 		borderPane = new BorderPane();
-		FriendsSectionPanel fsp = new FriendsSectionPanel();
+		FriendsSectionPanel fsp = new FriendsSectionPanel("localhost", 1500);
 		eventPane = new VBox();
 		eventPane.setBorder(new Border(
 				new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, 

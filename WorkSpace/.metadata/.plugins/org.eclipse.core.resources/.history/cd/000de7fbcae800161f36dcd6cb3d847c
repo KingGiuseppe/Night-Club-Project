@@ -1,0 +1,21 @@
+package networking_for_friends;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+public class Server {
+	
+	private static int uniqueId;
+
+
+	private SimpleDateFormat sdf;
+	
+	private int port;
+	private boolean keepGoing;
+	
+	
+	public Server(int port) {
+		this(port, null);
+	}
+	
+}

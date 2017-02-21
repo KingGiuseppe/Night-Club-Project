@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import networking_for_friends.Client;
 
 public class FriendsSectionPanel {
 
@@ -26,8 +27,10 @@ public class FriendsSectionPanel {
 	private VBox botPane;
 	private TextArea chatArea;
 	private TextField sendMessageTxt;
+	private Client client;
+	private boolean connected;
 
-	public FriendsSectionPanel() {
+	public FriendsSectionPanel(String host, int port) {
 	//	defaultPort = port;
 		//defaultHost = host;
 		mainPane = new GridPane();
@@ -50,5 +53,34 @@ public class FriendsSectionPanel {
 	
 	public static Pane getPane() {
 		return mainPane;
+	}
+	
+	public void append(String str) {
+		chatArea.appendText(str);
+		chatArea.selectPositionCaret(chatArea.getText().length() - 1);
+	}
+	
+	public void connectionFailed() {
+		System.out.println("Connection Failed");
+	}
+	
+	public void login(String username) {
+		String username1 = username.trim();
+		
+		if(username.length() == 0) {
+			return;
+		}
+		String server = "localhost";
+		
+		String portNumber = "1500";
+		
+		int port = 1500;
+		
+		client = new Client(server, port, username, this);
+		if(!client.start()) {
+			return;
+		}
+		connected = true;
+		
 	}
 }

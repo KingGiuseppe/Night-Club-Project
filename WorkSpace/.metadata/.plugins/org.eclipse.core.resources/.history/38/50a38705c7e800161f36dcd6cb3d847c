@@ -1,0 +1,10 @@
+package networking_for_friends;
+
+import javafx.scene.control.Label;
+
+public class ClientGUI {
+	private static final long serialVersionUID = 1L;
+	private Label label;
+	
+	
+}

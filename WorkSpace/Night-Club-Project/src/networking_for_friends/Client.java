@@ -1,11 +1,9 @@
 package networking_for_friends;
+import java.net.*;
+import java.io.*;
+import java.util.*;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
-import java.util.Scanner;
-
+import view_for_guest.FriendsSectionPanel;
 
 /*
  * The Client that can be run both as a console or a GUI
@@ -18,7 +16,7 @@ public class Client  {
 	private Socket socket;
 
 	// if I use a GUI or not
-	private ClientGUI cg;
+	private FriendsSectionPanel cg;
 	
 	// the server, the port and the username
 	private String server, username;
@@ -39,7 +37,7 @@ public class Client  {
 	 * Constructor call when used from a GUI
 	 * in console mode the ClienGUI parameter is null
 	 */
-	Client(String server, int port, String username, ClientGUI cg) {
+	public Client(String server, int port, String username, FriendsSectionPanel cg) {
 		this.server = server;
 		this.port = port;
 		this.username = username;

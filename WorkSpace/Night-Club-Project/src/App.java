@@ -13,6 +13,9 @@ import controller.RemoveEventController;
 import controller.SchedulingController;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import networking_for_friends.ClientGUI;
+import networking_for_friends.ServerGUI;
+import view_for_guest.FriendsSectionPanel;
 import view_for_login.Main_Window;
 
 public class App extends Application implements Serializable{
@@ -24,7 +27,7 @@ public class App extends Application implements Serializable{
 	@Override
 	public void start(Stage stage) throws Exception {
 		Main_Window view = new Main_Window(stage);
-		
+		FriendsSectionPanel fsp = new FriendsSectionPanel("localhost", 1500);
 		AccountBag accountModel = new AccountBag();
 		ScheduleList schedList = new ScheduleList();
 		CreateEventBag createEventBag = new CreateEventBag();

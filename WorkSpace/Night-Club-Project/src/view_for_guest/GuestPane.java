@@ -21,7 +21,7 @@ public class GuestPane {
 		MenuBarForLogout logout = new MenuBarForLogout();
 		mainPane = new BorderPane();
 		eventsPanel = new EventsPanel();
-		FriendsSectionPanel fsp = new FriendsSectionPanel();
+		FriendsSectionPanel fsp = new FriendsSectionPanel("localhost", 1500);
 		mainPane.setCenter(eventsPanel.getPane());
 		eventsPanel.setAccount(0);
 		mainPane.setTop(logout.getMenu(0));
