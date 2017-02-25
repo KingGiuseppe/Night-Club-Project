@@ -13,6 +13,7 @@ public class SchedulingController {
 
 			@Override
 			public void btnClicked() {
+				System.out.println(model.getManager().get(0).getEmail());
 				SchedulingPane.setManagerList(model.getManager());
 			}
 			

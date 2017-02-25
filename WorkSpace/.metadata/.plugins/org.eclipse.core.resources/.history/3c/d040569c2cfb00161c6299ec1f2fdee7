@@ -2,6 +2,7 @@ package controller;
 
 import Listeners.ButtonListener2;
 import bags.AccountBag;
+import model_for_scheduling.SchedulingEventListener;
 import view_for_login.Main_Window;
 import view_for_owner.ScheduleFinalizePane;
 import view_for_owner.SchedulingPane;
@@ -13,6 +14,7 @@ public class SchedulingController {
 
 			@Override
 			public void btnClicked() {
+				System.out.println(model.getManager().get(0).getEmail());
 				SchedulingPane.setManagerList(model.getManager());
 			}
 			

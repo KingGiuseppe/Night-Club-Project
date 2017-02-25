@@ -12,6 +12,7 @@ import model_for_newuser.NewUserEventListener;
 import model_for_removeEv.RemoveEvEventListener;
 import model_for_removeEv.RemoveEventBtnClickedEventListener;
 import model_for_scheduling.AddToScheduleEventListener;
+import model_for_scheduling.SchedulingEventListener;
 import view_for_guest.GuestPane;
 import view_for_manager.EmailLoginPane;
 import view_for_manager.ManagerPane;
@@ -26,6 +27,7 @@ public class Main_Window {
 	private static Stage stage;
 	private static NewUserEventListener newUserListener;
 	private static Scene scene;
+	private static SchedulingEventListener schedulingListener;
 	private static AddToScheduleEventListener addToSchedListener;
 	private static CreateEventEventListener createEventEventListener;
 	private static ForgotPassEventListener forgotPassEventListener;
@@ -33,7 +35,7 @@ public class Main_Window {
 	private static RemoveEvEventListener removeEvEventListener;
 	private static RemoveEventBtnClickedEventListener removeEventBtnEventListener;
 	private static ButtonListener buttonListener;
-	private static ButtonListener2 buttonListener2;
+	private ButtonListener2 buttonListener2;
 
 	public Main_Window(Stage stage) {
 		Main_Window.stage = stage;
@@ -65,12 +67,8 @@ public class Main_Window {
 	public void setEventListener2(ButtonListener2 buttonListener2) {
 		this.buttonListener2 = buttonListener2;
 	}
-	public static ButtonListener2 getButtonListener2() {
-		return buttonListener2;
-	}
+	
 
-	
-	
 	public void setNewUserEventListener(NewUserEventListener newUserListener) {
 		this.newUserListener = newUserListener;
 	}
@@ -90,6 +88,12 @@ public class Main_Window {
 		stage.close();
 	}
 
+	public static SchedulingEventListener getSchedulingListener() {
+		return schedulingListener;
+	}
+	public void setSchedulingListener(SchedulingEventListener schedulingEventListener2) {
+		this.schedulingListener = schedulingEventListener2;
+	}
 
 	public void setAddToSchedListener(AddToScheduleEventListener addToScheduleEventListener) {
 		this.addToSchedListener = addToScheduleEventListener;

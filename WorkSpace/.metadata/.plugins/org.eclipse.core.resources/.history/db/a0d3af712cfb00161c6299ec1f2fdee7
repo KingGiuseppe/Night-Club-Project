@@ -43,8 +43,8 @@ public class MenuBarForOwnerPane {
 		schedulingBtn.setPrefWidth(200);
 		schedulingBtn.setPrefHeight(50);
 		schedulingBtn.setOnAction(event -> {
-			if (Main_Window.getButtonListener2() != null) {
-				Main_Window.getButtonListener2().btnClicked();
+			if (Main_Window.getSchedulingListener() != null) {
+				Main_Window.getSchedulingListener().scheduleBtnClicked();
 			}
 			OwnerPane.getStage().setScene(SchedulingPane.getScene());
 		});

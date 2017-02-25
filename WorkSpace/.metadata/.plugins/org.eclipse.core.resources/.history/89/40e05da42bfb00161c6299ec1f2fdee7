@@ -7,6 +7,7 @@ import model_for_scheduling.SchedEventObj;
 
 public interface ButtonListener extends EventListener {
 	public void btnClicked(EventObject ev);
+
 }
 
 

@@ -1,0 +1,5 @@
+package Listeners;
+
+public interface ButtonListener2 extends EventListener {
+
+}

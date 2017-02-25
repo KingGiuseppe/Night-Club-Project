@@ -12,6 +12,7 @@ import model_for_newuser.NewUserEventListener;
 import model_for_removeEv.RemoveEvEventListener;
 import model_for_removeEv.RemoveEventBtnClickedEventListener;
 import model_for_scheduling.AddToScheduleEventListener;
+import model_for_scheduling.SchedulingEventListener;
 import view_for_guest.GuestPane;
 import view_for_manager.EmailLoginPane;
 import view_for_manager.ManagerPane;
