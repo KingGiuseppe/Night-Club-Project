@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import model_for_newuser.NewUser;
 import view_for_login.Main_Window;
 import view_for_login.MenuBarForLogout;
+import view_for_manager.PaneForRemoveEvent;
 
 public class OwnerPane {
 
@@ -32,7 +33,10 @@ public class OwnerPane {
 
 	public OwnerPane() {
 		stage = new Stage();
+		
 		MenuBarForLogout logout = new MenuBarForLogout();
+		PaneForRemoveEvent removeEv = new PaneForRemoveEvent();
+
 		menuBar = new MenuBarForOwnerPane();
 		mainPane = new BorderPane();
 		text1Lbl = new Label("Welcome!");

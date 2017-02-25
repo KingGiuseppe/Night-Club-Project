@@ -1,5 +1,6 @@
 import java.io.Serializable;
 
+import Listeners.ListenerMethods;
 import bags.AccountBag;
 import bags.CreateEventBag;
 import bags.ScheduleList;
@@ -8,7 +9,6 @@ import controller.CreateEventController;
 import controller.ForgotPassController;
 import controller.LoginController;
 import controller.NewUserController;
-import controller.RemoveEvBtnClickedController;
 import controller.RemoveEventController;
 import controller.SchedulingController;
 import javafx.application.Application;
@@ -30,11 +30,11 @@ public class App extends Application implements Serializable{
 		CreateEventController createEventCont = new CreateEventController(createEventBag, view);
 		AddToSchedController addSched = new AddToSchedController(schedList, view);
 		NewUserController newUserCont = new NewUserController(accountModel, view);
-		SchedulingController schedCont = new SchedulingController(accountModel, view);
 		LoginController loginCont = new LoginController(accountModel, view);
 		ForgotPassController pasCont = new ForgotPassController(accountModel, view);
 		RemoveEventController removeEvController = new RemoveEventController(createEventBag, view);
-		RemoveEvBtnClickedController removeEvBtnController = new RemoveEvBtnClickedController(createEventBag, view);
+		SchedulingController schedCont = new SchedulingController(accountModel, createEventBag, view);
+
 	}
 	
 }

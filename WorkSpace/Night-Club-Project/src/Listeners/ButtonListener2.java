@@ -2,6 +2,6 @@ package Listeners;
 
 import java.util.EventListener;
 
-public interface ButtonListener2 extends EventListener {
-	public void btnClicked();
+public abstract interface ButtonListener2 extends EventListener {
+	public void btnClicked(int i);
 }

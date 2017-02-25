@@ -1,5 +1,6 @@
 package view_for_manager;
 
+import Listeners.ListenerMethods;
 import bags.CreateEventBag;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -32,6 +33,8 @@ public class ButtonsForManagerPane {
 		CreateEventBag evbag = new CreateEventBag();
 		PaneForGuestNotification notify = new PaneForGuestNotification();
 		EmailLoginPane emlp = new EmailLoginPane();
+		
+		
 		label = new Label("  Please select a\n   button below!");
 		label.setAlignment(Pos.CENTER);
 		label.setFont(Font.font(15));
@@ -49,8 +52,9 @@ public class ButtonsForManagerPane {
 		removeEventBtn.setPrefHeight(70);
 		
 		removeEventBtn.setOnAction(event -> {
-			if(Main_Window.getRemoveEventBtnListener() != null) {
-				Main_Window.getRemoveEventBtnListener().removeEventBtnClicked();
+			
+			if(Main_Window.getListener().getButtonListener2() != null) {
+				Main_Window.getListener().getButtonListener2().btnClicked(2);
 			}
 			ManagerPane.getStage().setScene(PaneForRemoveEvent.getScene());
 		});

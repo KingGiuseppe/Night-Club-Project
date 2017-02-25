@@ -1,5 +1,6 @@
 package view_for_owner;
 
+import Listeners.ListenerMethods;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -43,8 +44,10 @@ public class MenuBarForOwnerPane {
 		schedulingBtn.setPrefWidth(200);
 		schedulingBtn.setPrefHeight(50);
 		schedulingBtn.setOnAction(event -> {
-			if (Main_Window.getButtonListener2() != null) {
-				Main_Window.getButtonListener2().btnClicked();
+			
+			if (ListenerMethods.getButtonListener2() != null) {
+				ListenerMethods.getButtonListener2().btnClicked(1);
+				
 			}
 			OwnerPane.getStage().setScene(SchedulingPane.getScene());
 		});

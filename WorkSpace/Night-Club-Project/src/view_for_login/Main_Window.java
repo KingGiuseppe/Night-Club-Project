@@ -2,6 +2,7 @@ package view_for_login;
 
 import Listeners.ButtonListener;
 import Listeners.ButtonListener2;
+import Listeners.ListenerMethods;
 import bags.CreateEventBag;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -48,7 +49,7 @@ public class Main_Window {
 		PaneForCreateEvent1 pce1 = new PaneForCreateEvent1();
 		PaneForCreateEvent2 pce2 = new PaneForCreateEvent2();
 		Scene scene = new Scene(p4mw.getPane(), 450, 250);
-		
+		setEventListener(null);
 		stage.setScene(scene);
 		stage.setTitle("Club Management");
 		stage.show();
@@ -69,7 +70,9 @@ public class Main_Window {
 		return buttonListener2;
 	}
 
-	
+	public static ListenerMethods getListener() {
+		return new ListenerMethods();
+	}
 	
 	public void setNewUserEventListener(NewUserEventListener newUserListener) {
 		this.newUserListener = newUserListener;
