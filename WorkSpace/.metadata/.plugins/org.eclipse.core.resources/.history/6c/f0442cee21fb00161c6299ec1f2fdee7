@@ -1,0 +1,16 @@
+package Listeners;
+
+import java.util.EventListener;
+
+import model_for_login.LoginObject;
+import model_for_scheduling.SchedEventObj;
+
+
+public interface GenericButtonListener<T> extends EventListener{
+	public void btnClicked(T ev);
+	
+
+	
+}
+
+

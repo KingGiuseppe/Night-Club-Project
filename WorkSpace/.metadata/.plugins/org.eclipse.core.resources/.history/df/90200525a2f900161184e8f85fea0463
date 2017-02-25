@@ -1,0 +1,20 @@
+package controller;
+
+import bags.AccountBag;
+import view_for_login.Main_Window;
+import view_for_owner.ScheduleFinalizePane;
+import view_for_owner.SchedulingPane;
+
+public class SchedulingController {
+
+	public SchedulingController(AccountBag model, Main_Window view) {
+		view.setButtonListener(new ButtonListener() {
+
+			@Override
+			public void btnClicked(Object t) {
+				SchedulingPane.setManagerList(model.getManager());
+			}
+			
+		});
+	}
+}

@@ -33,9 +33,7 @@ public class ButtonsForSchedulingPane {
 				name = SchedulingPane.managerList.getSelectionModel().getSelectedItem();
 				RadioButton chk = (RadioButton) SchedulingPane.shiftGroup.getSelectedToggle();
 				String shift = chk.getText();
-
 				SchedEventObj schedObj = new SchedEventObj(name, daySelected, shift);
-
 				if (Main_Window.getAddToSchedListener() != null) {
 					Main_Window.getAddToSchedListener().addBtnClicked(schedObj);
 				}

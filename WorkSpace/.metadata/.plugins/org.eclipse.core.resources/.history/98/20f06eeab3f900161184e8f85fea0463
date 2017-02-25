@@ -1,0 +1,72 @@
+package view_for_login;
+
+import Listeners.ButtonListener2;
+import Listeners.GenericButtonListener;
+import bags.CreateEventBag;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import view_for_guest.GuestPane;
+import view_for_manager.EmailLoginPane;
+import view_for_manager.ManagerPane;
+import view_for_manager.PaneForCreateEvent1;
+import view_for_manager.PaneForCreateEvent2;
+import view_for_manager.PaneForRemoveEvent;
+import view_for_owner.CreateManagerAccount1;
+import view_for_owner.OwnerPane;
+
+public class Main_Window<T> {
+
+	private static Stage stage;
+	private static Scene scene;
+	private static GenericButtonListener listener;
+	private static ButtonListener2 listener2;
+
+	public Main_Window(Stage stage) {
+		Main_Window.stage = stage;
+		EmailLoginPane elp = new EmailLoginPane();
+		PaneForRemoveEvent removeEv = new PaneForRemoveEvent();
+		PaneForMainWindow p4mw = new PaneForMainWindow();
+		GuestPane gp = new GuestPane();
+		ManagerPane mp = new ManagerPane();
+		OwnerPane op = new OwnerPane();
+		CreateManagerAccount1 cma = new CreateManagerAccount1();
+		CreateEventBag bag = new CreateEventBag();
+		PaneForCreateEvent1 pce1 = new PaneForCreateEvent1();
+		PaneForCreateEvent2 pce2 = new PaneForCreateEvent2();
+		Scene scene = new Scene(p4mw.getPane(), 450, 250);
+		
+		stage.setScene(scene);
+		stage.setTitle("Club Management");
+		stage.show();
+
+	}
+	
+	
+	public void setButtonListener(GenericButtonListener<T> listener) {
+		this.listener = listener;
+	}
+	
+	public static <T> GenericButtonListener getButtonListener(){
+		return listener;
+	}
+	
+	public void setButtonListener2(ButtonListener2 listener2) {
+		this.listener2 = listener2;
+	}
+	
+	public static ButtonListener2 getButtonListener2(){
+		return listener2;
+	}
+
+	public static Stage getStage() {
+		return stage;
+	}
+
+	public static void setScene(Scene newScene) {
+		scene = newScene;
+	}
+	public static void closeStage() {
+		stage.close();
+	}
+	
+}

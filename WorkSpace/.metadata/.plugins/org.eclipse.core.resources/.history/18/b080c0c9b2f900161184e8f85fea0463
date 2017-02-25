@@ -1,0 +1,13 @@
+package Listeners;
+
+import java.util.EventListener;
+
+import model_for_login.LoginObject;
+
+public interface GenericButtonListener<T> extends EventListener{
+	public void btnClicked(T ev);
+
+}
+
+interface LoginListener extends GenericButtonListener<LoginObject> {}
+

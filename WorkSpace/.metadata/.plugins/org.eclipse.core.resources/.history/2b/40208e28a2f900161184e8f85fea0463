@@ -1,0 +1,21 @@
+package controller;
+
+import bags.CreateEventBag;
+import model_for_removeEv.RemoveEventObj;
+import view_for_login.Main_Window;
+
+public class RemoveEventController {
+
+	public RemoveEventController(CreateEventBag model, Main_Window view) {
+		view.setButtonListener(new ButtonListener() {
+
+			@Override
+			public void btnClicked(Object ev) {
+				model.loadEvents();
+				model.removeEvent(((RemoveEventObj) ev).getEventName());
+				model.saveToFile();
+			}
+			
+		});
+	}
+}

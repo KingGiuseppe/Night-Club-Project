@@ -1,0 +1,19 @@
+package controller;
+
+import bags.CreateEventBag;
+import view_for_login.Main_Window;
+import view_for_manager.PaneForRemoveEvent;
+
+public class RemoveEvBtnClickedController {
+	
+	public RemoveEvBtnClickedController(CreateEventBag model, Main_Window view) {
+		view.setButtonListener(new GenericButtonListener() {
+			
+			@Override
+			public void btnClicked(Object j) {
+				model.loadEvents();
+				PaneForRemoveEvent.setEventsList(model.getList());
+			}
+		});
+	}
+}

@@ -1,0 +1,25 @@
+package controller;
+
+import bags.AccountBag;
+import model_for_login.ForgotPassObject;
+import view_for_login.Main_Window;
+
+public class ForgotPassController2 {
+
+	public ForgotPassController2(AccountBag model, Main_Window view) {
+		view.setButtonListener(new ButtonListener() {
+
+			@Override
+			public void btnClicked(Object ev) {
+				model.setuser(((ForgotPassObject) ev).getUser());
+			}
+
+			@Override
+			public void btnClicked() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+	}
+}

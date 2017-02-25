@@ -1,0 +1,8 @@
+package controller;
+
+import java.util.EventListener;
+
+public interface GenericButtonListener extends EventListener{
+	public void btnClicked(Main_Window ev);
+
+}

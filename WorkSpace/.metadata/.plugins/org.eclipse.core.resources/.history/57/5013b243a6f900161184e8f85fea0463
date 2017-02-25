@@ -1,0 +1,31 @@
+package controller;
+
+import bags.AccountBag;
+import model_for_login.LoginObject;
+import view_for_guest.GuestPane;
+import view_for_login.ButtonsForLoginPanel;
+import view_for_login.Main_Window;
+import view_for_manager.ManagerPane;
+
+public class LoginController {
+
+	public LoginController(AccountBag model, Main_Window view) {
+		view.setButtonListener(new GenericButtonListener<Object>() {
+
+			@Override
+			public void btnClicked((LoginObject)Object ev) {
+				System.out.println("Here");
+				if (model.getUser(((LoginObject) ev).getUsername(), ((LoginObject) ev).getPassword()) != null) {
+					GuestPane.setUser(model.getUser(((LoginObject) ev).getUsername(), ((LoginObject) ev).getPassword()));
+					ButtonsForLoginPanel.setIsLoginValid(true);
+					ButtonsForLoginPanel.setUser(model.getUser(((LoginObject) ev).getUsername(), ((LoginObject) ev).getPassword()));
+					
+				} else {
+					ButtonsForLoginPanel.setIsLoginValid(false);
+				}
+
+			}
+
+		});
+	}
+}

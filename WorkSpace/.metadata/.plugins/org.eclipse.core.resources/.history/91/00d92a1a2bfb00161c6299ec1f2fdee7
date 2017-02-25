@@ -1,0 +1,86 @@
+package controller;
+
+import java.util.EventObject;
+
+import Listeners.ButtonListener;
+import bags.ScheduleList;
+import model_for_scheduling.AddToScheduleEventListener;
+import model_for_scheduling.SchedEventObj;
+import model_for_scheduling.SchedulingEventListener;
+import view_for_login.Main_Window;
+import view_for_owner.ScheduleFinalizePane;
+import view_for_owner.TableViewForSchedulingPane;
+
+public class AddToSchedController {
+
+	public AddToSchedController(ScheduleList model, Main_Window view) {
+		view.setAddToSchedListener(new AddToScheduleEventListener() {
+
+			@Override
+			public void btnClicked(EventObject ev) {
+				if (((SchedEventObj) ev).getShift().equals("Shift 1")) {
+					if (((SchedEventObj) ev).getDay().equals("Sunday")) {
+						model.getIndex(0).setSunday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} else if (((SchedEventObj) ev).getDay().equals("Monday")) {
+						model.getIndex(0).setMonday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} else if (((SchedEventObj) ev).getDay().equals("Tuesday")) {
+						model.getIndex(0).setTuesday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} else if (((SchedEventObj) ev).getDay().equals("Wednesday")) {
+						model.getIndex(0).setWednesday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} else if (((SchedEventObj) ev).getDay().equals("Thursday")) {
+						model.getIndex(0).setThursday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} else if (((SchedEventObj) ev).getDay().equals("Friday")) {
+						model.getIndex(0).setFriday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} else if (((SchedEventObj) ev).getDay().equals("Saturday")) {
+						model.getIndex(0).setSaturday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} 
+				} else if (((SchedEventObj) ev).getShift().equals("Shift 2")) {
+					if (((SchedEventObj) ev).getDay().equals("Sunday")) {
+						model.getIndex(1).setSunday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} else if (((SchedEventObj) ev).getDay().equals("Monday")) {
+						model.getIndex(1).setMonday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} else if (((SchedEventObj) ev).getDay().equals("Tuesday")) {
+						model.getIndex(1).setTuesday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} else if (((SchedEventObj) ev).getDay().equals("Wednesday")) {
+						model.getIndex(1).setWednesday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} else if (((SchedEventObj) ev).getDay().equals("Thursday")) {
+						model.getIndex(1).setThursday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} else if (((SchedEventObj) ev).getDay().equals("Friday")) {
+						model.getIndex(1).setFriday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} else if (((SchedEventObj) ev).getDay().equals("Saturday")) {
+						model.getIndex(1).setSaturday(((SchedEventObj) ev).getName());
+						TableViewForSchedulingPane.setShiftListView(model.getShift());
+						model.saveToFile();
+					} 
+				}
+			}
+
+		});
+	}
+}

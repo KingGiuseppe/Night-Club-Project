@@ -1,0 +1,31 @@
+package controller;
+
+import bags.AccountBag;
+import model_for_login.ForgotPassObject;
+import view_for_login.ForgotPasswordPane;
+import view_for_login.ForgotPasswordPane2;
+import view_for_login.Main_Window;
+
+public class ForgotPassController {
+	
+	public ForgotPassController(AccountBag model, Main_Window view){
+		view.setButtonListener(new GenericButtonListener() {
+
+			@Override
+			public void btnClicked(Object ev) {
+				
+				if(model.getUser2(((ForgotPassObject) ev).getUsername(), ((ForgotPassObject) ev).getEmail()) != null) {
+					ForgotPasswordPane.setUser(model.getUser2(((ForgotPassObject) ev).getUsername(), ((ForgotPassObject) ev).getEmail()));
+					ForgotPasswordPane2.setUser(model.getUser2(((ForgotPassObject) ev).getUsername(), ((ForgotPassObject) ev).getEmail()));
+					ForgotPasswordPane.setIsInfo(true);
+					
+				} else {
+					ForgotPasswordPane.setIsInfo(false);
+				}
+				
+			}
+			
+		});
+	
+	}
+}

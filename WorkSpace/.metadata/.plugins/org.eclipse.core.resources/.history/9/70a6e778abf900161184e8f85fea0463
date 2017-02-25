@@ -1,0 +1,10 @@
+package controller;
+
+import java.util.EventListener;
+
+import model_for_login.LoginObject;
+
+public interface GenericButtonListener<T> extends EventListener{
+	public void btnClicked(Object<T> ev);
+
+}
