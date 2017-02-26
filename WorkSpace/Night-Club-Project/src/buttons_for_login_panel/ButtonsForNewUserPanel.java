@@ -21,9 +21,9 @@ public class ButtonsForNewUserPanel {
 	public ButtonsForNewUserPanel() {
 		NewUserPane2 nup2 = new NewUserPane2();
 		continueBtn = new Button("Continue");
-		continueBtn.setFont(new Font("Arial Rounded MT Bold", 15));
+		continueBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		cancelBtn = new Button("Cancel");
-		cancelBtn.setFont(new Font("Arial Rounded MT Bold", 15));
+		cancelBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 
 		continueBtn.setOnAction(event -> {
 			if (NewUserPane.getFirstNameTxt().getText().equals("") || NewUserPane.getLastNameTxt().getText().equals("")

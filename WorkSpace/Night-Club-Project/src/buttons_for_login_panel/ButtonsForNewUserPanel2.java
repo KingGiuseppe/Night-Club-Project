@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import model_for_newuser.NewUserObject;
 import panes_for_login.Main_Window;
 import panes_for_login.NewUserPane;
@@ -23,8 +24,10 @@ public class ButtonsForNewUserPanel2 {
 		btnPane.setAlignment(Pos.BOTTOM_RIGHT);
 
 		createAccBtn = new Button("Create Account");
+		createAccBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 
 		goBackBtn = new Button("Go back");
+		goBackBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 
 		createAccBtn.setOnAction(event -> {
 			String emailAddress = NewUserPane2.getEmailTxt().getText();

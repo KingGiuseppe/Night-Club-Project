@@ -2,6 +2,7 @@ package panes_for_login;
 
 import alerts.PasswordChangedAlert;
 import alerts.PasswordsDontMatchAlert;
+import javafx.application.Platform;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -9,8 +10,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model_for_login.ForgotPassObject;
 import model_for_newuser.NewUser;
@@ -33,16 +41,25 @@ public class ForgotPasswordPane2 {
 		mainPane2.setHgap(10);
 		mainPane2.setVgap(10);
 		mainPane2.setPadding(new Insets(25, 25, 25, 25));
-		top2Lbl = new Label("");
-		top2Lbl.setFont(Font.font(30));
-		topLbl = new Label("Please enter in a new password");
-		topLbl.setFont(Font.font(25));
-		passLbl = new Label("Password");
-		pass2Lbl = new Label("Retype password");
-
+		top2Lbl = new Label("Please enter in a new password");
+		top2Lbl.setFont(new Font("Arial Rounded MT Bold", 30));
+		top2Lbl.setTextFill(Color.web("#ffffff"));
+		topLbl = new Label("Password must contain 1 letter \nand one uppercase letter!");
+		topLbl.setFont(new Font("Arial Rounded MT Bold", 20));
+		topLbl.setTextFill(Color.web("#ffffff"));
+		
 		passTxt = new TextField();
+		passTxt.setFont(new Font("Arial Rounded MT Bold", 20));
+		passTxt.setPromptText("New Password");
+		passTxt.setAlignment(Pos.CENTER);
 		pass2Txt = new TextField();
+		pass2Txt.setFont(new Font("Arial Rounded MT Bold", 20));
+		pass2Txt.setPromptText("Retype New Password");
+		pass2Txt.setAlignment(Pos.CENTER);
 		okBtn = new Button("Ok");
+		okBtn.setFont(new Font("Arial Rounded MT Bold", 20));
+		okBtn.setMinWidth(50);
+		okBtn.setAlignment(Pos.CENTER_RIGHT);
 		okBtn.setOnAction(event -> {
 			if (passTxt.getText().equals(pass2Txt.getText())) {
 				ForgotPassObject object = new ForgotPassObject(this, user);
@@ -63,14 +80,20 @@ public class ForgotPasswordPane2 {
 
 		mainPane2.add(top2Lbl, 0, 0, 1, 1);
 		mainPane2.add(topLbl, 0, 1, 3, 1);
-		mainPane2.add(passLbl, 0, 3);
-		mainPane2.add(passTxt, 1, 3);
-		mainPane2.add(pass2Lbl, 0, 4);
-		mainPane2.add(pass2Txt, 1, 4);
-		mainPane2.add(okBtn, 1, 6);
+		mainPane2.add(passTxt, 0, 3);
+		mainPane2.add(pass2Txt, 0, 4);
+		mainPane2.add(okBtn, 0, 6);
 		mainPane2.setHalignment(okBtn, HPos.RIGHT);
+		
+		Platform.runLater(() -> top2Lbl.requestFocus());
+		BackgroundImage myBI = new BackgroundImage(
+				new Image("https://s-media-cache-ak0.pinimg.com/originals/0f/fc/80/0ffc8072381c1cd334a9d51872cd9b9c.png", 360,
+						640, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundSize.DEFAULT);
+		mainPane2.setBackground(new Background(myBI));
 
-		scene = new Scene(mainPane2, 400, 300);
+		scene = new Scene(mainPane2, 570, 350);
 
 	}
 

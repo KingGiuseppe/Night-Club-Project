@@ -55,7 +55,7 @@ public class Login_Pane {
 		welcomeLbl.setFont(Font.font(20));
 		welcomeLbl.setFont(new Font("Arial Rounded MT Bold", 50));
 		welcomeLbl.setTextFill(Color.web("#ffffff"));
-		System.out.println(javafx.scene.text.Font.getFamilies());
+		//System.out.println(javafx.scene.text.Font.getFamilies());
 		loginLbl = new Label("Login");
 		loginLbl.setFont(new Font("Arial Rounded MT Bold", 30));
 		loginLbl.setTextFill(Color.web("#ffffff"));
