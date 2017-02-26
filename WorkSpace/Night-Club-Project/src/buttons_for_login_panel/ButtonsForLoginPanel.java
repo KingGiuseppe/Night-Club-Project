@@ -1,9 +1,11 @@
 package buttons_for_login_panel;
 
 import alerts.AlertForLogin;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import model_for_login.LoginObject;
 import model_for_newuser.NewUser;
 import panes_for_login.ForgotPasswordPane;
@@ -19,12 +21,16 @@ public class ButtonsForLoginPanel {
 	private Button newUserBtn;
 	private Button forgotPassBtn;
 	private HBox pane;
+	private Button cancelBtn;
 	private static NewUser user;
 	private static boolean isValid;
 
 	public ButtonsForLoginPanel() {
 		loginBtn = new Button("Login");
-
+		loginBtn.setMinSize(100, 30);
+		loginBtn.setFont(new Font("Arial Rounded MT Bold", 20));
+		
+		//loginBtn.setStyle("-fx-font: 22 arial; -fx-base: #ffffff;");
 		NewUserPane nup = new NewUserPane();
 		ForgotPasswordPane fpp = new ForgotPasswordPane();
 
@@ -59,14 +65,25 @@ public class ButtonsForLoginPanel {
 		});
 
 		newUserBtn = new Button("New User?");
-
+		newUserBtn.setStyle("-fx-background-color: transparent;");
+		newUserBtn.setFont(new Font("Arial Rounded MT Bold", 12));
 		newUserBtn.setOnAction(event -> {
 			nup.showStage();
 		});
 
 		forgotPassBtn = new Button("Forgot Password?");
+		forgotPassBtn.setStyle("-fx-background-color: transparent;");
+		forgotPassBtn.setFont(new Font("Arial Rounded MT Bold", 12));
+		forgotPassBtn.setAlignment(Pos.TOP_RIGHT);
 		forgotPassBtn.setOnAction(event -> {
 			fpp.showStage();
+		});
+
+		cancelBtn = new Button("Cancel");
+		cancelBtn.setMinSize(100, 30);
+		cancelBtn.setFont(new Font("Arial Rounded MT Bold", 20));
+		cancelBtn.setOnAction(event -> {
+			Main_Window.closeStage();
 		});
 
 		pane = new HBox(20);
@@ -88,6 +105,10 @@ public class ButtonsForLoginPanel {
 
 	public Button getForgotPassBtn() {
 		return forgotPassBtn;
+	}
+
+	public Button getCancleBtn() {
+		return cancelBtn;
 	}
 
 	public boolean isLoginValid() {

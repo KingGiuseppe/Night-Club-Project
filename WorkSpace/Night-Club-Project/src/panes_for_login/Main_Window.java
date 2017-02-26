@@ -5,7 +5,13 @@ import Listeners.ButtonListener2;
 import Listeners.ListenerMethods;
 import bags.CreateEventBag;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model_for_event_creation.CreateEventListener;
 import model_for_login.ForgotPassEventListener;
 import model_for_login.ForgotPassEventListener2;
@@ -48,7 +54,10 @@ public class Main_Window {
 		CreateEventBag bag = new CreateEventBag();
 		PaneForCreateEvent1 pce1 = new PaneForCreateEvent1();
 		PaneForCreateEvent2 pce2 = new PaneForCreateEvent2();
-		Scene scene = new Scene(loginPane.getPane(), 450, 250);
+
+		Scene scene = new Scene(loginPane.getPane(), 360, 540);
+		
+		stage.initStyle(StageStyle.UNDECORATED);
 		setEventListener(null);
 		stage.setScene(scene);
 		stage.setTitle("Club Management");
