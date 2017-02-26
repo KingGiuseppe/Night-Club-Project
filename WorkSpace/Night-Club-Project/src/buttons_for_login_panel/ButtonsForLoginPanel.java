@@ -30,7 +30,6 @@ public class ButtonsForLoginPanel {
 		loginBtn.setMinSize(100, 30);
 		loginBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		
-		//loginBtn.setStyle("-fx-font: 22 arial; -fx-base: #ffffff;");
 		NewUserPane nup = new NewUserPane();
 		ForgotPasswordPane fpp = new ForgotPasswordPane();
 

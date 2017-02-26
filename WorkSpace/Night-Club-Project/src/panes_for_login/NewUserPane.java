@@ -8,9 +8,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model_for_newuser.Person;
@@ -45,14 +52,18 @@ public class NewUserPane {
 		newUserPane.setPadding(new Insets(25, 25, 25, 25));
 
 		welcomeLbl = new Label("Create Your Night Club Account!");
-		welcomeLbl.setFont(Font.font(25));
+		welcomeLbl.setFont(new Font("Arial Rounded MT Bold", 25));
 		wayLbl = new Label("Who are you?");
-		wayLbl.setFont(Font.font(20));
+		wayLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 
 		firstNameLbl = new Label("First name");
+		firstNameLbl.setFont(new Font("Arial Rounded MT Bold", 15));
 		lastNameLbl = new Label("Last name");
+		lastNameLbl.setFont(new Font("Arial Rounded MT Bold", 15));
 		genderLbl = new Label("Gender");
+		genderLbl.setFont(new Font("Arial Rounded MT Bold", 15));
 		zipLbl = new Label("Zip");
+		zipLbl.setFont(new Font("Arial Rounded MT Bold", 15));
 
 		setFirstNameTxt(new TextField());
 		getFirstNameTxt().setAlignment(Pos.CENTER);
@@ -65,7 +76,9 @@ public class NewUserPane {
 
 		maleRad = new RadioButton("Male");
 		maleRad.setSelected(true);
+		maleRad.setFont(new Font("Arial Rounded MT Bold", 15));
 		femaleRad = new RadioButton("Female");
+		femaleRad.setFont(new Font("Arial Rounded MT Bold", 15));
 		setGenderGroup(new ToggleGroup());
 		maleRad.setToggleGroup(getGenderGroup());
 		femaleRad.setToggleGroup(getGenderGroup());
@@ -87,7 +100,13 @@ public class NewUserPane {
 		newUserPane.add(getZipTxt(), 1, 6);
 
 		newUserPane.add(new ButtonsForNewUserPanel().getPane(), 1, 8, 2, 1);
-
+		
+		BackgroundImage myBI = new BackgroundImage(
+				new Image("http://wallpapercave.com/wp/BhcQpIw.jpg", 360,
+						640, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundSize.DEFAULT);
+		newUserPane.setBackground(new Background(myBI));
 		scene = new Scene(newUserPane, 500, 360);
 		stage.setScene(scene);
 		stage.setTitle("New User");

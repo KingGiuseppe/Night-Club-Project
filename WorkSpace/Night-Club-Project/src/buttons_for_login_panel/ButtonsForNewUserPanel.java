@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import model_for_newuser.Person;
 import panes_for_login.NewUserPane;
 import panes_for_login.NewUserPane2;
@@ -20,7 +21,9 @@ public class ButtonsForNewUserPanel {
 	public ButtonsForNewUserPanel() {
 		NewUserPane2 nup2 = new NewUserPane2();
 		continueBtn = new Button("Continue");
+		continueBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 		cancelBtn = new Button("Cancel");
+		cancelBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 
 		continueBtn.setOnAction(event -> {
 			if (NewUserPane.getFirstNameTxt().getText().equals("") || NewUserPane.getLastNameTxt().getText().equals("")
