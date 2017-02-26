@@ -16,7 +16,7 @@ public class RemoveEventController {
 				model.removeEvent(ev.getEventName());
 				model.saveToFile();
 			}
-			
+
 		});
 	}
 }

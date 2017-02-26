@@ -1,13 +1,9 @@
 package controller;
 
-import java.util.EventObject;
-
-import Listeners.ButtonListener;
 import bags.ScheduleList;
 import model_for_scheduling.AddToScheduleEventListener;
 import model_for_scheduling.SchedEventObj;
 import view_for_login.Main_Window;
-import view_for_owner.ScheduleFinalizePane;
 import view_for_owner.TableViewForSchedulingPane;
 
 public class AddToSchedController {
@@ -46,7 +42,7 @@ public class AddToSchedController {
 						model.getIndex(0).setSaturday(((SchedEventObj) ev).getName());
 						TableViewForSchedulingPane.setShiftListView(model.getShift());
 						model.saveToFile();
-					} 
+					}
 				} else if (((SchedEventObj) ev).getShift().equals("Shift 2")) {
 					if (((SchedEventObj) ev).getDay().equals("Sunday")) {
 						model.getIndex(1).setSunday(((SchedEventObj) ev).getName());
@@ -76,10 +72,9 @@ public class AddToSchedController {
 						model.getIndex(1).setSaturday(((SchedEventObj) ev).getName());
 						TableViewForSchedulingPane.setShiftListView(model.getShift());
 						model.saveToFile();
-					} 
+					}
 				}
 			}
-
 
 		});
 	}

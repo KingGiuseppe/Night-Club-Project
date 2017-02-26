@@ -14,7 +14,7 @@ public class ForgotPassController2 {
 			public void forgotPassBtnClicked2(ForgotPassObject ev) {
 				model.setuser(ev.getUser());
 			}
-			
+
 		});
 	}
 }

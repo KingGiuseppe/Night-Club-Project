@@ -9,8 +9,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import model_for_event_creation.CreateEventPaneObject;
 import model_for_scheduling.ShiftObject;
 
 public class ScheduleList implements Serializable {
