@@ -1,14 +1,14 @@
 package model_for_newuser;
 
 public class Person {
-	
+
 	private String firstName;
 	private String lastName;
 	private String gender;
 	private String zip;
 	private final String id;
 	private static int idInt;
-	
+
 	public Person(String firstName, String lastName, String gender, String zip) {
 		super();
 		this.firstName = firstName;
@@ -61,12 +61,11 @@ public class Person {
 	public String getId() {
 		return id;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Person [firstName: " + firstName + ", lastName: " + lastName + ", gender: " + gender + ", zip: " + zip
 				+ ", id: " + id + "] ";
 	}
 
-	
 }

@@ -100,7 +100,6 @@ public class CreateEventBag implements Serializable {
 	}
 
 	public void removeEvent(String evName) {
-		System.out.println("Here " + evName);
 		for (int i = 0; i < this.panes.size(); i++) {
 			if (panes.get(i).getEventName().equalsIgnoreCase(evName)) {
 				EventRemovedAlert ev = new EventRemovedAlert();

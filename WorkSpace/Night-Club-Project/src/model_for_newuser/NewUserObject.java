@@ -11,7 +11,6 @@ public class NewUserObject extends EventObject {
 	private String username;
 	private String password;
 	private int type;
-	
 
 	public NewUserObject(Object source, String firstName, String lastName, String gender, String zip, String email,
 			String username, String password, int type) {
@@ -57,5 +56,5 @@ public class NewUserObject extends EventObject {
 	public int getType() {
 		return type;
 	}
-	
+
 }

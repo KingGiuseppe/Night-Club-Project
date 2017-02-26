@@ -1,7 +1,6 @@
 package model_for_event_creation;
 
 import java.io.Serializable;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -26,11 +25,9 @@ public class CreateEventPaneObject implements Serializable {
 	private Label musicLbl;
 	private Label artist1Lbl;
 	private Label pictureLbl;
-	private Image image;
 	private ImageView imageView;
 	private String pictureLink;
-	private static final int nElems = 0;
-	
+
 	public CreateEventPaneObject(String eventName, String date, String musicType, String artist, String pictureLink) {
 		super();
 		this.eventName = eventName;
@@ -39,8 +36,7 @@ public class CreateEventPaneObject implements Serializable {
 		this.artist = artist;
 		this.pictureLink = pictureLink;
 	}
-	
-	
+
 	public String getPictureLink() {
 		return pictureLink;
 	}
@@ -52,29 +48,36 @@ public class CreateEventPaneObject implements Serializable {
 	public String getEventName() {
 		return eventName;
 	}
+
 	public void setEventName(String eventName) {
 		this.eventName = eventName;
 	}
+
 	public String getDate() {
 		return date;
 	}
+
 	public void setDate(String date) {
 		this.date = date;
 	}
+
 	public String getMusicType() {
 		return musicType;
 	}
+
 	public void setMusicType(String musicType) {
 		this.musicType = musicType;
 	}
+
 	public String getArtist() {
 		return artist;
 	}
+
 	public void setArtist(String artist) {
 		this.artist = artist;
 	}
-	
-	public void setPane(){
+
+	public void setPane() {
 		gridPane = new GridPane();
 		eventNameLbl = new Label(this.eventName);
 		eventNameLbl.setFont(Font.font(30));
@@ -90,16 +93,16 @@ public class CreateEventPaneObject implements Serializable {
 		artist1Lbl = new Label("Artist: ");
 		artist1Lbl.setFont(Font.font(20));
 		artistLbl.setFont(Font.font(20));
-		
+
 		pictureLbl = new Label(" ");
-		imageView = ImageViewBuilder.create().image(new Image(this.pictureLink, 100, 100, false, false)).build();       
+		imageView = ImageViewBuilder.create().image(new Image(this.pictureLink, 100, 100, false, false)).build();
 		pictureLbl.setGraphic(imageView);
-		
+
 		buyBtn = new Button("Buy ticket");
 		buyBtn.setOnAction(event -> {
 			System.out.println(this.eventName);
 		});
-		
+
 		gridPane.add(eventNameLbl, 0, 0);
 		gridPane.add(date1Lbl, 0, 1);
 		gridPane.add(dateLbl, 1, 1);
@@ -110,9 +113,9 @@ public class CreateEventPaneObject implements Serializable {
 		gridPane.add(pictureLbl, 2, 1);
 		gridPane.add(buyBtn, 2, 4);
 	}
-	
+
 	public GridPane getPane() {
 		return gridPane;
-		
+
 	}
 }

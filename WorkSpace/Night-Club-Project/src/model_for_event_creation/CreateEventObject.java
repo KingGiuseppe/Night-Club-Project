@@ -3,7 +3,7 @@ package model_for_event_creation;
 import java.io.Serializable;
 import java.util.EventObject;
 
-public class CreateEventObject extends EventObject implements Serializable{
+public class CreateEventObject extends EventObject implements Serializable {
 
 	private String eventName;
 	private String date;

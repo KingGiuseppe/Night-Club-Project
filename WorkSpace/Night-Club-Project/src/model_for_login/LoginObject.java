@@ -2,11 +2,11 @@ package model_for_login;
 
 import java.util.EventObject;
 
-public class LoginObject extends EventObject{
-	
+public class LoginObject extends EventObject {
+
 	private String username;
 	private String password;
-	
+
 	public LoginObject(Object source) {
 		super(source);
 	}
@@ -24,5 +24,5 @@ public class LoginObject extends EventObject{
 	public String getPassword() {
 		return password;
 	}
-	
+
 }

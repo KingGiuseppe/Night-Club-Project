@@ -1,12 +1,12 @@
 package model_for_newuser;
 
-public class NewUser extends Person{
+public class NewUser extends Person {
 
 	private String email;
 	private String username;
 	private String password;
 	private int type;
-	
+
 	public NewUser(String firstName, String lastName, String gender, String zip, String email, String username,
 			String password, int type) {
 		super(firstName, lastName, gender, zip);
@@ -50,12 +50,9 @@ public class NewUser extends Person{
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nNewUser [email: " + email + ", username=" + username + 
-				", password: " + password + ", type: " + type;
-				
+		return super.toString() + "\nNewUser [email: " + email + ", username=" + username + ", password: " + password
+				+ ", type: " + type;
+
 	}
-	
 
-
-	
 }
