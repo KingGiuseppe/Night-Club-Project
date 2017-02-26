@@ -1,5 +1,7 @@
 package view_for_owner;
 
+import buttons_for_login_panel.MenuBarForLogout;
+import buttons_for_owner_panel.MenuBarForOwnerPane;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,8 +14,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model_for_newuser.NewUser;
-import view_for_login.Main_Window;
-import view_for_login.MenuBarForLogout;
 import view_for_manager.PaneForRemoveEvent;
 
 public class OwnerPane {
@@ -26,14 +26,11 @@ public class OwnerPane {
 	private Label text2Lbl;
 	private Label text3Lbl;
 	private GridPane textPane;
-	private MenuBar menuBarLogout;
-	private Menu fileMenu;
-	private MenuItem logoutMenuItem;
 	private static Scene scene;
 
 	public OwnerPane() {
 		stage = new Stage();
-		
+
 		MenuBarForLogout logout = new MenuBarForLogout();
 		PaneForRemoveEvent removeEv = new PaneForRemoveEvent();
 
@@ -72,7 +69,7 @@ public class OwnerPane {
 	public static Scene getScene() {
 		return scene;
 	}
-	
+
 	public static NewUser getUser() {
 		return user;
 	}
@@ -80,6 +77,7 @@ public class OwnerPane {
 	public static void setScene(Scene newScene) {
 		scene = newScene;
 	}
+
 	public static Stage getStage() {
 		return stage;
 	}

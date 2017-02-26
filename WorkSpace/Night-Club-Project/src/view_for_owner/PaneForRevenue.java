@@ -54,10 +54,9 @@ public class PaneForRevenue {
 		mainPane.setHgap(10);
 		mainPane.setVgap(10);
 		calender = new DatePicker();
-		options = FXCollections.observableArrayList("Night","Week",
-			        "Month","Year");
+		options = FXCollections.observableArrayList("Night", "Week", "Month", "Year");
 		timePeriod = new ComboBox(options);
-		
+
 		topLbl = new Label("Revenue");
 		topLbl.setFont(Font.font(50));
 		directionsLbl = new Label("please select a time span");
@@ -79,7 +78,7 @@ public class PaneForRevenue {
 		costOfClubLbl = new Label("Cost of rent: ");
 		costOfClubTxt = new TextField();
 		costOfClubTxt.setEditable(false);
-		
+
 		profitFromDrinksLbl = new Label("Profit from drinks: ");
 		profitFromDrinksTxt = new TextField();
 		profitFromDrinksTxt.setEditable(false);
@@ -89,7 +88,7 @@ public class PaneForRevenue {
 		profitFromWalkinsLbl = new Label("Profit from walk-in customers: ");
 		profitFromWalkinsTxt = new TextField();
 		profitFromWalkinsTxt.setEditable(false);
-		
+
 		totalCostsLbl = new Label("Total Costs: ");
 		totalCostsTxt = new TextField();
 		totalCostsTxt.setEditable(false);
@@ -99,13 +98,13 @@ public class PaneForRevenue {
 		totalRevenueLbl = new Label("Total Revenue: ");
 		totalRevenueTxt = new TextField();
 		totalRevenueTxt.setEditable(false);
-		
+
 		backBtn = new Button("Back");
 		backBtn.setOnAction(event -> {
 			OwnerPane.getStage().setScene(OwnerPane.getScene());
 		});
 		mainPane.add(topLbl, 1, 0);
-		
+
 		mainPane.add(timePeriod, 2, 1);
 		mainPane.setHalignment(timePeriod, HPos.RIGHT);
 		mainPane.add(directionsLbl, 1, 1, 2, 1);
@@ -121,14 +120,14 @@ public class PaneForRevenue {
 		mainPane.add(costOfEmployeesTxt, 2, 7);
 		mainPane.add(costOfClubLbl, 1, 8);
 		mainPane.add(costOfClubTxt, 2, 8);
-		
+
 		mainPane.add(profitFromDrinksLbl, 4, 4);
 		mainPane.add(profitFromDrinksTxt, 5, 4);
 		mainPane.add(profitFromTicketsLbl, 4, 5);
 		mainPane.add(profitFromTicketsTxt, 5, 5);
 		mainPane.add(profitFromWalkinsLbl, 4, 6);
 		mainPane.add(profitFromWalkinsTxt, 5, 6);
-		
+
 		mainPane.add(totalCostsLbl, 1, 15);
 		mainPane.add(totalCostsTxt, 2, 15);
 		mainPane.add(totalProfitLbl, 1, 16);
@@ -136,11 +135,11 @@ public class PaneForRevenue {
 		mainPane.add(totalRevenueLbl, 1, 17);
 		mainPane.add(totalRevenueTxt, 2, 17);
 		mainPane.add(backBtn, 5, 19);
-		
+
 		scene = new Scene(mainPane, 750, 570);
-		
+
 	}
-	
+
 	public static Scene getScene() {
 		return scene;
 	}

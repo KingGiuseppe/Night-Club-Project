@@ -3,7 +3,7 @@ package controller;
 import bags.CreateEventBag;
 import model_for_removeEv.RemoveEvEventListener;
 import model_for_removeEv.RemoveEventObj;
-import view_for_login.Main_Window;
+import panes_for_login.Main_Window;
 
 public class RemoveEventController {
 

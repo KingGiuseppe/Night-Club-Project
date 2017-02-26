@@ -1,15 +1,15 @@
 package controller;
 
 import bags.CreateEventBag;
-import model_for_event_creation.CreateEventEventListener;
+import model_for_event_creation.CreateEventListener;
 import model_for_event_creation.CreateEventObject;
 import model_for_event_creation.CreateEventPaneObject;
-import view_for_login.Main_Window;
+import panes_for_login.Main_Window;
 
 public class CreateEventController {
 
 	public CreateEventController(CreateEventBag model, Main_Window view) {
-		view.setCreateEventListener(new CreateEventEventListener() {
+		view.setCreateEventListener(new CreateEventListener() {
 
 			@Override
 			public void createEventBtnClicked(CreateEventObject ev) {

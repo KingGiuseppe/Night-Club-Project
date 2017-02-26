@@ -9,8 +9,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import alerts.EventRemovedAlert;
 import model_for_event_creation.CreateEventPaneObject;
-import view_for_manager.EventRemovedAlert;
 
 public class CreateEventBag implements Serializable {
 	private ArrayList<CreateEventPaneObject> panes;

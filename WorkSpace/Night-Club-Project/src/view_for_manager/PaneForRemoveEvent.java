@@ -11,11 +11,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_removeEv.RemoveEventObj;
-import view_for_login.Main_Window;
+import panes_for_login.Main_Window;
 
 public class PaneForRemoveEvent {
 	private static ArrayList<CreateEventPaneObject> eventsList;
-	private GridPane removeEvPane;
 	private Button removeEventBtn;
 	private HBox listView;
 	private Button backBtn;
@@ -31,14 +30,14 @@ public class PaneForRemoveEvent {
 		backBtn.setOnAction(event -> {
 			ManagerPane.getStage().setScene(ManagerPane.getScene());
 		});
-		
+
 		removeEventBtn.setOnAction(event -> {
 
 			RemoveEventObj obj = new RemoveEventObj(eventsListView.getSelectionModel().getSelectedItem());
 			if (Main_Window.getRemoveEvEventListener() != null) {
 				Main_Window.getRemoveEvEventListener().removeEvBtnClicked(obj);
 			}
-			
+
 		});
 		listView.getChildren().addAll(eventsListView, removeEventBtn, backBtn);
 

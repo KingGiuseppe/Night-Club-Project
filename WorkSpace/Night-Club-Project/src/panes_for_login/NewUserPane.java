@@ -1,6 +1,6 @@
-package view_for_owner;
+package panes_for_login;
 
-import buttons_for_owner_panel.ButtonsForCreateManAcc1;
+import buttons_for_login_panel.ButtonsForNewUserPanel;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,45 +12,47 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
+import model_for_newuser.Person;
 
-public class CreateManagerAccount1 {
+public class NewUserPane {
 
-	private static GridPane createManagerGridPane;
-	private Label titleLbl;
+	private static GridPane newUserPane;
+	private Label welcomeLbl;
 	private Label firstNameLbl;
 	private Label lastNameLbl;
 	private Label genderLbl;
 	private Label zipLbl;
+	private static Stage stage;
 	private static TextField firstNameTxt;
 	private static TextField lastNameTxt;
 	private static TextField zipTxt;
-	private HBox radPane;
+
 	private RadioButton maleRad;
 	private RadioButton femaleRad;
 	private static ToggleGroup genderGroup;
+	private HBox radPane;
+	private Label wayLbl;
+	private static Person person;
 	private static Scene scene;
 
-	public CreateManagerAccount1() {
-		createManagerGridPane = new GridPane();
-		createManagerGridPane.setAlignment(Pos.CENTER);
-		createManagerGridPane.setHgap(10);
-		createManagerGridPane.setVgap(10);
-		createManagerGridPane.setPadding(new Insets(25, 25, 25, 25));
+	public NewUserPane() {
+		stage = new Stage();
+		newUserPane = new GridPane();
+		newUserPane.setAlignment(Pos.CENTER);
+		newUserPane.setHgap(10);
+		newUserPane.setVgap(10);
+		newUserPane.setPadding(new Insets(25, 25, 25, 25));
 
-		titleLbl = new Label("Please enter the information below to \nCreate a new manager account!");
-		titleLbl.setFont(Font.font(25));
+		welcomeLbl = new Label("Create Your Night Club Account!");
+		welcomeLbl.setFont(Font.font(25));
+		wayLbl = new Label("Who are you?");
+		wayLbl.setFont(Font.font(20));
 
 		firstNameLbl = new Label("First name");
 		lastNameLbl = new Label("Last name");
 		genderLbl = new Label("Gender");
 		zipLbl = new Label("Zip");
-
-		setFirstNameTxt(new TextField());
-		getFirstNameTxt().setAlignment(Pos.CENTER);
-		setLastNameTxt(new TextField());
-		getLastNameTxt().setAlignment(Pos.CENTER);
-		setZipTxt(new TextField());
-		getZipTxt().setAlignment(Pos.CENTER);
 
 		setFirstNameTxt(new TextField());
 		getFirstNameTxt().setAlignment(Pos.CENTER);
@@ -69,32 +71,60 @@ public class CreateManagerAccount1 {
 		femaleRad.setToggleGroup(getGenderGroup());
 		radPane.getChildren().addAll(maleRad, femaleRad);
 
-		createManagerGridPane.add(titleLbl, 0, 0, 2, 1);
+		newUserPane.add(welcomeLbl, 0, 0, 2, 1);
+		newUserPane.add(wayLbl, 0, 1, 2, 1);
 
-		createManagerGridPane.add(firstNameLbl, 0, 3);
-		createManagerGridPane.add(getFirstNameTxt(), 1, 3);
+		newUserPane.add(firstNameLbl, 0, 3);
+		newUserPane.add(getFirstNameTxt(), 1, 3);
 
-		createManagerGridPane.add(lastNameLbl, 0, 4);
-		createManagerGridPane.add(getLastNameTxt(), 1, 4);
+		newUserPane.add(lastNameLbl, 0, 4);
+		newUserPane.add(getLastNameTxt(), 1, 4);
 
-		createManagerGridPane.add(genderLbl, 0, 5);
-		createManagerGridPane.add(radPane, 1, 5);
+		newUserPane.add(genderLbl, 0, 5);
+		newUserPane.add(radPane, 1, 5);
 
-		createManagerGridPane.add(zipLbl, 0, 6);
-		createManagerGridPane.add(getZipTxt(), 1, 6);
+		newUserPane.add(zipLbl, 0, 6);
+		newUserPane.add(getZipTxt(), 1, 6);
 
-		createManagerGridPane.add(new ButtonsForCreateManAcc1().getPane(), 1, 8, 2, 1);
+		newUserPane.add(new ButtonsForNewUserPanel().getPane(), 1, 8, 2, 1);
 
-		scene = new Scene(createManagerGridPane, 500, 360);
+		scene = new Scene(newUserPane, 500, 360);
+		stage.setScene(scene);
+		stage.setTitle("New User");
 
 	}
 
+	public void showStage() {
+		stage.show();
+		stage.setScene(scene);
+	}
+
+	public static Stage getStage() {
+		return stage;
+	}
+
+	public static void closeStage() {
+		stage.close();
+	}
+
 	public static Pane getPane() {
-		return createManagerGridPane;
+		return newUserPane;
 	}
 
 	public static Scene getScene() {
 		return scene;
+	}
+
+	public static void setScene(Scene newScene) {
+		scene = newScene;
+	}
+
+	public static void clearNodes() {
+		newUserPane.getChildren().clear();
+	}
+
+	public static Person getPerson() {
+		return person;
 	}
 
 	public static TextField getFirstNameTxt() {
@@ -102,7 +132,7 @@ public class CreateManagerAccount1 {
 	}
 
 	public static void setFirstNameTxt(TextField firstNameTxt) {
-		CreateManagerAccount1.firstNameTxt = firstNameTxt;
+		NewUserPane.firstNameTxt = firstNameTxt;
 	}
 
 	public static TextField getLastNameTxt() {
@@ -110,7 +140,7 @@ public class CreateManagerAccount1 {
 	}
 
 	public static void setLastNameTxt(TextField lastNameTxt) {
-		CreateManagerAccount1.lastNameTxt = lastNameTxt;
+		NewUserPane.lastNameTxt = lastNameTxt;
 	}
 
 	public static TextField getZipTxt() {
@@ -118,7 +148,7 @@ public class CreateManagerAccount1 {
 	}
 
 	public static void setZipTxt(TextField zipTxt) {
-		CreateManagerAccount1.zipTxt = zipTxt;
+		NewUserPane.zipTxt = zipTxt;
 	}
 
 	public static ToggleGroup getGenderGroup() {
@@ -126,6 +156,7 @@ public class CreateManagerAccount1 {
 	}
 
 	public static void setGenderGroup(ToggleGroup genderGroup) {
-		CreateManagerAccount1.genderGroup = genderGroup;
+		NewUserPane.genderGroup = genderGroup;
 	}
+
 }

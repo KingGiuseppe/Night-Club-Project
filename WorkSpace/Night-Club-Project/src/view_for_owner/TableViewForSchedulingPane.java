@@ -42,7 +42,7 @@ public class TableViewForSchedulingPane {
 		lblPane = new VBox(7);
 		schedTableView = new TableView();
 		schedTableView.setEditable(false);
-		
+
 		shift1Lbl = new Label("Shift 1: ");
 		shift1Lbl.setFont(Font.font(15));
 		shift2Lbl = new Label("Shift 2: ");
@@ -55,22 +55,15 @@ public class TableViewForSchedulingPane {
 		fridayColTitle = new TableColumn("Friday");
 		saturdayColTitle = new TableColumn("Saturday");
 
-		//add to this list to show on table
-		
-		sundayColTitle.setCellValueFactory(
-                new PropertyValueFactory<ShiftObject, String>("sunday"));
-		mondayColTitle.setCellValueFactory(
-                new PropertyValueFactory<ShiftObject, String>("monday"));
-		tuesdayColTitle.setCellValueFactory(
-                new PropertyValueFactory<ShiftObject, String>("tuesday"));
-		wednesdayColTitle.setCellValueFactory(
-                new PropertyValueFactory<ShiftObject, String>("wednesday"));
-		thursdayColTitle.setCellValueFactory(
-                new PropertyValueFactory<ShiftObject, String>("thursday"));
-		fridayColTitle.setCellValueFactory(
-                new PropertyValueFactory<ShiftObject, String>("friday"));
-		saturdayColTitle.setCellValueFactory(
-                new PropertyValueFactory<ShiftObject, String>("saturday"));
+		// add to this list to show on table
+
+		sundayColTitle.setCellValueFactory(new PropertyValueFactory<ShiftObject, String>("sunday"));
+		mondayColTitle.setCellValueFactory(new PropertyValueFactory<ShiftObject, String>("monday"));
+		tuesdayColTitle.setCellValueFactory(new PropertyValueFactory<ShiftObject, String>("tuesday"));
+		wednesdayColTitle.setCellValueFactory(new PropertyValueFactory<ShiftObject, String>("wednesday"));
+		thursdayColTitle.setCellValueFactory(new PropertyValueFactory<ShiftObject, String>("thursday"));
+		fridayColTitle.setCellValueFactory(new PropertyValueFactory<ShiftObject, String>("friday"));
+		saturdayColTitle.setCellValueFactory(new PropertyValueFactory<ShiftObject, String>("saturday"));
 		backBtn = new Button("   Back   ");
 		backBtnPane = new HBox();
 		backBtn.setOnAction(event -> {
@@ -80,46 +73,50 @@ public class TableViewForSchedulingPane {
 		backBtnPane.setAlignment(Pos.BOTTOM_RIGHT);
 		schedTableView.setItems(obsScheduleList);
 		lblPane.getChildren().addAll(new Label(" "), shift1Lbl, shift2Lbl);
-		schedTableView.getColumns().addAll(sundayColTitle, mondayColTitle, tuesdayColTitle, wednesdayColTitle, thursdayColTitle, fridayColTitle, saturdayColTitle);
+		schedTableView.getColumns().addAll(sundayColTitle, mondayColTitle, tuesdayColTitle, wednesdayColTitle,
+				thursdayColTitle, fridayColTitle, saturdayColTitle);
 		tablePane.getChildren().addAll(lblPane, schedTableView, backBtnPane);
 		tablePane.setAlignment(Pos.CENTER);
-		
+
 	}
-	
+
 	public static HBox getPane() {
 		return tablePane;
 	}
-	
+
 	public static void setManagerList(ArrayList<ShiftObject> mList) {
 		scheduleList = mList;
 	}
-	
+
 	public static void setShiftListView(ArrayList<ShiftObject> list) {
 		obsScheduleList.clear();
 		obsScheduleList.add(0, list.get(0));
 		obsScheduleList.add(1, list.get(1));
 		getObsList();
 	}
+
 	public static ObservableList<ShiftObject> getObsList() {
 		schedTableView.setItems(obsScheduleList);
 		return obsScheduleList;
 	}
-	
+
 	public static ShiftObject getShift1() {
 		return shift1;
 	}
+
 	public static ShiftObject getShift2() {
 		return shift2;
 	}
+
 	public static TableView getTableView() {
 		return schedTableView;
 	}
-	
+
 	public static ObservableList<ShiftObject> getObsList2() {
 		return obsScheduleList;
 	}
+
 	public static ArrayList<ShiftObject> getList() {
 		return scheduleList;
 	}
 }
-

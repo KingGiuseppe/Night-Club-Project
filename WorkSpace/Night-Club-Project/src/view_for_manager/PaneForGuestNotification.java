@@ -11,6 +11,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import alerts.EmailSentAlert;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -43,13 +44,12 @@ public class PaneForGuestNotification {
 		toEmailTxt.setText("To Email");
 		subjectTxt = new TextField();
 		subjectTxt.setText("Subject");
-		
-		
+
 		backBtn = new Button("Back");
 		backBtn.setOnAction(event -> {
 			ManagerPane.getStage().setScene(ManagerPane.getScene());
 		});
-		
+
 		submitMessage = new Button("Submit Message");
 		submitMessage.setOnAction(event -> {
 			Properties properties = new Properties();
@@ -57,21 +57,21 @@ public class PaneForGuestNotification {
 			properties.put("mail.smtp.starttls.enable", "true");
 			properties.put("mail.smtp.host", "smtp.gmail.com");
 			properties.put("mail.smtp.port", 587);
-			
+
 			final String username = usernameTxt.getText();
 			final String password = passtxt.getText();
 			String fromEmailAddress = fromEmailTxt.getText();
 			String toEmailAddress = toEmailTxt.getText();
 			String subject = subjectTxt.getText();
 			String textMessage = messageArea.getText();
-			
+
 			Session session = Session.getDefaultInstance(properties, new Authenticator() {
 				@Override
 				protected PasswordAuthentication getPasswordAuthentication() {
 					return new PasswordAuthentication(username, password);
 				}
 			});
-			
+
 			try {
 				Message message = new MimeMessage(session);
 				message.setFrom(new InternetAddress(fromEmailAddress));
@@ -79,21 +79,22 @@ public class PaneForGuestNotification {
 				message.setSubject(subject);
 				message.setText(textMessage);
 				Transport.send(message);
-				
+
 				EmailSentAlert esa = new EmailSentAlert();
 			} catch (MessagingException e) {
 				throw new RuntimeException(e);
 			}
-			
+
 			ManagerPane.getStage().setScene(ManagerPane.getScene());
-			
+
 		});
-		
-		mainPane.getChildren().addAll(usernameTxt, passtxt, fromEmailTxt, toEmailTxt, subjectTxt, messageArea, submitMessage, backBtn);
-		
+
+		mainPane.getChildren().addAll(usernameTxt, passtxt, fromEmailTxt, toEmailTxt, subjectTxt, messageArea,
+				submitMessage, backBtn);
+
 		scene = new Scene(mainPane, 500, 500);
 	}
-		
+
 	public static Scene getScene() {
 		return scene;
 	}

@@ -18,7 +18,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class EmailLoginPane {
-	
+
 	private GridPane loginMainPane;
 	private Label welcomeLbl;
 	private Label loginLbl;
@@ -34,25 +34,23 @@ public class EmailLoginPane {
 
 	public EmailLoginPane() {
 		stage = new Stage();
-		
-		
-		
+
 		loginMainPane = new GridPane();
 		loginMainPane.setAlignment(Pos.CENTER);
 		loginMainPane.setHgap(10);
 		loginMainPane.setVgap(10);
 		loginMainPane.setPadding(new Insets(25, 25, 25, 25));
-		
+
 		welcomeLbl = new Label("Login To your email");
 		welcomeLbl.setFont(Font.font(20));
-		
+
 		loginLbl = new Label("Login");
 		loginLbl.setFont(Font.font(15));
 		unLbl = new Label("Username: ");
 		passLbl = new Label("Password: ");
 		unTxt = new TextField();
 		passTxt = new TextField();
-		
+
 		loginBtn = new Button("Login");
 		loginBtn.setOnAction(event -> {
 			username = unTxt.getText();
@@ -68,7 +66,7 @@ public class EmailLoginPane {
 					return new PasswordAuthentication(username, password);
 				}
 			});
-			
+
 		});
 		loginMainPane.add(welcomeLbl, 0, 0, 2, 1);
 		loginMainPane.add(loginLbl, 0, 1);
@@ -77,35 +75,36 @@ public class EmailLoginPane {
 		loginMainPane.add(passLbl, 0, 4);
 		loginMainPane.add(passTxt, 1, 4);
 		loginMainPane.add(loginBtn, 1, 5);
-		
+
 		scene = new Scene(loginMainPane);
 		stage.setScene(scene);
 		stage.setTitle("Email Login");
-		
+
 	}
-	
+
 	public static Stage getStage() {
 		return stage;
 	}
-	
+
 	public static void showStage() {
 		stage.show();
 		stage.setScene(scene);
 	}
+
 	public static void closeStage() {
 		stage.close();
 	}
-	
-	
+
 	public Pane getPane() {
 		return loginMainPane;
 	}
-	
+
 	public String getUserName() {
 		return username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
-	
+
 }

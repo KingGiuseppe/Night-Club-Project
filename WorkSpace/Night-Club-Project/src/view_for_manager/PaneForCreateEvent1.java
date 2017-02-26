@@ -43,14 +43,14 @@ public class PaneForCreateEvent1 {
 		entertainmentPane.setHgap(10);
 		entertainmentPane.setVgap(10);
 		entertainmentPane.setPadding(new Insets(20, 20, 20, 20));
-		
+
 		createEventLbl = new Label("Create Event");
 		createEventLbl.setFont(Font.font(20));
 		eventNameLbl = new Label("Event Name");
 		eventNameTxt = new TextField();
 		dateLbl = new Label("Date");
 		date = new DatePicker();
-		
+
 		entertainmentLbl = new Label("Entertainment");
 		entertainmentLbl.setFont(Font.font(20));
 		musicGenreLbl = new Label("Music genre");
@@ -59,28 +59,30 @@ public class PaneForCreateEvent1 {
 		artistNameTxt = new TextField();
 		costForNightLbl = new Label("Cost for the night");
 		costForNightTxt = new TextField();
-		
+
 		dancersLbl = new Label("Dancers");
 		dancersLbl.setFont(Font.font(20));
 		numOfDancersLbl = new Label("Number of dancers");
 		numOfDancersTxt = new TextField();
 		dancersCostPerDancerLbl = new Label("Cost per dancer");
 		dancersCostPerDancerTxt = new TextField();
-		
+
 		backBtn = new Button("Go back");
 		backBtn.setOnAction(event -> {
 			ManagerPane.getStage().setScene(ManagerPane.getScene());
 		});
+		
 		nextBtn = new Button("Next");
 		nextBtn.setOnAction(event -> {
 			ManagerPane.getStage().setScene(PaneForCreateEvent2.getScene());
 		});
+		
 		pictureLbl = new Label("Picture link");
 		pictureTxt = new TextField();
-		
+
 		entertainmentPane.add(createEventLbl, 1, 0);
 		entertainmentPane.setHalignment(createEventLbl, HPos.CENTER);
-		entertainmentPane.add(eventNameLbl, 0,	2);
+		entertainmentPane.add(eventNameLbl, 0, 2);
 		entertainmentPane.add(eventNameTxt, 1, 2);
 		entertainmentPane.add(dateLbl, 0, 3);
 		entertainmentPane.add(date, 1, 3);
@@ -103,37 +105,45 @@ public class PaneForCreateEvent1 {
 		entertainmentPane.add(backBtn, 1, 14);
 		entertainmentPane.setHalignment(backBtn, HPos.RIGHT);
 		entertainmentPane.add(nextBtn, 2, 14);
-		
+
 		scene = new Scene(entertainmentPane, 410, 550);
-		
+
 	}
+
 	public static Scene getScene() {
 		return scene;
 	}
+
 	public static String getEventName() {
 		return eventNameTxt.getText();
 	}
+
 	public static String getDate() {
 		return date.getValue().format(DateTimeFormatter.ofPattern("MM/dd/yyy"));
 	}
+
 	public static String getGenre() {
 		return musicGenreTxt.getText();
 	}
+
 	public static String getArtist() {
 		return artistNameTxt.getText();
 	}
+
 	public static String getImageUrl() {
 		return pictureTxt.getText();
 	}
+
 	public static String getcostForNight() {
 		return costForNightTxt.getText();
 	}
+
 	public static String getNumOfDancers() {
 		return numOfDancersTxt.getText();
 	}
+
 	public static String getCostPerDancer() {
 		return dancersCostPerDancerTxt.getText();
 	}
-	
-	
+
 }

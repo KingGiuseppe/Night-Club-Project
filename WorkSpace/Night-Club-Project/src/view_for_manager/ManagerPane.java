@@ -4,8 +4,8 @@ import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.util.ArrayList;
-
+import buttons_for_login_panel.MenuBarForLogout;
+import buttons_for_manager_panel.ButtonsForManagerPane;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -13,9 +13,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import model_for_event_creation.CreateEventPaneObject;
 import model_for_newuser.NewUser;
-import view_for_login.MenuBarForLogout;
 
 public class ManagerPane {
 
@@ -89,7 +87,7 @@ public class ManagerPane {
 					break;
 				}
 			}
-			
+
 			in.close();
 			fileIn.close();
 

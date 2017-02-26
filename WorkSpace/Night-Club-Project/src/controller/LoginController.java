@@ -3,10 +3,10 @@ package controller;
 import java.util.EventObject;
 import Listeners.ButtonListener;
 import bags.AccountBag;
+import buttons_for_login_panel.ButtonsForLoginPanel;
 import model_for_login.LoginObject;
+import panes_for_login.Main_Window;
 import view_for_guest.GuestPane;
-import view_for_login.ButtonsForLoginPanel;
-import view_for_login.Main_Window;
 
 public class LoginController {
 
