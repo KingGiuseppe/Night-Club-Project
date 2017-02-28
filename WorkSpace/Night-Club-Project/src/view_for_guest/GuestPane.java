@@ -34,13 +34,14 @@ public class GuestPane {
 		eventsPanel.setAccount(0);
 		mainPane.setTop(logout.getMenu(0));
 
-		scene = new Scene(mainPane, 900, 500);
+		scene = new Scene(mainPane, 650, 600);
 		stage.setScene(scene);
 		stage.setTitle("Guest View");
+		stage.setResizable(false);
 
 		BackgroundImage myBI = new BackgroundImage(
 				new Image(
-						"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFa7NxzjkPrwSjM6l4NgZspZQCVhLXDeHX0txs96uWUZOehZiSw",
+						"http://urdu-mag.com/blog/wp-content/uploads/2012/11/large/abstract+backgrounds+15.jpg",
 						360, 640, false, true),
 				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
 				BackgroundSize.DEFAULT);

@@ -50,9 +50,10 @@ public class EventsPanel {
 		borderPane.setCenter(sp);
 		
 		topLabel = new Label("Events and Dates");
-		topLabel.setFont(Font.font(30));
+		topLabel.setFont(new Font("Arial Rounded MT Bold", 50));
 		backBtn = new Button("Back");
 		rListBtn = new Button("Refresh");
+		rListBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		rListBtn.setOnAction(event -> {
 
 			bag = new CreateEventBag();
@@ -64,6 +65,7 @@ public class EventsPanel {
 			}
 
 		});
+		backBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		backBtn.setOnAction(event -> {
 			if (num == 2) {
 				OwnerPane.getStage().setScene(OwnerPane.getScene());
@@ -78,19 +80,21 @@ public class EventsPanel {
 		labelPane.setAlignment(Pos.CENTER);
 		btnPane = new HBox();
 		borderPane.setTop(labelPane);
+		
+		btnPane.setAlignment(Pos.CENTER_RIGHT);
 		btnPane.getChildren().addAll(backBtn, rListBtn);
 
 		borderPane.setBottom(btnPane);
 		backBtn.setAlignment(Pos.BOTTOM_RIGHT);
-		
+		/*
 		BackgroundImage myBI = new BackgroundImage(
 				new Image(
-						"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFa7NxzjkPrwSjM6l4NgZspZQCVhLXDeHX0txs96uWUZOehZiSw",
+						"http://www.wallcoo.net/cartoon/abstract_rainbow_Colours_13_1920x1200/wallpapers/1680x1050/Light%20Spectrum%20Abstract%20Background_95.jpg",
 						360, 640, false, true),
-				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
 				BackgroundSize.DEFAULT);
-		borderPane.setBackground(new Background(myBI));
-
+		eventPane.setBackground(new Background(myBI));
+*/
 	}
 
 	public Pane getPane() {
