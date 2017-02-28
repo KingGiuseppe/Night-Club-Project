@@ -1,6 +1,7 @@
 package view_for_owner;
 
 import buttons_for_owner_panel.ButtonsForCreateManAcc2;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -35,44 +36,45 @@ public class CreateManagerAccount2 {
 		createManagerAccount2.setPadding(new Insets(25, 25, 25, 25));
 
 		label = new Label("Please enter your information below");
-		label.setFont(Font.font(25));
-		emailLbl = new Label("Email address");
-		usernameLbl = new Label("Username");
-		passwordLbl = new Label("Password");
+		label.setFont(new Font("Arial Rounded MT Bold", 25));
+		label.setAlignment(Pos.CENTER);
 
 		pane2 = new HBox();
 		passRuleLbl = new Label("Must contain atleast one number and one uppercase letter!");
-		passRuleLbl.setFont(Font.font(10));
+		passRuleLbl.setAlignment(Pos.CENTER);
+		passRuleLbl.setFont(new Font("Arial Rounded MT Bold", 13));
 		pane2.setAlignment(Pos.CENTER);
 		pane2.getChildren().add(passRuleLbl);
 
-		password2Lbl = new Label("Retype Password");
-
 		setEmailTxt(new TextField());
 		getEmailTxt().setAlignment(Pos.CENTER);
+		getEmailTxt().setFont(new Font("Arial Rounded MT Bold", 20));
+		getEmailTxt().setPromptText("Email Address");
 		setUsernameTxt(new TextField());
 		getUsernameTxt().setAlignment(Pos.CENTER);
+		getUsernameTxt().setPromptText("Username");
+		getUsernameTxt().setFont(new Font("Arial Rounded MT Bold", 20));
 		setPasswordTxt(new TextField());
 		getPasswordTxt().setAlignment(Pos.CENTER);
+		getPasswordTxt().setPromptText("Password");
+		getPasswordTxt().setFont(new Font("Arial Rounded MT Bold", 20));
 		setPassword2Txt(new TextField());
 		getPassword2Txt().setAlignment(Pos.CENTER);
+		getPassword2Txt().setPromptText("Retype Password");
+		getPassword2Txt().setFont(new Font("Arial Rounded MT Bold", 20));
 
 		createManagerAccount2.add(label, 0, 0, 2, 1);
 
-		createManagerAccount2.add(emailLbl, 0, 3);
 		createManagerAccount2.add(getEmailTxt(), 1, 3);
 
-		createManagerAccount2.add(usernameLbl, 0, 4);
 		createManagerAccount2.add(getUsernameTxt(), 1, 4);
 
-		createManagerAccount2.add(passwordLbl, 0, 5);
 		createManagerAccount2.add(getPasswordTxt(), 1, 5);
 
 		createManagerAccount2.add(pane2, 1, 6);
-
-		createManagerAccount2.add(password2Lbl, 0, 7);
 		createManagerAccount2.add(getPassword2Txt(), 1, 7);
-
+		
+		Platform.runLater(() -> label.requestFocus());
 		createManagerAccount2.add(new ButtonsForCreateManAcc2().getPane(), 1, 9, 2, 1);
 		scene = new Scene(createManagerAccount2, 500, 450);
 	}

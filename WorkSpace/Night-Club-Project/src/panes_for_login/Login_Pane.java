@@ -52,7 +52,6 @@ public class Login_Pane {
 		loginMainPane.setPadding(new Insets(25, 25, 25, 25));
 
 		welcomeLbl = new Label("Welcome");
-		welcomeLbl.setFont(Font.font(20));
 		welcomeLbl.setFont(new Font("Arial Rounded MT Bold", 50));
 		welcomeLbl.setTextFill(Color.web("#ffffff"));
 		//System.out.println(javafx.scene.text.Font.getFamilies());

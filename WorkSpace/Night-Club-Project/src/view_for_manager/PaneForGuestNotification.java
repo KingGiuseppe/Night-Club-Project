@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 public class PaneForGuestNotification {
 
@@ -34,23 +35,31 @@ public class PaneForGuestNotification {
 	public PaneForGuestNotification() {
 		mainPane = new VBox();
 		messageArea = new TextArea();
+		messageArea.setFont(new Font("Arial Rounded MT Bold", 15));
 		usernameTxt = new TextField();
 		usernameTxt.setText("username");
+		usernameTxt.setFont(new Font("Arial Rounded MT Bold", 20));
 		passtxt = new TextField();
+		passtxt.setFont(new Font("Arial Rounded MT Bold", 20));
 		passtxt.setText("password");
 		fromEmailTxt = new TextField();
+		fromEmailTxt.setFont(new Font("Arial Rounded MT Bold", 20));
 		fromEmailTxt.setText("From Email");
 		toEmailTxt = new TextField();
+		toEmailTxt.setFont(new Font("Arial Rounded MT Bold", 20));
 		toEmailTxt.setText("To Email");
 		subjectTxt = new TextField();
+		subjectTxt.setFont(new Font("Arial Rounded MT Bold", 20));
 		subjectTxt.setText("Subject");
 
 		backBtn = new Button("Back");
+		backBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		backBtn.setOnAction(event -> {
 			ManagerPane.getStage().setScene(ManagerPane.getScene());
 		});
 
 		submitMessage = new Button("Submit Message");
+		submitMessage.setFont(new Font("Arial Rounded MT Bold", 20));
 		submitMessage.setOnAction(event -> {
 			Properties properties = new Properties();
 			properties.put("mail.smtp.auth", "true");
@@ -92,7 +101,7 @@ public class PaneForGuestNotification {
 		mainPane.getChildren().addAll(usernameTxt, passtxt, fromEmailTxt, toEmailTxt, subjectTxt, messageArea,
 				submitMessage, backBtn);
 
-		scene = new Scene(mainPane, 500, 500);
+		scene = new Scene(mainPane, 400, 350);
 	}
 
 	public static Scene getScene() {

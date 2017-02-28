@@ -133,7 +133,7 @@ public class PaneForCreateEvent2 {
 		createEventPane.setHalignment(backBtn, HPos.RIGHT);
 		createEventPane.add(createEventBtn, 2, 22);
 
-		scene = new Scene(createEventPane, 450, 740);
+		scene = new Scene(createEventPane, 450, 670);
 
 	}
 

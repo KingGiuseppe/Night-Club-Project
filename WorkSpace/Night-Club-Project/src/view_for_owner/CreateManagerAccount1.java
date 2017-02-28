@@ -1,6 +1,7 @@
 package view_for_owner;
 
 import buttons_for_owner_panel.ButtonsForCreateManAcc1;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -37,55 +38,53 @@ public class CreateManagerAccount1 {
 		createManagerGridPane.setVgap(10);
 		createManagerGridPane.setPadding(new Insets(25, 25, 25, 25));
 
-		titleLbl = new Label("Please enter the information below to \nCreate a new manager account!");
-		titleLbl.setFont(Font.font(25));
-
-		firstNameLbl = new Label("First name");
-		lastNameLbl = new Label("Last name");
-		genderLbl = new Label("Gender");
-		zipLbl = new Label("Zip");
+		titleLbl = new Label("Please enter the information below to \ncreate a new manager account!");
+		titleLbl.setFont(new Font("Arial Rounded MT Bold", 25));
 
 		setFirstNameTxt(new TextField());
 		getFirstNameTxt().setAlignment(Pos.CENTER);
+		getFirstNameTxt().setPromptText("First Name");
+		getFirstNameTxt().setFont(new Font("Arial Rounded MT Bold", 20));
+		
 		setLastNameTxt(new TextField());
 		getLastNameTxt().setAlignment(Pos.CENTER);
+		getLastNameTxt().setPromptText("Last Name");
+		getLastNameTxt().setFont(new Font("Arial Rounded MT Bold", 20));
+		
 		setZipTxt(new TextField());
 		getZipTxt().setAlignment(Pos.CENTER);
-
-		setFirstNameTxt(new TextField());
-		getFirstNameTxt().setAlignment(Pos.CENTER);
-		setLastNameTxt(new TextField());
-		getLastNameTxt().setAlignment(Pos.CENTER);
-		setZipTxt(new TextField());
-		getZipTxt().setAlignment(Pos.CENTER);
-
+		getZipTxt().setFont(new Font("Arial Rounded MT Bold", 20));
+		getZipTxt().setPromptText("Zip Code");
+		
 		radPane = new HBox(20);
 
 		maleRad = new RadioButton("Male");
+		maleRad.setFont(new Font("Arial Rounded MT Bold", 20));
 		maleRad.setSelected(true);
 		femaleRad = new RadioButton("Female");
 		setGenderGroup(new ToggleGroup());
 		maleRad.setToggleGroup(getGenderGroup());
 		femaleRad.setToggleGroup(getGenderGroup());
-		radPane.getChildren().addAll(maleRad, femaleRad);
+		femaleRad.setFont(new Font("Arial Rounded MT Bold", 20));
 
+		radPane.getChildren().addAll(maleRad, femaleRad);
+		radPane.setAlignment(Pos.CENTER);
+
+		Platform.runLater(() -> titleLbl.requestFocus());
+		
 		createManagerGridPane.add(titleLbl, 0, 0, 2, 1);
 
-		createManagerGridPane.add(firstNameLbl, 0, 3);
 		createManagerGridPane.add(getFirstNameTxt(), 1, 3);
 
-		createManagerGridPane.add(lastNameLbl, 0, 4);
 		createManagerGridPane.add(getLastNameTxt(), 1, 4);
 
-		createManagerGridPane.add(genderLbl, 0, 5);
 		createManagerGridPane.add(radPane, 1, 5);
 
-		createManagerGridPane.add(zipLbl, 0, 6);
 		createManagerGridPane.add(getZipTxt(), 1, 6);
 
 		createManagerGridPane.add(new ButtonsForCreateManAcc1().getPane(), 1, 8, 2, 1);
 
-		scene = new Scene(createManagerGridPane, 500, 360);
+		scene = new Scene(createManagerGridPane, 500, 400);
 
 	}
 

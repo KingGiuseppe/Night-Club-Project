@@ -50,9 +50,6 @@ public class NewUserPane2 {
 		pane2.setAlignment(Pos.CENTER);
 		pane2.getChildren().add(passRuleLbl);
 
-		password2Lbl = new Label("Retype Password");
-		password2Lbl.setFont(new Font("Arial Rounded MT Bold", 15));
-
 		setEmailTxt(new TextField());
 		getEmailTxt().setAlignment(Pos.CENTER);
 		getEmailTxt().setFont(new Font("Arial Rounded MT Bold", 20));

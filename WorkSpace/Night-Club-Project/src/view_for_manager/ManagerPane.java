@@ -9,8 +9,15 @@ import buttons_for_manager_panel.ButtonsForManagerPane;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model_for_newuser.NewUser;
@@ -34,21 +41,33 @@ public class ManagerPane {
 		MenuBarForLogout logout = new MenuBarForLogout();
 		mainPane.setTop(logout.getMenu(1));
 		label1 = new Label("Welcome!");
+		label1.setFont(new Font("Arial Rounded MT Bold", 35));
+		label1.setTextFill(Color.web("#ffffff"));
 		label2 = new Label("Message from the Boss:");
+		label2.setFont(new Font("Arial Rounded MT Bold", 25));
+		label2.setTextFill(Color.web("#ffffff"));
 		label3 = new Label("");
 		label3.setAlignment(Pos.CENTER_LEFT);
+		label3.setFont(new Font("Arial Rounded MT Bold", 15));
+		label3.setTextFill(Color.web("#ffffff"));
 		labelPane = new VBox(20);
-		label1.setFont(Font.font(35));
 		label1.setAlignment(Pos.CENTER);
-		label2.setFont(Font.font(25));
-		label3.setFont(Font.font(15));
 		labelPane.getChildren().addAll(label1, label2, label3);
 		labelPane.setAlignment(Pos.TOP_CENTER);
 		mainPane.setCenter(labelPane);
-		scene = new Scene(mainPane, 500, 400);
+		scene = new Scene(mainPane, 560, 400);
 		stage.setScene(scene);
 		stage.setTitle("Manager View");
+		stage.setResizable(false);
+		
+		BackgroundImage myBI = new BackgroundImage(
+				new Image("http://powellong.com/data/wallpapers/21/WDF_692914.jpg", 550,
+						450, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundSize.DEFAULT);
+		mainPane.setBackground(new Background(myBI));
 	}
+	
 
 	public static void setLabel(String message) {
 		label3.setText(message);

@@ -20,7 +20,6 @@ import model_for_removeEv.RemoveEvEventListener;
 import model_for_removeEv.RemoveEventBtnClickedEventListener;
 import model_for_scheduling.AddToScheduleEventListener;
 import view_for_guest.GuestPane;
-import view_for_manager.EmailLoginPane;
 import view_for_manager.ManagerPane;
 import view_for_manager.PaneForCreateEvent1;
 import view_for_manager.PaneForCreateEvent2;
@@ -45,7 +44,6 @@ public class Main_Window {
 	public Main_Window(Stage stage) {
 		Main_Window.stage = stage;
 		Login_Pane loginPane = new Login_Pane();
-		EmailLoginPane elp = new EmailLoginPane();
 		PaneForRemoveEvent removeEv = new PaneForRemoveEvent();
 		GuestPane gp = new GuestPane();
 		ManagerPane mp = new ManagerPane();

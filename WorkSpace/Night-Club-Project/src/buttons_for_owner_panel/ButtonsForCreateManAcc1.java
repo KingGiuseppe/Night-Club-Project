@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import model_for_newuser.Person;
 import view_for_owner.CreateManagerAccount1;
 import view_for_owner.CreateManagerAccount2;
@@ -22,8 +23,10 @@ public class ButtonsForCreateManAcc1 {
 		CreateManagerAccount2 cma2 = new CreateManagerAccount2();
 
 		continueBtn = new Button("Continue");
+		continueBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		cancelBtn = new Button("Cancel");
-
+		cancelBtn.setFont(new Font("Arial Rounded MT Bold", 20));
+		
 		continueBtn.setOnAction(event -> {
 			if (CreateManagerAccount1.getFirstNameTxt().getText().equals("")
 					|| CreateManagerAccount1.getLastNameTxt().getText().equals("")
