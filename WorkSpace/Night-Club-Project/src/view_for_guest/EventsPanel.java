@@ -5,6 +5,12 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.BorderStroke;
@@ -42,7 +48,7 @@ public class EventsPanel {
 		sp = new ScrollPane();
 		sp.setContent(eventPane);
 		borderPane.setCenter(sp);
-
+		
 		topLabel = new Label("Events and Dates");
 		topLabel.setFont(Font.font(30));
 		backBtn = new Button("Back");
@@ -76,6 +82,14 @@ public class EventsPanel {
 
 		borderPane.setBottom(btnPane);
 		backBtn.setAlignment(Pos.BOTTOM_RIGHT);
+		
+		BackgroundImage myBI = new BackgroundImage(
+				new Image(
+						"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhFa7NxzjkPrwSjM6l4NgZspZQCVhLXDeHX0txs96uWUZOehZiSw",
+						360, 640, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundSize.DEFAULT);
+		borderPane.setBackground(new Background(myBI));
 
 	}
 
