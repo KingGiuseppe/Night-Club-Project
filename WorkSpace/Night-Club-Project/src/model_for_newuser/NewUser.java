@@ -6,14 +6,28 @@ public class NewUser extends Person {
 	private String username;
 	private String password;
 	private int type;
+	private int id;
+	
+	public NewUser() {
+		
+	}
 
 	public NewUser(String firstName, String lastName, String gender, String zip, String email, String username,
-			String password, int type) {
+			String password, int type, int id) {
 		super(firstName, lastName, gender, zip);
 		this.email = email;
 		this.username = username;
 		this.password = password;
 		this.type = type;
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getEmail() {

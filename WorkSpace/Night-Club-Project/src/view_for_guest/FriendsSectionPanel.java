@@ -1,0 +1,54 @@
+package view_for_guest;
+
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
+public class FriendsSectionPanel {
+
+	
+	private int defaultPort;
+	private String defaultHost;
+	private Label label1;
+	private ListView<String> usersOnView;
+	private Label label2;
+	private VBox topPane;
+	private static GridPane mainPane;
+	private VBox botPane;
+	private TextArea chatArea;
+	private TextField sendMessageTxt;
+
+	public FriendsSectionPanel() {
+	//	defaultPort = port;
+		//defaultHost = host;
+		mainPane = new GridPane();
+		topPane = new VBox();
+		botPane = new VBox();
+		
+		label1 = new Label("Hello (get name here)");
+		label2 = new Label("users online");
+		usersOnView = new ListView<String>();
+		
+		chatArea = new TextArea();
+		sendMessageTxt = new TextField();
+		
+		topPane.getChildren().addAll(label1, label2, usersOnView);
+		botPane.getChildren().addAll(chatArea, sendMessageTxt);
+		mainPane.add(botPane, 0, 1, 1, 1);
+		mainPane.add(topPane, 0, 0, 1, 1);
+		
+	}
+	
+	public static Pane getPane() {
+		return mainPane;
+	}
+}

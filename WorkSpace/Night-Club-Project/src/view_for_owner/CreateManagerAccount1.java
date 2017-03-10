@@ -22,7 +22,7 @@ public class CreateManagerAccount1 {
 	private Label lastNameLbl;
 	private Label genderLbl;
 	private Label zipLbl;
-	private static TextField firstNameTxt;
+	static TextField firstNameTxt;
 	private static TextField lastNameTxt;
 	private static TextField zipTxt;
 	private HBox radPane;

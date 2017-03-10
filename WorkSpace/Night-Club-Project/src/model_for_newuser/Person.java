@@ -6,8 +6,10 @@ public class Person {
 	private String lastName;
 	private String gender;
 	private String zip;
-	private final String id;
-	private static int idInt;
+	
+	public Person() {
+		
+	}
 
 	public Person(String firstName, String lastName, String gender, String zip) {
 		super();
@@ -15,7 +17,6 @@ public class Person {
 		this.lastName = lastName;
 		this.gender = gender;
 		this.zip = zip;
-		this.id = String.valueOf(idInt++);
 	}
 
 	public String getFirstName() {
@@ -48,24 +49,6 @@ public class Person {
 
 	public void setZip(String zip) {
 		this.zip = zip;
-	}
-
-	public static int getIdInt() {
-		return idInt;
-	}
-
-	public static void setIdInt(int idInt) {
-		Person.idInt = idInt;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	@Override
-	public String toString() {
-		return "Person [firstName: " + firstName + ", lastName: " + lastName + ", gender: " + gender + ", zip: " + zip
-				+ ", id: " + id + "] ";
 	}
 
 }

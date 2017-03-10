@@ -2,9 +2,8 @@ package bags;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
-
-import alerts.PasswordChangedAlert;
 import model_for_newuser.NewUser;
+import view_for_login.PasswordChangedAlert;
 
 public class AccountBag {
 
@@ -15,14 +14,14 @@ public class AccountBag {
 		super();
 		this.accounts = new ArrayList<NewUser>();
 		this.managerList = new ArrayList<NewUser>();
-		this.accounts.add(new NewUser("a", "a", "a", "a", "a", "a", "a", 0));
-		this.accounts.add(new NewUser("b", "b", "b", "b", "b", "b", "b", 0));
-		this.accounts.add(new NewUser("c", "c", "c", "c", "c", "c", "c", 0));
-		this.accounts.add(new NewUser("e", "e", "e", "e", "e", "e", "e", 1));
-		this.accounts.add(new NewUser("f", "f", "f", "f", "f", "f", "f", 1));
-		this.accounts.add(new NewUser("g", "g", "g", "g", "g", "g", "g", 1));
-		this.accounts.add(
-				new NewUser("Giuseppe", "Barbieri", "male", "11766", "kinggiuseppe1@gmail.com", "Admin", "admin", 2));
+		//this.accounts.add(new NewUser("a", "a", "a", "a", "a", "a", "a", 0));
+		//this.accounts.add(new NewUser("b", "b", "b", "b", "b", "b", "b", 0));
+		//this.accounts.add(new NewUser("c", "c", "c", "c", "c", "c", "c", 0));
+		//this.accounts.add(new NewUser("e", "e", "e", "e", "e", "e", "e", 1));
+		//this.accounts.add(new NewUser("f", "f", "f", "f", "f", "f", "f", 1));
+		//this.accounts.add(new NewUser("g", "g", "g", "g", "g", "g", "g", 1));
+		//this.accounts.add(
+			//	new NewUser("Giuseppe", "Barbieri", "male", "11766", "kinggiuseppe1@gmail.com", "Admin", "admin", 2));
 	}
 
 	public void addGuestAcc(NewUser acc) {
