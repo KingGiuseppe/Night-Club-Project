@@ -4,7 +4,7 @@ import alerts.LogoutAlert;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import panes_for_login.Login_Pane;
+import view_for_login.Login_Pane;
 
 public class MenuBarForLogout {
 

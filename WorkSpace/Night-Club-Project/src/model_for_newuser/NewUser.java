@@ -11,6 +11,14 @@ public class NewUser extends Person {
 	public NewUser() {
 		
 	}
+	public NewUser(String firstName, String lastName, String gender, String zip, String email, String username,
+			String password, int type) {
+		super(firstName, lastName, gender, zip);
+		this.email = email;
+		this.username = username;
+		this.password = password;
+		this.type = type;
+	}
 
 	public NewUser(String firstName, String lastName, String gender, String zip, String email, String username,
 			String password, int type, int id) {

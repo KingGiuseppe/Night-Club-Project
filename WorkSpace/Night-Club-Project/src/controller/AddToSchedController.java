@@ -3,7 +3,7 @@ package controller;
 import bags.ScheduleList;
 import model_for_scheduling.AddToScheduleEventListener;
 import model_for_scheduling.SchedEventObj;
-import panes_for_login.Main_Window;
+import view_for_login.Main_Window;
 import view_for_owner.TableViewForSchedulingPane;
 
 public class AddToSchedController {

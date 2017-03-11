@@ -4,7 +4,7 @@ import bags.CreateEventBag;
 import model_for_event_creation.CreateEventListener;
 import model_for_event_creation.CreateEventObject;
 import model_for_event_creation.CreateEventPaneObject;
-import panes_for_login.Main_Window;
+import view_for_login.Main_Window;
 
 public class CreateEventController {
 

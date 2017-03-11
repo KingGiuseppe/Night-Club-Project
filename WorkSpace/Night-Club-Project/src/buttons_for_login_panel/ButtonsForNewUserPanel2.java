@@ -9,9 +9,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import model_for_newuser.NewUserObject;
-import panes_for_login.Main_Window;
-import panes_for_login.NewUserPane;
-import panes_for_login.NewUserPane2;
+import view_for_login.Main_Window;
+import view_for_login.NewUserPane;
+import view_for_login.NewUserPane2;
 
 public class ButtonsForNewUserPanel2 {
 

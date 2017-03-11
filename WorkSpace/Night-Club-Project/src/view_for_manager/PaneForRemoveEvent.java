@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_removeEv.RemoveEventObj;
-import panes_for_login.Main_Window;
+import view_for_login.Main_Window;
 
 public class PaneForRemoveEvent {
 	private static ArrayList<CreateEventPaneObject> eventsList;

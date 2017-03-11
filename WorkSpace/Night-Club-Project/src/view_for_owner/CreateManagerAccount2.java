@@ -22,10 +22,10 @@ public class CreateManagerAccount2 {
 	private HBox pane2;
 	private Label passRuleLbl;
 	private Label password2Lbl;
-	private static TextField emailTxt;
-	private static TextField usernameTxt;
-	private static TextField passwordTxt;
-	private static TextField password2Txt;
+	static TextField emailTxt;
+	static TextField usernameTxt;
+	static TextField passwordTxt;
+	static TextField password2Txt;
 	private static Scene scene;
 
 	public CreateManagerAccount2() {

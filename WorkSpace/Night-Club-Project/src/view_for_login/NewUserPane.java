@@ -1,5 +1,7 @@
 package view_for_login;
 
+import buttons_for_login_panel.ButtonsForNewUserPanel;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -7,9 +9,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model_for_newuser.Person;
@@ -23,13 +32,13 @@ public class NewUserPane {
 	private Label genderLbl;
 	private Label zipLbl;
 	private static Stage stage;
-	static TextField firstNameTxt;
-	static TextField lastNameTxt;
-	static TextField zipTxt;
+	private static TextField firstNameTxt;
+	private static TextField lastNameTxt;
+	private static TextField zipTxt;
 
 	private RadioButton maleRad;
 	private RadioButton femaleRad;
-	static ToggleGroup genderGroup;
+	private static ToggleGroup genderGroup;
 	private HBox radPane;
 	private Label wayLbl;
 	private static Person person;
@@ -44,50 +53,56 @@ public class NewUserPane {
 		newUserPane.setPadding(new Insets(25, 25, 25, 25));
 
 		welcomeLbl = new Label("Create Your Night Club Account!");
-		welcomeLbl.setFont(Font.font(25));
+		welcomeLbl.setFont(new Font("Arial Rounded MT Bold", 30));
 		wayLbl = new Label("Who are you?");
-		wayLbl.setFont(Font.font(20));
+		wayLbl.setFont(new Font("Arial Rounded MT Bold", 25));
 
-		firstNameLbl = new Label("First name");
-		lastNameLbl = new Label("Last name");
-		genderLbl = new Label("Gender");
-		zipLbl = new Label("Zip");
-
-		firstNameTxt = new TextField();
-		firstNameTxt.setAlignment(Pos.CENTER);
-		lastNameTxt = new TextField();
-		lastNameTxt.setAlignment(Pos.CENTER);
-		zipTxt = new TextField();
-		zipTxt.setAlignment(Pos.CENTER);
+		setFirstNameTxt(new TextField());
+		getFirstNameTxt().setAlignment(Pos.CENTER);
+		getFirstNameTxt().setPromptText("First Name");
+		getFirstNameTxt().setFont(new Font("Arial Rounded MT Bold", 20));
+		setLastNameTxt(new TextField());
+		getLastNameTxt().setAlignment(Pos.CENTER);
+		getLastNameTxt().setPromptText("Last Name");
+		getLastNameTxt().setFont(new Font("Arial Rounded MT Bold", 20));
+		setZipTxt(new TextField());
+		getZipTxt().setAlignment(Pos.CENTER);
+		getZipTxt().setFont(new Font("Arial Rounded MT Bold", 20));
+		getZipTxt().setPromptText("Zip Code");
 
 		radPane = new HBox(20);
 
 		maleRad = new RadioButton("Male");
 		maleRad.setSelected(true);
+		maleRad.setFont(new Font("Arial Rounded MT Bold", 20));
 		femaleRad = new RadioButton("Female");
-		genderGroup = new ToggleGroup();
-		maleRad.setToggleGroup(genderGroup);
-		femaleRad.setToggleGroup(genderGroup);
+		femaleRad.setFont(new Font("Arial Rounded MT Bold", 20));
+		setGenderGroup(new ToggleGroup());
+		maleRad.setToggleGroup(getGenderGroup());
+		femaleRad.setToggleGroup(getGenderGroup());
 		radPane.getChildren().addAll(maleRad, femaleRad);
+		radPane.setAlignment(Pos.CENTER);
 
 		newUserPane.add(welcomeLbl, 0, 0, 2, 1);
 		newUserPane.add(wayLbl, 0, 1, 2, 1);
 
-		newUserPane.add(firstNameLbl, 0, 3);
-		newUserPane.add(firstNameTxt, 1, 3);
+		newUserPane.add(getFirstNameTxt(), 1, 3);
 
-		newUserPane.add(lastNameLbl, 0, 4);
-		newUserPane.add(lastNameTxt, 1, 4);
+		newUserPane.add(getLastNameTxt(), 1, 4);
 
-		newUserPane.add(genderLbl, 0, 5);
 		newUserPane.add(radPane, 1, 5);
 
-		newUserPane.add(zipLbl, 0, 6);
-		newUserPane.add(zipTxt, 1, 6);
+		newUserPane.add(getZipTxt(), 1, 6);
 
 		newUserPane.add(new ButtonsForNewUserPanel().getPane(), 1, 8, 2, 1);
-
-		scene = new Scene(newUserPane, 500, 360);
+		Platform.runLater(() -> welcomeLbl.requestFocus());
+		BackgroundImage myBI = new BackgroundImage(
+				new Image("http://wallpapercave.com/wp/BhcQpIw.jpg", 360,
+						640, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundSize.DEFAULT);
+		newUserPane.setBackground(new Background(myBI));
+		scene = new Scene(newUserPane, 550, 370);
 		stage.setScene(scene);
 		stage.setTitle("New User");
 
@@ -124,6 +139,38 @@ public class NewUserPane {
 
 	public static Person getPerson() {
 		return person;
+	}
+
+	public static TextField getFirstNameTxt() {
+		return firstNameTxt;
+	}
+
+	public static void setFirstNameTxt(TextField firstNameTxt) {
+		NewUserPane.firstNameTxt = firstNameTxt;
+	}
+
+	public static TextField getLastNameTxt() {
+		return lastNameTxt;
+	}
+
+	public static void setLastNameTxt(TextField lastNameTxt) {
+		NewUserPane.lastNameTxt = lastNameTxt;
+	}
+
+	public static TextField getZipTxt() {
+		return zipTxt;
+	}
+
+	public static void setZipTxt(TextField zipTxt) {
+		NewUserPane.zipTxt = zipTxt;
+	}
+
+	public static ToggleGroup getGenderGroup() {
+		return genderGroup;
+	}
+
+	public static void setGenderGroup(ToggleGroup genderGroup) {
+		NewUserPane.genderGroup = genderGroup;
 	}
 
 }

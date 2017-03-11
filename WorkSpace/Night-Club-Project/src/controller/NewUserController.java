@@ -4,7 +4,7 @@ import bags.AccountBag;
 import model_for_newuser.NewUser;
 import model_for_newuser.NewUserEventListener;
 import model_for_newuser.NewUserObject;
-import panes_for_login.Main_Window;
+import view_for_login.Main_Window;
 
 public class NewUserController {
 

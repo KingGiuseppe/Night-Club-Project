@@ -8,11 +8,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import model_for_login.LoginObject;
 import model_for_newuser.NewUser;
-import panes_for_login.ForgotPasswordPane;
-import panes_for_login.Login_Pane;
-import panes_for_login.Main_Window;
-import panes_for_login.NewUserPane;
 import view_for_guest.GuestPane;
+import view_for_login.ForgotPasswordPane;
+import view_for_login.Login_Pane;
+import view_for_login.Main_Window;
+import view_for_login.NewUserPane;
 import view_for_manager.ManagerPane;
 import view_for_owner.OwnerPane;
 

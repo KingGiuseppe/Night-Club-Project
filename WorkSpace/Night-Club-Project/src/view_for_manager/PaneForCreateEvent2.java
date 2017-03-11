@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import model_for_event_creation.CreateEventObject;
-import panes_for_login.Main_Window;
+import view_for_login.Main_Window;
 
 public class PaneForCreateEvent2 {
 

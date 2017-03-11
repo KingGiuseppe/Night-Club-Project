@@ -3,7 +3,7 @@ package controller;
 import bags.AccountBag;
 import model_for_login.ForgotPassEventListener2;
 import model_for_login.ForgotPassObject;
-import panes_for_login.Main_Window;
+import view_for_login.Main_Window;
 
 public class ForgotPassController2 {
 

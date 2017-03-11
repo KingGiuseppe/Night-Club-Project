@@ -3,9 +3,9 @@ package controller;
 import bags.AccountBag;
 import model_for_login.ForgotPassEventListener;
 import model_for_login.ForgotPassObject;
-import panes_for_login.ForgotPasswordPane;
-import panes_for_login.ForgotPasswordPane2;
-import panes_for_login.Main_Window;
+import view_for_login.ForgotPasswordPane;
+import view_for_login.ForgotPasswordPane2;
+import view_for_login.Main_Window;
 
 public class ForgotPassController {
 

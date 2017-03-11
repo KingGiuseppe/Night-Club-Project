@@ -8,7 +8,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model_for_scheduling.SchedEventObj;
-import panes_for_login.Main_Window;
+import view_for_login.Main_Window;
 import view_for_owner.ScheduleFinalizePane;
 import view_for_owner.SchedulingPane;
 import view_for_owner.TableViewForSchedulingPane;

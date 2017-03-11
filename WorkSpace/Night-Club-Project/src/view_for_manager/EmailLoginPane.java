@@ -34,9 +34,6 @@ public class EmailLoginPane {
 
 	public EmailLoginPane() {
 		stage = new Stage();
-		
-		
-		
 		loginMainPane = new GridPane();
 		loginMainPane.setAlignment(Pos.CENTER);
 		loginMainPane.setHgap(10);

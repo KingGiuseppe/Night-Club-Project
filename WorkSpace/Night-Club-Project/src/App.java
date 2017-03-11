@@ -13,7 +13,7 @@ import controller.RemoveEventController;
 import controller.SchedulingController;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import panes_for_login.Main_Window;
+import view_for_login.Main_Window;
 
 public class App extends Application implements Serializable {
 

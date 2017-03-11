@@ -2,8 +2,9 @@ package bags;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
+
+import alerts.PasswordChangedAlert;
 import model_for_newuser.NewUser;
-import view_for_login.PasswordChangedAlert;
 
 public class AccountBag {
 

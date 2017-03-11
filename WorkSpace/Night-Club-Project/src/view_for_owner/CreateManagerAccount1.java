@@ -23,12 +23,12 @@ public class CreateManagerAccount1 {
 	private Label genderLbl;
 	private Label zipLbl;
 	static TextField firstNameTxt;
-	private static TextField lastNameTxt;
-	private static TextField zipTxt;
+	static TextField lastNameTxt;
+	static TextField zipTxt;
 	private HBox radPane;
 	private RadioButton maleRad;
 	private RadioButton femaleRad;
-	private static ToggleGroup genderGroup;
+	static ToggleGroup genderGroup;
 	private static Scene scene;
 
 	public CreateManagerAccount1() {

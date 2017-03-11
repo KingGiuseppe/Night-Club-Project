@@ -1,5 +1,8 @@
 package view_for_login;
 
+import alerts.AccountFoundAlert;
+import alerts.InvalidInfoAlert;
+import javafx.application.Platform;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -7,7 +10,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model_for_login.ForgotPassObject;
@@ -18,7 +29,7 @@ public class ForgotPasswordPane {
 	private static boolean isValid;
 	private static NewUser user;
 	private static Stage stage;
-	private GridPane mainPane;
+	private VBox mainPane;
 	private Label topLbl;
 	private Label topLbl2;
 	private Label usernameLbl;
@@ -31,67 +42,75 @@ public class ForgotPasswordPane {
 	public ForgotPasswordPane() {
 		stage = new Stage();
 		ForgotPasswordPane2 fpp2 = new ForgotPasswordPane2();
-		mainPane = new GridPane();
+		mainPane = new VBox(10);
 		mainPane.setAlignment(Pos.CENTER);
-		mainPane.setHgap(10);
-		mainPane.setVgap(10);
 		mainPane.setPadding(new Insets(25, 25, 25, 25));
-		
+
 		topLbl = new Label("Forgot password?");
-		topLbl.setFont(Font.font(30));
-		
-		topLbl2 = new Label("Please enter your username and email");
-		topLbl2.setFont(Font.font(20));
-		
-		usernameLbl = new Label("Username");
-		emailLbl = new Label("Email");
-		
+		topLbl.setFont(new Font("Arial Rounded MT Bold", 35));
+		topLbl.setTextFill(Color.web("#ffffff"));
+		topLbl.setAlignment(Pos.CENTER_LEFT);
+		topLbl2 = new Label("Please enter your username \nand email");
+		topLbl2.setFont(new Font("Arial Rounded MT Bold", 25));
+		topLbl2.setTextFill(Color.web("#ffffff"));
+
 		userNameTxt = new TextField();
+		userNameTxt.setPromptText("Username");
+		userNameTxt.setFont(new Font("Arial Rounded MT Bold", 20));
+		userNameTxt.setAlignment(Pos.CENTER);
 		emailTxt = new TextField();
-		
+		emailTxt.setFont(new Font("Arial Rounded MT Bold", 20));
+		emailTxt.setPromptText("Email Address");
+		emailTxt.setAlignment(Pos.CENTER);
+
 		continueBtn = new Button("Continue");
+		continueBtn.setAlignment(Pos.CENTER_RIGHT);
+		continueBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		continueBtn.setOnAction(event -> {
 			String username = userNameTxt.getText();
 			String email = emailTxt.getText();
-					
+
 			ForgotPassObject forgotPassEvent = new ForgotPassObject(this, username, email);
-			
-			if(Main_Window.getForgotPassListener() != null) {
+
+			if (Main_Window.getForgotPassListener() != null) {
 				Main_Window.getForgotPassListener().forgotPassBtnClicked(forgotPassEvent);
 			}
-			if(isValid == true) {
+			if (isValid == true) {
 				AccountFoundAlert alert2 = new AccountFoundAlert();
 				stage.setScene(ForgotPasswordPane2.getScene());
-				ForgotPasswordPane2.top2Lbl.setText("Hello" + "!");
 			} else {
 				InvalidInfoAlert alert = new InvalidInfoAlert();
 			}
-			
+
 		});
+
 		
-		
-		mainPane.add(topLbl, 0, 0, 3, 1);
-		mainPane.add(topLbl2, 0, 1, 3, 1);
-		mainPane.add(usernameLbl, 0, 2);
-		mainPane.add(userNameTxt, 1, 2);
-		mainPane.add(emailLbl, 0, 3);
-		mainPane.add(emailTxt, 1, 3);
-		mainPane.add(continueBtn, 1, 5);
-		mainPane.setHalignment(continueBtn, HPos.RIGHT);
-		
-		scene = new Scene(mainPane, 400, 300);
-		
+		mainPane.getChildren().addAll(topLbl, topLbl2, userNameTxt, emailTxt, continueBtn);
+		Platform.runLater(() -> topLbl.requestFocus());
+		BackgroundImage myBI = new BackgroundImage(
+				new Image("https://s-media-cache-ak0.pinimg.com/originals/0f/fc/80/0ffc8072381c1cd334a9d51872cd9b9c.png", 460,
+						640, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundSize.DEFAULT);
+		mainPane.setBackground(new Background(myBI));
+
+		scene = new Scene(mainPane, 450, 350);
+
 	}
+
 	public void showStage() {
 		stage.show();
 		stage.setScene(scene);
 	}
+
 	public static void setIsInfo(boolean valid) {
 		isValid = valid;
 	}
+
 	public static void setUser(NewUser newUser) {
 		user = newUser;
 	}
+
 	public static Stage getStage() {
 		return stage;
 	}
