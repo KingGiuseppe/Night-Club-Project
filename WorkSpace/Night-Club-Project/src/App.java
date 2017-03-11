@@ -39,3 +39,5 @@ public class App extends Application implements Serializable {
 	}
 
 }
+
+//class model_for_login.LoginObject

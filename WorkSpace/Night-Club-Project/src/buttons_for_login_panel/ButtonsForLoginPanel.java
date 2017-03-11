@@ -38,7 +38,7 @@ public class ButtonsForLoginPanel {
 			String pass = Login_Pane.getPass();
 
 			LoginObject loginEvent = new LoginObject(this, username, pass);
-
+			
 			if (Main_Window.getButtonListener() != null) {
 				Main_Window.getButtonListener().btnClicked(loginEvent);
 			}

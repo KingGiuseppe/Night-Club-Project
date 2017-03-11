@@ -1,6 +1,8 @@
 package model_for_newuser;
 
-public class NewUser extends Person {
+import java.io.Serializable;
+
+public class NewUser extends Person implements Serializable{
 
 	private String email;
 	private String username;
