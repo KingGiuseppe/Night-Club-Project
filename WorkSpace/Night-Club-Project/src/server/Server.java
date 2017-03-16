@@ -1,4 +1,4 @@
-package controller;
+package server;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,6 +9,7 @@ import java.net.Socket;
 import java.sql.SQLException;
 
 import bags.DataBase;
+import controller.GetEventsController;
 import model_for_login.LoginObject;
 
 public class Server {
@@ -20,6 +21,7 @@ public class Server {
 	private static DataBase db;
 	private ObjectInputStream inputFromClient;
 	private ObjectOutputStream outputToClient;
+	private Object object;
 	private static Socket socket;
 	
 	public Server() {
@@ -33,11 +35,17 @@ public class Server {
 
 				inputFromClient = new ObjectInputStream(socket.getInputStream());
 				outputToClient = new ObjectOutputStream(socket.getOutputStream());
-				Object object = inputFromClient.readObject();
+				object = inputFromClient.readObject();
 
 				if (object.getClass() == LoginObject.class) {
 					try {
 						sendLoginValidation(outputToClient, object);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				} else if(object.toString().equals("Get Events")) {
+					try {
+						getEventsList(outputToClient);
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -67,6 +75,16 @@ public class Server {
 				((LoginObject) object).getPassword()) == true) {
 			System.out.println(db.getAccount(((LoginObject) object).getUsername(), ((LoginObject) object).getPassword()).getFirstName() + " Server");
 			out.writeObject(db.getAccount(((LoginObject) object).getUsername(), ((LoginObject) object).getPassword()));
+			out.flush();
+		} else {
+			out.writeObject(null);
+		}
+	}
+	
+	public static void getEventsList(ObjectOutputStream out) throws ClassNotFoundException, SQLException, IOException {
+		db = new DataBase();
+		if(db.getEvents() != null) {
+			out.writeObject(db.getEvents());
 			out.flush();
 		} else {
 			out.writeObject(null);

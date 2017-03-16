@@ -2,6 +2,7 @@ package view_for_guest;
 
 import bags.CreateEventBag;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -29,7 +30,7 @@ import view_for_owner.OwnerPane;
 public class EventsPanel {
 
 	private Label topLabel;
-	private VBox eventPane;
+	private static VBox eventPane;
 	private BorderPane borderPane;
 	private HBox labelPane;
 	private Button backBtn;
@@ -38,6 +39,7 @@ public class EventsPanel {
 	private Button rListBtn;
 	private HBox btnPane;
 	private ScrollPane sp;
+	private static Scene scene;
 
 	public EventsPanel() {
 		borderPane = new BorderPane();
@@ -55,14 +57,8 @@ public class EventsPanel {
 		rListBtn = new Button("Refresh");
 		rListBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		rListBtn.setOnAction(event -> {
-
-			bag = new CreateEventBag();
-			// bag.saveToFile();
-			bag.loadEvents();
-			for (int i = 0; i < bag.getNElems(); i++) {
-				bag.getList().get(i).setPane();
-				eventPane.getChildren().add(bag.getList().get(i).getPane());
-			}
+			
+			
 
 		});
 		backBtn.setFont(new Font("Arial Rounded MT Bold", 20));
@@ -86,6 +82,8 @@ public class EventsPanel {
 
 		borderPane.setBottom(btnPane);
 		backBtn.setAlignment(Pos.BOTTOM_RIGHT);
+		
+		scene = new Scene(borderPane, 500, 500);
 		/*
 		BackgroundImage myBI = new BackgroundImage(
 				new Image(
@@ -101,6 +99,9 @@ public class EventsPanel {
 		return borderPane;
 	}
 
+	public static VBox getEventPane() {
+		return eventPane;
+	}
 	public void setEventPane(GridPane grid) {
 		eventPane.getChildren().add(grid);
 	}
@@ -109,4 +110,8 @@ public class EventsPanel {
 		this.num = num;
 	}
 
+	public static Scene getScene() {
+		return scene;
+	}
+	
 }

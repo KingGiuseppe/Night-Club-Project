@@ -42,24 +42,6 @@ public class ButtonsForLoginPanel {
 			if (Main_Window.getButtonListener() != null) {
 				Main_Window.getButtonListener().btnClicked(loginEvent);
 			}
-			if (isLoginValid() == true) {
-				AlertForLogin badLogin = new AlertForLogin(user.getFirstName());
-				if (user.getType() == 0) {
-					GuestPane.showStage();
-					Main_Window.closeStage();
-				}
-				if (user.getType() == 1) {
-					ManagerPane.showStage();
-					ManagerPane.setMessage();
-					Main_Window.closeStage();
-				}
-				if (user.getType() == 2) {
-					OwnerPane.showStage();
-					Main_Window.closeStage();
-				}
-			} else if (isLoginValid() == false) {
-				AlertForLogin badLogin = new AlertForLogin();
-			}
 
 		});
 

@@ -34,8 +34,9 @@ public class CreateEventPaneObject implements Serializable {
 	private ImageView imageView;
 	private String pictureLink;
 
+	public CreateEventPaneObject() {
+	}
 	public CreateEventPaneObject(String eventName, String date, String musicType, String artist, String pictureLink) {
-		super();
 		this.eventName = eventName;
 		this.date = date;
 		this.musicType = musicType;
@@ -108,8 +109,8 @@ public class CreateEventPaneObject implements Serializable {
 		artist1Lbl.setTextFill(Color.web("#ffffff"));
 		
 		pictureLbl = new Label(" ");
-		imageView = ImageViewBuilder.create().image(new Image(this.pictureLink, 100, 100, false, false)).build();
-		pictureLbl.setGraphic(imageView);
+		//imageView = ImageViewBuilder.create().image(new Image(this.pictureLink, 100, 100, false, false)).build();
+		//pictureLbl.setGraphic(imageView);
 
 		buyBtn = new Button("Buy ticket");
 		buyBtn.setFont(new Font("Arial Rounded MT Bold", 15));
@@ -124,7 +125,7 @@ public class CreateEventPaneObject implements Serializable {
 		gridPane.add(musicTypeLbl, 1, 2);
 		gridPane.add(artist1Lbl, 0, 3);
 		gridPane.add(artistLbl, 1, 3);
-		gridPane.add(pictureLbl, 2, 1);
+		//gridPane.add(pictureLbl, 2, 1);
 		gridPane.add(buyBtn, 2, 4);
 		
 		BackgroundImage myBI = new BackgroundImage(

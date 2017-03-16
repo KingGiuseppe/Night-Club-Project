@@ -5,16 +5,22 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.EventObject;
 import Listeners.ButtonListener;
+import alerts.AlertForLogin;
 import bags.AccountBag;
 import bags.DataBase;
 import buttons_for_login_panel.ButtonsForLoginPanel;
 import javafx.application.Platform;
+import model_for_event_creation.CreateEventPaneObject;
 import model_for_login.LoginObject;
 import model_for_newuser.NewUser;
+import view_for_guest.EventsPanel;
 import view_for_guest.GuestPane;
 import view_for_login.Main_Window;
+import view_for_manager.ManagerPane;
+import view_for_owner.OwnerPane;
 
 public class LoginController {
 
@@ -38,13 +44,30 @@ public class LoginController {
 					while (true) {
 						account = (NewUser) fromServer.readObject();
 						if (account == null) {
-							ButtonsForLoginPanel.setIsLoginValid(false);
+							AlertForLogin badLogin = new AlertForLogin();
 							break;
 						} else {
-							System.out.println("FOUND! " + account.getFirstName());
-							GuestPane.setUser(account);
-							ButtonsForLoginPanel.setIsLoginValid(true);
-							ButtonsForLoginPanel.setUser(account);
+							AlertForLogin badLogin = new AlertForLogin(account.getFirstName());
+							if (account.getType() == 0) {
+								GuestPane.showStage();
+								GuestPane.setUser(account);
+								ButtonsForLoginPanel.setUser(account);
+								Main_Window.closeStage();
+								break;
+							}
+							if (account.getType() == 1) {
+								ManagerPane.showStage();
+								ManagerPane.setMessage();
+								ButtonsForLoginPanel.setUser(account);
+								Main_Window.closeStage();
+								break;
+							}
+							if (account.getType() == 2) {
+								OwnerPane.showStage();
+								ButtonsForLoginPanel.setUser(account);
+								Main_Window.closeStage();
+								break;
+							}
 							break;
 						}
 					}

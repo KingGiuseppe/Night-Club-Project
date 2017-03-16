@@ -7,6 +7,7 @@ import bags.ScheduleList;
 import controller.AddToSchedController;
 import controller.CreateEventController;
 import controller.ForgotPassController;
+import controller.GetEventsController;
 import controller.LoginController;
 import controller.NewUserController;
 import controller.RemoveEventController;
@@ -35,9 +36,7 @@ public class App extends Application implements Serializable {
 		ForgotPassController pasCont = new ForgotPassController(account, view);
 		RemoveEventController removeEvController = new RemoveEventController(createEventBag, view);
 		SchedulingController schedCont = new SchedulingController(account, createEventBag, view);
-
+		GetEventsController eventsCont = new GetEventsController(database, view);
 	}
 
 }
-
-//class model_for_login.LoginObject

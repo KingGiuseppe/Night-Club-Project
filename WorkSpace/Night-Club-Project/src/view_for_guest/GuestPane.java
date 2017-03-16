@@ -3,6 +3,7 @@ package view_for_guest;
 import buttons_for_login_panel.MenuBarForLogout;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
@@ -13,6 +14,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model_for_newuser.NewUser;
+import view_for_login.Main_Window;
 
 public class GuestPane {
 
@@ -21,19 +23,24 @@ public class GuestPane {
 	private static NewUser user;
 	private static Stage stage;
 	private EventsPanel eventsPanel;
+	private Button eventsBtn;
 
 	public GuestPane() {
 		stage = new Stage();
 		MenuBarForLogout logout = new MenuBarForLogout();
 		mainPane = new BorderPane();
 		eventsPanel = new EventsPanel();
-		mainPane.setCenter(eventsPanel.getPane());
 		mainPane.setPadding(new Insets(0, 25, 25, 25));
-		//mainPane.setLeft(new Label("    "));
-		//mainPane.setRight(new Label("    "));
 		eventsPanel.setAccount(0);
 		mainPane.setTop(logout.getMenu(0));
-
+		
+		eventsBtn = new Button("Events");
+		eventsBtn.setOnAction(event -> {
+			if(Main_Window.getEventButtonListener() != null) {
+				Main_Window.getEventButtonListener().getEventsBtnClicked();
+			}
+		});
+		mainPane.setBottom(eventsBtn);
 		scene = new Scene(mainPane, 650, 600);
 		stage.setScene(scene);
 		stage.setTitle("Guest View");

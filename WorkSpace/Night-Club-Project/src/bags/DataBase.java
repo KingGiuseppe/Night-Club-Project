@@ -2,42 +2,66 @@ package bags;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
+import model_for_event_creation.CreateEventPaneObject;
 import model_for_newuser.NewUser;
 
 public class DataBase {
 
-	public static boolean getLoginVerification(String username, String password) throws SQLException, ClassNotFoundException {
+	public static ArrayList<CreateEventPaneObject> getEvents() throws SQLException, ClassNotFoundException {
+		CreateEventPaneObject event = new CreateEventPaneObject();
+		ArrayList<CreateEventPaneObject> list = new ArrayList<>();
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/nightclub_database?useSSL=false", "KingGiuseppe",
-				"Dravenmeng47");
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/nightclub_database?useSSL=false",
+				"KingGiuseppe", "Dravenmeng47");
+
+		PreparedStatement prepStatement = connection.prepareStatement("select * from event_table");
+		ResultSet resultSet = prepStatement.executeQuery();
+
+		while (resultSet.next()) {
+			list.add(new CreateEventPaneObject(resultSet.getString(1), resultSet.getString(4), resultSet.getString(3),
+					resultSet.getString(2), resultSet.getString(5)));
+		}
+		connection.close();
+		return list;
+	}
+
+	public static boolean getLoginVerification(String username, String password)
+			throws SQLException, ClassNotFoundException {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/nightclub_database?useSSL=false",
+				"KingGiuseppe", "Dravenmeng47");
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement
-				.executeQuery("select user_name, password from user_account_information where user_name = '" + username + "' and password = '" + password + "'" );
-		
+				.executeQuery("select user_name, password from user_account_information where user_name = '" + username
+						+ "' and password = '" + password + "'");
+
 		while (resultSet.next()) {
 			return true;
 		}
-		
+
 		connection.close();
 		return false;
 	}
-	
+
 	public static NewUser getAccount(String username, String password) throws SQLException, ClassNotFoundException {
 
 		NewUser account = new NewUser();
 		Class.forName("com.mysql.jdbc.Driver");
 
-		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/nightclub_database?useSSL=false", "KingGiuseppe",
-				"Dravenmeng47");
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/nightclub_database?useSSL=false",
+				"KingGiuseppe", "Dravenmeng47");
 
 		Statement statement = connection.createStatement();
-		ResultSet resultSet1 = statement
-				.executeQuery("select user_name, password, email, account_type, id from user_account_information where user_name = '" + username + "' and password = '" + password + "'" );
-		
+		ResultSet resultSet1 = statement.executeQuery(
+				"select user_name, password, email, account_type, id from user_account_information where user_name = '"
+						+ username + "' and password = '" + password + "'");
+
 		while (resultSet1.next()) {
 			account.setUsername(resultSet1.getString(1));
 			account.setPassword(resultSet1.getString(2));
@@ -45,9 +69,11 @@ public class DataBase {
 			account.setType(resultSet1.getInt(4));
 			account.setId(resultSet1.getInt(5));
 		}
-		
-		ResultSet resultSet2 = statement.executeQuery("select first_name, last_name, gender, zip_code, id from user_information where id = '" + account.getId() + "'");
-		
+
+		ResultSet resultSet2 = statement
+				.executeQuery("select first_name, last_name, gender, zip_code, id from user_information where id = '"
+						+ account.getId() + "'");
+
 		while (resultSet2.next()) {
 			account.setFirstName(resultSet2.getString(1));
 			account.setLastName(resultSet2.getString(2));
@@ -57,7 +83,5 @@ public class DataBase {
 		connection.close();
 		return account;
 	}
-	
-	
-	
+
 }

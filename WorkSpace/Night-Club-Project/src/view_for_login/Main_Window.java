@@ -19,6 +19,7 @@ import model_for_newuser.NewUserEventListener;
 import model_for_removeEv.RemoveEvEventListener;
 import model_for_removeEv.RemoveEventBtnClickedEventListener;
 import model_for_scheduling.AddToScheduleEventListener;
+import model_load_events.GetEventsListener;
 import view_for_guest.GuestPane;
 import view_for_manager.ManagerPane;
 import view_for_manager.PaneForCreateEvent1;
@@ -40,6 +41,7 @@ public class Main_Window {
 	private static RemoveEventBtnClickedEventListener removeEventBtnEventListener;
 	private static ButtonListener buttonListener;
 	private static ButtonListener2 buttonListener2;
+	private static GetEventsListener eventListener;
 
 	public Main_Window(Stage stage) {
 		Main_Window.stage = stage;
@@ -61,6 +63,13 @@ public class Main_Window {
 		stage.setTitle("Club Management");
 		stage.show();
 
+	}
+	
+	public void setGetEventListener(GetEventsListener eventListener) {
+		this.eventListener = eventListener;
+	}
+	public static GetEventsListener getEventButtonListener() {
+		return eventListener;
 	}
 
 	// Generic Listener
