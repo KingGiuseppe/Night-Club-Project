@@ -13,6 +13,7 @@ import controller.GetEventsController;
 import model_for_event_creation.CreateEventObject;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_login.LoginObject;
+import model_for_removeEv.RemoveEventObj;
 
 public class Server {
 
@@ -39,7 +40,7 @@ public class Server {
 				inputFromClient = new ObjectInputStream(socket.getInputStream());
 				outputToClient = new ObjectOutputStream(socket.getOutputStream());
 				object = inputFromClient.readObject();
-				System.out.println(object.getClass());
+				//System.out.println(object.getClass());
 				if (object.getClass() == LoginObject.class) {
 					try {
 						sendLoginValidation(outputToClient, object);
@@ -48,14 +49,14 @@ public class Server {
 					}
 				} else if (object.toString().equals("Get Events")) {
 					try {
-						System.out.println("Here 1");
 						getEventsList(outputToClient);
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
 				} else if (object.getClass() == CreateEventObject.class) {
-					System.out.println("Here server 1");
 					addEvent(outputToClient, object);
+				} else if (object.getClass() == RemoveEventObj.class) {
+					removeEvent(outputToClient, object);
 				}
 
 			}
@@ -110,5 +111,15 @@ public class Server {
 			out.writeObject(false);
 		}
 
+	}
+	
+	public static void removeEvent(ObjectOutputStream out, Object object) throws IOException {
+		db = new DataBase();
+		if(db.removeEvent(object) == true) {
+			out.writeObject(true);
+			out.flush();
+		} else {
+			out.writeObject(false);
+		}
 	}
 }

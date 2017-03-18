@@ -11,9 +11,36 @@ import java.util.ArrayList;
 import model_for_event_creation.CreateEventObject;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_newuser.NewUser;
+import model_for_removeEv.RemoveEventObj;
 
 public class DataBase {
 	
+	public static boolean removeEvent(Object object) {
+		RemoveEventObj event = new RemoveEventObj();
+		event = (RemoveEventObj) object;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/nightclub_database?useSSL=false",
+					"KingGiuseppe", "Dravenmeng47");
+			
+			PreparedStatement prepState = connection.prepareStatement("delete from event_table where event_name = '" + event.getEventName() + "'");
+			
+			prepState.execute();
+			connection.close();
+			return true;
+			
+			
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+		
+		
+	}
 	public static boolean addEvent(CreateEventObject object) {
 		CreateEventPaneObject event = new CreateEventPaneObject();
 		System.out.println((object).getArtist());

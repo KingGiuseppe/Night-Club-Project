@@ -64,8 +64,8 @@ public class ButtonsForManagerPane {
 		
 		removeEventBtn.setOnAction(event -> {
 			
-			if(Main_Window.getListener().getButtonListener2() != null) {
-				Main_Window.getListener().getButtonListener2().btnClicked(2);
+			if(Main_Window.getRemoveEventBtnListener() != null) {
+				Main_Window.getRemoveEventBtnListener().removeEventBtnClicked();
 			}
 			ManagerPane.getStage().setScene(PaneForRemoveEvent.getScene());
 		});

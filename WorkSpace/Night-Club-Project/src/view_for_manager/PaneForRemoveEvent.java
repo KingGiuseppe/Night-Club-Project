@@ -34,7 +34,7 @@ public class PaneForRemoveEvent {
 		btnPane.setAlignment(Pos.CENTER_RIGHT);
 		removeEventBtn = new Button("Remove Event");
 		removeEventBtn.setFont(new Font("Arial Rounded MT Bold", 20));
-		eventsListView = new ListView<String>();
+		setEventsListView(new ListView<String>());
 		backBtn = new Button("Back");
 		backBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		backBtn.setOnAction(event -> {
@@ -42,15 +42,10 @@ public class PaneForRemoveEvent {
 		});
 
 		removeEventBtn.setOnAction(event -> {
-
-			RemoveEventObj obj = new RemoveEventObj(eventsListView.getSelectionModel().getSelectedItem());
-			if (Main_Window.getRemoveEvEventListener() != null) {
-				Main_Window.getRemoveEvEventListener().removeEvBtnClicked(obj);
-			}
-
+			getList();
 		});
 		btnPane.getChildren().addAll(removeEventBtn, backBtn);
-		listView.getChildren().addAll(eventsListView, btnPane);
+		listView.getChildren().addAll(getEventsListView(), btnPane);
 
 		scene = new Scene(listView, 450, 400);
 		
@@ -74,5 +69,20 @@ public class PaneForRemoveEvent {
 			eventsListView.setItems(el);
 		}
 
+	}
+	
+	public static void getList() {
+		RemoveEventObj obj = new RemoveEventObj(getEventsListView().getSelectionModel().getSelectedItem());
+		if (Main_Window.getRemoveEvEventListener() != null) {
+			Main_Window.getRemoveEvEventListener().removeEvBtnClicked(obj);
+		}
+	}
+
+	public static ListView<String> getEventsListView() {
+		return eventsListView;
+	}
+
+	public static void setEventsListView(ListView<String> eventsListView) {
+		PaneForRemoveEvent.eventsListView = eventsListView;
 	}
 }

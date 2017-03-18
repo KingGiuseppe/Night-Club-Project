@@ -10,6 +10,7 @@ import controller.ForgotPassController;
 import controller.GetEventsController;
 import controller.LoginController;
 import controller.NewUserController;
+import controller.RemoveEvBtnClickedController;
 import controller.RemoveEventController;
 import controller.SchedulingController;
 import javafx.application.Application;
@@ -35,9 +36,9 @@ public class App extends Application implements Serializable {
 		NewUserController newUserCont = new NewUserController(account, view);
 		LoginController loginCont = new LoginController(database, view);
 		ForgotPassController pasCont = new ForgotPassController(account, view);
-		RemoveEventController removeEvController = new RemoveEventController(createEventBag, view);
+		RemoveEventController removeEvController = new RemoveEventController(database, view);
 		SchedulingController schedCont = new SchedulingController(account, createEventBag, view);
-		
+		RemoveEvBtnClickedController removeEvBtn = new RemoveEvBtnClickedController(database, view);
 	}
 
 }
