@@ -83,16 +83,16 @@ public class EventsPanel {
 		borderPane.setBottom(btnPane);
 		backBtn.setAlignment(Pos.BOTTOM_RIGHT);
 		
-		scene = new Scene(borderPane, 500, 500);
-		/*
+		scene = new Scene(borderPane, 600, 700);
+		
 		BackgroundImage myBI = new BackgroundImage(
 				new Image(
-						"http://www.wallcoo.net/cartoon/abstract_rainbow_Colours_13_1920x1200/wallpapers/1680x1050/Light%20Spectrum%20Abstract%20Background_95.jpg",
+						"http://urdu-mag.com/blog/wp-content/uploads/2012/11/large/abstract+backgrounds+15.jpg",
 						360, 640, false, true),
 				BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
 				BackgroundSize.DEFAULT);
-		eventPane.setBackground(new Background(myBI));
-*/
+		borderPane.setBackground(new Background(myBI));
+
 	}
 
 	public Pane getPane() {

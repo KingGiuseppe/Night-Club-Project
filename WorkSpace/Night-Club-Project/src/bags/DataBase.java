@@ -8,11 +8,43 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import model_for_event_creation.CreateEventObject;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_newuser.NewUser;
 
 public class DataBase {
-
+	
+	public static boolean addEvent(CreateEventObject object) {
+		CreateEventPaneObject event = new CreateEventPaneObject();
+		System.out.println((object).getArtist());
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/nightclub_database?useSSL=false",
+					"KingGiuseppe", "Dravenmeng47");
+			
+			PreparedStatement prepState = connection.prepareStatement("insert into event_table (event_name, artist, music_type, date, picture_link)" + 
+			" values (?, ?, ?, ?, ?)");
+			
+			System.out.println(object.getArtist());
+			
+			prepState.setString(1, object.getEventName());
+			prepState.setString(2, object.getArtist());
+			prepState.setString(3, object.getGenre());
+			prepState.setString(4, object.getDate());
+			prepState.setString(5, object.getPictureLink());
+			prepState.execute();
+			connection.close();
+			
+			return true;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	//prepared statement example
 	public static ArrayList<CreateEventPaneObject> getEvents() throws SQLException, ClassNotFoundException {
 		CreateEventPaneObject event = new CreateEventPaneObject();
 		ArrayList<CreateEventPaneObject> list = new ArrayList<>();
@@ -30,7 +62,7 @@ public class DataBase {
 		connection.close();
 		return list;
 	}
-
+	//regular statement example
 	public static boolean getLoginVerification(String username, String password)
 			throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");

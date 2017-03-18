@@ -18,6 +18,7 @@ public class GetEventsController {
 	private String host = "localhost";
 	private ObjectOutputStream toServer;
 	private ObjectInputStream fromServer;
+	private ArrayList<CreateEventPaneObject> eventsList;
 
 	public GetEventsController(DataBase model, Main_Window view) {
 
@@ -27,8 +28,6 @@ public class GetEventsController {
 			public void getEventsBtnClicked() {
 				try {
 					Socket socket = new Socket(host, 8000);
-					ArrayList<CreateEventPaneObject> eventsList = null;
-
 					toServer = new ObjectOutputStream(socket.getOutputStream());
 					fromServer = new ObjectInputStream(socket.getInputStream());
 					toServer.writeObject("Get Events");

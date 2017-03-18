@@ -119,7 +119,7 @@ public class PaneForCreateEvent1 {
 	}
 
 	public static String getDate() {
-		return date.getValue().format(DateTimeFormatter.ofPattern("MM/dd/yyy"));
+		return date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 	}
 
 	public static String getGenre() {

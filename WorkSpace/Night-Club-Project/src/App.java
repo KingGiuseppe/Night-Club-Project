@@ -28,15 +28,16 @@ public class App extends Application implements Serializable {
 		DataBase database = new DataBase();
 		AccountBag account = new AccountBag();
 		ScheduleList schedList = new ScheduleList();
+		GetEventsController eventsCont = new GetEventsController(database, view);
 		CreateEventBag createEventBag = new CreateEventBag();
-		CreateEventController createEventCont = new CreateEventController(createEventBag, view);
+		CreateEventController createEventCont = new CreateEventController(database, view);
 		AddToSchedController addSched = new AddToSchedController(schedList, view);
 		NewUserController newUserCont = new NewUserController(account, view);
 		LoginController loginCont = new LoginController(database, view);
 		ForgotPassController pasCont = new ForgotPassController(account, view);
 		RemoveEventController removeEvController = new RemoveEventController(createEventBag, view);
 		SchedulingController schedCont = new SchedulingController(account, createEventBag, view);
-		GetEventsController eventsCont = new GetEventsController(database, view);
+		
 	}
 
 }

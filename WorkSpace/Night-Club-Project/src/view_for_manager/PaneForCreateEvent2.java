@@ -96,8 +96,6 @@ public class PaneForCreateEvent2 {
 			if (Main_Window.getCreateEventEventListener() != null) {
 				Main_Window.getCreateEventEventListener().createEventBtnClicked(eventObj);
 			}
-			EventCreatedAlert eventAlert = new EventCreatedAlert();
-			ManagerPane.getStage().setScene(ManagerPane.getScene());
 		});
 
 		createEventPane.add(inventoryLbl, 1, 0);
