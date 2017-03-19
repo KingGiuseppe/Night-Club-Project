@@ -25,6 +25,10 @@ public class NewUserObject extends EventObject {
 		this.type = type;
 	}
 
+	public NewUserObject(Object source) {
+		super(source);
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}

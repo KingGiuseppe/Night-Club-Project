@@ -33,7 +33,7 @@ public class App extends Application implements Serializable {
 		CreateEventBag createEventBag = new CreateEventBag();
 		CreateEventController createEventCont = new CreateEventController(database, view);
 		AddToSchedController addSched = new AddToSchedController(schedList, view);
-		NewUserController newUserCont = new NewUserController(account, view);
+		NewUserController newUserCont = new NewUserController(database, view);
 		LoginController loginCont = new LoginController(database, view);
 		ForgotPassController pasCont = new ForgotPassController(account, view);
 		RemoveEventController removeEvController = new RemoveEventController(database, view);

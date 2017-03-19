@@ -13,10 +13,11 @@ import controller.GetEventsController;
 import model_for_event_creation.CreateEventObject;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_login.LoginObject;
+import model_for_newuser.NewUserObject;
 import model_for_removeEv.RemoveEventObj;
 
 public class Server {
-
+//check what happens if multiple managers edit stuff example
 	public static void main(String[] args) {
 		new Server();
 	}
@@ -57,6 +58,8 @@ public class Server {
 					addEvent(outputToClient, object);
 				} else if (object.getClass() == RemoveEventObj.class) {
 					removeEvent(outputToClient, object);
+				} else if (object.getClass() == NewUserObject.class) {
+					addUserAccount(outputToClient, object);
 				}
 
 			}
@@ -75,6 +78,18 @@ public class Server {
 		}
 
 	}
+	
+	public static void addUserAccount(ObjectOutputStream out, Object object) throws IOException {
+		db = new DataBase();
+		if(db.addNewUser(object) == true) {
+			System.out.println("ADDED");
+			out.writeObject(true);
+			out.flush();
+		} else {
+			out.writeObject(false);
+			out.flush();
+		}
+	}
 
 	public static void sendLoginValidation(ObjectOutputStream out, Object object)
 			throws ClassNotFoundException, SQLException, IOException {
@@ -87,6 +102,7 @@ public class Server {
 			out.flush();
 		} else {
 			out.writeObject(null);
+			out.flush();
 		}
 	}
 
@@ -97,6 +113,7 @@ public class Server {
 			out.flush();
 		} else {
 			out.writeObject(null);
+			out.flush();
 		}
 	}
 
@@ -109,6 +126,7 @@ public class Server {
 			out.flush();
 		} else {
 			out.writeObject(false);
+			out.flush();
 		}
 
 	}
@@ -120,6 +138,7 @@ public class Server {
 			out.flush();
 		} else {
 			out.writeObject(false);
+			out.flush();
 		}
 	}
 }

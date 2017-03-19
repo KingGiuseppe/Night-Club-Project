@@ -51,7 +51,6 @@ public class ButtonsForNewUserPanel2 {
 						Main_Window.getNewUserListener().createBtnClicked(userEvent);
 					}
 
-					AccountCreatedAlert aca = new AccountCreatedAlert();
 				}
 			}
 		});

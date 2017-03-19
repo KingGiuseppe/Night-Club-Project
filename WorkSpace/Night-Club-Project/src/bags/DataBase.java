@@ -1,6 +1,7 @@
 package bags;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,9 +12,61 @@ import java.util.ArrayList;
 import model_for_event_creation.CreateEventObject;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_newuser.NewUser;
+import model_for_newuser.NewUserObject;
 import model_for_removeEv.RemoveEventObj;
 
 public class DataBase {
+	
+	public static boolean addNewUser(Object object) {
+		NewUserObject user = (NewUserObject) object;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/nightclub_database?useSSL=false",
+					"KingGiuseppe", "Dravenmeng47");
+			
+			PreparedStatement prepStatement3 = connection.prepareStatement("select * from user_account_information");
+			ResultSet resultSet = prepStatement3.executeQuery();
+			int key = 0;
+
+			while (resultSet.next()) {
+				key = resultSet.getInt(5);
+			}
+			key++;
+			
+		
+			PreparedStatement prepState2 = connection.prepareStatement("insert into user_account_information (user_name, password, email, account_type, id)" + 
+					" values (?, ?, ?, ?, ?)");
+			prepState2.setString(1, user.getUsername());
+			prepState2.setString(2, user.getPassword());
+			prepState2.setString(3, user.getEmail());
+			prepState2.setInt(4, user.getType());
+			prepState2.setInt(5, key);
+			
+			prepState2.execute();
+			
+			PreparedStatement prepState = connection.prepareStatement("insert into user_information (first_name, last_name, gender, zip_code, id)" + 
+			" values (?, ?, ?, ?, ?)");
+			
+			prepState.setString(1, user.getFirstName());
+			prepState.setString(2, user.getLastName());
+			prepState.setString(3, user.getGender());
+			prepState.setInt(4, Integer.parseInt(user.getZip()));
+			prepState.setInt(5, key);
+			prepState.execute();
+			
+			connection.close();
+			return true;
+			
+			
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	public static boolean removeEvent(Object object) {
 		RemoveEventObj event = new RemoveEventObj();
