@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import view_for_guest.EventsPanel;
+import view_for_login.Main_Window;
 import view_for_owner.CreateManagerAccount1;
 import view_for_owner.OwnerPane;
 import view_for_owner.PaneForRevenue;
@@ -57,9 +58,9 @@ public class MenuBarForOwnerPane {
 		eventBtn.setPrefWidth(200);
 		eventBtn.setPrefHeight(50);
 		eventBtn.setOnAction(event -> {
-			EventsPanel ep = new EventsPanel();
-			ep.setAccount(2);
-			OwnerPane.getStage().setScene(new Scene(ep.getPane(), 600, 600));
+			if(Main_Window.getEventButtonListener() != null) {
+				Main_Window.getEventButtonListener().getEventsBtnClicked(2);
+			}
 
 		});
 		managerMessageBtn = new Button("Message For Managers");

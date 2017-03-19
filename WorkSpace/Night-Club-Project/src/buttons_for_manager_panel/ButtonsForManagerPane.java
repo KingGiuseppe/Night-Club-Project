@@ -1,5 +1,7 @@
 package buttons_for_manager_panel;
 
+import java.util.EventObject;
+
 import bags.CreateEventBag;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -75,9 +77,10 @@ public class ButtonsForManagerPane {
 		eventsBtn.setPrefWidth(120);
 		eventsBtn.setPrefHeight(70);
 		eventsBtn.setOnAction(event -> {
-			EventsPanel ep = new EventsPanel();
-			ep.setAccount(1);
-			ManagerPane.getStage().setScene(new Scene(ep.getPane(), 600, 600));
+			if(Main_Window.getEventButtonListener() != null) {
+				Main_Window.getEventButtonListener().getEventsBtnClicked(2);
+			}
+			
 		});
 		setNotificationEventBtn = new Button("Send Notification");
 		setNotificationEventBtn.setFont(new Font("Arial Rounded MT Bold", 12));

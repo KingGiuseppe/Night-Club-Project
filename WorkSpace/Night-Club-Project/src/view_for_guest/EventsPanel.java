@@ -41,7 +41,7 @@ public class EventsPanel {
 	private ScrollPane sp;
 	private static Scene scene;
 
-	public EventsPanel() {
+	public EventsPanel(int num) {
 		borderPane = new BorderPane();
 		eventPane = new VBox();
 		eventPane.setBorder(new Border(
@@ -104,10 +104,6 @@ public class EventsPanel {
 	}
 	public void setEventPane(GridPane grid) {
 		eventPane.getChildren().add(grid);
-	}
-
-	public void setAccount(int num) {
-		this.num = num;
 	}
 
 	public static Scene getScene() {

@@ -1,5 +1,7 @@
 package view_for_guest;
 
+import java.util.EventObject;
+
 import buttons_for_login_panel.MenuBarForLogout;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -29,15 +31,13 @@ public class GuestPane {
 		stage = new Stage();
 		MenuBarForLogout logout = new MenuBarForLogout();
 		mainPane = new BorderPane();
-		eventsPanel = new EventsPanel();
 		mainPane.setPadding(new Insets(0, 25, 25, 25));
-		eventsPanel.setAccount(0);
 		mainPane.setTop(logout.getMenu(0));
 		
 		eventsBtn = new Button("Events");
 		eventsBtn.setOnAction(event -> {
 			if(Main_Window.getEventButtonListener() != null) {
-				Main_Window.getEventButtonListener().getEventsBtnClicked();
+				Main_Window.getEventButtonListener().getEventsBtnClicked(1);
 			}
 		});
 		mainPane.setBottom(eventsBtn);

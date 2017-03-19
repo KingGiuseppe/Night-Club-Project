@@ -5,14 +5,18 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.EventObject;
 
 import bags.DataBase;
+import javafx.scene.Scene;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_newuser.NewUser;
 import model_load_events.GetEventsListener;
 import view_for_guest.EventsPanel;
 import view_for_guest.GuestPane;
 import view_for_login.Main_Window;
+import view_for_manager.ManagerPane;
+import view_for_owner.OwnerPane;
 
 public class GetEventsController {
 	private String host = "localhost";
@@ -25,7 +29,7 @@ public class GetEventsController {
 		view.setGetEventListener(new GetEventsListener() {
 
 			@Override
-			public void getEventsBtnClicked() {
+			public void getEventsBtnClicked(int ev) {
 				try {
 					Socket socket = new Socket(host, 8000);
 					toServer = new ObjectOutputStream(socket.getOutputStream());
@@ -42,10 +46,18 @@ public class GetEventsController {
 						}
 
 						else {
-							System.out.println("HERE 2");
-							GuestPane.getStage().setScene(EventsPanel.getScene());
+							if(ev == 1) {
+								EventsPanel ep = new EventsPanel(0);
+								GuestPane.getStage().setScene(ep.getScene());
+							} else if (ev == 2) {
+								EventsPanel ep = new EventsPanel(1);
+								ManagerPane.getStage().setScene(ep.getScene());
+							} else if (ev == 3) {
+								EventsPanel ep = new EventsPanel(2);
+								OwnerPane.getStage().setScene(ep.getScene());
+							}
+							
 							for(int i = 0; i < eventsList.size(); i++){
-								System.out.println(eventsList.get(i).getArtist());
 								eventsList.get(i).setPane();
 								EventsPanel.getEventPane().getChildren().add(eventsList.get(i).getPane());
 							}
