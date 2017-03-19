@@ -38,6 +38,9 @@ public class ForgotPasswordPane {
 	static TextField emailTxt;
 	private Button continueBtn;
 	private Scene scene;
+	
+	private static String un;
+	private static String email;
 
 	public ForgotPasswordPane() {
 		stage = new Stage();
@@ -107,8 +110,9 @@ public class ForgotPasswordPane {
 		isValid = valid;
 	}
 
-	public static void setUser(NewUser newUser) {
-		user = newUser;
+	public static void setUser(String un2, String email2) {
+		un = un2;
+		email = email2;
 	}
 
 	public static Stage getStage() {

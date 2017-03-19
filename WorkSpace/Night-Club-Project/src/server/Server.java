@@ -12,6 +12,8 @@ import bags.DataBase;
 import controller.GetEventsController;
 import model_for_event_creation.CreateEventObject;
 import model_for_event_creation.CreateEventPaneObject;
+import model_for_login.ForgotPassObject;
+import model_for_login.ForgotPassObject2;
 import model_for_login.LoginObject;
 import model_for_newuser.NewUserObject;
 import model_for_removeEv.RemoveEventObj;
@@ -60,6 +62,10 @@ public class Server {
 					removeEvent(outputToClient, object);
 				} else if (object.getClass() == NewUserObject.class) {
 					addUserAccount(outputToClient, object);
+				} else if(object.getClass() == ForgotPassObject.class) {
+					getUserAcc(outputToClient, object);
+				} else if(object.getClass() == ForgotPassObject2.class) {
+					changePassword(outputToClient, object);
 				}
 
 			}
@@ -77,6 +83,36 @@ public class Server {
 			}
 		}
 
+	}
+	
+	public static void changePassword(ObjectOutputStream out, Object object) {
+		db = new DataBase();
+		try {
+			if(db.changePassword(object) == true) {
+				out.writeObject(true);
+				out.flush();
+			} else {
+				out.writeObject(false);
+				out.flush();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void getUserAcc(ObjectOutputStream out, Object object) {
+		db = new DataBase();
+		try {
+			if(db.getUserAcc(object) == true) {
+				out.writeObject(true);
+				out.flush();
+			} else {
+				out.writeObject(false);
+				out.flush();
+			}
+		} catch (ClassNotFoundException | SQLException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void addUserAccount(ObjectOutputStream out, Object object) throws IOException {

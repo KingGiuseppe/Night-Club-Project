@@ -11,11 +11,32 @@ import java.util.ArrayList;
 
 import model_for_event_creation.CreateEventObject;
 import model_for_event_creation.CreateEventPaneObject;
+import model_for_login.ForgotPassObject;
+import model_for_login.ForgotPassObject2;
 import model_for_newuser.NewUser;
 import model_for_newuser.NewUserObject;
 import model_for_removeEv.RemoveEventObj;
 
 public class DataBase {
+	
+	public static boolean getUserAcc(Object object) throws SQLException, ClassNotFoundException {
+		ForgotPassObject acc = (ForgotPassObject) object;
+		
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/nightclub_database?useSSL=false",
+				"KingGiuseppe", "Dravenmeng47");
+		Statement statement = connection.createStatement();
+		ResultSet resultSet = statement
+				.executeQuery("select user_name, email from user_account_information where user_name = '" + acc.getUsername()
+						+ "' and email = '" + acc.getEmail() + "'");
+
+		while (resultSet.next()) {
+			return true;
+		}
+
+		connection.close();
+		return false;
+	}
 	
 	public static boolean addNewUser(Object object) {
 		NewUserObject user = (NewUserObject) object;
@@ -194,6 +215,29 @@ public class DataBase {
 		}
 		connection.close();
 		return account;
+	}
+
+	public boolean changePassword(Object object) {
+		ForgotPassObject2 acc = (ForgotPassObject2) object;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/nightclub_database?useSSL=false",
+					"KingGiuseppe", "Dravenmeng47");
+			
+			PreparedStatement prepState = connection.prepareStatement("update user_account_information set password = '" + acc.getPass() +"' where user_name = '" + acc.getUsername() + "'");
+					
+			prepState.executeUpdate();
+			
+			connection.close();
+			return true;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }

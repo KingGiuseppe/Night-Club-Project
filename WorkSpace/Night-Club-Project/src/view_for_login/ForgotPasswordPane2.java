@@ -21,6 +21,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model_for_login.ForgotPassObject;
+import model_for_login.ForgotPassObject2;
 import model_for_newuser.NewUser;
 
 public class ForgotPasswordPane2 {
@@ -34,6 +35,8 @@ public class ForgotPasswordPane2 {
 	private static Scene scene;
 	private static NewUser user;
 	static Label top2Lbl;
+	private static String email1;
+	private static String un1;
 
 	public ForgotPasswordPane2() {
 		mainPane2 = new GridPane();
@@ -62,13 +65,10 @@ public class ForgotPasswordPane2 {
 		okBtn.setAlignment(Pos.CENTER_RIGHT);
 		okBtn.setOnAction(event -> {
 			if (passTxt.getText().equals(pass2Txt.getText())) {
-				ForgotPassObject object = new ForgotPassObject(this, user);
+				ForgotPassObject2 object = new ForgotPassObject2(this, un1, passTxt.getText());
 				if (Main_Window.getForgotPassListener2() != null) {
 					Main_Window.getForgotPassListener2().forgotPassBtnClicked2(object);
 				}
-				user.setPassword(passTxt.getText());
-				PasswordChangedAlert alert2 = new PasswordChangedAlert();
-				ForgotPasswordPane.getStage().close();
 				passTxt.clear();
 				pass2Txt.clear();
 				ForgotPasswordPane.userNameTxt.clear();
@@ -105,8 +105,9 @@ public class ForgotPasswordPane2 {
 		return scene;
 	}
 
-	public static void setUser(NewUser newUser) {
-		user = newUser;
+	public static void setUser(String un, String email) {
+		un1 = un;
+		email1 = email;
 	}
 
 }
