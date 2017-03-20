@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.EventObject;
 import Listeners.ButtonListener;
 import alerts.AlertForLogin;
-import bags.AccountBag;
 import bags.DataBase;
 import buttons_for_login_panel.ButtonsForLoginPanel;
 import javafx.application.Platform;
@@ -28,7 +27,7 @@ public class LoginController {
 	private ObjectOutputStream toServer;
 	private ObjectInputStream fromServer;
 
-	public LoginController(DataBase model, Main_Window view) {
+	public LoginController(Main_Window view) {
 
 		view.setEventListener(new ButtonListener() {
 

@@ -6,7 +6,6 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import bags.AccountBag;
 import bags.DataBase;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_login.ForgotPassEventListener;
@@ -21,7 +20,7 @@ import view_for_owner.OwnerPane;
 
 public class ForgotPassController {
 
-	public ForgotPassController(DataBase model, Main_Window view) {
+	public ForgotPassController(Main_Window view) {
 		view.setForgotPassEventListener(new ForgotPassEventListener() {
 
 			private String host = "localhost";

@@ -24,7 +24,7 @@ public class GetEventsController {
 	private ObjectInputStream fromServer;
 	private ArrayList<CreateEventPaneObject> eventsList;
 
-	public GetEventsController(DataBase model, Main_Window view) {
+	public GetEventsController(Main_Window view) {
 
 		view.setGetEventListener(new GetEventsListener() {
 

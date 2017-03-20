@@ -3,7 +3,6 @@ package view_for_login;
 import Listeners.ButtonListener;
 import Listeners.ButtonListener2;
 import Listeners.ListenerMethods;
-import bags.CreateEventBag;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BackgroundImage;
@@ -51,7 +50,6 @@ public class Main_Window {
 		ManagerPane mp = new ManagerPane();
 		OwnerPane op = new OwnerPane();
 		CreateManagerAccount1 cma = new CreateManagerAccount1();
-		CreateEventBag bag = new CreateEventBag();
 		PaneForCreateEvent1 pce1 = new PaneForCreateEvent1();
 		PaneForCreateEvent2 pce2 = new PaneForCreateEvent2();
 

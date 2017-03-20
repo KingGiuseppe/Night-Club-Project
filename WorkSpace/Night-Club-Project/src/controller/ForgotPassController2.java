@@ -6,7 +6,6 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import alerts.PasswordChangedAlert;
-import bags.AccountBag;
 import bags.DataBase;
 import model_for_login.ForgotPassEventListener2;
 import model_for_login.ForgotPassObject;
@@ -17,7 +16,7 @@ import view_for_login.Main_Window;
 
 public class ForgotPassController2 {
 
-	public ForgotPassController2(DataBase model, Main_Window view) {
+	public ForgotPassController2(Main_Window view) {
 		view.setForgotPassEventListener2(new ForgotPassEventListener2() {
 			
 			private String host = "localhost";

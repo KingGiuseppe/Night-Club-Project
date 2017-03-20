@@ -6,7 +6,6 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import alerts.EventRemovedAlert;
-import bags.CreateEventBag;
 import bags.DataBase;
 import model_for_removeEv.RemoveEvEventListener;
 import model_for_removeEv.RemoveEventObj;
@@ -15,7 +14,7 @@ import view_for_manager.PaneForRemoveEvent;
 
 public class RemoveEventController {
 
-	public RemoveEventController(DataBase model, Main_Window view) {
+	public RemoveEventController(Main_Window view) {
 		view.setRemoveEventListener(new RemoveEvEventListener() {
 
 			private String host = "localhost";

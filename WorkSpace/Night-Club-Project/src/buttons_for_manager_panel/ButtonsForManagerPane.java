@@ -2,7 +2,6 @@ package buttons_for_manager_panel;
 
 import java.util.EventObject;
 
-import bags.CreateEventBag;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -41,10 +40,6 @@ public class ButtonsForManagerPane {
 	public ButtonsForManagerPane() {
 		PaneForCreateEvent1 ev = new PaneForCreateEvent1();
 		PaneForRemoveEvent ev2 = new PaneForRemoveEvent();
-		CreateEventBag evbag = new CreateEventBag();
-		PaneForGuestNotification notify = new PaneForGuestNotification();
-		
-		
 		label = new Label("    Select a button\n	   below!");
 		label.setTextFill(Color.web("#ffffff"));
 		label.setAlignment(Pos.CENTER);
@@ -87,7 +82,8 @@ public class ButtonsForManagerPane {
 		setNotificationEventBtn.setPrefWidth(120);
 		setNotificationEventBtn.setPrefHeight(70);
 		setNotificationEventBtn.setOnAction(event -> {
-			ManagerPane.getStage().setScene(PaneForGuestNotification.getScene());
+			
+			ManagerPane.getStage().setScene(new PaneForGuestNotification(2).getScene());
 		});
 
 		buttonPane.getChildren().addAll(label, createEventBtn, removeEventBtn, eventsBtn, setNotificationEventBtn);

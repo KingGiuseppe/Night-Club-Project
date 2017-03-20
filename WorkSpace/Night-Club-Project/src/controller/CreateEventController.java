@@ -6,7 +6,6 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import alerts.EventCreatedAlert;
-import bags.CreateEventBag;
 import bags.DataBase;
 import model_for_event_creation.CreateEventListener;
 import model_for_event_creation.CreateEventObject;
@@ -17,7 +16,7 @@ import view_for_manager.ManagerPane;
 
 public class CreateEventController {
 
-	public CreateEventController(DataBase model, Main_Window view) {
+	public CreateEventController(Main_Window view) {
 		view.setCreateEventListener(new CreateEventListener() {
 
 			private ObjectOutputStream toServer;

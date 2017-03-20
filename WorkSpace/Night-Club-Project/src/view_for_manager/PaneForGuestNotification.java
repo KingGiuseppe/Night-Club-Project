@@ -18,6 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import view_for_owner.OwnerPane;
 
 public class PaneForGuestNotification {
 
@@ -32,7 +33,7 @@ public class PaneForGuestNotification {
 	private TextField toEmailTxt;
 	private TextField subjectTxt;
 
-	public PaneForGuestNotification() {
+	public PaneForGuestNotification(int i) {
 		mainPane = new VBox();
 		messageArea = new TextArea();
 		messageArea.setFont(new Font("Arial Rounded MT Bold", 15));
@@ -55,7 +56,11 @@ public class PaneForGuestNotification {
 		backBtn = new Button("Back");
 		backBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		backBtn.setOnAction(event -> {
-			ManagerPane.getStage().setScene(ManagerPane.getScene());
+			if (i == 1) {
+				OwnerPane.getStage().setScene(OwnerPane.getScene());
+			} else if (i == 2) {
+				ManagerPane.getStage().setScene(ManagerPane.getScene());
+			}
 		});
 
 		submitMessage = new Button("Submit Message");

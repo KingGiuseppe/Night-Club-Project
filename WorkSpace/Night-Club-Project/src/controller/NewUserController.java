@@ -7,7 +7,6 @@ import java.net.Socket;
 
 import alerts.AccountCreatedAlert;
 import alerts.AlertForLogin;
-import bags.AccountBag;
 import bags.DataBase;
 import buttons_for_login_panel.ButtonsForLoginPanel;
 import model_for_newuser.NewUser;
@@ -20,7 +19,7 @@ import view_for_owner.OwnerPane;
 
 public class NewUserController {
 
-	public NewUserController(DataBase database, Main_Window view) {
+	public NewUserController(Main_Window view) {
 
 		view.setNewUserEventListener(new NewUserEventListener() {
 

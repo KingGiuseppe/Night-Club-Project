@@ -8,11 +8,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import view_for_guest.EventsPanel;
 import view_for_login.Main_Window;
+import view_for_manager.PaneForGuestNotification;
 import view_for_owner.CreateManagerAccount1;
 import view_for_owner.OwnerPane;
 import view_for_owner.PaneForRevenue;
 import view_for_owner.SchedulingPane;
-import view_for_owner.SendMessagePane;
 
 public class MenuBarForOwnerPane {
 
@@ -22,12 +22,12 @@ public class MenuBarForOwnerPane {
 	private Button revenueBtn;
 	private Button eventBtn;
 	private Button managerMessageBtn;
+	private Button sendEmailBtn;
 
 	public MenuBarForOwnerPane() {
 		CreateManagerAccount1 cma = new CreateManagerAccount1();
 		SchedulingPane sp = new SchedulingPane();
 		PaneForRevenue rp = new PaneForRevenue();
-		SendMessagePane smp = new SendMessagePane();
 
 		buttonPane = new HBox(5);
 
@@ -59,17 +59,17 @@ public class MenuBarForOwnerPane {
 		eventBtn.setPrefHeight(50);
 		eventBtn.setOnAction(event -> {
 			if(Main_Window.getEventButtonListener() != null) {
-				Main_Window.getEventButtonListener().getEventsBtnClicked(2);
+				Main_Window.getEventButtonListener().getEventsBtnClicked(3);
 			}
 
 		});
-		managerMessageBtn = new Button("Message For Managers");
-		managerMessageBtn.setPrefWidth(200);
-		managerMessageBtn.setPrefHeight(50);
-		managerMessageBtn.setOnAction(event -> {
-			OwnerPane.getStage().setScene(SendMessagePane.getScene());
+		sendEmailBtn = new Button("Send Email");
+		sendEmailBtn.setPrefWidth(200);
+		sendEmailBtn.setPrefHeight(50);
+		sendEmailBtn.setOnAction(event -> {
+			OwnerPane.getStage().setScene(new PaneForGuestNotification(1).getScene());
 		});
-		buttonPane.getChildren().addAll(createManAccBtn, revenueBtn, schedulingBtn, eventBtn, managerMessageBtn);
+		buttonPane.getChildren().addAll(createManAccBtn, revenueBtn, schedulingBtn, eventBtn, sendEmailBtn);
 		buttonPane.setAlignment(Pos.TOP_CENTER);
 
 	}

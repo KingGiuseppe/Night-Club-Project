@@ -66,6 +66,12 @@ public class Server {
 					getUserAcc(outputToClient, object);
 				} else if(object.getClass() == ForgotPassObject2.class) {
 					changePassword(outputToClient, object);
+				} else if(object.toString().equals("Find Managers")) {
+					try {
+						findManagers(outputToClient);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
 				}
 
 			}
@@ -83,6 +89,18 @@ public class Server {
 			}
 		}
 
+	}
+	
+	public static void findManagers(ObjectOutputStream out) throws IOException, ClassNotFoundException, SQLException {
+		db = new DataBase();
+		
+		if(db.getManagerAccounts() != null) {
+			out.writeObject(db.getManagerAccounts());
+			out.flush();
+		} else {
+			out.writeObject(null);
+			out.flush();
+		}
 	}
 	
 	public static void changePassword(ObjectOutputStream out, Object object) {

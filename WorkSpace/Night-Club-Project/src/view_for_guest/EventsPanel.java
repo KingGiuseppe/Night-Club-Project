@@ -1,6 +1,5 @@
 package view_for_guest;
 
-import bags.CreateEventBag;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -35,7 +34,6 @@ public class EventsPanel {
 	private HBox labelPane;
 	private Button backBtn;
 	private int num;
-	private CreateEventBag bag;
 	private Button rListBtn;
 	private HBox btnPane;
 	private ScrollPane sp;
@@ -54,13 +52,6 @@ public class EventsPanel {
 		topLabel = new Label("Events and Dates");
 		topLabel.setFont(new Font("Arial Rounded MT Bold", 50));
 		backBtn = new Button("Back");
-		rListBtn = new Button("Refresh");
-		rListBtn.setFont(new Font("Arial Rounded MT Bold", 20));
-		rListBtn.setOnAction(event -> {
-			
-			
-
-		});
 		backBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		backBtn.setOnAction(event -> {
 			if (num == 2) {
@@ -78,7 +69,7 @@ public class EventsPanel {
 		borderPane.setTop(labelPane);
 		
 		btnPane.setAlignment(Pos.CENTER_RIGHT);
-		btnPane.getChildren().addAll(backBtn, rListBtn);
+		btnPane.getChildren().addAll(backBtn);
 
 		borderPane.setBottom(btnPane);
 		backBtn.setAlignment(Pos.BOTTOM_RIGHT);

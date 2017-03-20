@@ -6,7 +6,6 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import bags.CreateEventBag;
 import bags.DataBase;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_removeEv.RemoveEventBtnClickedEventListener;
@@ -17,7 +16,7 @@ import view_for_manager.PaneForRemoveEvent;
 
 public class RemoveEvBtnClickedController {
 	
-	public RemoveEvBtnClickedController(DataBase model, Main_Window view) {
+	public RemoveEvBtnClickedController(Main_Window view) {
 		view.setRemoveEventBtnClickedEventListener(new RemoveEventBtnClickedEventListener() {
 			
 			private ObjectOutputStream toServer;

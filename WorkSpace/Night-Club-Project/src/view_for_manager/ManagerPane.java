@@ -43,16 +43,9 @@ public class ManagerPane {
 		label1 = new Label("Welcome!");
 		label1.setFont(new Font("Arial Rounded MT Bold", 35));
 		label1.setTextFill(Color.web("#ffffff"));
-		label2 = new Label("Message from the Boss:");
-		label2.setFont(new Font("Arial Rounded MT Bold", 25));
-		label2.setTextFill(Color.web("#ffffff"));
-		label3 = new Label("");
-		label3.setAlignment(Pos.CENTER_LEFT);
-		label3.setFont(new Font("Arial Rounded MT Bold", 15));
-		label3.setTextFill(Color.web("#ffffff"));
 		labelPane = new VBox(20);
 		label1.setAlignment(Pos.CENTER);
-		labelPane.getChildren().addAll(label1, label2, label3);
+		labelPane.getChildren().addAll(label1);
 		labelPane.setAlignment(Pos.TOP_CENTER);
 		mainPane.setCenter(labelPane);
 		scene = new Scene(mainPane, 560, 400);

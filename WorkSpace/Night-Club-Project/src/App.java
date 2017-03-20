@@ -1,7 +1,5 @@
 import java.io.Serializable;
 
-import bags.AccountBag;
-import bags.CreateEventBag;
 import bags.DataBase;
 import bags.ScheduleList;
 import controller.AddToSchedController;
@@ -27,20 +25,17 @@ public class App extends Application implements Serializable {
 	@Override
 	public void start(Stage stage) throws Exception {
 		Main_Window view = new Main_Window(stage);
-		DataBase database = new DataBase();
-		AccountBag account = new AccountBag();
 		ScheduleList schedList = new ScheduleList();
-		GetEventsController eventsCont = new GetEventsController(database, view);
-		CreateEventBag createEventBag = new CreateEventBag();
-		CreateEventController createEventCont = new CreateEventController(database, view);
+		GetEventsController eventsCont = new GetEventsController(view);
+		CreateEventController createEventCont = new CreateEventController(view);
 		AddToSchedController addSched = new AddToSchedController(schedList, view);
-		NewUserController newUserCont = new NewUserController(database, view);
-		LoginController loginCont = new LoginController(database, view);
-		ForgotPassController pasCont = new ForgotPassController(database, view);
-		ForgotPassController2 pasCont2 = new ForgotPassController2(database, view);
-		RemoveEventController removeEvController = new RemoveEventController(database, view);
-		SchedulingController schedCont = new SchedulingController(account, createEventBag, view);
-		RemoveEvBtnClickedController removeEvBtn = new RemoveEvBtnClickedController(database, view);
+		NewUserController newUserCont = new NewUserController(view);
+		LoginController loginCont = new LoginController(view);
+		ForgotPassController pasCont = new ForgotPassController(view);
+		ForgotPassController2 pasCont2 = new ForgotPassController2(view);
+		RemoveEventController removeEvController = new RemoveEventController(view);
+		SchedulingController schedCont = new SchedulingController(view);
+		RemoveEvBtnClickedController removeEvBtn = new RemoveEvBtnClickedController(view);
 	}
 
 }

@@ -19,6 +19,41 @@ import model_for_removeEv.RemoveEventObj;
 
 public class DataBase {
 	
+	public static ArrayList<NewUser> getManagerAccounts() throws ClassNotFoundException, SQLException {
+		CreateEventPaneObject event = new CreateEventPaneObject();
+		ArrayList<NewUser> list = new ArrayList<>();
+		ArrayList<Integer> idList = new ArrayList<>();
+		
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/nightclub_database?useSSL=false",
+				"KingGiuseppe", "Dravenmeng47");
+
+		PreparedStatement prepStatement = connection.prepareStatement("select user_name, password, email, account_type, id from user_account_information where account_type = 1" );
+		ResultSet resultSet = prepStatement.executeQuery();
+
+		while (resultSet.next()) {
+			idList.add(resultSet.getInt(5));
+			list.add(new NewUser(null, null, null, null, resultSet.getString(3), resultSet.getString(1), resultSet.getString(2), resultSet.getInt(4)));
+		}
+		
+		PreparedStatement prepStatement2 = connection.prepareStatement("select * from user_account_information" );
+		ResultSet resultSet2 = prepStatement.executeQuery();
+		int i = 0;
+		while (resultSet2.next()) {
+			if(idList.get(i) == resultSet2.getInt(5)) {
+				list.get(i).setFirstName(resultSet2.getString(1));
+				list.get(i).setLastName(resultSet2.getString(2));
+				list.get(i).setGender(resultSet2.getString(3));
+				list.get(i).setZip(resultSet2.getString(4));
+				i++;
+			}
+			 
+		}
+		connection.close();
+		return list;
+		
+	}
+	
 	public static boolean getUserAcc(Object object) throws SQLException, ClassNotFoundException {
 		ForgotPassObject acc = (ForgotPassObject) object;
 		
@@ -33,6 +68,8 @@ public class DataBase {
 		while (resultSet.next()) {
 			return true;
 		}
+		
+		
 
 		connection.close();
 		return false;
