@@ -208,7 +208,11 @@ public class DataBase {
 						+ "' and password = '" + password + "'");
 
 		while (resultSet.next()) {
-			return true;
+			if(resultSet.getString(2).equals(password)){
+				return true; 
+			} else {
+				return false;
+			}
 		}
 
 		connection.close();
