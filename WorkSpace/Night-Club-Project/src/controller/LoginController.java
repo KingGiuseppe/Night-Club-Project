@@ -49,7 +49,6 @@ public class LoginController {
 							}
 							if (account.getType() == 1) {
 								ManagerPane.showStage();
-								ManagerPane.setMessage();
 								ButtonsForLoginPanel.setUser(account);
 								Main_Window.closeStage();
 								break;

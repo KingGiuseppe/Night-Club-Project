@@ -150,7 +150,6 @@ public class DataBase {
 
 	public static boolean addEvent(CreateEventObject object) {
 		CreateEventPaneObject event = new CreateEventPaneObject();
-		System.out.println((object).getArtist());
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection(

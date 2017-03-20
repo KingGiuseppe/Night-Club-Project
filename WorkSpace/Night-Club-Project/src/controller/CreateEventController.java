@@ -23,7 +23,6 @@ public class CreateEventController {
 			@Override
 			public void createEventBtnClicked(CreateEventObject ev) {
 				try {
-					System.out.println("Here 1: Controller");
 					Socket socket = new Socket(host, 8000);
 					toServer = new ObjectOutputStream(socket.getOutputStream());
 					fromServer = new ObjectInputStream(socket.getInputStream());

@@ -86,32 +86,5 @@ public class ManagerPane {
 		return stage;
 	}
 
-	public static void setMessage() {
-		String e = null;
-		try {
-			FileInputStream fileIn = new FileInputStream("ManagerMessage.dat");
-			ObjectInputStream in = new ObjectInputStream(fileIn);
-			while (true) {
-				try {
-					e = (String) in.readObject();
-					label3.setText(e);
-				} catch (EOFException f) {
-					break;
-				}
-			}
-
-			in.close();
-			fileIn.close();
-
-		} catch (IOException i) {
-			i.printStackTrace();
-			return;
-		} catch (ClassNotFoundException c) {
-			System.out.println("Employee class not found");
-			c.printStackTrace();
-			return;
-		}
-
-	}
 
 }

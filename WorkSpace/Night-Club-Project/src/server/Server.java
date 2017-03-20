@@ -1,6 +1,5 @@
 package server;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -9,9 +8,7 @@ import java.net.Socket;
 import java.sql.SQLException;
 
 import bags.DataBase;
-import controller.GetEventsController;
 import model_for_event_creation.CreateEventObject;
-import model_for_event_creation.CreateEventPaneObject;
 import model_for_login.ForgotPassObject;
 import model_for_login.ForgotPassObject2;
 import model_for_login.LoginObject;
@@ -19,7 +16,6 @@ import model_for_newuser.NewUserObject;
 import model_for_removeEv.RemoveEventObj;
 
 public class Server {
-//check what happens if multiple managers edit stuff example
 	public static void main(String[] args) {
 		new Server();
 	}
@@ -91,7 +87,7 @@ public class Server {
 
 	}
 	
-	public static void findManagers(ObjectOutputStream out) throws IOException, ClassNotFoundException, SQLException {
+	public synchronized static void findManagers(ObjectOutputStream out) throws IOException, ClassNotFoundException, SQLException {
 		db = new DataBase();
 		
 		if(db.getManagerAccounts() != null) {
@@ -103,7 +99,7 @@ public class Server {
 		}
 	}
 	
-	public static void changePassword(ObjectOutputStream out, Object object) {
+	public synchronized static void changePassword(ObjectOutputStream out, Object object) {
 		db = new DataBase();
 		try {
 			if(db.changePassword(object) == true) {
@@ -118,7 +114,7 @@ public class Server {
 		}
 	}
 	
-	public static void getUserAcc(ObjectOutputStream out, Object object) {
+	public synchronized static void getUserAcc(ObjectOutputStream out, Object object) {
 		db = new DataBase();
 		try {
 			if(db.getUserAcc(object) == true) {
@@ -133,7 +129,7 @@ public class Server {
 		}
 	}
 	
-	public static void addUserAccount(ObjectOutputStream out, Object object) throws IOException {
+	public synchronized static void addUserAccount(ObjectOutputStream out, Object object) throws IOException {
 		db = new DataBase();
 		if(db.addNewUser(object) == true) {
 			out.writeObject(true);
@@ -144,7 +140,7 @@ public class Server {
 		}
 	}
 
-	public static void sendLoginValidation(ObjectOutputStream out, Object object)
+	public synchronized static void sendLoginValidation(ObjectOutputStream out, Object object)
 			throws ClassNotFoundException, SQLException, IOException {
 		db = new DataBase();
 		if (db.getLoginVerification(((LoginObject) object).getUsername(),
@@ -157,7 +153,7 @@ public class Server {
 		}
 	}
 
-	public static void getEventsList(ObjectOutputStream out) throws ClassNotFoundException, SQLException, IOException {
+	public synchronized static void getEventsList(ObjectOutputStream out) throws ClassNotFoundException, SQLException, IOException {
 		db = new DataBase();
 		if (db.getEvents() != null) {
 			out.writeObject(db.getEvents());
@@ -168,7 +164,7 @@ public class Server {
 		}
 	}
 
-	public static void addEvent(ObjectOutputStream out, Object object) throws IOException {
+	public synchronized static void addEvent(ObjectOutputStream out, Object object) throws IOException {
 		event = (CreateEventObject) object;
 		db = new DataBase();
 		if (db.addEvent(event) == true) {
@@ -181,7 +177,7 @@ public class Server {
 
 	}
 	
-	public static void removeEvent(ObjectOutputStream out, Object object) throws IOException {
+	public synchronized static void removeEvent(ObjectOutputStream out, Object object) throws IOException {
 		db = new DataBase();
 		if(db.removeEvent(object) == true) {
 			out.writeObject(true);
