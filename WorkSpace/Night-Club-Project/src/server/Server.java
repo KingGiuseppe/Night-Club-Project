@@ -118,7 +118,6 @@ public class Server {
 	public static void addUserAccount(ObjectOutputStream out, Object object) throws IOException {
 		db = new DataBase();
 		if(db.addNewUser(object) == true) {
-			System.out.println("ADDED");
 			out.writeObject(true);
 			out.flush();
 		} else {
@@ -132,8 +131,6 @@ public class Server {
 		db = new DataBase();
 		if (db.getLoginVerification(((LoginObject) object).getUsername(),
 				((LoginObject) object).getPassword()) == true) {
-			System.out.println(db.getAccount(((LoginObject) object).getUsername(), ((LoginObject) object).getPassword())
-					.getFirstName() + " Server");
 			out.writeObject(db.getAccount(((LoginObject) object).getUsername(), ((LoginObject) object).getPassword()));
 			out.flush();
 		} else {
@@ -154,7 +151,6 @@ public class Server {
 	}
 
 	public static void addEvent(ObjectOutputStream out, Object object) throws IOException {
-		System.out.println("Server3");
 		event = (CreateEventObject) object;
 		db = new DataBase();
 		if (db.addEvent(event) == true) {

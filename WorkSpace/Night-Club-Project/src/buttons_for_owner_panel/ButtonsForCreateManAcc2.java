@@ -50,8 +50,6 @@ public class ButtonsForCreateManAcc2 {
 					if (Main_Window.getNewUserListener() != null) {
 						Main_Window.getNewUserListener().createBtnClicked(userEvent2);
 					}
-
-					AccountCreatedAlert aca = new AccountCreatedAlert();
 					OwnerPane.getStage().setScene(OwnerPane.getScene());
 				}
 			}
