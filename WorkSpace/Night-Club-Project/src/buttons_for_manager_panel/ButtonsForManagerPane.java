@@ -58,10 +58,10 @@ public class ButtonsForManagerPane {
 		removeEventBtn.setFont(new Font("Arial Rounded MT Bold", 12));
 		removeEventBtn.setPrefWidth(120);
 		removeEventBtn.setPrefHeight(70);
-		
+
 		removeEventBtn.setOnAction(event -> {
-			
-			if(Main_Window.getRemoveEventBtnListener() != null) {
+
+			if (Main_Window.getRemoveEventBtnListener() != null) {
 				Main_Window.getRemoveEventBtnListener().removeEventBtnClicked();
 			}
 			ManagerPane.getStage().setScene(PaneForRemoveEvent.getScene());
@@ -72,29 +72,30 @@ public class ButtonsForManagerPane {
 		eventsBtn.setPrefWidth(120);
 		eventsBtn.setPrefHeight(70);
 		eventsBtn.setOnAction(event -> {
-			if(Main_Window.getEventButtonListener() != null) {
+			if (Main_Window.getEventButtonListener() != null) {
 				Main_Window.getEventButtonListener().getEventsBtnClicked(2);
 			}
-			
+
 		});
 		setNotificationEventBtn = new Button("Send Notification");
 		setNotificationEventBtn.setFont(new Font("Arial Rounded MT Bold", 12));
 		setNotificationEventBtn.setPrefWidth(120);
 		setNotificationEventBtn.setPrefHeight(70);
 		setNotificationEventBtn.setOnAction(event -> {
-			
+
 			ManagerPane.getStage().setScene(new PaneForGuestNotification(2).getScene());
 		});
 
 		buttonPane.getChildren().addAll(label, createEventBtn, removeEventBtn, eventsBtn, setNotificationEventBtn);
 
 		BackgroundImage myBI = new BackgroundImage(
-				new Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqfa9vQe4zD00N-ajy-RADGBTA15bthYnwKl3U9M7H5E7OWlVo", 550,
-						450, false, true),
+				new Image(
+						"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqfa9vQe4zD00N-ajy-RADGBTA15bthYnwKl3U9M7H5E7OWlVo",
+						550, 450, false, true),
 				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
 				BackgroundSize.DEFAULT);
 		buttonPane.setBackground(new Background(myBI));
-		
+
 	}
 
 	public Pane getPane() {

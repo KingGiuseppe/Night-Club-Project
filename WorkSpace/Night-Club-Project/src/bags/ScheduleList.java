@@ -79,7 +79,6 @@ public class ScheduleList implements Serializable {
 			i.printStackTrace();
 			return;
 		} catch (ClassNotFoundException c) {
-			System.out.println("Employee class not found");
 			c.printStackTrace();
 			return;
 		}

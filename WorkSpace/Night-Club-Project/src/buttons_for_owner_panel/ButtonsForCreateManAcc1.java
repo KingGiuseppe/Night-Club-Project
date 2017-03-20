@@ -26,7 +26,7 @@ public class ButtonsForCreateManAcc1 {
 		continueBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		cancelBtn = new Button("Cancel");
 		cancelBtn.setFont(new Font("Arial Rounded MT Bold", 20));
-		
+
 		continueBtn.setOnAction(event -> {
 			if (CreateManagerAccount1.getFirstNameTxt().getText().equals("")
 					|| CreateManagerAccount1.getLastNameTxt().getText().equals("")

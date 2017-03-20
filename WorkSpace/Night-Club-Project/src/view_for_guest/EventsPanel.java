@@ -33,8 +33,6 @@ public class EventsPanel {
 	private BorderPane borderPane;
 	private HBox labelPane;
 	private Button backBtn;
-	private int num;
-	private Button rListBtn;
 	private HBox btnPane;
 	private ScrollPane sp;
 	private static Scene scene;

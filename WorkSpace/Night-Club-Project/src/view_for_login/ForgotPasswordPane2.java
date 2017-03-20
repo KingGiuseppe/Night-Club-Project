@@ -1,6 +1,5 @@
 package view_for_login;
 
-import alerts.PasswordChangedAlert;
 import alerts.PasswordsDontMatchAlert;
 import javafx.application.Platform;
 import javafx.geometry.HPos;
@@ -20,7 +19,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import model_for_login.ForgotPassObject;
 import model_for_login.ForgotPassObject2;
 import model_for_newuser.NewUser;
 

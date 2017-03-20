@@ -26,6 +26,7 @@ public class App extends Application implements Serializable {
 	public void start(Stage stage) throws Exception {
 		Main_Window view = new Main_Window(stage);
 		ScheduleList schedList = new ScheduleList();
+		
 		GetEventsController eventsCont = new GetEventsController(view);
 		CreateEventController createEventCont = new CreateEventController(view);
 		AddToSchedController addSched = new AddToSchedController(schedList, view);

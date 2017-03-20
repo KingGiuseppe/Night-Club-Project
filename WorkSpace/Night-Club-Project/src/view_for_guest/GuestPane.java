@@ -1,12 +1,10 @@
 package view_for_guest;
 
-import java.util.EventObject;
 
 import buttons_for_login_panel.MenuBarForLogout;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;

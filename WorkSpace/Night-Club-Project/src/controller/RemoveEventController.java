@@ -6,11 +6,9 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import alerts.EventRemovedAlert;
-import bags.DataBase;
 import model_for_removeEv.RemoveEvEventListener;
 import model_for_removeEv.RemoveEventObj;
 import view_for_login.Main_Window;
-import view_for_manager.PaneForRemoveEvent;
 
 public class RemoveEventController {
 
@@ -24,19 +22,18 @@ public class RemoveEventController {
 			@Override
 			public void removeEvBtnClicked(RemoveEventObj ev) {
 				try {
-					Socket socket = new Socket(host  , 8000);
+					Socket socket = new Socket(host, 8000);
 					toServer = new ObjectOutputStream(socket.getOutputStream());
 					fromServer = new ObjectInputStream(socket.getInputStream());
 					toServer.writeObject(ev);
 					boolean deleted;
-					
-					while(true) {
+
+					while (true) {
 						deleted = (boolean) fromServer.readObject();
-						if(deleted == true) {
+						if (deleted == true) {
 							EventRemovedAlert alert = new EventRemovedAlert();
 							break;
 						} else {
-							System.out.println("FAILED");
 							break;
 						}
 					}
@@ -45,7 +42,7 @@ public class RemoveEventController {
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 
 		});

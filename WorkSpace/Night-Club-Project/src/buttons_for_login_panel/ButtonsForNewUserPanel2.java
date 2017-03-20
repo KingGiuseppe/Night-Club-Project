@@ -1,6 +1,5 @@
 package buttons_for_login_panel;
 
-import alerts.AccountCreatedAlert;
 import alerts.AlertForNewUser;
 import alerts.PasswordsDontMatchAlert;
 import javafx.geometry.Pos;

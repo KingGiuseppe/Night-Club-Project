@@ -1,6 +1,5 @@
 package buttons_for_login_panel;
 
-import alerts.AlertForLogin;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -8,13 +7,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import model_for_login.LoginObject;
 import model_for_newuser.NewUser;
-import view_for_guest.GuestPane;
 import view_for_login.ForgotPasswordPane;
 import view_for_login.Login_Pane;
 import view_for_login.Main_Window;
 import view_for_login.NewUserPane;
-import view_for_manager.ManagerPane;
-import view_for_owner.OwnerPane;
 
 public class ButtonsForLoginPanel {
 	private Button loginBtn;
@@ -22,14 +18,14 @@ public class ButtonsForLoginPanel {
 	private Button forgotPassBtn;
 	private HBox pane;
 	private Button cancelBtn;
-	private static NewUser user;
 	private static boolean isValid;
+	private static NewUser user;
 
 	public ButtonsForLoginPanel() {
 		loginBtn = new Button("Login");
 		loginBtn.setMinSize(100, 30);
 		loginBtn.setFont(new Font("Arial Rounded MT Bold", 20));
-		
+
 		NewUserPane nup = new NewUserPane();
 		ForgotPasswordPane fpp = new ForgotPasswordPane();
 
@@ -38,7 +34,7 @@ public class ButtonsForLoginPanel {
 			String pass = Login_Pane.getPass();
 
 			LoginObject loginEvent = new LoginObject(this, username, pass);
-			
+
 			if (Main_Window.getButtonListener() != null) {
 				Main_Window.getButtonListener().btnClicked(loginEvent);
 			}
@@ -100,8 +96,8 @@ public class ButtonsForLoginPanel {
 		isValid = valid;
 	}
 
-	public static void setUser(NewUser newUser) {
-		user = newUser;
+	public static void setUser(NewUser account) {
+		user = account;
 	}
 
 }

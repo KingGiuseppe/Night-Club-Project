@@ -1,6 +1,5 @@
 package view_for_manager;
 
-import alerts.EventCreatedAlert;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

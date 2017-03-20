@@ -5,12 +5,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.EventObject;
 
-import bags.DataBase;
-import javafx.scene.Scene;
 import model_for_event_creation.CreateEventPaneObject;
-import model_for_newuser.NewUser;
 import model_load_events.GetEventsListener;
 import view_for_guest.EventsPanel;
 import view_for_guest.GuestPane;
@@ -40,13 +36,11 @@ public class GetEventsController {
 						eventsList = (ArrayList<CreateEventPaneObject>) fromServer.readObject();
 
 						if (eventsList == null) {
-							System.out.println("NO EVENTS");
 							break;
-
 						}
 
 						else {
-							if(ev == 1) {
+							if (ev == 1) {
 								EventsPanel ep = new EventsPanel(0);
 								GuestPane.getStage().setScene(ep.getScene());
 							} else if (ev == 2) {
@@ -56,8 +50,8 @@ public class GetEventsController {
 								EventsPanel ep = new EventsPanel(2);
 								OwnerPane.getStage().setScene(ep.getScene());
 							}
-							
-							for(int i = 0; i < eventsList.size(); i++){
+
+							for (int i = 0; i < eventsList.size(); i++) {
 								eventsList.get(i).setPane();
 								EventsPanel.getEventPane().getChildren().add(eventsList.get(i).getPane());
 							}
