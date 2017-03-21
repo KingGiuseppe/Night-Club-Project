@@ -6,6 +6,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import model_for_event_creation.CreateEventObject;
@@ -50,42 +56,56 @@ public class PaneForCreateEvent2 {
 		createEventPane.setPadding(new Insets(20, 20, 20, 20));
 
 		inventoryLbl = new Label("Inventory");
-		inventoryLbl.setFont(Font.font(20));
+		inventoryLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		amountOfBottlesLbl = new Label("Amount of bottles");
+		amountOfBottlesLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		amountOfBottleTxt = new TextField();
 		costPerBottleLbl = new Label("Cost per bottle");
+		costPerBottleLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		costPerBottleTxt = new TextField();
 		numOfKegsLbl = new Label("Number of kegs");
+		numOfKegsLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		numOfKegsTxt = new TextField();
 		costPerKegLbl = new Label("Cost per keg");
+		costPerKegLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		costPerKegTxt = new TextField();
 
 		scheduleLbl = new Label("Schedule");
-		scheduleLbl.setFont(Font.font(20));
+		scheduleLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		numOfBartendersLbl = new Label("Number of bartenders");
+		numOfBartendersLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		numOfBartendersTxt = new TextField();
 		costPerHouseLbl = new Label("Cost per hour");
+		costPerHouseLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		costPerHouseTxt = new TextField();
 
 		securityLbl = new Label("Security");
+		securityLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		securityLbl.setFont(Font.font(20));
 		numOfBouncersLbl = new Label("Number of bouncers");
+		numOfBouncersLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		numOfBouncersTxt = new TextField();
 		costPerHourBouncersLbl = new Label("Cost per hour");
+		costPerHourBouncersLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		costPerHourBouncersTxt = new TextField();
 
 		maintenceCrewLbl = new Label("Matinence");
+		maintenceCrewLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		maintenceCrewLbl.setFont(Font.font(20));
 		numOfEmployeesLbl = new Label("Number of employees");
+		numOfEmployeesLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		numOfEmployeesTxt = new TextField();
 		costperHourMaintLbl = new Label("Cost per hour");
+		costperHourMaintLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		costperHourMaintTxt = new TextField();
 
 		backBtn = new Button("Go back");
+		backBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		backBtn.setOnAction(event -> {
 			ManagerPane.getStage().setScene(PaneForCreateEvent1.getScene());
 		});
 		createEventBtn = new Button("Create event");
+		createEventBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 
 		createEventBtn.setOnAction(event -> {
 			CreateEventObject eventObj = new CreateEventObject(this, PaneForCreateEvent1.getEventName(),
@@ -129,7 +149,12 @@ public class PaneForCreateEvent2 {
 		createEventPane.add(backBtn, 1, 22);
 		createEventPane.setHalignment(backBtn, HPos.RIGHT);
 		createEventPane.add(createEventBtn, 2, 22);
-
+		BackgroundImage myBI = new BackgroundImage(
+				new Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqfa9vQe4zD00N-ajy-RADGBTA15bthYnwKl3U9M7H5E7OWlVo", 550,
+						450, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundSize.DEFAULT);
+		createEventPane.setBackground(new Background(myBI));
 		scene = new Scene(createEventPane, 450, 670);
 
 	}

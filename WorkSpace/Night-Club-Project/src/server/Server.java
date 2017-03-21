@@ -11,6 +11,7 @@ import bags.DataBase;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model_for_event_creation.CreateEventObject;
@@ -20,10 +21,9 @@ import model_for_login.LoginObject;
 import model_for_newuser.NewUserObject;
 import model_for_removeEv.RemoveEventObj;
 
-public class Server extends Application{
+public class Server {
 	public static void main(String[] args) {
 		new Server();
-		launch(args);
 	}
 
 	private static DataBase db;
@@ -31,6 +31,7 @@ public class Server extends Application{
 	private ObjectOutputStream outputToClient;
 	private Object object;
 	private Stage stage;
+	private TextArea area;
 	private static Socket socket;
 	private static CreateEventObject event;
 
@@ -39,10 +40,11 @@ public class Server extends Application{
 		try {
 			ServerSocket serverSocket = new ServerSocket(8000);
 			System.out.println("Server started");
-
+			
 			while (true) {
 				Socket socket = serverSocket.accept();
-
+				System.out.println(socket.getInetAddress());
+				
 				inputFromClient = new ObjectInputStream(socket.getInputStream());
 				outputToClient = new ObjectOutputStream(socket.getOutputStream());
 				object = inputFromClient.readObject();
@@ -195,15 +197,4 @@ public class Server extends Application{
 		}
 	}
 
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		stage = primaryStage;
-		BorderPane pane = new BorderPane();
-		pane.setCenter(new Label("Server"));
-		Scene scene = new Scene(pane, 300, 300);
-		stage.setScene(scene);
-		stage.setTitle("Server");
-		stage.show();
-
-	}
 }

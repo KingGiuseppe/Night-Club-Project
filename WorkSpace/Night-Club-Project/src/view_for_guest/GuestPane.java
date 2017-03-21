@@ -12,6 +12,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model_for_newuser.NewUser;
 import view_for_login.Main_Window;
@@ -31,8 +32,8 @@ public class GuestPane {
 		mainPane = new BorderPane();
 		mainPane.setPadding(new Insets(0, 25, 25, 25));
 		mainPane.setTop(logout.getMenu(0));
-		
 		eventsBtn = new Button("Events");
+		eventsBtn.setFont(new Font("Arial Rounded MT Bold", 30));
 		eventsBtn.setOnAction(event -> {
 			if(Main_Window.getEventButtonListener() != null) {
 				Main_Window.getEventButtonListener().getEventsBtnClicked(1);

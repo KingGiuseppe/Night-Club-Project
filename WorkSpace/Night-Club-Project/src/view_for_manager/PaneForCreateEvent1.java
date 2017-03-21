@@ -9,6 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 
@@ -45,39 +51,49 @@ public class PaneForCreateEvent1 {
 		entertainmentPane.setPadding(new Insets(20, 20, 20, 20));
 
 		createEventLbl = new Label("Create Event");
-		createEventLbl.setFont(Font.font(20));
+		createEventLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		eventNameLbl = new Label("Event Name");
+		eventNameLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		eventNameTxt = new TextField();
 		dateLbl = new Label("Date");
+		dateLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		date = new DatePicker();
 
 		entertainmentLbl = new Label("Entertainment");
-		entertainmentLbl.setFont(Font.font(20));
+		entertainmentLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		musicGenreLbl = new Label("Music genre");
+		musicGenreLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		musicGenreTxt = new TextField();
 		artistNameLbl = new Label("Artist");
+		artistNameLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		artistNameTxt = new TextField();
 		costForNightLbl = new Label("Cost for the night");
+		costForNightLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		costForNightTxt = new TextField();
 
 		dancersLbl = new Label("Dancers");
-		dancersLbl.setFont(Font.font(20));
+		dancersLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		numOfDancersLbl = new Label("Number of dancers");
+		numOfDancersLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		numOfDancersTxt = new TextField();
 		dancersCostPerDancerLbl = new Label("Cost per dancer");
+		dancersCostPerDancerLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		dancersCostPerDancerTxt = new TextField();
 
 		backBtn = new Button("Go back");
+		backBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		backBtn.setOnAction(event -> {
 			ManagerPane.getStage().setScene(ManagerPane.getScene());
 		});
 		
 		nextBtn = new Button("Next");
+		nextBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		nextBtn.setOnAction(event -> {
 			ManagerPane.getStage().setScene(PaneForCreateEvent2.getScene());
 		});
 		
 		pictureLbl = new Label("Picture link");
+		pictureLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		pictureTxt = new TextField();
 
 		entertainmentPane.add(createEventLbl, 1, 0);
@@ -105,7 +121,12 @@ public class PaneForCreateEvent1 {
 		entertainmentPane.add(backBtn, 1, 14);
 		entertainmentPane.setHalignment(backBtn, HPos.RIGHT);
 		entertainmentPane.add(nextBtn, 2, 14);
-
+		BackgroundImage myBI = new BackgroundImage(
+				new Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqfa9vQe4zD00N-ajy-RADGBTA15bthYnwKl3U9M7H5E7OWlVo", 550,
+						450, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundSize.DEFAULT);
+		entertainmentPane.setBackground(new Background(myBI));
 		scene = new Scene(entertainmentPane, 410, 550);
 
 	}

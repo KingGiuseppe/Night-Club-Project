@@ -50,7 +50,7 @@ public class EventsPanel {
 		topLabel = new Label("Events and Dates");
 		topLabel.setFont(new Font("Arial Rounded MT Bold", 50));
 		backBtn = new Button("Back");
-		backBtn.setFont(new Font("Arial Rounded MT Bold", 20));
+		backBtn.setFont(new Font("Arial Rounded MT Bold", 30));
 		backBtn.setOnAction(event -> {
 			if (num == 2) {
 				OwnerPane.getStage().setScene(OwnerPane.getScene());

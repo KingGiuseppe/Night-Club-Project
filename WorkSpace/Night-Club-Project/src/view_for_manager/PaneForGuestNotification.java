@@ -12,10 +12,20 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import alerts.EmailSentAlert;
+import javafx.application.Platform;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import view_for_owner.OwnerPane;
@@ -32,26 +42,29 @@ public class PaneForGuestNotification {
 	private TextField fromEmailTxt;
 	private TextField toEmailTxt;
 	private TextField subjectTxt;
+	private HBox buttonPane;
 
 	public PaneForGuestNotification(int i) {
-		mainPane = new VBox();
+		mainPane = new VBox(10);
+		mainPane.setPadding(new Insets(0, 25, 25, 25));
+		buttonPane = new HBox(15);
 		messageArea = new TextArea();
 		messageArea.setFont(new Font("Arial Rounded MT Bold", 15));
 		usernameTxt = new TextField();
-		usernameTxt.setText("username");
+		usernameTxt.setPromptText("Username");
 		usernameTxt.setFont(new Font("Arial Rounded MT Bold", 20));
 		passtxt = new TextField();
 		passtxt.setFont(new Font("Arial Rounded MT Bold", 20));
-		passtxt.setText("password");
+		passtxt.setPromptText("password");
 		fromEmailTxt = new TextField();
 		fromEmailTxt.setFont(new Font("Arial Rounded MT Bold", 20));
-		fromEmailTxt.setText("From Email");
+		fromEmailTxt.setPromptText("From Email");
 		toEmailTxt = new TextField();
 		toEmailTxt.setFont(new Font("Arial Rounded MT Bold", 20));
-		toEmailTxt.setText("To Email");
+		toEmailTxt.setPromptText("To Email");
 		subjectTxt = new TextField();
 		subjectTxt.setFont(new Font("Arial Rounded MT Bold", 20));
-		subjectTxt.setText("Subject");
+		subjectTxt.setPromptText("Subject");
 
 		backBtn = new Button("Back");
 		backBtn.setFont(new Font("Arial Rounded MT Bold", 20));
@@ -102,11 +115,18 @@ public class PaneForGuestNotification {
 			ManagerPane.getStage().setScene(ManagerPane.getScene());
 
 		});
-
+		BackgroundImage myBI = new BackgroundImage(
+				new Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqfa9vQe4zD00N-ajy-RADGBTA15bthYnwKl3U9M7H5E7OWlVo", 550,
+						450, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundSize.DEFAULT);
+		buttonPane.getChildren().addAll(submitMessage, backBtn);
+		buttonPane.setAlignment(Pos.CENTER_RIGHT);
+		mainPane.setBackground(new Background(myBI));
 		mainPane.getChildren().addAll(usernameTxt, passtxt, fromEmailTxt, toEmailTxt, subjectTxt, messageArea,
-				submitMessage, backBtn);
-
-		scene = new Scene(mainPane, 400, 350);
+				buttonPane);
+		Platform.runLater(() -> mainPane.requestFocus());
+		scene = new Scene(mainPane, 450, 350);
 	}
 
 	public static Scene getScene() {

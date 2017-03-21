@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import buttons_for_login_panel.MenuBarForLogout;
 import buttons_for_manager_panel.ButtonsForManagerPane;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -54,7 +55,7 @@ public class ManagerPane {
 		stage.setResizable(false);
 		
 		BackgroundImage myBI = new BackgroundImage(
-				new Image("http://powellong.com/data/wallpapers/21/WDF_692914.jpg", 550,
+				new Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqfa9vQe4zD00N-ajy-RADGBTA15bthYnwKl3U9M7H5E7OWlVo", 550,
 						450, false, true),
 				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
 				BackgroundSize.DEFAULT);
