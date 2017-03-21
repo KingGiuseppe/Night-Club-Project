@@ -17,7 +17,7 @@ public class RemoveEvBtnClickedController {
 		view.setRemoveEventBtnClickedEventListener(new RemoveEventBtnClickedEventListener() {
 
 			private ObjectOutputStream toServer;
-			private String host = "localhost";
+			private String host = "24.187.104.229";
 			private ObjectInputStream fromServer;
 			private ArrayList<CreateEventPaneObject> eventsList;
 

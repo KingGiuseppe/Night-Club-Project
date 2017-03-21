@@ -15,7 +15,7 @@ import view_for_manager.ManagerPane;
 import view_for_owner.OwnerPane;
 
 public class GetEventsController {
-	private String host = "localhost";
+	private String host = "24.187.104.229";
 	private ObjectOutputStream toServer;
 	private ObjectInputStream fromServer;
 	private ArrayList<CreateEventPaneObject> eventsList;

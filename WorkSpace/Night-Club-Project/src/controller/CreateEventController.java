@@ -18,7 +18,7 @@ public class CreateEventController {
 
 			private ObjectOutputStream toServer;
 			private ObjectInputStream fromServer;
-			private String host = "localhost";
+			private String host = "24.187.104.229";
 
 			@Override
 			public void createEventBtnClicked(CreateEventObject ev) {

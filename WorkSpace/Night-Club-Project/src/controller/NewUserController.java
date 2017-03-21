@@ -17,7 +17,7 @@ public class NewUserController {
 
 		view.setNewUserEventListener(new NewUserEventListener() {
 
-			private String host = "localhost";
+			private String host = "24.187.104.229";
 			private ObjectOutputStream toServer;
 			private ObjectInputStream fromServer;
 
