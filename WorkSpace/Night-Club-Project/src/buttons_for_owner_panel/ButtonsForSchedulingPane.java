@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import model_for_scheduling.SchedEventObj;
 import view_for_login.Main_Window;
 import view_for_owner.ScheduleFinalizePane;
@@ -24,6 +25,7 @@ public class ButtonsForSchedulingPane {
 	public ButtonsForSchedulingPane() {
 		btnPane = new VBox(20);
 		addToSchedBtn = new Button("Add to Schedule ");
+		addToSchedBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 		ScheduleFinalizePane sfp = new ScheduleFinalizePane();
 		TableViewForSchedulingPane tvsp = new TableViewForSchedulingPane();
 		addToSchedBtn.setOnAction(event -> {
@@ -47,6 +49,7 @@ public class ButtonsForSchedulingPane {
 
 		});
 		scheduleBtn = new Button("Finalize Schedule");
+		scheduleBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 		scheduleBtn.setOnAction(event -> {
 			ScheduleList sl = new ScheduleList();
 			sl.loadEvents();

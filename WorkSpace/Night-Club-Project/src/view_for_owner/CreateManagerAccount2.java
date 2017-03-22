@@ -7,6 +7,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -77,6 +83,13 @@ public class CreateManagerAccount2 {
 		Platform.runLater(() -> label.requestFocus());
 		createManagerAccount2.add(new ButtonsForCreateManAcc2().getPane(), 1, 9, 2, 1);
 		scene = new Scene(createManagerAccount2, 500, 450);
+		
+		BackgroundImage myBI = new BackgroundImage(
+				new Image("http://wallpapercave.com/wp/BhcQpIw.jpg", 360,
+						640, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundSize.DEFAULT);
+		createManagerAccount2.setBackground(new Background(myBI));
 	}
 
 	public static Pane getPane() {

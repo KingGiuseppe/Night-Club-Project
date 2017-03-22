@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model_for_scheduling.ShiftObject;
 
@@ -44,9 +45,11 @@ public class TableViewForSchedulingPane {
 		schedTableView.setEditable(false);
 
 		shift1Lbl = new Label("Shift 1: ");
-		shift1Lbl.setFont(Font.font(15));
+		shift1Lbl.setTextFill(Color.web("#ffffff"));
+		shift1Lbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		shift2Lbl = new Label("Shift 2: ");
-		shift2Lbl.setFont(Font.font(15));
+		shift2Lbl.setTextFill(Color.web("#ffffff"));
+		shift2Lbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		sundayColTitle = new TableColumn("Sunday");
 		mondayColTitle = new TableColumn("Monday");
 		tuesdayColTitle = new TableColumn("Tuesday");
@@ -66,6 +69,7 @@ public class TableViewForSchedulingPane {
 		saturdayColTitle.setCellValueFactory(new PropertyValueFactory<ShiftObject, String>("saturday"));
 		backBtn = new Button("   Back   ");
 		backBtnPane = new HBox();
+		backBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 		backBtn.setOnAction(event -> {
 			OwnerPane.getStage().setScene(OwnerPane.getScene());
 		});

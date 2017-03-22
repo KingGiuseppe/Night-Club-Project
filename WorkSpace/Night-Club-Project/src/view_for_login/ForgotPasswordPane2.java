@@ -1,5 +1,6 @@
 package view_for_login;
 
+import alerts.AlertForNewUser;
 import alerts.PasswordsDontMatchAlert;
 import javafx.application.Platform;
 import javafx.geometry.HPos;
@@ -48,7 +49,7 @@ public class ForgotPasswordPane2 {
 		topLbl = new Label("Password must contain 1 letter \nand one uppercase letter!");
 		topLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		topLbl.setTextFill(Color.web("#ffffff"));
-		
+
 		passTxt = new TextField();
 		passTxt.setFont(new Font("Arial Rounded MT Bold", 20));
 		passTxt.setPromptText("New Password");
@@ -62,17 +63,21 @@ public class ForgotPasswordPane2 {
 		okBtn.setMinWidth(50);
 		okBtn.setAlignment(Pos.CENTER_RIGHT);
 		okBtn.setOnAction(event -> {
-			if (passTxt.getText().equals(pass2Txt.getText())) {
-				ForgotPassObject2 object = new ForgotPassObject2(this, un1, passTxt.getText());
-				if (Main_Window.getForgotPassListener2() != null) {
-					Main_Window.getForgotPassListener2().forgotPassBtnClicked2(object);
-				}
-				passTxt.clear();
-				pass2Txt.clear();
-				ForgotPasswordPane.userNameTxt.clear();
-				ForgotPasswordPane.emailTxt.clear();
+			if (passTxt.getText().equals("") || pass2Txt.getText().equals("")) {
+				new AlertForNewUser();
 			} else {
-				PasswordsDontMatchAlert alert = new PasswordsDontMatchAlert();
+				if (passTxt.getText().equals(pass2Txt.getText())) {
+					ForgotPassObject2 object = new ForgotPassObject2(this, un1, passTxt.getText());
+					if (Main_Window.getForgotPassListener2() != null) {
+						Main_Window.getForgotPassListener2().forgotPassBtnClicked2(object);
+					}
+					passTxt.clear();
+					pass2Txt.clear();
+					ForgotPasswordPane.userNameTxt.clear();
+					ForgotPasswordPane.emailTxt.clear();
+				} else {
+					PasswordsDontMatchAlert alert = new PasswordsDontMatchAlert();
+				}
 			}
 		});
 
@@ -82,11 +87,12 @@ public class ForgotPasswordPane2 {
 		mainPane2.add(pass2Txt, 0, 4);
 		mainPane2.add(okBtn, 0, 6);
 		mainPane2.setHalignment(okBtn, HPos.RIGHT);
-		
+
 		Platform.runLater(() -> top2Lbl.requestFocus());
 		BackgroundImage myBI = new BackgroundImage(
-				new Image("https://s-media-cache-ak0.pinimg.com/originals/0f/fc/80/0ffc8072381c1cd334a9d51872cd9b9c.png", 360,
-						640, false, true),
+				new Image(
+						"https://s-media-cache-ak0.pinimg.com/originals/0f/fc/80/0ffc8072381c1cd334a9d51872cd9b9c.png",
+						360, 640, false, true),
 				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
 				BackgroundSize.DEFAULT);
 		mainPane2.setBackground(new Background(myBI));

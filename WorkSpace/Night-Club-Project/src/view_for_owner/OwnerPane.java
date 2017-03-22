@@ -6,8 +6,15 @@ import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model_for_newuser.NewUser;
@@ -34,11 +41,14 @@ public class OwnerPane {
 		menuBar = new MenuBarForOwnerPane();
 		mainPane = new BorderPane();
 		text1Lbl = new Label("Welcome!");
-		text1Lbl.setFont(Font.font(30));
+		text1Lbl.setFont(new Font("Arial Rounded MT Bold", 40));
+		text1Lbl.setTextFill(Color.web("#ffffff"));
 		text2Lbl = new Label("What would you like to do today?");
-		text2Lbl.setFont(Font.font(25));
+		text2Lbl.setTextFill(Color.web("#ffffff"));
+		text2Lbl.setFont(new Font("Arial Rounded MT Bold", 25));
 		text3Lbl = new Label("Please click a button below");
-		text3Lbl.setFont(Font.font(25));
+		text3Lbl.setTextFill(Color.web("#ffffff"));
+		text3Lbl.setFont(new Font("Arial Rounded MT Bold", 25));
 		textPane = new GridPane();
 		textPane.add(text1Lbl, 0, 0);
 		textPane.setAlignment(Pos.CENTER);
@@ -53,6 +63,13 @@ public class OwnerPane {
 		scene = new Scene(mainPane, 750, 400);
 		stage.setScene(scene);
 		stage.setTitle("The King's View");
+		
+		BackgroundImage myBI = new BackgroundImage(
+				new Image("http://jdnowweb-s.cdn.ubi.com/prod/20170215_1121/web/img/home/backgrounds/bg-stars.jpg", 750,
+						400, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundSize.DEFAULT);
+		mainPane.setBackground(new Background(myBI));
 	}
 
 	public static void showStage() {

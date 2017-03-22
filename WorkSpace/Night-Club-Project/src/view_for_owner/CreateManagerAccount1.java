@@ -9,6 +9,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -84,8 +90,14 @@ public class CreateManagerAccount1 {
 
 		createManagerGridPane.add(new ButtonsForCreateManAcc1().getPane(), 1, 8, 2, 1);
 
-		scene = new Scene(createManagerGridPane, 500, 400);
+		scene = new Scene(createManagerGridPane, 550, 400);
 
+		BackgroundImage myBI = new BackgroundImage(
+				new Image("http://wallpapercave.com/wp/BhcQpIw.jpg", 360,
+						640, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+				BackgroundSize.DEFAULT);
+		createManagerGridPane.setBackground(new Background(myBI));
 	}
 
 	public static Pane getPane() {

@@ -45,7 +45,9 @@ public class DataBase {
 				list.get(i).setLastName(resultSet2.getString(2));
 				list.get(i).setGender(resultSet2.getString(3));
 				list.get(i).setZip(resultSet2.getString(4));
-				i++;
+				if(i < idList.size()) {
+					i++;
+				}
 			}
 
 		}

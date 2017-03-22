@@ -1,5 +1,6 @@
 package view_for_manager;
 
+import alerts.AlertForNewUser;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -13,6 +14,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model_for_event_creation.CreateEventObject;
 import view_for_login.Main_Window;
@@ -57,63 +59,84 @@ public class PaneForCreateEvent2 {
 
 		inventoryLbl = new Label("Inventory");
 		inventoryLbl.setFont(new Font("Arial Rounded MT Bold", 20));
+		inventoryLbl.setTextFill(Color.web("#ffffff"));
 		amountOfBottlesLbl = new Label("Amount of bottles");
-		amountOfBottlesLbl.setFont(new Font("Arial Rounded MT Bold", 20));
+		amountOfBottlesLbl.setFont(new Font("Arial Rounded MT Bold", 15));
+		amountOfBottlesLbl.setTextFill(Color.web("#ffffff"));
 		amountOfBottleTxt = new TextField();
 		costPerBottleLbl = new Label("Cost per bottle");
-		costPerBottleLbl.setFont(new Font("Arial Rounded MT Bold", 20));
+		costPerBottleLbl.setTextFill(Color.web("#ffffff"));
+		costPerBottleLbl.setFont(new Font("Arial Rounded MT Bold", 15));
 		costPerBottleTxt = new TextField();
 		numOfKegsLbl = new Label("Number of kegs");
-		numOfKegsLbl.setFont(new Font("Arial Rounded MT Bold", 20));
+		numOfKegsLbl.setTextFill(Color.web("#ffffff"));
+		numOfKegsLbl.setFont(new Font("Arial Rounded MT Bold", 15));
 		numOfKegsTxt = new TextField();
 		costPerKegLbl = new Label("Cost per keg");
-		costPerKegLbl.setFont(new Font("Arial Rounded MT Bold", 20));
+		costPerKegLbl.setTextFill(Color.web("#ffffff"));
+		costPerKegLbl.setFont(new Font("Arial Rounded MT Bold", 15));
 		costPerKegTxt = new TextField();
 
 		scheduleLbl = new Label("Schedule");
+		scheduleLbl.setTextFill(Color.web("#ffffff"));
 		scheduleLbl.setFont(new Font("Arial Rounded MT Bold", 20));
 		numOfBartendersLbl = new Label("Number of bartenders");
-		numOfBartendersLbl.setFont(new Font("Arial Rounded MT Bold", 20));
+		numOfBartendersLbl.setFont(new Font("Arial Rounded MT Bold", 15));
+		numOfBartendersLbl.setTextFill(Color.web("#ffffff"));
 		numOfBartendersTxt = new TextField();
 		costPerHouseLbl = new Label("Cost per hour");
-		costPerHouseLbl.setFont(new Font("Arial Rounded MT Bold", 20));
+		costPerHouseLbl.setTextFill(Color.web("#ffffff"));
+		costPerHouseLbl.setFont(new Font("Arial Rounded MT Bold", 15));
 		costPerHouseTxt = new TextField();
 
 		securityLbl = new Label("Security");
+		securityLbl.setTextFill(Color.web("#ffffff"));
 		securityLbl.setFont(new Font("Arial Rounded MT Bold", 20));
-		securityLbl.setFont(Font.font(20));
 		numOfBouncersLbl = new Label("Number of bouncers");
-		numOfBouncersLbl.setFont(new Font("Arial Rounded MT Bold", 20));
+		numOfBouncersLbl.setTextFill(Color.web("#ffffff"));
+		numOfBouncersLbl.setFont(new Font("Arial Rounded MT Bold", 15));
 		numOfBouncersTxt = new TextField();
 		costPerHourBouncersLbl = new Label("Cost per hour");
-		costPerHourBouncersLbl.setFont(new Font("Arial Rounded MT Bold", 20));
+		costPerHourBouncersLbl.setTextFill(Color.web("#ffffff"));
+		costPerHourBouncersLbl.setFont(new Font("Arial Rounded MT Bold", 15));
 		costPerHourBouncersTxt = new TextField();
 
 		maintenceCrewLbl = new Label("Matinence");
 		maintenceCrewLbl.setFont(new Font("Arial Rounded MT Bold", 20));
-		maintenceCrewLbl.setFont(Font.font(20));
+		maintenceCrewLbl.setTextFill(Color.web("#ffffff"));
 		numOfEmployeesLbl = new Label("Number of employees");
-		numOfEmployeesLbl.setFont(new Font("Arial Rounded MT Bold", 20));
+		numOfEmployeesLbl.setFont(new Font("Arial Rounded MT Bold", 15));
+		numOfEmployeesLbl.setTextFill(Color.web("#ffffff"));
 		numOfEmployeesTxt = new TextField();
 		costperHourMaintLbl = new Label("Cost per hour");
-		costperHourMaintLbl.setFont(new Font("Arial Rounded MT Bold", 20));
+		costperHourMaintLbl.setTextFill(Color.web("#ffffff"));
+		costperHourMaintLbl.setFont(new Font("Arial Rounded MT Bold", 15));
 		costperHourMaintTxt = new TextField();
 
 		backBtn = new Button("Go back");
-		backBtn.setFont(new Font("Arial Rounded MT Bold", 20));
+		backBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 		backBtn.setOnAction(event -> {
 			ManagerPane.getStage().setScene(PaneForCreateEvent1.getScene());
 		});
 		createEventBtn = new Button("Create event");
-		createEventBtn.setFont(new Font("Arial Rounded MT Bold", 20));
+		createEventBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 
 		createEventBtn.setOnAction(event -> {
-			CreateEventObject eventObj = new CreateEventObject(this, PaneForCreateEvent1.getEventName(),
-					PaneForCreateEvent1.getDate(), PaneForCreateEvent1.getGenre(), PaneForCreateEvent1.getArtist(),
-					PaneForCreateEvent1.getImageUrl());
+			if (costperHourMaintTxt.getText().equals("") || numOfEmployeesTxt.getText().equals("")
+					|| costPerHourBouncersTxt.getText().equals("") || numOfBouncersTxt.getText().equals("")
+					|| costPerHouseTxt.getText().equals("") || numOfBartendersTxt.getText().equals("")
+					|| costPerHouseTxt.getText().equals("") || numOfBartendersTxt.getText().equals("")
+					|| costPerKegTxt.getText().equals("") || numOfKegsTxt.getText().equals("")
+					|| costPerBottleTxt.getText().equals("") || amountOfBottleTxt.getText().equals("")) {
+				new AlertForNewUser();
+			} else {
+				CreateEventObject eventObj = new CreateEventObject(this, PaneForCreateEvent1.getEventName(),
+						PaneForCreateEvent1.getDate(), PaneForCreateEvent1.getGenre(), PaneForCreateEvent1.getArtist(),
+						PaneForCreateEvent1.getImageUrl());
 
-			if (Main_Window.getCreateEventEventListener() != null) {
-				Main_Window.getCreateEventEventListener().createEventBtnClicked(eventObj);
+				if (Main_Window.getCreateEventEventListener() != null) {
+					Main_Window.getCreateEventEventListener().createEventBtnClicked(eventObj);
+				}
 			}
 		});
 
@@ -150,12 +173,11 @@ public class PaneForCreateEvent2 {
 		createEventPane.setHalignment(backBtn, HPos.RIGHT);
 		createEventPane.add(createEventBtn, 2, 22);
 		BackgroundImage myBI = new BackgroundImage(
-				new Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqfa9vQe4zD00N-ajy-RADGBTA15bthYnwKl3U9M7H5E7OWlVo", 550,
-						450, false, true),
-				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
-				BackgroundSize.DEFAULT);
+				new Image("https://s-media-cache-ak0.pinimg.com/236x/7d/e9/b5/7de9b526dbf09315ed9d3f9cb2dd04d1.jpg",
+						600, 650, false, true),
+				BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 		createEventPane.setBackground(new Background(myBI));
-		scene = new Scene(createEventPane, 450, 670);
+		scene = new Scene(createEventPane, 500, 650);
 
 	}
 

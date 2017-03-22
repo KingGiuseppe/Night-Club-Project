@@ -1,6 +1,7 @@
 package view_for_login;
 
 import alerts.AccountFoundAlert;
+import alerts.AlertForNewUser;
 import alerts.InvalidInfoAlert;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -36,7 +37,7 @@ public class ForgotPasswordPane {
 	static TextField emailTxt;
 	private Button continueBtn;
 	private Scene scene;
-	
+
 	private static String un;
 	private static String email;
 
@@ -68,29 +69,35 @@ public class ForgotPasswordPane {
 		continueBtn.setAlignment(Pos.CENTER_RIGHT);
 		continueBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		continueBtn.setOnAction(event -> {
-			String username = userNameTxt.getText();
-			String email = emailTxt.getText();
-
-			ForgotPassObject forgotPassEvent = new ForgotPassObject(this, username, email);
-
-			if (Main_Window.getForgotPassListener() != null) {
-				Main_Window.getForgotPassListener().forgotPassBtnClicked(forgotPassEvent);
-			}
-			if (isValid == true) {
-				AccountFoundAlert alert2 = new AccountFoundAlert();
-				stage.setScene(ForgotPasswordPane2.getScene());
+			if (userNameTxt.getText().equals("") || emailTxt.getText().equals("")) {
+				new AlertForNewUser();
 			} else {
-				InvalidInfoAlert alert = new InvalidInfoAlert();
+				String username = userNameTxt.getText();
+				String email = emailTxt.getText();
+
+				ForgotPassObject forgotPassEvent = new ForgotPassObject(this, username, email);
+
+				if (Main_Window.getForgotPassListener() != null) {
+					Main_Window.getForgotPassListener().forgotPassBtnClicked(forgotPassEvent);
+				}
+				if (isValid == true) {
+					AccountFoundAlert alert2 = new AccountFoundAlert();
+					stage.setScene(ForgotPasswordPane2.getScene());
+					userNameTxt.clear();
+					emailTxt.clear();
+				} else {
+					InvalidInfoAlert alert = new InvalidInfoAlert();
+				}
 			}
 
 		});
 
-		
 		mainPane.getChildren().addAll(topLbl, topLbl2, userNameTxt, emailTxt, continueBtn);
 		Platform.runLater(() -> topLbl.requestFocus());
 		BackgroundImage myBI = new BackgroundImage(
-				new Image("https://s-media-cache-ak0.pinimg.com/originals/0f/fc/80/0ffc8072381c1cd334a9d51872cd9b9c.png", 460,
-						640, false, true),
+				new Image(
+						"https://s-media-cache-ak0.pinimg.com/originals/0f/fc/80/0ffc8072381c1cd334a9d51872cd9b9c.png",
+						460, 640, false, true),
 				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
 				BackgroundSize.DEFAULT);
 		mainPane.setBackground(new Background(myBI));

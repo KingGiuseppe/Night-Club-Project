@@ -11,6 +11,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import alerts.AlertForNewUser;
 import alerts.EmailSentAlert;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -79,6 +80,13 @@ public class PaneForGuestNotification {
 		submitMessage = new Button("Submit Message");
 		submitMessage.setFont(new Font("Arial Rounded MT Bold", 20));
 		submitMessage.setOnAction(event -> {
+			
+			if(usernameTxt.getText().equals("") || passtxt.getText().equals("") || fromEmailTxt.getText().equals("") || 
+					toEmailTxt.getText().equals("") || subjectTxt.getText().equals("") || messageArea.getText().equals("")) {
+				AlertForNewUser alert = new AlertForNewUser();
+				
+			} else {
+				
 			Properties properties = new Properties();
 			properties.put("mail.smtp.auth", "true");
 			properties.put("mail.smtp.starttls.enable", "true");
@@ -113,7 +121,7 @@ public class PaneForGuestNotification {
 			}
 
 			ManagerPane.getStage().setScene(ManagerPane.getScene());
-
+			}
 		});
 		BackgroundImage myBI = new BackgroundImage(
 				new Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqfa9vQe4zD00N-ajy-RADGBTA15bthYnwKl3U9M7H5E7OWlVo", 550,

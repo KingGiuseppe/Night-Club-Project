@@ -1,6 +1,7 @@
 package buttons_for_login_panel;
 
 import alerts.AlertForNewUser;
+import alerts.AlertForZip;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -24,11 +25,13 @@ public class ButtonsForNewUserPanel {
 		continueBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		cancelBtn = new Button("Cancel");
 		cancelBtn.setFont(new Font("Arial Rounded MT Bold", 20));
-
+		
 		continueBtn.setOnAction(event -> {
 			if (NewUserPane.getFirstNameTxt().getText().equals("") || NewUserPane.getLastNameTxt().getText().equals("")
 					|| NewUserPane.getZipTxt().getText().equals("")) {
 				AlertForNewUser alert = new AlertForNewUser();
+			} else if(NewUserPane.getZipTxt().getText().matches("[0-9]+") == false) {
+				AlertForZip zip = new AlertForZip();
 			} else {
 				String firstname = NewUserPane.getFirstNameTxt().getText();
 				String lastname = NewUserPane.getLastNameTxt().getText();
@@ -36,13 +39,16 @@ public class ButtonsForNewUserPanel {
 				String gender = chk.getText();
 				String zip = NewUserPane.getZipTxt().getText();
 				person = new Person(firstname, lastname, gender, zip);
-
 				NewUserPane.getStage().setScene(NewUserPane2.getScene());
 			}
 
 		});
 
 		cancelBtn.setOnAction(event -> {
+			NewUserPane.getFirstNameTxt().clear();
+			NewUserPane.getLastNameTxt().clear();
+			NewUserPane.getZipTxt().clear();
+			
 			NewUserPane.closeStage();
 		});
 

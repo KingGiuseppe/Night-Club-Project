@@ -49,7 +49,10 @@ public class ButtonsForNewUserPanel2 {
 					if (Main_Window.getNewUserListener() != null) {
 						Main_Window.getNewUserListener().createBtnClicked(userEvent);
 					}
-
+					NewUserPane2.getEmailTxt().clear();
+					NewUserPane2.getUsernameTxt().clear();
+					NewUserPane2.getPasswordTxt().clear();
+					NewUserPane2.getPassword2Txt().clear();
 				}
 			}
 		});

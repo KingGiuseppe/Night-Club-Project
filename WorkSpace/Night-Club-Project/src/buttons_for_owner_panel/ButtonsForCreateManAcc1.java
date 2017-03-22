@@ -1,6 +1,7 @@
 package buttons_for_owner_panel;
 
 import alerts.AlertForNewUser;
+import alerts.AlertForZip;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -8,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import model_for_newuser.Person;
+import view_for_login.NewUserPane;
 import view_for_owner.CreateManagerAccount1;
 import view_for_owner.CreateManagerAccount2;
 import view_for_owner.OwnerPane;
@@ -32,6 +34,8 @@ public class ButtonsForCreateManAcc1 {
 					|| CreateManagerAccount1.getLastNameTxt().getText().equals("")
 					|| CreateManagerAccount1.getZipTxt().getText().equals("")) {
 				AlertForNewUser alert = new AlertForNewUser();
+			} else if(CreateManagerAccount1.getZipTxt().getText().matches("[0-9]+")) {
+				AlertForZip zip = new AlertForZip();
 			} else {
 				String firstname = CreateManagerAccount1.getFirstNameTxt().getText();
 				String lastname = CreateManagerAccount1.getLastNameTxt().getText();
