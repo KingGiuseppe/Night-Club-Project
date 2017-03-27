@@ -15,9 +15,12 @@ import server.database.connection.methods.DataBaseConnection;
 
 public class DataBaseAccountMethods {
 
-	/** Return manager accounts in ArrayList. First it find the account information then gets the account user information. */
+	/**
+	 * Return manager accounts in ArrayList. First it find the account
+	 * information then gets the account user information.
+	 */
 	public static ArrayList<NewUser> getManagerAccounts() {
-		ArrayList<NewUser> list = new ArrayList<>();
+		ArrayList<NewUser> managerAccountsList = new ArrayList<>();
 		ArrayList<Integer> idList = new ArrayList<>();
 
 		DataBaseConnection.connectToDataBase();
@@ -31,8 +34,8 @@ public class DataBaseAccountMethods {
 
 			while (resultSet.next()) {
 				idList.add(resultSet.getInt(5));
-				list.add(new NewUser(null, null, null, null, resultSet.getString(3), resultSet.getString(1),
-						resultSet.getString(2), resultSet.getInt(4)));
+				managerAccountsList.add(new NewUser(null, null, null, null, resultSet.getString(3),
+						resultSet.getString(1), resultSet.getString(2), resultSet.getInt(4)));
 			}
 
 			PreparedStatement prepStatement2 = DataBaseConnection.getConnection()
@@ -43,10 +46,10 @@ public class DataBaseAccountMethods {
 			int i = 0;
 			while (resultSet2.next()) {
 				if (idList.get(i) == resultSet2.getInt(5)) {
-					list.get(i).setFirstName(resultSet2.getString(1));
-					list.get(i).setLastName(resultSet2.getString(2));
-					list.get(i).setGender(resultSet2.getString(3));
-					list.get(i).setZip(resultSet2.getString(4));
+					managerAccountsList.get(i).setFirstName(resultSet2.getString(1));
+					managerAccountsList.get(i).setLastName(resultSet2.getString(2));
+					managerAccountsList.get(i).setGender(resultSet2.getString(3));
+					managerAccountsList.get(i).setZip(resultSet2.getString(4));
 					if (i < idList.size() - 1) {
 						i++;
 					}
@@ -58,9 +61,10 @@ public class DataBaseAccountMethods {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return list;
+		return managerAccountsList;
 
 	}
+
 	/** Adds new account to database. */
 	public static boolean addAccount(Object object) {
 		NewUserObject user = (NewUserObject) object;
@@ -107,17 +111,20 @@ public class DataBaseAccountMethods {
 		return false;
 	}
 
-	/** Checks to see if the login information is valid and returns true or false if found/not found respectively. */
+	/**
+	 * Checks to see if the login information is valid and returns true or false
+	 * if found/not found respectively.
+	 */
 	public static boolean getLoginVerification(Object object) throws SQLException, ClassNotFoundException {
-		LoginObject loginInfo = (LoginObject) object;
+		LoginObject loginObject = (LoginObject) object;
 		DataBaseConnection.connectToDataBase();
 		Statement statement = DataBaseConnection.getConnection().createStatement();
 		ResultSet resultSet = statement
 				.executeQuery("select user_name, password from user_account_information where user_name = '"
-						+ loginInfo.getUsername() + "' and password = '" + loginInfo.getPassword() + "'");
+						+ loginObject.getUsername() + "' and password = '" + loginObject.getPassword() + "'");
 
 		while (resultSet.next()) {
-			if (resultSet.getString(2).equals(loginInfo.getPassword())) {
+			if (resultSet.getString(2).equals(loginObject.getPassword())) {
 				return true;
 			} else {
 				return false;
@@ -127,9 +134,10 @@ public class DataBaseAccountMethods {
 		DataBaseConnection.closeConnection();
 		return false;
 	}
+
 	/** Gets account from database. */
 	public static NewUser getAccount(Object object) throws SQLException, ClassNotFoundException {
-		LoginObject loginInfo = (LoginObject) object;
+		LoginObject loginObject = (LoginObject) object;
 		NewUser account = new NewUser();
 		DataBaseConnection.connectToDataBase();
 
@@ -137,7 +145,7 @@ public class DataBaseAccountMethods {
 
 		ResultSet resultSet1 = statement.executeQuery(
 				"select user_name, password, email, account_type, id from user_account_information where user_name = '"
-						+ loginInfo.getUsername() + "' and password = '" + loginInfo.getPassword() + "'");
+						+ loginObject.getUsername() + "' and password = '" + loginObject.getPassword() + "'");
 
 		while (resultSet1.next()) {
 			account.setUsername(resultSet1.getString(1));
@@ -160,15 +168,16 @@ public class DataBaseAccountMethods {
 		DataBaseConnection.closeConnection();
 		return account;
 	}
+
 	/** Gets account login information. **/
 	public static boolean getAccountLoginInfo(Object object) {
-		ForgotPassObject acc = (ForgotPassObject) object;
+		ForgotPassObject account = (ForgotPassObject) object;
 		try {
 			DataBaseConnection.connectToDataBase();
 			Statement statement = DataBaseConnection.getConnection().createStatement();
 			ResultSet resultSet = statement
 					.executeQuery("select user_name, email from user_account_information where user_name = '"
-							+ acc.getUsername() + "' and email = '" + acc.getEmail() + "'");
+							+ account.getUsername() + "' and email = '" + account.getEmail() + "'");
 
 			while (resultSet.next()) {
 				return true;
@@ -181,6 +190,7 @@ public class DataBaseAccountMethods {
 		}
 		return false;
 	}
+
 	/** Changes account password. */
 	public static boolean setAccountPassword(Object object) {
 		ForgotPassObject2 forgotPasswordObject = (ForgotPassObject2) object;

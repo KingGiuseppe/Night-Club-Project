@@ -14,12 +14,12 @@ public class DataBaseEventsMethods {
 
 	/** Removes event from database. */
 	public static boolean removeEvent(Object object) {
-		RemoveEventObj event = (RemoveEventObj) object;
+		RemoveEventObj eventToRemove = (RemoveEventObj) object;
 
 		try {
 			DataBaseConnection.connectToDataBase();
 			PreparedStatement prepState = DataBaseConnection.getConnection()
-					.prepareStatement("delete from event_table where event_name = '" + event.getEventName() + "'");
+					.prepareStatement("delete from event_table where event_name = '" + eventToRemove.getEventName() + "'");
 
 			prepState.execute();
 			DataBaseConnection.closeConnection();
@@ -61,7 +61,7 @@ public class DataBaseEventsMethods {
 
 	/** Get events list from database. */
 	public static ArrayList<CreateEventPaneObject> getEvents() {
-		ArrayList<CreateEventPaneObject> list = new ArrayList<>();
+		ArrayList<CreateEventPaneObject> eventsList = new ArrayList<>();
 
 		DataBaseConnection.connectToDataBase();
 
@@ -72,7 +72,7 @@ public class DataBaseEventsMethods {
 			ResultSet resultSet = prepStatement.executeQuery();
 
 			while (resultSet.next()) {
-				list.add(new CreateEventPaneObject(resultSet.getString(1), resultSet.getString(4),
+				eventsList.add(new CreateEventPaneObject(resultSet.getString(1), resultSet.getString(4),
 						resultSet.getString(3), resultSet.getString(2), resultSet.getString(5)));
 			}
 			DataBaseConnection.closeConnection();
@@ -80,7 +80,7 @@ public class DataBaseEventsMethods {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return list;
+		return eventsList;
 
 	}
 
