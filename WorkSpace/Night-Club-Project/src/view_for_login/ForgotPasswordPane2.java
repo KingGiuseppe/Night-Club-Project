@@ -2,6 +2,7 @@ package view_for_login;
 
 import alerts.AlertForNewUser;
 import alerts.PasswordsDontMatchAlert;
+import controller.ForgotPassController2;
 import javafx.application.Platform;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -20,6 +21,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import listener.ButtonsEventListener;
 import model_for_login.ForgotPassObject2;
 import model_for_newuser.NewUser;
 
@@ -67,9 +69,12 @@ public class ForgotPasswordPane2 {
 				new AlertForNewUser();
 			} else {
 				if (passTxt.getText().equals(pass2Txt.getText())) {
+					
+					ForgotPassController2 pasCont2 = new ForgotPassController2(new ButtonsEventListener());
+
 					ForgotPassObject2 object = new ForgotPassObject2(this, un1, passTxt.getText());
-					if (Main_Window.getForgotPassListener2() != null) {
-						Main_Window.getForgotPassListener2().forgotPassBtnClicked2(object);
+					if (ButtonsEventListener.getButtonListener() != null) {
+						ButtonsEventListener.getButtonListener().btnClicked(object);
 					}
 					passTxt.clear();
 					pass2Txt.clear();

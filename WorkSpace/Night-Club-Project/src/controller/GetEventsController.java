@@ -5,7 +5,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.EventObject;
 
+import listener.ButtonListener;
+import listener.ButtonsEventListener;
 import model_for_event_creation.CreateEventPaneObject;
 import model_load_events.GetEventsListener;
 import view_for_guest.EventsPanel;
@@ -20,12 +23,12 @@ public class GetEventsController {
 	private ObjectInputStream fromServer;
 	private ArrayList<CreateEventPaneObject> eventsList;
 
-	public GetEventsController(Main_Window view) {
+	public GetEventsController(ButtonsEventListener listener) {
 
-		view.setGetEventListener(new GetEventsListener() {
+		listener.setEventListener(new ButtonListener() {
 
 			@Override
-			public void getEventsBtnClicked(int ev) {
+			public void btnClicked(EventObject ev) {
 				try {
 					Socket socket = new Socket(host, 8000);
 					toServer = new ObjectOutputStream(socket.getOutputStream());
@@ -40,13 +43,14 @@ public class GetEventsController {
 						}
 
 						else {
-							if (ev == 1) {
+
+							if (ev.getSource().equals(1)) {
 								EventsPanel ep = new EventsPanel(0);
 								GuestPane.getStage().setScene(ep.getScene());
-							} else if (ev == 2) {
+							} else if (ev.getSource().equals(2)) {
 								EventsPanel ep = new EventsPanel(1);
 								ManagerPane.getStage().setScene(ep.getScene());
-							} else if (ev == 3) {
+							} else if (ev.getSource().equals(3)) {
 								EventsPanel ep = new EventsPanel(2);
 								OwnerPane.getStage().setScene(ep.getScene());
 							}

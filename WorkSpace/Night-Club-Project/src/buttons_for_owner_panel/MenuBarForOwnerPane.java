@@ -1,11 +1,15 @@
 package buttons_for_owner_panel;
 
-import Listeners.ListenerMethods;
+import java.util.EventObject;
+
+import controller.GetEventsController;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import listener.ButtonsEventListener;
+import listener.ListenerMethods;
 import view_for_login.Main_Window;
 import view_for_manager.PaneForGuestNotification;
 import view_for_owner.CreateManagerAccount1;
@@ -60,10 +64,10 @@ public class MenuBarForOwnerPane {
 		eventBtn.setPrefWidth(200);
 		eventBtn.setPrefHeight(50);
 		eventBtn.setOnAction(event -> {
-			if (Main_Window.getEventButtonListener() != null) {
-				Main_Window.getEventButtonListener().getEventsBtnClicked(3);
+			GetEventsController eventsCont = new GetEventsController(new ButtonsEventListener());
+			if(ButtonsEventListener.getButtonListener() != null) {
+				ButtonsEventListener.getButtonListener().btnClicked(new EventObject(3));
 			}
-
 		});
 		sendEmailBtn = new Button("Send Email");
 		sendEmailBtn.setFont(new Font("Arial Rounded MT Bold", 13));

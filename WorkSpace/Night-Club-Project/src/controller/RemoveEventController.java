@@ -4,23 +4,27 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.EventObject;
 
 import alerts.EventRemovedAlert;
+import listener.ButtonListener;
+import listener.ButtonsEventListener;
 import model_for_removeEv.RemoveEvEventListener;
 import model_for_removeEv.RemoveEventObj;
 import view_for_login.Main_Window;
 
 public class RemoveEventController {
 
-	public RemoveEventController(Main_Window view) {
-		view.setRemoveEventListener(new RemoveEvEventListener() {
+	public RemoveEventController(ButtonsEventListener listener) {
+		
+		listener.setEventListener(new ButtonListener() {
 
 			private String host = "24.187.104.229";
 			private ObjectOutputStream toServer;
 			private ObjectInputStream fromServer;
 
 			@Override
-			public void removeEvBtnClicked(RemoveEventObj ev) {
+			public void btnClicked(EventObject ev) {
 				try {
 					Socket socket = new Socket(host, 8000);
 					toServer = new ObjectOutputStream(socket.getOutputStream());

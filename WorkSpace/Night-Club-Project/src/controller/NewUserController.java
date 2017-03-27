@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.EventObject;
 
 import alerts.AccountCreatedAlert;
+import listener.ButtonListener;
+import listener.ButtonsEventListener;
 import model_for_newuser.NewUser;
 import model_for_newuser.NewUserEventListener;
 import model_for_newuser.NewUserObject;
@@ -13,19 +16,19 @@ import view_for_login.Main_Window;
 
 public class NewUserController {
 
-	public NewUserController(Main_Window view) {
+	public NewUserController(ButtonsEventListener listener) {
 
-		view.setNewUserEventListener(new NewUserEventListener() {
+		listener.setEventListener(new ButtonListener() {
 
 			private String host = "24.187.104.229";
 			private ObjectOutputStream toServer;
 			private ObjectInputStream fromServer;
 
 			@Override
-			public void createBtnClicked(NewUserObject ev) {
+			public void btnClicked(EventObject ev) {
 				try {
 					Socket socket = new Socket(host, 8000);
-					NewUser account = null;
+					NewUser account = (NewUser) ev.getSource();
 					toServer = new ObjectOutputStream(socket.getOutputStream());
 					fromServer = new ObjectInputStream(socket.getInputStream());
 					toServer.writeObject(ev);

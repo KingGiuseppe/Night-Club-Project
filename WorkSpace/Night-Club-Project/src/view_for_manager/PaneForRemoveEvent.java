@@ -2,6 +2,7 @@ package view_for_manager;
 
 import java.util.ArrayList;
 
+import controller.RemoveEventController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -18,6 +19,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import listener.ButtonsEventListener;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_removeEv.RemoveEventObj;
 import view_for_login.Main_Window;
@@ -47,21 +49,25 @@ public class PaneForRemoveEvent {
 		});
 
 		removeEventBtn.setOnAction(event -> {
-			getList();
+			RemoveEventController removeEvController = new RemoveEventController(new ButtonsEventListener());
+			RemoveEventObj obj = new RemoveEventObj(this, getEventsListView().getSelectionModel().getSelectedItem());
+			
+			if (ButtonsEventListener.getButtonListener() != null) {
+				ButtonsEventListener.getButtonListener().btnClicked(obj);
+			}
 		});
 		btnPane.getChildren().addAll(removeEventBtn, backBtn);
 		listView.getChildren().addAll(getEventsListView(), btnPane);
-		
+
 		BackgroundImage myBI = new BackgroundImage(
-				new Image(
-						"http://urdu-mag.com/blog/wp-content/uploads/2012/11/large/abstract+backgrounds+15.jpg",
-						360, 640, false, true),
+				new Image("http://urdu-mag.com/blog/wp-content/uploads/2012/11/large/abstract+backgrounds+15.jpg", 360,
+						640, false, true),
 				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
 				BackgroundSize.DEFAULT);
 		listView.setBackground(new Background(myBI));
 
 		scene = new Scene(listView, 450, 400);
-		
+
 	}
 
 	public static void setEventsList(ArrayList<CreateEventPaneObject> list) {
@@ -82,13 +88,6 @@ public class PaneForRemoveEvent {
 			eventsListView.setItems(el);
 		}
 
-	}
-	
-	public static void getList() {
-		RemoveEventObj obj = new RemoveEventObj(getEventsListView().getSelectionModel().getSelectedItem());
-		if (Main_Window.getRemoveEvEventListener() != null) {
-			Main_Window.getRemoveEvEventListener().removeEvBtnClicked(obj);
-		}
 	}
 
 	public static ListView<String> getEventsListView() {

@@ -1,7 +1,10 @@
 package view_for_guest;
 
 
+import java.util.EventObject;
+
 import buttons_for_login_panel.MenuBarForLogout;
+import controller.GetEventsController;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,6 +17,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import listener.ButtonsEventListener;
 import model_for_newuser.NewUser;
 import view_for_login.Main_Window;
 
@@ -35,8 +39,9 @@ public class GuestPane {
 		eventsBtn = new Button("Events");
 		eventsBtn.setFont(new Font("Arial Rounded MT Bold", 30));
 		eventsBtn.setOnAction(event -> {
-			if(Main_Window.getEventButtonListener() != null) {
-				Main_Window.getEventButtonListener().getEventsBtnClicked(1);
+			GetEventsController eventsCont = new GetEventsController(new ButtonsEventListener());
+			if(ButtonsEventListener.getButtonListener() != null) {
+				ButtonsEventListener.getButtonListener().btnClicked(new EventObject(1));
 			}
 		});
 		mainPane.setBottom(eventsBtn);

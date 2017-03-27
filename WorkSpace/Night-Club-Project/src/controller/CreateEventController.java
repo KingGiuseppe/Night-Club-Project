@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.EventObject;
 
 import alerts.EventCreatedAlert;
+import listener.ButtonListener;
+import listener.ButtonsEventListener;
 import model_for_event_creation.CreateEventListener;
 import model_for_event_creation.CreateEventObject;
 import view_for_login.Main_Window;
@@ -13,15 +16,15 @@ import view_for_manager.ManagerPane;
 
 public class CreateEventController {
 
-	public CreateEventController(Main_Window view) {
-		view.setCreateEventListener(new CreateEventListener() {
+	public CreateEventController(ButtonsEventListener listener) {
+		listener.setEventListener(new ButtonListener() {
 
 			private ObjectOutputStream toServer;
 			private ObjectInputStream fromServer;
 			private String host = "24.187.104.229";
 
 			@Override
-			public void createEventBtnClicked(CreateEventObject ev) {
+			public void btnClicked(EventObject ev) {
 				try {
 					Socket socket = new Socket(host, 8000);
 					toServer = new ObjectOutputStream(socket.getOutputStream());

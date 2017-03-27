@@ -1,6 +1,10 @@
 package controller;
 
+import java.util.EventObject;
+
 import bags.ScheduleList;
+import listener.ButtonListener;
+import listener.ButtonsEventListener;
 import model_for_scheduling.AddToScheduleEventListener;
 import model_for_scheduling.SchedEventObj;
 import view_for_login.Main_Window;
@@ -8,11 +12,12 @@ import view_for_owner.TableViewForSchedulingPane;
 
 public class AddToSchedController {
 
-	public AddToSchedController(ScheduleList model, Main_Window view) {
-		view.setAddToSchedListener(new AddToScheduleEventListener() {
+	public AddToSchedController(ScheduleList model, ButtonsEventListener listener) {
+		listener.setEventListener(new ButtonListener() {
 
 			@Override
-			public void addBtnClicked(SchedEventObj ev) {
+			public void btnClicked(EventObject eve) {
+				SchedEventObj ev = (SchedEventObj) eve.getSource();
 				if (((SchedEventObj) ev).getShift().equals("Shift 1")) {
 					if (((SchedEventObj) ev).getDay().equals("Sunday")) {
 						model.getIndex(0).setSunday(((SchedEventObj) ev).getName());

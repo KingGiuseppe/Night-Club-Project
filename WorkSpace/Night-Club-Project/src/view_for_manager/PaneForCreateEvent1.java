@@ -101,7 +101,7 @@ public class PaneForCreateEvent1 {
 		nextBtn = new Button("Next");
 		nextBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 		nextBtn.setOnAction(event -> {
-			if (eventNameTxt.getText().equals("") || date.getPromptText().equals("")
+			if (eventNameTxt.getText().equals("") || date.getValue().equals("")
 					|| musicGenreTxt.getText().equals("") || artistNameTxt.getText().equals("")
 					|| costForNightTxt.getText().equals("") || numOfDancersTxt.getText().equals("")
 					|| dancersCostPerDancerTxt.getText().equals("")) {

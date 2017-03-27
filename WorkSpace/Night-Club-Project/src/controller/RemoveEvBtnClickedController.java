@@ -5,7 +5,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.EventObject;
 
+import listener.ButtonListener;
+import listener.ButtonsEventListener;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_removeEv.RemoveEventBtnClickedEventListener;
 import view_for_login.Main_Window;
@@ -13,8 +16,9 @@ import view_for_manager.PaneForRemoveEvent;
 
 public class RemoveEvBtnClickedController {
 
-	public RemoveEvBtnClickedController(Main_Window view) {
-		view.setRemoveEventBtnClickedEventListener(new RemoveEventBtnClickedEventListener() {
+	public RemoveEvBtnClickedController(ButtonsEventListener listener) {
+		
+		listener.setEventListener(new ButtonListener() {
 
 			private ObjectOutputStream toServer;
 			private String host = "24.187.104.229";
@@ -22,7 +26,7 @@ public class RemoveEvBtnClickedController {
 			private ArrayList<CreateEventPaneObject> eventsList;
 
 			@Override
-			public void removeEventBtnClicked() {
+			public void btnClicked(EventObject ev) {
 				try {
 					Socket socket = new Socket(host, 8000);
 					toServer = new ObjectOutputStream(socket.getOutputStream());

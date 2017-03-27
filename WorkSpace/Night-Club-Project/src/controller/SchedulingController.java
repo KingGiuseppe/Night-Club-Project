@@ -5,8 +5,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.EventObject;
 
-import Listeners.ButtonListener2;
+import listener.ButtonListener;
+import listener.ButtonListener2;
+import listener.ButtonsEventListener;
 import model_for_newuser.NewUser;
 import view_for_login.Main_Window;
 import view_for_owner.SchedulingPane;
@@ -17,11 +20,11 @@ public class SchedulingController {
 	private ObjectOutputStream toServer;
 	private ObjectInputStream fromServer;
 
-	public SchedulingController(Main_Window view) {
-		Main_Window.getListener().setEventListener2(new ButtonListener2() {
+	public SchedulingController(ButtonsEventListener listener) {
+		listener.setEventListener(new ButtonListener() {
 
 			@Override
-			public void btnClicked(int i) {
+			public void btnClicked(EventObject ev) {
 
 				try {
 					Socket socket = new Socket(host, 8000);

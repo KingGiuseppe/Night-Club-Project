@@ -2,11 +2,13 @@ package buttons_for_login_panel;
 
 import alerts.AlertForNewUser;
 import alerts.PasswordsDontMatchAlert;
+import controller.NewUserController;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import listener.ButtonsEventListener;
 import model_for_newuser.NewUserObject;
 import view_for_login.Main_Window;
 import view_for_login.NewUserPane;
@@ -40,14 +42,14 @@ public class ButtonsForNewUserPanel2 {
 					PasswordsDontMatchAlert pdma = new PasswordsDontMatchAlert();
 
 				} else if (password.equals(password2)) {
-
+					NewUserController newUserCont = new NewUserController(new ButtonsEventListener());
 					NewUserObject userEvent = new NewUserObject(this, ButtonsForNewUserPanel.getPerson().getFirstName(),
 							ButtonsForNewUserPanel.getPerson().getLastName(),
 							ButtonsForNewUserPanel.getPerson().getGender(), ButtonsForNewUserPanel.getPerson().getZip(),
 							emailAddress, username, password, 0);
 
-					if (Main_Window.getNewUserListener() != null) {
-						Main_Window.getNewUserListener().createBtnClicked(userEvent);
+					if (ButtonsEventListener.getButtonListener() != null) {
+						ButtonsEventListener.getButtonListener().btnClicked(userEvent);
 					}
 					NewUserPane2.getEmailTxt().clear();
 					NewUserPane2.getUsernameTxt().clear();

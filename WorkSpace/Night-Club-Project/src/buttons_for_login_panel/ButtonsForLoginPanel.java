@@ -1,10 +1,12 @@
 package buttons_for_login_panel;
 
+import controller.LoginController;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import listener.ButtonsEventListener;
 import model_for_login.LoginObject;
 import model_for_newuser.NewUser;
 import view_for_login.ForgotPasswordPane;
@@ -30,13 +32,14 @@ public class ButtonsForLoginPanel {
 		ForgotPasswordPane fpp = new ForgotPasswordPane();
 
 		loginBtn.setOnAction(event -> {
+			LoginController loginCont = new LoginController(new ButtonsEventListener());
 			String username = Login_Pane.getUsername();
 			String pass = Login_Pane.getPass();
 
 			LoginObject loginEvent = new LoginObject(this, username, pass);
 
-			if (Main_Window.getButtonListener() != null) {
-				Main_Window.getButtonListener().btnClicked(loginEvent);
+			if (ButtonsEventListener.getButtonListener() != null) {
+				ButtonsEventListener.getButtonListener().btnClicked(loginEvent);
 			}
 
 		});

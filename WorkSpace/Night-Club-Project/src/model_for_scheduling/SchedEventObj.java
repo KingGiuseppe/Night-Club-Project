@@ -1,12 +1,15 @@
 package model_for_scheduling;
 
-public class SchedEventObj {
+import java.util.EventObject;
+
+public class SchedEventObj extends EventObject{
 
 	private String name;
 	private String day;
 	private String shift;
 
-	public SchedEventObj(String name, String day, String shift) {
+	public SchedEventObj(Object source, String name, String day, String shift) {
+		super(source);
 		this.name = name;
 		this.day = day;
 		this.shift = shift;

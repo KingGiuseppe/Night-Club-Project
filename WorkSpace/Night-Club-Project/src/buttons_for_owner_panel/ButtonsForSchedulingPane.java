@@ -1,13 +1,17 @@
 package buttons_for_owner_panel;
 
+import java.util.EventObject;
+
 import alerts.SchedulingPaneAlert;
 import bags.ScheduleList;
+import controller.AddToSchedController;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import listener.ButtonsEventListener;
 import model_for_scheduling.SchedEventObj;
 import view_for_login.Main_Window;
 import view_for_owner.ScheduleFinalizePane;
@@ -34,14 +38,16 @@ public class ButtonsForSchedulingPane {
 					|| SchedulingPane.getShiftGroup().getSelectedToggle() == null) {
 				SchedulingPaneAlert al = new SchedulingPaneAlert();
 			} else {
+				AddToSchedController addSched = new AddToSchedController(new ScheduleList(), new ButtonsEventListener());
 				daySelected = SchedulingPane.getDayList().getSelectionModel().getSelectedItem();
 				name = SchedulingPane.getManagerList().getSelectionModel().getSelectedItem();
 				RadioButton chk = (RadioButton) SchedulingPane.getShiftGroup().getSelectedToggle();
 				String shift = chk.getText();
-				SchedEventObj schedObj = new SchedEventObj(name, daySelected, shift);
-				if (Main_Window.getAddToSchedListener() != null) {
-					Main_Window.getAddToSchedListener().addBtnClicked(schedObj);
+				SchedEventObj schedObj = new SchedEventObj(this, name, daySelected, shift);
+				if(ButtonsEventListener.getButtonListener() != null) {
+					ButtonsEventListener.getButtonListener().btnClicked(schedObj);
 				}
+				
 				SchedulingPane.getDayList().getSelectionModel().clearSelection();
 				SchedulingPane.getManagerList().getSelectionModel().clearSelection();
 				SchedulingPane.getShiftGroup().getSelectedToggle().setSelected(false);

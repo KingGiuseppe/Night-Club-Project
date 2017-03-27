@@ -5,9 +5,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.EventObject;
-import Listeners.ButtonListener;
+
 import alerts.AlertForLogin;
 import buttons_for_login_panel.ButtonsForLoginPanel;
+import listener.ButtonListener;
+import listener.ButtonsEventListener;
 import model_for_newuser.NewUser;
 import view_for_guest.GuestPane;
 import view_for_login.Main_Window;
@@ -20,9 +22,9 @@ public class LoginController {
 	private ObjectOutputStream toServer;
 	private ObjectInputStream fromServer;
 
-	public LoginController(Main_Window view) {
+	public LoginController(ButtonsEventListener listener) {
 
-		view.setEventListener(new ButtonListener() {
+		listener.setEventListener(new ButtonListener() {
 
 			@Override
 			public void btnClicked(EventObject ev) {

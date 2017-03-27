@@ -1,6 +1,7 @@
 package view_for_manager;
 
 import alerts.AlertForNewUser;
+import controller.CreateEventController;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -16,6 +17,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import listener.ButtonsEventListener;
 import model_for_event_creation.CreateEventObject;
 import view_for_login.Main_Window;
 
@@ -122,6 +124,8 @@ public class PaneForCreateEvent2 {
 		createEventBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 
 		createEventBtn.setOnAction(event -> {
+			CreateEventController createEventCont = new CreateEventController(new ButtonsEventListener());
+
 			if (costperHourMaintTxt.getText().equals("") || numOfEmployeesTxt.getText().equals("")
 					|| costPerHourBouncersTxt.getText().equals("") || numOfBouncersTxt.getText().equals("")
 					|| costPerHouseTxt.getText().equals("") || numOfBartendersTxt.getText().equals("")
@@ -134,9 +138,10 @@ public class PaneForCreateEvent2 {
 						PaneForCreateEvent1.getDate(), PaneForCreateEvent1.getGenre(), PaneForCreateEvent1.getArtist(),
 						PaneForCreateEvent1.getImageUrl());
 
-				if (Main_Window.getCreateEventEventListener() != null) {
-					Main_Window.getCreateEventEventListener().createEventBtnClicked(eventObj);
+				if (ButtonsEventListener.getButtonListener() != null) {
+					ButtonsEventListener.getButtonListener().btnClicked(eventObj);
 				}
+
 			}
 		});
 

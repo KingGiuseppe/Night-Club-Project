@@ -1,11 +1,11 @@
 package view_for_login;
 
-import Listeners.ButtonListener;
-import Listeners.ButtonListener2;
-import Listeners.ListenerMethods;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import listener.ButtonListener;
+import listener.ButtonListener2;
+import listener.ListenerMethods;
 import model_for_event_creation.CreateEventListener;
 import model_for_login.ForgotPassEventListener;
 import model_for_login.ForgotPassEventListener2;
@@ -51,47 +51,10 @@ public class Main_Window {
 		Scene scene = new Scene(loginPane.getPane(), 360, 540);
 		
 		stage.initStyle(StageStyle.UNDECORATED);
-		setEventListener(null);
 		stage.setScene(scene);
 		stage.setTitle("Club Management");
 		stage.show();
 
-	}
-	
-	public void setGetEventListener(GetEventsListener eventListener) {
-		this.eventListener = eventListener;
-	}
-	public static GetEventsListener getEventButtonListener() {
-		return eventListener;
-	}
-
-	// Generic Listener
-	public void setEventListener(ButtonListener buttonListener) {
-		this.buttonListener = buttonListener;
-	}
-
-	public static ButtonListener getButtonListener() {
-		return buttonListener;
-	}
-
-	public void setEventListener2(ButtonListener2 buttonListener2) {
-		this.buttonListener2 = buttonListener2;
-	}
-
-	public static ButtonListener2 getButtonListener2() {
-		return buttonListener2;
-	}
-
-	public static ListenerMethods getListener() {
-		return new ListenerMethods();
-	}
-
-	public void setNewUserEventListener(NewUserEventListener newUserListener) {
-		this.newUserListener = newUserListener;
-	}
-
-	public static NewUserEventListener getNewUserListener() {
-		return newUserListener;
 	}
 
 	public static Stage getStage() {
@@ -104,55 +67,6 @@ public class Main_Window {
 
 	public static void closeStage() {
 		stage.close();
-	}
-
-	public void setAddToSchedListener(AddToScheduleEventListener addToScheduleEventListener) {
-		this.addToSchedListener = addToScheduleEventListener;
-	}
-
-	public static AddToScheduleEventListener getAddToSchedListener() {
-		return addToSchedListener;
-	}
-
-	public void setCreateEventListener(CreateEventListener createEventEventListener) {
-		this.createEventEventListener = createEventEventListener;
-	}
-
-	public static CreateEventListener getCreateEventEventListener() {
-		return createEventEventListener;
-	}
-
-	public static ForgotPassEventListener getForgotPassListener() {
-		return forgotPassEventListener;
-	}
-
-	public void setForgotPassEventListener(ForgotPassEventListener ev) {
-		this.forgotPassEventListener = ev;
-	}
-
-	public static ForgotPassEventListener2 getForgotPassListener2() {
-		return forgotPassEventListener2;
-	}
-
-	public void setForgotPassEventListener2(ForgotPassEventListener2 forgotPassEventListener22) {
-		this.forgotPassEventListener2 = forgotPassEventListener22;
-	}
-
-	public void setRemoveEventListener(RemoveEvEventListener removeEvEventListener) {
-		this.removeEvEventListener = removeEvEventListener;
-	}
-
-	public static RemoveEvEventListener getRemoveEvEventListener() {
-		return removeEvEventListener;
-	}
-
-	public static RemoveEventBtnClickedEventListener getRemoveEventBtnListener() {
-		return removeEventBtnEventListener;
-	}
-
-	public void setRemoveEventBtnClickedEventListener(
-			RemoveEventBtnClickedEventListener removeEventBtnClickedEventListener) {
-		this.removeEventBtnEventListener = removeEventBtnClickedEventListener;
 	}
 
 }

@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.EventObject;
 
 import alerts.PasswordChangedAlert;
+import listener.ButtonListener;
+import listener.ButtonsEventListener;
 import model_for_login.ForgotPassEventListener2;
 import model_for_login.ForgotPassObject2;
 import view_for_login.ForgotPasswordPane;
@@ -13,20 +16,21 @@ import view_for_login.Main_Window;
 
 public class ForgotPassController2 {
 
-	public ForgotPassController2(Main_Window view) {
-		view.setForgotPassEventListener2(new ForgotPassEventListener2() {
+	public ForgotPassController2(ButtonsEventListener listener) {
+		listener.setEventListener(new ButtonListener() {
 
 			private String host = "24.187.104.229";
 			private ObjectOutputStream toServer;
 			private ObjectInputStream fromServer;
 
 			@Override
-			public void forgotPassBtnClicked2(ForgotPassObject2 ev) {
+			public void btnClicked(EventObject ev) {
+				ForgotPassObject2 forgotPassObj = (ForgotPassObject2) ev.getSource();
 				try {
 					Socket socket = new Socket(host, 8000);
 					toServer = new ObjectOutputStream(socket.getOutputStream());
 					fromServer = new ObjectInputStream(socket.getInputStream());
-					toServer.writeObject(ev);
+					toServer.writeObject(forgotPassObj);
 
 					boolean accountFound;
 					while (true) {
