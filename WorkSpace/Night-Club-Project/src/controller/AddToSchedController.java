@@ -4,15 +4,13 @@ import java.util.EventObject;
 
 import bags.ScheduleList;
 import listener.ButtonListener;
-import listener.ButtonsEventListener;
-import model_for_scheduling.AddToScheduleEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_scheduling.SchedEventObj;
-import view_for_login.Main_Window;
 import view_for_owner.TableViewForSchedulingPane;
 
 public class AddToSchedController {
 
-	public AddToSchedController(ScheduleList model, ButtonsEventListener listener) {
+	public AddToSchedController(ScheduleList model, ButtonEventListenerMethods listener) {
 		listener.setEventListener(new ButtonListener() {
 
 			@Override

@@ -8,15 +8,13 @@ import java.util.ArrayList;
 import java.util.EventObject;
 
 import listener.ButtonListener;
-import listener.ButtonsEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_event_creation.CreateEventPaneObject;
-import model_for_removeEv.RemoveEventBtnClickedEventListener;
-import view_for_login.Main_Window;
 import view_for_manager.PaneForRemoveEvent;
 
 public class RemoveEvBtnClickedController {
 
-	public RemoveEvBtnClickedController(ButtonsEventListener listener) {
+	public RemoveEvBtnClickedController(ButtonEventListenerMethods listener) {
 		
 		listener.setEventListener(new ButtonListener() {
 

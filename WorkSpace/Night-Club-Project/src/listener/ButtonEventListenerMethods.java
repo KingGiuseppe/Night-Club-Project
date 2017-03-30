@@ -1,11 +1,11 @@
 package listener;
 
-public class ButtonsEventListener {
-	
+public class ButtonEventListenerMethods {
+
 	private static ButtonListener buttonListener;
 
 	public void setEventListener(ButtonListener buttonListener) {
-		this.buttonListener = buttonListener;
+		ButtonEventListenerMethods.buttonListener = buttonListener;
 	}
 
 	public static ButtonListener getButtonListener() {

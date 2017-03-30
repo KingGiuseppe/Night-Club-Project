@@ -4,6 +4,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class AlertForNewUser {
+	
 	public AlertForNewUser() {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Error!");

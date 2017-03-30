@@ -4,7 +4,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class EventCreatedAlert {
-
 	
 	public EventCreatedAlert() {
 		Alert alert = new Alert(AlertType.INFORMATION);

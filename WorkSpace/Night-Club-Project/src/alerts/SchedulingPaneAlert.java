@@ -2,12 +2,9 @@ package alerts;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import view_for_login.NewUserPane;
-import view_for_login.NewUserPane2;
 
 public class SchedulingPaneAlert {
 
-	
 	public SchedulingPaneAlert() {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Information missing!");

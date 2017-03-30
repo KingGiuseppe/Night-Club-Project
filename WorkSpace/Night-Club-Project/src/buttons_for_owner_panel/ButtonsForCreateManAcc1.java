@@ -8,8 +8,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
-import model_for_newuser.Person;
-import view_for_login.NewUserPane;
+import model_for_newuser.UserInformation;
+import view.new_user.scenes.NewUserPanel1;
 import view_for_owner.CreateManagerAccount1;
 import view_for_owner.CreateManagerAccount2;
 import view_for_owner.OwnerPane;
@@ -18,7 +18,7 @@ public class ButtonsForCreateManAcc1 {
 
 	private Button continueBtn;
 	private Button cancelBtn;
-	private static Person person;
+	private static UserInformation person;
 	private HBox btnPane;
 
 	public ButtonsForCreateManAcc1() {
@@ -42,7 +42,7 @@ public class ButtonsForCreateManAcc1 {
 				RadioButton chk = (RadioButton) CreateManagerAccount1.getGenderGroup().getSelectedToggle();
 				String gender = chk.getText();
 				String zip = CreateManagerAccount1.getZipTxt().getText();
-				person = new Person(firstname, lastname, gender, zip);
+				person = new UserInformation(firstname, lastname, gender, zip);
 
 				OwnerPane.getStage().setScene(CreateManagerAccount2.getScene());
 			}
@@ -62,7 +62,7 @@ public class ButtonsForCreateManAcc1 {
 		return btnPane;
 	}
 
-	public static Person getPerson() {
+	public static UserInformation getPerson() {
 		return person;
 	}
 }

@@ -19,10 +19,9 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import listener.ButtonsEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_removeEv.RemoveEventObj;
-import view_for_login.Main_Window;
 
 public class PaneForRemoveEvent {
 	private static ArrayList<CreateEventPaneObject> eventsList;
@@ -49,11 +48,11 @@ public class PaneForRemoveEvent {
 		});
 
 		removeEventBtn.setOnAction(event -> {
-			RemoveEventController removeEvController = new RemoveEventController(new ButtonsEventListener());
+			RemoveEventController removeEvController = new RemoveEventController(new ButtonEventListenerMethods());
 			RemoveEventObj obj = new RemoveEventObj(this, getEventsListView().getSelectionModel().getSelectedItem());
 			
-			if (ButtonsEventListener.getButtonListener() != null) {
-				ButtonsEventListener.getButtonListener().btnClicked(obj);
+			if (ButtonEventListenerMethods.getButtonListener() != null) {
+				ButtonEventListenerMethods.getButtonListener().btnClicked(obj);
 			}
 		});
 		btnPane.getChildren().addAll(removeEventBtn, backBtn);

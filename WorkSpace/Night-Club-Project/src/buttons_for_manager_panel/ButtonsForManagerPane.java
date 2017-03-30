@@ -23,9 +23,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import listener.ButtonsEventListener;
+import listener.ButtonEventListenerMethods;
 import view_for_guest.EventsPanel;
-import view_for_login.Main_Window;
 import view_for_manager.ManagerPane;
 import view_for_manager.PaneForCreateEvent1;
 import view_for_manager.PaneForGuestNotification;
@@ -63,10 +62,10 @@ public class ButtonsForManagerPane {
 		removeEventBtn.setPrefHeight(70);
 
 		removeEventBtn.setOnAction(event -> {
-			RemoveEvBtnClickedController removeEvBtn = new RemoveEvBtnClickedController(new ButtonsEventListener());
+			RemoveEvBtnClickedController removeEvBtn = new RemoveEvBtnClickedController(new ButtonEventListenerMethods());
 
-			if (ButtonsEventListener.getButtonListener() != null) {
-				ButtonsEventListener.getButtonListener().btnClicked(new EventObject(2));
+			if (ButtonEventListenerMethods.getButtonListener() != null) {
+				ButtonEventListenerMethods.getButtonListener().btnClicked(new EventObject(2));
 			}
 			ManagerPane.getStage().setScene(PaneForRemoveEvent.getScene());
 		});
@@ -76,9 +75,9 @@ public class ButtonsForManagerPane {
 		eventsBtn.setPrefWidth(120);
 		eventsBtn.setPrefHeight(70);
 		eventsBtn.setOnAction(event -> {
-			GetEventsController eventsCont = new GetEventsController(new ButtonsEventListener());
-			if(ButtonsEventListener.getButtonListener() != null) {
-				ButtonsEventListener.getButtonListener().btnClicked(new EventObject(2));
+			GetEventsController eventsCont = new GetEventsController(new ButtonEventListenerMethods());
+			if(ButtonEventListenerMethods.getButtonListener() != null) {
+				ButtonEventListenerMethods.getButtonListener().btnClicked(new EventObject(2));
 			}
 
 		});

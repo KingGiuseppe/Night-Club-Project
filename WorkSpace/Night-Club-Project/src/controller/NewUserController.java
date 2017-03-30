@@ -8,15 +8,15 @@ import java.util.EventObject;
 
 import alerts.AccountCreatedAlert;
 import listener.ButtonListener;
-import listener.ButtonsEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_newuser.NewUser;
-import model_for_newuser.NewUserEventListener;
 import model_for_newuser.NewUserObject;
-import view_for_login.Main_Window;
+import view.new_user.scenes.NewUserPanel1;
+import view.new_user_panel.stage.NewUserStage;
 
 public class NewUserController {
 
-	public NewUserController(ButtonsEventListener listener) {
+	public NewUserController(ButtonEventListenerMethods listener) {
 
 		listener.setEventListener(new ButtonListener() {
 
@@ -28,7 +28,6 @@ public class NewUserController {
 			public void btnClicked(EventObject ev) {
 				try {
 					Socket socket = new Socket(host, 8000);
-					NewUser account = (NewUser) ev.getSource();
 					toServer = new ObjectOutputStream(socket.getOutputStream());
 					fromServer = new ObjectInputStream(socket.getInputStream());
 					toServer.writeObject(ev);
@@ -37,6 +36,7 @@ public class NewUserController {
 						added = (boolean) fromServer.readObject();
 						if (added == true) {
 							AccountCreatedAlert aca = new AccountCreatedAlert();
+							NewUserStage.closeStage();
 							break;
 						} else {
 							break;

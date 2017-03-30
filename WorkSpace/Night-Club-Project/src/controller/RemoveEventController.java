@@ -8,14 +8,12 @@ import java.util.EventObject;
 
 import alerts.EventRemovedAlert;
 import listener.ButtonListener;
-import listener.ButtonsEventListener;
-import model_for_removeEv.RemoveEvEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_removeEv.RemoveEventObj;
-import view_for_login.Main_Window;
 
 public class RemoveEventController {
 
-	public RemoveEventController(ButtonsEventListener listener) {
+	public RemoveEventController(ButtonEventListenerMethods listener) {
 		
 		listener.setEventListener(new ButtonListener() {
 

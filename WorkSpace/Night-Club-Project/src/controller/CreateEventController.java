@@ -8,15 +8,13 @@ import java.util.EventObject;
 
 import alerts.EventCreatedAlert;
 import listener.ButtonListener;
-import listener.ButtonsEventListener;
-import model_for_event_creation.CreateEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_event_creation.CreateEventObject;
-import view_for_login.Main_Window;
 import view_for_manager.ManagerPane;
 
 public class CreateEventController {
 
-	public CreateEventController(ButtonsEventListener listener) {
+	public CreateEventController(ButtonEventListenerMethods listener) {
 		listener.setEventListener(new ButtonListener() {
 
 			private ObjectOutputStream toServer;

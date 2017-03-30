@@ -7,16 +7,14 @@ import java.net.Socket;
 import java.util.EventObject;
 
 import listener.ButtonListener;
-import listener.ButtonsEventListener;
-import model_for_login.ForgotPassEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_login.ForgotPassObject;
 import view_for_login.ForgotPasswordPane;
 import view_for_login.ForgotPasswordPane2;
-import view_for_login.Main_Window;
 
 public class ForgotPassController {
 
-	public ForgotPassController(ButtonsEventListener listener) {
+	public ForgotPassController(ButtonEventListenerMethods listener) {
 		
 		listener.setEventListener(new ButtonListener() {
 

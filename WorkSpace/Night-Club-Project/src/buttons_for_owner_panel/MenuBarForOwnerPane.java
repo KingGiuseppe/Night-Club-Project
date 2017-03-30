@@ -8,9 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
-import listener.ButtonsEventListener;
-import listener.ListenerMethods;
-import view_for_login.Main_Window;
+import listener.ButtonEventListenerMethods;
 import view_for_manager.PaneForGuestNotification;
 import view_for_owner.CreateManagerAccount1;
 import view_for_owner.OwnerPane;
@@ -53,10 +51,10 @@ public class MenuBarForOwnerPane {
 		schedulingBtn.setPrefHeight(50);
 		schedulingBtn.setOnAction(event -> {
 
-			if (ListenerMethods.getButtonListener2() != null) {
-				ListenerMethods.getButtonListener2().btnClicked(1);
+			//if (ListenerMethods.getButtonListener2() != null) {
+			//	ListenerMethods.getButtonListener2().btnClicked(1);
 
-			}
+		//	}
 			OwnerPane.getStage().setScene(SchedulingPane.getScene());
 		});
 		eventBtn = new Button("Events");
@@ -64,9 +62,9 @@ public class MenuBarForOwnerPane {
 		eventBtn.setPrefWidth(200);
 		eventBtn.setPrefHeight(50);
 		eventBtn.setOnAction(event -> {
-			GetEventsController eventsCont = new GetEventsController(new ButtonsEventListener());
-			if(ButtonsEventListener.getButtonListener() != null) {
-				ButtonsEventListener.getButtonListener().btnClicked(new EventObject(3));
+			GetEventsController eventsCont = new GetEventsController(new ButtonEventListenerMethods());
+			if(ButtonEventListenerMethods.getButtonListener() != null) {
+				ButtonEventListenerMethods.getButtonListener().btnClicked(new EventObject(3));
 			}
 		});
 		sendEmailBtn = new Button("Send Email");

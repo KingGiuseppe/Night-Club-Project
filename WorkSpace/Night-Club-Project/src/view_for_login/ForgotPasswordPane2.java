@@ -21,7 +21,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import listener.ButtonsEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_login.ForgotPassObject2;
 import model_for_newuser.NewUser;
 
@@ -70,11 +70,11 @@ public class ForgotPasswordPane2 {
 			} else {
 				if (passTxt.getText().equals(pass2Txt.getText())) {
 					
-					ForgotPassController2 pasCont2 = new ForgotPassController2(new ButtonsEventListener());
+					ForgotPassController2 pasCont2 = new ForgotPassController2(new ButtonEventListenerMethods());
 
 					ForgotPassObject2 object = new ForgotPassObject2(this, un1, passTxt.getText());
-					if (ButtonsEventListener.getButtonListener() != null) {
-						ButtonsEventListener.getButtonListener().btnClicked(object);
+					if (ButtonEventListenerMethods.getButtonListener() != null) {
+						ButtonEventListenerMethods.getButtonListener().btnClicked(object);
 					}
 					passTxt.clear();
 					pass2Txt.clear();

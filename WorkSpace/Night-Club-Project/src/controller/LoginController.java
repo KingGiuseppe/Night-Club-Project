@@ -7,12 +7,11 @@ import java.net.Socket;
 import java.util.EventObject;
 
 import alerts.AlertForLogin;
-import buttons_for_login_panel.ButtonsForLoginPanel;
 import listener.ButtonListener;
-import listener.ButtonsEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_newuser.NewUser;
+import view.login_panel.stage.LoginStage;
 import view_for_guest.GuestPane;
-import view_for_login.Main_Window;
 import view_for_manager.ManagerPane;
 import view_for_owner.OwnerPane;
 
@@ -22,7 +21,7 @@ public class LoginController {
 	private ObjectOutputStream toServer;
 	private ObjectInputStream fromServer;
 
-	public LoginController(ButtonsEventListener listener) {
+	public LoginController(ButtonEventListenerMethods listener) {
 
 		listener.setEventListener(new ButtonListener() {
 
@@ -45,20 +44,17 @@ public class LoginController {
 							if (account.getType() == 0) {
 								GuestPane.showStage();
 								GuestPane.setUser(account);
-								ButtonsForLoginPanel.setUser(account);
-								Main_Window.closeStage();
+								LoginStage.closeStage();
 								break;
 							}
 							if (account.getType() == 1) {
 								ManagerPane.showStage();
-								ButtonsForLoginPanel.setUser(account);
-								Main_Window.closeStage();
+								LoginStage.closeStage();
 								break;
 							}
 							if (account.getType() == 2) {
 								OwnerPane.showStage();
-								ButtonsForLoginPanel.setUser(account);
-								Main_Window.closeStage();
+								LoginStage.closeStage();
 								break;
 							}
 							break;

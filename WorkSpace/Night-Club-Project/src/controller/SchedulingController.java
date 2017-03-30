@@ -8,10 +8,8 @@ import java.util.ArrayList;
 import java.util.EventObject;
 
 import listener.ButtonListener;
-import listener.ButtonListener2;
-import listener.ButtonsEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_newuser.NewUser;
-import view_for_login.Main_Window;
 import view_for_owner.SchedulingPane;
 
 public class SchedulingController {
@@ -20,7 +18,7 @@ public class SchedulingController {
 	private ObjectOutputStream toServer;
 	private ObjectInputStream fromServer;
 
-	public SchedulingController(ButtonsEventListener listener) {
+	public SchedulingController(ButtonEventListenerMethods listener) {
 		listener.setEventListener(new ButtonListener() {
 
 			@Override

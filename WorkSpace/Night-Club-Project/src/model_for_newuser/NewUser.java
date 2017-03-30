@@ -2,7 +2,7 @@ package model_for_newuser;
 
 import java.io.Serializable;
 
-public class NewUser extends Person implements Serializable{
+public class NewUser extends UserInformation implements Serializable{
 
 	private String email;
 	private String username;
@@ -10,9 +10,6 @@ public class NewUser extends Person implements Serializable{
 	private int type;
 	private int id;
 	
-	public NewUser() {
-		
-	}
 	public NewUser(String firstName, String lastName, String gender, String zip, String email, String username,
 			String password, int type) {
 		super(firstName, lastName, gender, zip);
@@ -30,6 +27,10 @@ public class NewUser extends Person implements Serializable{
 		this.password = password;
 		this.type = type;
 		this.id = id;
+	}
+
+	public NewUser() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {

@@ -4,6 +4,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class InvalidInfoAlert {
+	
 	public InvalidInfoAlert() {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Info Error!");

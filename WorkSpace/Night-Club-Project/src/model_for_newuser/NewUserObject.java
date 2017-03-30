@@ -3,6 +3,10 @@ package model_for_newuser;
 import java.util.EventObject;
 
 public class NewUserObject extends EventObject {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8522310613077107425L;
 	private String firstName;
 	private String lastName;
 	private String gender;

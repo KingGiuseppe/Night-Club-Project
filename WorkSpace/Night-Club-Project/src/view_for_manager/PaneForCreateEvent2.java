@@ -17,9 +17,8 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import listener.ButtonsEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_event_creation.CreateEventObject;
-import view_for_login.Main_Window;
 
 public class PaneForCreateEvent2 {
 
@@ -124,7 +123,7 @@ public class PaneForCreateEvent2 {
 		createEventBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 
 		createEventBtn.setOnAction(event -> {
-			CreateEventController createEventCont = new CreateEventController(new ButtonsEventListener());
+			CreateEventController createEventCont = new CreateEventController(new ButtonEventListenerMethods());
 
 			if (costperHourMaintTxt.getText().equals("") || numOfEmployeesTxt.getText().equals("")
 					|| costPerHourBouncersTxt.getText().equals("") || numOfBouncersTxt.getText().equals("")
@@ -138,8 +137,8 @@ public class PaneForCreateEvent2 {
 						PaneForCreateEvent1.getDate(), PaneForCreateEvent1.getGenre(), PaneForCreateEvent1.getArtist(),
 						PaneForCreateEvent1.getImageUrl());
 
-				if (ButtonsEventListener.getButtonListener() != null) {
-					ButtonsEventListener.getButtonListener().btnClicked(eventObj);
+				if (ButtonEventListenerMethods.getButtonListener() != null) {
+					ButtonEventListenerMethods.getButtonListener().btnClicked(eventObj);
 				}
 
 			}

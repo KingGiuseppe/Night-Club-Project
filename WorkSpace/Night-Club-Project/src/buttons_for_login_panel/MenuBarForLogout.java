@@ -4,7 +4,7 @@ import alerts.LogoutAlert;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import view_for_login.Login_Pane;
+import view.login_panel.panes.LoginPanelTextFieldPane;
 
 public class MenuBarForLogout {
 
@@ -13,6 +13,7 @@ public class MenuBarForLogout {
 	private MenuItem logoutMenuItem;
 
 	public MenuBar getMenu(int i) {
+
 		menuBarLogout = new MenuBar();
 		fileMenu = new Menu("File");
 		logoutMenuItem = new MenuItem("Logout");
@@ -20,9 +21,11 @@ public class MenuBarForLogout {
 		menuBarLogout.getMenus().add(fileMenu);
 
 		logoutMenuItem.setOnAction(event -> {
-			Login_Pane.clearFields();
+			LoginPanelTextFieldPane.clearFields();
+			@SuppressWarnings("unused")
 			LogoutAlert alert = new LogoutAlert(i);
 		});
+		
 		return menuBarLogout;
 	}
 }

@@ -2,9 +2,14 @@ import java.io.Serializable;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import view_for_login.Main_Window;
+import view.login_panel.stage.LoginStage;
 
 public class App extends Application implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -12,7 +17,7 @@ public class App extends Application implements Serializable {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Main_Window view = new Main_Window(stage);
+		new LoginStage(stage);
 		
 	}
 

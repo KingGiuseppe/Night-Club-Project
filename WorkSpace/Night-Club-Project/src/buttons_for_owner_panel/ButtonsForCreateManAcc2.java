@@ -8,9 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
-import listener.ButtonsEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_newuser.NewUserObject;
-import view_for_login.Main_Window;
 import view_for_owner.CreateManagerAccount1;
 import view_for_owner.CreateManagerAccount2;
 import view_for_owner.OwnerPane;
@@ -41,15 +40,15 @@ public class ButtonsForCreateManAcc2 {
 					PasswordsDontMatchAlert pdma = new PasswordsDontMatchAlert();
 
 				} else if (password2.equals(password22)) {
-					NewUserController newUserCont = new NewUserController(new ButtonsEventListener());
+					NewUserController newUserCont = new NewUserController(new ButtonEventListenerMethods());
 					NewUserObject userEvent2 = new NewUserObject(this,
 							ButtonsForCreateManAcc1.getPerson().getFirstName(),
 							ButtonsForCreateManAcc1.getPerson().getLastName(),
 							ButtonsForCreateManAcc1.getPerson().getGender(),
 							ButtonsForCreateManAcc1.getPerson().getZip(), emailAddress2, username2, password2, 1);
 
-					if (ButtonsEventListener.getButtonListener() != null) {
-						ButtonsEventListener.getButtonListener().btnClicked(userEvent2);
+					if (ButtonEventListenerMethods.getButtonListener() != null) {
+						ButtonEventListenerMethods.getButtonListener().btnClicked(userEvent2);
 					}
 					OwnerPane.getStage().setScene(OwnerPane.getScene());
 				}

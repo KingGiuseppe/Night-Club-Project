@@ -2,18 +2,21 @@ package model_for_newuser;
 
 import java.io.Serializable;
 
-public class Person implements Serializable {
+public class UserInformation implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -193122177571828793L;
 	private String firstName;
 	private String lastName;
 	private String gender;
 	private String zip;
 	
-	public Person() {
+	public UserInformation() {
 		
 	}
-
-	public Person(String firstName, String lastName, String gender, String zip) {
+	public UserInformation(String firstName, String lastName, String gender, String zip) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;

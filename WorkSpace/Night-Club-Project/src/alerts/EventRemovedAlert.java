@@ -2,8 +2,6 @@ package alerts;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import view_for_login.NewUserPane;
-import view_for_login.NewUserPane2;
 import view_for_manager.ManagerPane;
 
 public class EventRemovedAlert {

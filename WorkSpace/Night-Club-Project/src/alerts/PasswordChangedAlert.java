@@ -4,6 +4,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class PasswordChangedAlert {
+
 	public PasswordChangedAlert() {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Password Changed!");

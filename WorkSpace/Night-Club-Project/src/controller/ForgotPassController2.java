@@ -8,15 +8,13 @@ import java.util.EventObject;
 
 import alerts.PasswordChangedAlert;
 import listener.ButtonListener;
-import listener.ButtonsEventListener;
-import model_for_login.ForgotPassEventListener2;
+import listener.ButtonEventListenerMethods;
 import model_for_login.ForgotPassObject2;
 import view_for_login.ForgotPasswordPane;
-import view_for_login.Main_Window;
 
 public class ForgotPassController2 {
 
-	public ForgotPassController2(ButtonsEventListener listener) {
+	public ForgotPassController2(ButtonEventListenerMethods listener) {
 		listener.setEventListener(new ButtonListener() {
 
 			private String host = "24.187.104.229";

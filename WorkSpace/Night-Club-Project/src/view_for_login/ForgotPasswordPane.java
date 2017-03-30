@@ -21,7 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import listener.ButtonsEventListener;
+import listener.ButtonEventListenerMethods;
 import model_for_login.ForgotPassObject;
 import model_for_newuser.NewUser;
 
@@ -71,7 +71,7 @@ public class ForgotPasswordPane {
 		continueBtn.setAlignment(Pos.CENTER_RIGHT);
 		continueBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		continueBtn.setOnAction(event -> {
-			ForgotPassController pasCont = new ForgotPassController(new ButtonsEventListener());
+			ForgotPassController pasCont = new ForgotPassController(new ButtonEventListenerMethods());
 			if (userNameTxt.getText().equals("") || emailTxt.getText().equals("")) {
 				new AlertForNewUser();
 			} else {
@@ -79,8 +79,8 @@ public class ForgotPasswordPane {
 				String email = emailTxt.getText();
 
 				ForgotPassObject forgotPassEvent = new ForgotPassObject(this, username, email);
-				if (ButtonsEventListener.getButtonListener() != null) {
-					ButtonsEventListener.getButtonListener().btnClicked(forgotPassEvent);
+				if (ButtonEventListenerMethods.getButtonListener() != null) {
+					ButtonEventListenerMethods.getButtonListener().btnClicked(forgotPassEvent);
 				}
 				if (isValid == true) {
 					AccountFoundAlert alert2 = new AccountFoundAlert();
