@@ -2,7 +2,7 @@ package alerts;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import view.new_user_panel_1.panes.NewUserPanel1TextFieldPane;
+import view.login_panel.new_user_panel_1.panes.NewUserPanel1TextFieldPane;
 
 public class AccountCreatedAlert {
 

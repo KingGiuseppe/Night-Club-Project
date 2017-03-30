@@ -28,7 +28,6 @@ public class LoginPanelTextFieldPane {
 		passwordTxt.setFont(new Font("Arial Rounded MT Bold", 20));
 
 		textFieldPane.getChildren().addAll(usernameTxt, passwordTxt);
-
 	}
 
 	public static String getUsername() {

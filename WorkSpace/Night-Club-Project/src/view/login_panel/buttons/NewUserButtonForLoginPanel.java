@@ -2,9 +2,9 @@ package view.login_panel.buttons;
 
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
-import view.new_user.scenes.NewUserPanel1;
-import view.new_user.scenes.NewUserPanel2;
-import view.new_user_panel.stage.NewUserStage;
+import view.login_panel.new_user.scenes.NewUserPanel1;
+import view.login_panel.new_user.scenes.NewUserPanel2;
+import view.login_panel.new_user.stage.NewUserStage;
 
 public class NewUserButtonForLoginPanel {
 

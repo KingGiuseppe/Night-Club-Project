@@ -36,7 +36,6 @@ public class LoginPanelButtonPane {
 				newUserButton.getNewUserButton());
 
 		loginButtonMainPane.getChildren().addAll(loginButtonPane1, loginButtonPane2);
-
 	}
 
 	public static VBox getPane() {

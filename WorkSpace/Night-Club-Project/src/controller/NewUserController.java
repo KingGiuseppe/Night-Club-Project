@@ -11,8 +11,8 @@ import listener.ButtonListener;
 import listener.ButtonEventListenerMethods;
 import model_for_newuser.NewUser;
 import model_for_newuser.NewUserObject;
-import view.new_user.scenes.NewUserPanel1;
-import view.new_user_panel.stage.NewUserStage;
+import view.login_panel.new_user.scenes.NewUserPanel1;
+import view.login_panel.new_user.stage.NewUserStage;
 
 public class NewUserController {
 

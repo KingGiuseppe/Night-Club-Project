@@ -9,7 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import model_for_newuser.UserInformation;
-import view.new_user.scenes.NewUserPanel1;
+import view.login_panel.new_user.scenes.NewUserPanel1;
 import view_for_owner.CreateManagerAccount1;
 import view_for_owner.CreateManagerAccount2;
 import view_for_owner.OwnerPane;

@@ -8,15 +8,14 @@ public class LoginStage {
 
 	private static Stage stage;
 
-	public LoginStage (Stage stage) {
+	public LoginStage(Stage stage) {
 		LoginStage.stage = stage;
 		new LoginPanel();
-		
+
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.setScene(LoginPanel.getScene());
 		stage.setTitle("Club Management");
 		stage.show();
-
 	}
 
 	public static Stage getStage() {
