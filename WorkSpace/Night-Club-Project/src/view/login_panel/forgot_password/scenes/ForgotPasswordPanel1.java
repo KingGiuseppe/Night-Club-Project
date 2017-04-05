@@ -11,9 +11,9 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.VBox;
-import view.login_panel.forgot_password_1.panes.ForgotPassword1PanelButtonPane;
-import view.login_panel.forgot_password_1.panes.ForgotPassword1PanelLabelPane;
-import view.login_panel.forgot_password_1.panes.ForgotPassword1PanelTextFieldPane;
+import view.login_panel.forgot_password_1.panes.ForgotPasswordPanel1ButtonPane;
+import view.login_panel.forgot_password_1.panes.ForgotPasswordPanel1LabelPane;
+import view.login_panel.forgot_password_1.panes.ForgotPasswordPanel1TextFieldPane;
 
 public class ForgotPasswordPanel1 {
 
@@ -21,16 +21,16 @@ public class ForgotPasswordPanel1 {
 	private static Scene scene;
 
 	public ForgotPasswordPanel1() {
-		new ForgotPassword1PanelButtonPane();
-		new ForgotPassword1PanelTextFieldPane();
-		new ForgotPassword1PanelLabelPane();
+		new ForgotPasswordPanel1ButtonPane();
+		new ForgotPasswordPanel1TextFieldPane();
+		new ForgotPasswordPanel1LabelPane();
 
 		forgotPasswordPane = new VBox(10);
 		forgotPasswordPane.setAlignment(Pos.CENTER);
 		forgotPasswordPane.setPadding(new Insets(25, 25, 25, 25));
 
-		forgotPasswordPane.getChildren().addAll(ForgotPassword1PanelLabelPane.getPane(),
-				ForgotPassword1PanelTextFieldPane.getPane(), ForgotPassword1PanelButtonPane.getPane());
+		forgotPasswordPane.getChildren().addAll(ForgotPasswordPanel1LabelPane.getPane(),
+				ForgotPasswordPanel1TextFieldPane.getPane(), ForgotPasswordPanel1ButtonPane.getPane());
 		
 		Platform.runLater(() -> forgotPasswordPane.requestFocus());
 		setBackground();

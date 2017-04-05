@@ -14,7 +14,6 @@ public class LoginStage {
 
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.setScene(LoginPanel.getScene());
-		stage.setTitle("Club Management");
 		stage.show();
 	}
 

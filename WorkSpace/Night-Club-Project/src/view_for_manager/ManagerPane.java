@@ -1,12 +1,7 @@
 package view_for_manager;
 
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import buttons_for_login_panel.MenuBarForLogout;
 import buttons_for_manager_panel.ButtonsForManagerPane;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -35,24 +30,14 @@ public class ManagerPane {
 	private static Scene scene;
 
 	public ManagerPane() {
-		ButtonsForManagerPane buttons = new ButtonsForManagerPane();
-		stage = new Stage();
+		new ButtonsForManagerPane();
 		mainPane = new BorderPane();
-		mainPane.setLeft(buttons.getPane());
-		MenuBarForLogout logout = new MenuBarForLogout();
-		mainPane.setTop(logout.getMenu(1));
-		label1 = new Label("Welcome!");
-		label1.setFont(new Font("Arial Rounded MT Bold", 35));
-		label1.setTextFill(Color.web("#ffffff"));
-		labelPane = new VBox(20);
-		label1.setAlignment(Pos.CENTER);
-		labelPane.getChildren().addAll(label1);
-		labelPane.setAlignment(Pos.TOP_CENTER);
+		mainPane.setLeft(ButtonsForManagerPane.getPane());
+		new MenuBarForLogout();
+		mainPane.setTop(MenuBarForLogout.getMenu(1));
+	
 		mainPane.setCenter(labelPane);
 		scene = new Scene(mainPane, 560, 400);
-		stage.setScene(scene);
-		stage.setTitle("Manager View");
-		stage.setResizable(false);
 		
 		BackgroundImage myBI = new BackgroundImage(
 				new Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqfa9vQe4zD00N-ajy-RADGBTA15bthYnwKl3U9M7H5E7OWlVo", 550,
@@ -60,15 +45,6 @@ public class ManagerPane {
 				BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
 				BackgroundSize.DEFAULT);
 		mainPane.setBackground(new Background(myBI));
-	}
-	
-
-	public static void setLabel(String message) {
-		label3.setText(message);
-	}
-
-	public static void showStage() {
-		stage.show();
 	}
 
 	public static void setUser(NewUser newUser) {
@@ -82,10 +58,5 @@ public class ManagerPane {
 	public static void setScene(Scene newScene) {
 		scene = newScene;
 	}
-
-	public static Stage getStage() {
-		return stage;
-	}
-
 
 }

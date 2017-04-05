@@ -9,8 +9,7 @@ import java.util.EventObject;
 import alerts.PasswordChangedAlert;
 import listener.ButtonListener;
 import listener.ButtonEventListenerMethods;
-import model_for_login.ForgotPassObject2;
-import view_for_login.ForgotPasswordPane;
+import view.login_panel.forgot_password.stage.ForgotPasswordStage;
 
 public class ForgotPassController2 {
 
@@ -23,19 +22,18 @@ public class ForgotPassController2 {
 
 			@Override
 			public void btnClicked(EventObject ev) {
-				ForgotPassObject2 forgotPassObj = (ForgotPassObject2) ev.getSource();
 				try {
 					Socket socket = new Socket(host, 8000);
 					toServer = new ObjectOutputStream(socket.getOutputStream());
 					fromServer = new ObjectInputStream(socket.getInputStream());
-					toServer.writeObject(forgotPassObj);
+					toServer.writeObject(ev);
 
 					boolean accountFound;
 					while (true) {
 						accountFound = (boolean) fromServer.readObject();
 						if (accountFound == true) {
-							PasswordChangedAlert alert2 = new PasswordChangedAlert();
-							ForgotPasswordPane.getStage().close();
+							new PasswordChangedAlert();
+							ForgotPasswordStage.closeStage();
 							break;
 						} else {
 							break;

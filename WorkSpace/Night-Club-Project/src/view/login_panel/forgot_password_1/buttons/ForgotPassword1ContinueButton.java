@@ -9,10 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 import listener.ButtonEventListenerMethods;
 import model_for_login.ForgotPassObject;
+import view.login_panel.forgot_password.scenes.ForgotPasswordPanel2;
 import view.login_panel.forgot_password.stage.ForgotPasswordStage;
 import view.login_panel.forgot_password_1.buttons.methods.ForgotPasswordPanel1MissingText;
-import view.login_panel.forgot_password_1.panes.ForgotPassword1PanelTextFieldPane;
-import view_for_login.ForgotPasswordPane2;
+import view.login_panel.forgot_password_1.panes.ForgotPasswordPanel1TextFieldPane;
 
 public class ForgotPassword1ContinueButton {
 
@@ -30,14 +30,14 @@ public class ForgotPassword1ContinueButton {
 				new AlertForNewUser();
 			} else {
 				ForgotPassObject forgotPassEvent = new ForgotPassObject(this,
-						ForgotPassword1PanelTextFieldPane.getUsernameTxt().getText(),
-						ForgotPassword1PanelTextFieldPane.getEmailTxt().getText());
+						ForgotPasswordPanel1TextFieldPane.getUsernameTxt().getText(),
+						ForgotPasswordPanel1TextFieldPane.getEmailTxt().getText());
 				if (ButtonEventListenerMethods.getButtonListener() != null) {
 					ButtonEventListenerMethods.getButtonListener().btnClicked(forgotPassEvent);
 				}
 				if (isValid == true) {
 					new AccountFoundAlert();
-					ForgotPasswordStage.getStage().setScene(ForgotPasswordPane2.getScene());
+					ForgotPasswordStage.getStage().setScene(ForgotPasswordPanel2.getScene());
 				} else {
 					new InvalidInfoAlert();
 				}

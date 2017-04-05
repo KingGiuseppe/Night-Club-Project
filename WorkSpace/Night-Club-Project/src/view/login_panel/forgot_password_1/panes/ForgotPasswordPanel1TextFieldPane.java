@@ -5,15 +5,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
-public class ForgotPassword1PanelTextFieldPane {
+public class ForgotPasswordPanel1TextFieldPane {
 
 	private static TextField usernameTxt;
 	private static TextField emailTxt;
 	private static VBox textFieldVBox;
 
-	public ForgotPassword1PanelTextFieldPane() {
+	public ForgotPasswordPanel1TextFieldPane() {
 		textFieldVBox = new VBox(10);
 		textFieldVBox.setAlignment(Pos.CENTER);
+		
 		usernameTxt = new TextField();
 		usernameTxt.setPromptText("Username");
 		usernameTxt.setFont(new Font("Arial Rounded MT Bold", 20));
@@ -38,11 +39,6 @@ public class ForgotPassword1PanelTextFieldPane {
 
 	public static TextField getEmailTxt() {
 		return emailTxt;
-	}
-
-	public static void clearTextFields() {
-		usernameTxt.clear();
-		emailTxt.clear();
 	}
 
 }

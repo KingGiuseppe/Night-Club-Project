@@ -8,11 +8,11 @@ import view.login_panel.panes.LoginPanelTextFieldPane;
 
 public class MenuBarForLogout {
 
-	private MenuBar menuBarLogout;
-	private Menu fileMenu;
-	private MenuItem logoutMenuItem;
+	private static MenuBar menuBarLogout;
+	private static Menu fileMenu;
+	private static MenuItem logoutMenuItem;
 
-	public MenuBar getMenu(int i) {
+	public static MenuBar getMenu(int i) {
 
 		menuBarLogout = new MenuBar();
 		fileMenu = new Menu("File");

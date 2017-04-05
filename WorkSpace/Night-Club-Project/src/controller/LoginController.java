@@ -37,22 +37,25 @@ public class LoginController {
 					while (true) {
 						account = (NewUser) fromServer.readObject();
 						if (account == null) {
-							AlertForLogin badLogin = new AlertForLogin();
+							new AlertForLogin();
 							break;
 						} else {
-							AlertForLogin badLogin = new AlertForLogin(account.getFirstName());
+							new AlertForLogin(account.getFirstName());
 							if (account.getType() == 0) {
-								GuestPane.showStage();
+								new GuestPane();
 								GuestPane.setUser(account);
+								GuestPane.showStage();
 								LoginStage.closeStage();
 								break;
 							}
 							if (account.getType() == 1) {
+								new ManagerPane();
 								ManagerPane.showStage();
 								LoginStage.closeStage();
 								break;
 							}
 							if (account.getType() == 2) {
+								new OwnerPane();
 								OwnerPane.showStage();
 								LoginStage.closeStage();
 								break;

@@ -6,13 +6,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-public class ForgotPassword1PanelLabelPane {
+public class ForgotPasswordPanel1LabelPane {
 
 	private static VBox labelVBox;
 	private Label topLbl;
 	private Label topLbl2;
 
-	public ForgotPassword1PanelLabelPane() {
+	public ForgotPasswordPanel1LabelPane() {
 		labelVBox = new VBox(10);
 		labelVBox.setAlignment(Pos.CENTER);
 		

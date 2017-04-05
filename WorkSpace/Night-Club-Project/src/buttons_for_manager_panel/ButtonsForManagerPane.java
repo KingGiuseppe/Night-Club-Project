@@ -102,7 +102,7 @@ public class ButtonsForManagerPane {
 
 	}
 
-	public Pane getPane() {
+	public static Pane getPane() {
 		return buttonPane;
 	}
 }

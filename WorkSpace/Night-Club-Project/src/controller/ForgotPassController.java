@@ -8,10 +8,7 @@ import java.util.EventObject;
 
 import listener.ButtonListener;
 import listener.ButtonEventListenerMethods;
-import model_for_login.ForgotPassObject;
 import view.login_panel.forgot_password_1.buttons.ForgotPassword1ContinueButton;
-import view_for_login.ForgotPasswordPane;
-import view_for_login.ForgotPasswordPane2;
 
 public class ForgotPassController {
 
