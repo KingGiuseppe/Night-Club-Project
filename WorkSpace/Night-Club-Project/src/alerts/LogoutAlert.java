@@ -5,10 +5,11 @@ import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import view_for_guest.GuestPane;
-import view_for_manager.ManagerPane;
-import view_for_owner.OwnerPane;
 import javafx.scene.control.ButtonType;
 import view.login_panel.stage.LoginStage;
+import view.manager_account.scenes.ManagerAccountPanel;
+import view.manager_account.stage.ManagerStage;
+import view.owner_account.stage.OwnerStage;
 
 public class LogoutAlert {
 
@@ -28,10 +29,10 @@ public class LogoutAlert {
 	
 	public static void setPane(int i) {
 		if(i == 2) {
-			OwnerPane.getStage().close();
+			OwnerStage.getStage().close();
 			LoginStage.getStage().show();
 		} else if(i == 1) {
-			ManagerPane.getStage().close();
+			ManagerStage.getStage().close();
 			LoginStage.getStage().show();
 		} else if(i == 0) {
 			GuestPane.getStage().close();

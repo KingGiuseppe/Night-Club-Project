@@ -2,7 +2,8 @@ package alerts;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import view_for_manager.ManagerPane;
+import view.manager_account.scenes.ManagerAccountPanel;
+import view.manager_account.stage.ManagerStage;
 
 public class EventRemovedAlert {
 
@@ -12,7 +13,7 @@ public class EventRemovedAlert {
 		alert.setHeaderText("The event has been deleted!");
 		alert.setContentText("Click ok to continue.");
 		alert.showAndWait();
-		ManagerPane.getStage().setScene(ManagerPane.getScene());
+		ManagerStage.getStage().setScene(ManagerAccountPanel.getScene());
 	
 	}
 }

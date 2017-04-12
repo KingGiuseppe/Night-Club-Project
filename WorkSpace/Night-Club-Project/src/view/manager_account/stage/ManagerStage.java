@@ -1,18 +1,18 @@
-package view.owner_account.stage;
+package view.manager_account.stage;
 
 import javafx.stage.Stage;
-import view.login_panel.new_user.scenes.NewUserPanel1;
+import view.manager_account.scenes.ManagerAccountPanel;
 
 public class ManagerStage {
 
 	private static Stage stage;
 
 	public ManagerStage() {
+		new ManagerAccountPanel();
 		stage = new Stage();
-		stage.setScene(NewUserPanel1.getScene());
+		stage.setScene(ManagerAccountPanel.getScene());
 		stage.setTitle("Manager");
 	}
-
 	public static void showStage() {
 		stage.show();
 	}

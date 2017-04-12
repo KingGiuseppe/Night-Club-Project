@@ -23,8 +23,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import view_for_manager.ManagerPane;
-import view_for_owner.OwnerPane;
+import view.manager_account.scenes.ManagerAccountPanel;
+import view.manager_account.stage.ManagerStage;
+import view.owner_account.scenes.OwnerAccountPanel;
+import view.owner_account.stage.OwnerStage;
 
 public class EventsPanel {
 
@@ -53,9 +55,9 @@ public class EventsPanel {
 		backBtn.setFont(new Font("Arial Rounded MT Bold", 30));
 		backBtn.setOnAction(event -> {
 			if (num == 2) {
-				OwnerPane.getStage().setScene(OwnerPane.getScene());
+				OwnerStage.getStage().setScene(OwnerAccountPanel.getScene());
 			} else if (num == 1) {
-				ManagerPane.getStage().setScene(ManagerPane.getScene());
+				ManagerStage.getStage().setScene(ManagerAccountPanel.getScene());
 			} else {
 				GuestPane.getStage().setScene(GuestPane.getScene());
 			}

@@ -13,6 +13,8 @@ import javafx.scene.control.Labeled;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
+import view.owner_account.scenes.OwnerAccountPanel;
+import view.owner_account.stage.OwnerStage;
 
 public class PaneForRevenue {
 
@@ -101,7 +103,7 @@ public class PaneForRevenue {
 
 		backBtn = new Button("Back");
 		backBtn.setOnAction(event -> {
-			OwnerPane.getStage().setScene(OwnerPane.getScene());
+			OwnerStage.getStage().setScene(OwnerAccountPanel.getScene());
 		});
 		mainPane.add(topLbl, 1, 0);
 

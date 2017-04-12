@@ -19,6 +19,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import listener.ButtonEventListenerMethods;
 import model_for_event_creation.CreateEventObject;
+import view.manager_account.scenes.ManagerAccountPanel;
+import view.manager_account.stage.ManagerStage;
 
 public class PaneForCreateEvent2 {
 
@@ -117,7 +119,7 @@ public class PaneForCreateEvent2 {
 		backBtn = new Button("Go back");
 		backBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 		backBtn.setOnAction(event -> {
-			ManagerPane.getStage().setScene(PaneForCreateEvent1.getScene());
+			ManagerStage.getStage().setScene(PaneForCreateEvent1.getScene());
 		});
 		createEventBtn = new Button("Create event");
 		createEventBtn.setFont(new Font("Arial Rounded MT Bold", 15));

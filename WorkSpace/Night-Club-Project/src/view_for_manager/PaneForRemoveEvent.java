@@ -22,6 +22,8 @@ import javafx.scene.text.Font;
 import listener.ButtonEventListenerMethods;
 import model_for_event_creation.CreateEventPaneObject;
 import model_for_removeEv.RemoveEventObj;
+import view.manager_account.scenes.ManagerAccountPanel;
+import view.manager_account.stage.ManagerStage;
 
 public class PaneForRemoveEvent {
 	private static ArrayList<CreateEventPaneObject> eventsList;
@@ -44,7 +46,7 @@ public class PaneForRemoveEvent {
 		backBtn = new Button("Back");
 		backBtn.setFont(new Font("Arial Rounded MT Bold", 20));
 		backBtn.setOnAction(event -> {
-			ManagerPane.getStage().setScene(ManagerPane.getScene());
+			ManagerStage.getStage().setScene(ManagerAccountPanel.getScene());
 		});
 
 		removeEventBtn.setOnAction(event -> {

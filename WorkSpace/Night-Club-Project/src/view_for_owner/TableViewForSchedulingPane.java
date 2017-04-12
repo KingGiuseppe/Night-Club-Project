@@ -15,6 +15,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model_for_scheduling.ShiftObject;
+import view.owner_account.scenes.OwnerAccountPanel;
+import view.owner_account.stage.OwnerStage;
 
 public class TableViewForSchedulingPane {
 
@@ -71,7 +73,7 @@ public class TableViewForSchedulingPane {
 		backBtnPane = new HBox();
 		backBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 		backBtn.setOnAction(event -> {
-			OwnerPane.getStage().setScene(OwnerPane.getScene());
+			OwnerStage.getStage().setScene(OwnerAccountPanel.getScene());
 		});
 		backBtnPane.getChildren().addAll(new Label("               "), backBtn);
 		backBtnPane.setAlignment(Pos.BOTTOM_RIGHT);

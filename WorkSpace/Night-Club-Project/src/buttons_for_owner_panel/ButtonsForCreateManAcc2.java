@@ -10,9 +10,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import listener.ButtonEventListenerMethods;
 import model_for_newuser.NewUserObject;
+import view.owner_account.scenes.OwnerAccountPanel;
+import view.owner_account.stage.OwnerStage;
 import view_for_owner.CreateManagerAccount1;
 import view_for_owner.CreateManagerAccount2;
-import view_for_owner.OwnerPane;
 
 public class ButtonsForCreateManAcc2 {
 
@@ -50,13 +51,13 @@ public class ButtonsForCreateManAcc2 {
 					if (ButtonEventListenerMethods.getButtonListener() != null) {
 						ButtonEventListenerMethods.getButtonListener().btnClicked(userEvent2);
 					}
-					OwnerPane.getStage().setScene(OwnerPane.getScene());
+					OwnerStage.getStage().setScene(OwnerAccountPanel.getScene());
 				}
 			}
 		});
 
 		goBackBtn.setOnAction(event -> {
-			OwnerPane.getStage().setScene(CreateManagerAccount1.getScene());
+			OwnerStage.getStage().setScene(CreateManagerAccount1.getScene());
 		});
 
 		btnPane2.getChildren().addAll(createAccBtn, goBackBtn);

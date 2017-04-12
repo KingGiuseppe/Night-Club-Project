@@ -1,4 +1,4 @@
-package view.owner_account.panes;
+package view.manager_account.panes;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;

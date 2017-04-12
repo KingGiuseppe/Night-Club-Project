@@ -11,9 +11,9 @@ import listener.ButtonListener;
 import listener.ButtonEventListenerMethods;
 import model_for_newuser.NewUser;
 import view.login_panel.stage.LoginStage;
+import view.manager_account.stage.ManagerStage;
+import view.owner_account.stage.OwnerStage;
 import view_for_guest.GuestPane;
-import view_for_manager.ManagerPane;
-import view_for_owner.OwnerPane;
 
 public class LoginController {
 
@@ -49,14 +49,14 @@ public class LoginController {
 								break;
 							}
 							if (account.getType() == 1) {
-								new ManagerPane();
-								ManagerPane.showStage();
+								new ManagerStage();
+								ManagerStage.showStage();
 								LoginStage.closeStage();
 								break;
 							}
 							if (account.getType() == 2) {
-								new OwnerPane();
-								OwnerPane.showStage();
+								new OwnerStage();
+								OwnerStage.showStage();
 								LoginStage.closeStage();
 								break;
 							}

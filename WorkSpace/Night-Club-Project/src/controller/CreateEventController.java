@@ -10,7 +10,8 @@ import alerts.EventCreatedAlert;
 import listener.ButtonListener;
 import listener.ButtonEventListenerMethods;
 import model_for_event_creation.CreateEventObject;
-import view_for_manager.ManagerPane;
+import view.manager_account.scenes.ManagerAccountPanel;
+import view.manager_account.stage.ManagerStage;
 
 public class CreateEventController {
 
@@ -32,7 +33,7 @@ public class CreateEventController {
 					while (true) {
 						if ((boolean) fromServer.readObject() == true) {
 							EventCreatedAlert eventAlert = new EventCreatedAlert();
-							ManagerPane.getStage().setScene(ManagerPane.getScene());
+							ManagerStage.getStage().setScene(ManagerAccountPanel.getScene());
 							break;
 
 						} else {

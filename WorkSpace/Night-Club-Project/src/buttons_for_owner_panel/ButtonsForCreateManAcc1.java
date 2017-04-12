@@ -10,9 +10,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import model_for_newuser.UserInformation;
 import view.login_panel.new_user.scenes.NewUserPanel1;
+import view.owner_account.scenes.OwnerAccountPanel;
+import view.owner_account.stage.OwnerStage;
 import view_for_owner.CreateManagerAccount1;
 import view_for_owner.CreateManagerAccount2;
-import view_for_owner.OwnerPane;
 
 public class ButtonsForCreateManAcc1 {
 
@@ -44,12 +45,12 @@ public class ButtonsForCreateManAcc1 {
 				String zip = CreateManagerAccount1.getZipTxt().getText();
 				person = new UserInformation(firstname, lastname, gender, zip);
 
-				OwnerPane.getStage().setScene(CreateManagerAccount2.getScene());
+				OwnerStage.getStage().setScene(CreateManagerAccount2.getScene());
 			}
 		});
 
 		cancelBtn.setOnAction(event -> {
-			OwnerPane.getStage().setScene(OwnerPane.getScene());
+			OwnerStage.getStage().setScene(OwnerAccountPanel.getScene());
 		});
 
 		btnPane = new HBox(20);

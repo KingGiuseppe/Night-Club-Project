@@ -19,6 +19,8 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import view.manager_account.scenes.ManagerAccountPanel;
+import view.manager_account.stage.ManagerStage;
 
 public class PaneForCreateEvent1 {
 
@@ -95,7 +97,7 @@ public class PaneForCreateEvent1 {
 		backBtn = new Button("Go back");
 		backBtn.setFont(new Font("Arial Rounded MT Bold", 15));
 		backBtn.setOnAction(event -> {
-			ManagerPane.getStage().setScene(ManagerPane.getScene());
+			ManagerStage.getStage().setScene(ManagerAccountPanel.getScene());
 		});
 
 		nextBtn = new Button("Next");
@@ -108,7 +110,7 @@ public class PaneForCreateEvent1 {
 				new AlertForNewUser();
 
 			} else {
-				ManagerPane.getStage().setScene(PaneForCreateEvent2.getScene());
+				ManagerStage.getStage().setScene(PaneForCreateEvent2.getScene());
 			}
 		});
 

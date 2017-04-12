@@ -10,10 +10,11 @@ import java.util.EventObject;
 import listener.ButtonListener;
 import listener.ButtonEventListenerMethods;
 import model_for_event_creation.CreateEventPaneObject;
+import view.manager_account.scenes.ManagerAccountPanel;
+import view.manager_account.stage.ManagerStage;
+import view.owner_account.stage.OwnerStage;
 import view_for_guest.EventsPanel;
 import view_for_guest.GuestPane;
-import view_for_manager.ManagerPane;
-import view_for_owner.OwnerPane;
 
 public class GetEventsController {
 	private String host = "24.187.104.229";
@@ -47,10 +48,10 @@ public class GetEventsController {
 								GuestPane.getStage().setScene(ep.getScene());
 							} else if (ev.getSource().equals(2)) {
 								EventsPanel ep = new EventsPanel(1);
-								ManagerPane.getStage().setScene(ep.getScene());
+								ManagerStage.getStage().setScene(ep.getScene());
 							} else if (ev.getSource().equals(3)) {
 								EventsPanel ep = new EventsPanel(2);
-								OwnerPane.getStage().setScene(ep.getScene());
+								OwnerStage.getStage().setScene(ep.getScene());
 							}
 
 							for (int i = 0; i < eventsList.size(); i++) {
