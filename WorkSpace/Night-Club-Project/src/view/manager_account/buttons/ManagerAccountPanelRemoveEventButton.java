@@ -11,7 +11,7 @@ import view_for_manager.PaneForRemoveEvent;
 
 public class ManagerAccountPanelRemoveEventButton {
 
-	private Button removeEventButton;
+	private static Button removeEventButton;
 
 	public ManagerAccountPanelRemoveEventButton() {
 		removeEventButton = new Button("Remove Event");
@@ -21,6 +21,7 @@ public class ManagerAccountPanelRemoveEventButton {
 
 		removeEventButton.setOnAction(event -> {
 			new RemoveEvBtnClickedController(new ButtonEventListenerMethods());
+			new PaneForRemoveEvent();
 
 			if (ButtonEventListenerMethods.getButtonListener() != null) {
 				ButtonEventListenerMethods.getButtonListener().btnClicked(new EventObject(2));
@@ -29,7 +30,7 @@ public class ManagerAccountPanelRemoveEventButton {
 		});
 		
 	}
-	public Button getRemoveEventButton() {
+	public static Button getRemoveEventButton() {
 		return removeEventButton;
 	}
 

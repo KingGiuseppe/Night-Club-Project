@@ -7,9 +7,10 @@ import view_for_manager.PaneForCreateEvent1;
 
 public class ManagerAccountPanelCreateEventButton {
 
-	private Button createEventButton;
+	private static Button createEventButton;
 
 	public ManagerAccountPanelCreateEventButton() {
+		new PaneForCreateEvent1();
 		createEventButton = new Button("Create Event");
 		createEventButton.setFont(new Font("Arial Rounded MT Bold", 12));
 		createEventButton.setPrefWidth(120);
@@ -20,7 +21,7 @@ public class ManagerAccountPanelCreateEventButton {
 
 	}
 
-	public Button getCreateEventButton() {
+	public static Button getCreateEventButton() {
 		return createEventButton;
 	}
 

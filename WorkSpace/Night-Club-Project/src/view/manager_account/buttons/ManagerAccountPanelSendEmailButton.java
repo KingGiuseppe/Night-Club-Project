@@ -7,7 +7,7 @@ import view_for_manager.PaneForGuestNotification;
 
 public class ManagerAccountPanelSendEmailButton {
 
-	private Button sendEmailButton;
+	private static Button sendEmailButton;
 
 	public ManagerAccountPanelSendEmailButton() {
 		sendEmailButton = new Button("Send Notification");
@@ -20,7 +20,7 @@ public class ManagerAccountPanelSendEmailButton {
 		});
 	}
 	
-	public Button getSendEmailButton() {
+	public static Button getSendEmailButton() {
 		return sendEmailButton;
 	}
 

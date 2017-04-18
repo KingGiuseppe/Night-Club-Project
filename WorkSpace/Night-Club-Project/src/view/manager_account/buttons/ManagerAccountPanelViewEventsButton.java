@@ -9,7 +9,7 @@ import listener.ButtonEventListenerMethods;
 
 public class ManagerAccountPanelViewEventsButton {
 
-	private Button viewEventsButton;
+	private static Button viewEventsButton;
 
 	public ManagerAccountPanelViewEventsButton() {
 		viewEventsButton = new Button("Events");
@@ -26,7 +26,7 @@ public class ManagerAccountPanelViewEventsButton {
 		
 	}
 	
-	public Button getViewEventsButton() {
+	public static Button getViewEventsButton() {
 		return viewEventsButton;
 	}
 

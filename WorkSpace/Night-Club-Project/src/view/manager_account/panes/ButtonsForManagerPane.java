@@ -15,26 +15,22 @@ import view.manager_account.buttons.ManagerAccountPanelSendEmailButton;
 import view.manager_account.buttons.ManagerAccountPanelViewEventsButton;
 
 public class ButtonsForManagerPane {
-	private ManagerAccountPanelViewEventsButton viewEventsButton;
-	private ManagerAccountPanelSendEmailButton sendEmailB2utton;
-	private ManagerAccountPanelRemoveEventButton removeEventButton;
-	private ManagerAccountPanelCreateEventButton createEventButton;
 	private static VBox buttonPane;
 
 	public ButtonsForManagerPane() {
-		viewEventsButton = new ManagerAccountPanelViewEventsButton();
-		sendEmailB2utton = new ManagerAccountPanelSendEmailButton();
-		removeEventButton = new ManagerAccountPanelRemoveEventButton();
-		createEventButton = new ManagerAccountPanelCreateEventButton();
+		new ManagerAccountPanelViewEventsButton();
+		new ManagerAccountPanelSendEmailButton();
+		new ManagerAccountPanelRemoveEventButton();
+		new ManagerAccountPanelCreateEventButton();
 
 		buttonPane = new VBox(20);
 		buttonPane.setPadding(new Insets(5, 5, 5, 5));
 		buttonPane.setBorder(new Border(
 				new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 
-		buttonPane.getChildren().addAll(createEventButton.getCreateEventButton(),
-				removeEventButton.getRemoveEventButton(), viewEventsButton.getViewEventsButton(),
-				sendEmailB2utton.getSendEmailButton());
+		buttonPane.getChildren().addAll(ManagerAccountPanelCreateEventButton.getCreateEventButton(),
+				ManagerAccountPanelRemoveEventButton.getRemoveEventButton(), ManagerAccountPanelViewEventsButton.getViewEventsButton(),
+				ManagerAccountPanelSendEmailButton.getSendEmailButton());
 
 	}
 
